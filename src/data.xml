@@ -1965,7 +1965,7 @@
 		</paragraph>
       For more information about GLM, please have a look at <a href="http://glm.g-truc.net/glm.pdf">the manual</a> and <a href="http://glm.g-truc.net/api/index.html">the API reference documentation</a>.
     <paragraph>
-			Thanks for contributing to the project by <link href="https://sourceforge.net/apps/trac/ogl-math/newticket">submitting tickets</link> for bug reports and feature requests. (SF.net account required).
+			Thanks for contributing to the project by <link href="https://github.com/g-truc/glm/issues">submitting tickets</link> for bug reports and feature requests. (SF.net account required).
 			Any feedback is welcome at <a href="mailto://glm@g-truc.net">glm@g-truc.net</a>.
 		</paragraph>
 	</about-long>
@@ -1996,25 +1996,22 @@
     <menu-group name="Main">
       <menu-entry name="Front page" href="./index.html" />
       <menu-entry name="Downloads" href="./download.html" />
-		<menu-entry name="OpenGL SDK page" href="http://www.opengl.org/sdk/libs/GLM/" />
+		  <menu-entry name="OpenGL SDK page" href="http://www.opengl.org/sdk/libs/GLM/" />
     </menu-group>
 
     <menu-group name="Documentation">
       <menu-entry name="GLM Manual" href="./glm.pdf" />
       <menu-entry name="GLM API" href="./api/index.html" />
       <menu-entry name="Code samples" href="./code.html" />
-      <menu-entry name="GLSL Specification" href="http://www.opengl.org/registry/doc/GLSLangSpec.4.20.11.pdf" />
+      <menu-entry name="GLSL Specification" href="http://www.opengl.org/registry/doc/GLSLangSpec.4.30.6.diff.pdf" />
       <menu-entry name="OpenGL.org Toolkits forum" href="http://www.opengl.org/discussion_boards/ubbthreads.php?ubb=postlist&amp;Board=10&amp;page=1" />
     </menu-group>
 
     <menu-group name="Developer">
-		<menu-entry name="Report a bug" href="https://sourceforge.net/apps/trac/ogl-math/newticket" />
-		<menu-entry name="SourceForge page" href="https://sourceforge.net/projects/ogl-math/" />
-		<menu-entry name="G-Truc Creation page" href="http://www.g-truc.net/project-0016.html#menu" />
-      <menu-entry name="Browse Git repository" href="https://github.com/Groovounet/glm" />
-      <menu-entry name="Master branch snapshot" href="https://github.com/Groovounet/glm/zipball/master" />
-      <menu-entry name="0.9.3 branch snapshot" href="https://github.com/Groovounet/glm/zipball/0.9.3" />
-      <menu-entry name="0.9.4 branch snapshot" href="https://github.com/Groovounet/glm/zipball/0.9.4" />
+      <menu-entry name="Report a bug" href="https://github.com/g-truc/glm/issues" />
+      <menu-entry name="Github page" href="https://github.com/g-truc/glm" />
+      <menu-entry name="0.9.3 branch snapshot" href="https://github.com/g-truc/glm/zipball/0.9.3" />
+      <menu-entry name="0.9.4 branch snapshot" href="https://github.com/g-truc/glm/zipball/0.9.4" />
     </menu-group>
 
     <menu-link>
