@@ -181,10 +181,6 @@
 
   <page_news>
     <news index="0081" date="18/11/2012" title="GLM 0.9.4.0 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
-      <paragraph>
-        No radical changes from GLM 0.9.3 to GLM 0.9.4.
-      </paragraph>
-
       <list name="Changelog:">
         <list-element>Added Intel Composer Compiler support</list-element>
         <list-element>Promoted <link href="http://glm.g-truc.net/api-0.9.4/a00146.html">GLM_GTC_espilon</link> extension</list-element>
