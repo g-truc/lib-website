@@ -3,7 +3,8 @@
 <glm copyright="Copyright © 2005 - 2012">
   <downloads>
     <section name="GLM - zip files">
-      <download name="GLM 0.9.4.0" date="18/11/2012" size="2.4 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.4.0/glm-0.9.4.0.zip/download"/>
+      <download name="GLM 0.9.4.1" date="22/12/2012" size="4.5 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.4.1/glm-0.9.4.1.zip/download"/>
+      <download name="GLM 0.9.4.0" date="18/11/2012" size="4.5 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.4.0/glm-0.9.4.0.zip/download"/>
       <download name="GLM 0.9.3.4" date="30/06/2012" size="3.9 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.4/glm-0.9.3.4.zip/download" />
       <download name="GLM 0.9.3.3" date="10/05/2012" size="3.9 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.3/glm-0.9.3.3.zip/download" />
       <download name="GLM 0.9.3.2" date="15/03/2012" size="3.9 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.2/glm-0.9.3.2.zip/download" />
@@ -78,7 +79,8 @@
       <download name="GLM 0.1.0.0" date="02/21/2005" size="29.2 KB" link="http://prdownloads.sourceforge.net/glf/glm-0.1-ur.zip?download"/>
     </section>
     <section name="GLM - 7z files">
-      <download name="GLM 0.9.4.0" date="18/11/2012" size="1.5 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.4.0/glm-0.9.4.0.7z/download"/>
+      <download name="GLM 0.9.4.1" date="22/12/2012" size="2.4 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.4.1/glm-0.9.4.1.7z/download"/>
+      <download name="GLM 0.9.4.0" date="18/11/2012" size="2.4 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.4.0/glm-0.9.4.0.7z/download"/>
       <download name="GLM 0.9.3.4" date="30/06/2012" size="2.7 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.4/glm-0.9.3.4.7z/download"/>
       <download name="GLM 0.9.3.3" date="10/05/2012" size="2.7 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.3/glm-0.9.3.3.7z/download"/>
       <download name="GLM 0.9.3.2" date="15/03/2012" size="2.7 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.2/glm-0.9.3.2.7z/download"/>
@@ -180,6 +182,36 @@
   </todo>
 
   <page_news>
+    <news index="0082" date="22/12/2012" title="GLM 0.9.4.1 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
+      <paragraph>
+        GLM 0.9.4.1 fixes various bugs and clarifies quaternion interpolations. There are now three different functions now: <codeword>mix</codeword>, <codeword>slerp</codeword> and <codeword>lerp</codeword>.
+      </paragraph>
+      <paragraph>
+        <codeword>lerp</codeword> performs a linear interpolation between two quaternions. 
+        This operation is only defined with interpolation factors between [0, 1] and doesn't perform the rotation at constant speed. 
+        <codeword>slerp</codeword> perform a spherical linear interpolation between two quaternion. 
+        It always takes the short rotation path and it is performed at constant speed for interpolation factors between ]-inf, +inf[. This function is similar to the old <codeword>shortMix</codeword> function.
+        <codeword>mix</codeword> is an oriented spherical linear interpolation between two quaternion. It is performed at constant speed for interpolation factors between ]-inf, +inf[.
+      </paragraph>
+
+      <list name="Changelog:">
+        <list-element>Improved half support: -0.0 case and implicit conversions</list-element>
+        <list-element>Fixed Intel Composer Compiler support on Linux</list-element>
+        <list-element>Fixed interaction between quaternion and euler angles</list-element>
+        <list-element>Fixed GTC_constants build</list-element>
+        <list-element>Fixed quat slerp using mix function when cosTheta close to 1</list-element>
+        <list-element>Improved fvec4SIMD and fmat4x4SIMD implementations</list-element>
+        <list-element>Fixed assert messages</list-element>
+        <list-element>Added slerp and lerp quaternion functions and tests</list-element>
+      </list>
+
+      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.4.1/glm-0.9.4.1.zip/download">GLM 0.9.4.1 (zip)</source>
+      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.4.1/glm-0.9.4.1.7z/download">GLM 0.9.4.1 (7z)</source>
+      <source type="Link" href="https://github.com/g-truc/glm/issues">Submit a bug report</source>
+      <source type="Link" href="http://glm.g-truc.net/glm-0.9.4.pdf">GLM 0.9.4 Manual</source>
+      <source type="Link" href="http://glm.g-truc.net/api-0.9.4/index.html">GLM 0.9.4 API</source>
+    </news>
+    
     <news index="0081" date="18/11/2012" title="GLM 0.9.4.0 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
       <list name="Changelog:">
         <list-element>Added Intel Composer Compiler support</list-element>
@@ -199,9 +231,9 @@
       <source type="Link" href="http://glm.g-truc.net/api-0.9.4/index.html">GLM 0.9.4 API</source>
     </news>
     
-	  <news index="0080" date="30/06/2012" title="GLM 0.9.3.4 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
+    <news index="0080" date="30/06/2012" title="GLM 0.9.3.4 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
       <paragraph>
-		    GLM 0.9.3.4 fixes quite few issues with GCC.
+        GLM 0.9.3.4 fixes quite few issues with GCC.
       </paragraph>
 
       <list name="Changelog:">
@@ -2031,7 +2063,7 @@
     </menu-group>
 
     <menu-group name="GLM 0.9.4">
-      <menu-entry name="GLM 0.9.4.0 release" href="http://sourceforge.net/projects/ogl-math/files/glm-0.9.4.0/glm-0.9.4.0.zip/download" />
+      <menu-entry name="GLM 0.9.4.1 release" href="http://sourceforge.net/projects/ogl-math/files/glm-0.9.4.1/glm-0.9.4.1.zip/download" />
       <menu-entry name="GLM 0.9.4 snapshot" href="https://github.com/g-truc/glm/zipball/0.9.4" />
       <menu-entry name="GLM 0.9.4 Manual" href="./glm-0.9.4.pdf" />
       <menu-entry name="GLM 0.9.4 API" href="./api-0.9.4/index.html" />
