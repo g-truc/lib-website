@@ -3,13 +3,14 @@
 <glm copyright="Copyright © 2005 - 2012">
   <downloads>
     <section name="GLM - zip files">
+      <download name="GLM 0.9.4.2" date="14/02/2013" size="4.4 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.4.2/glm-0.9.4.2.zip/download"/>
       <download name="GLM 0.9.4.1" date="22/12/2012" size="4.5 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.4.1/glm-0.9.4.1.zip/download"/>
       <download name="GLM 0.9.4.0" date="18/11/2012" size="4.5 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.4.0/glm-0.9.4.0.zip/download"/>
-      <download name="GLM 0.9.3.4" date="30/06/2012" size="3.9 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.4/glm-0.9.3.4.zip/download" />
-      <download name="GLM 0.9.3.3" date="10/05/2012" size="3.9 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.3/glm-0.9.3.3.zip/download" />
-      <download name="GLM 0.9.3.2" date="15/03/2012" size="3.9 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.2/glm-0.9.3.2.zip/download" />
-      <download name="GLM 0.9.3.1" date="25/01/2012" size="3.9 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.1/glm-0.9.3.1.zip/download" />
-      <download name="GLM 0.9.3.0" date="09/01/2012" size="3.9 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.0/glm-0.9.3.0.zip/download" />
+      <download name="GLM 0.9.3.4" date="30/06/2012" size="3.9 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.4/glm-0.9.3.4.zip/download"/>
+      <download name="GLM 0.9.3.3" date="10/05/2012" size="3.9 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.3/glm-0.9.3.3.zip/download"/>
+      <download name="GLM 0.9.3.2" date="15/03/2012" size="3.9 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.2/glm-0.9.3.2.zip/download"/>
+      <download name="GLM 0.9.3.1" date="25/01/2012" size="3.9 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.1/glm-0.9.3.1.zip/download"/>
+      <download name="GLM 0.9.3.0" date="09/01/2012" size="3.9 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.0/glm-0.9.3.0.zip/download"/>
       <download name="GLM 0.9.3.B" date="12/12/2011" size="4.3 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.B/glm-0.9.3.B.zip/download"/>
       <download name="GLM 0.9.3.A" date="11/11/2011" size="4.3 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.A/glm-0.9.3.A.zip/download"/>
       <download name="GLM 0.9.2.7" date="24/10/2011" size="3.4 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.2.7/glm-0.9.2.7.zip/download"/>
@@ -79,6 +80,7 @@
       <download name="GLM 0.1.0.0" date="02/21/2005" size="29.2 KB" link="http://prdownloads.sourceforge.net/glf/glm-0.1-ur.zip?download"/>
     </section>
     <section name="GLM - 7z files">
+      <download name="GLM 0.9.4.2" date="14/02/2013" size="2.3 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.4.2/glm-0.9.4.2.7z/download"/>
       <download name="GLM 0.9.4.1" date="22/12/2012" size="2.4 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.4.1/glm-0.9.4.1.7z/download"/>
       <download name="GLM 0.9.4.0" date="18/11/2012" size="2.4 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.4.0/glm-0.9.4.0.7z/download"/>
       <download name="GLM 0.9.3.4" date="30/06/2012" size="2.7 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.4/glm-0.9.3.4.7z/download"/>
@@ -182,6 +184,31 @@
   </todo>
 
   <page_news>
+    <news index="0083" date="14/02/2013" title="GLM 0.9.4.2 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
+      <paragraph>
+        A new revision of GLM is available. It fixes the following issues.
+      </paragraph>
+
+      <list name="Changelog:">
+        <list-element>Fixed compAdd from GTX_component_wise</list-element>
+        <list-element>Fixed SIMD support for Intel compiler on Windows</list-element>
+        <list-element>Fixed isnan and isinf for CUDA compiler</list-element>
+        <list-element>Fixed GLM_FORCE_RADIANS on glm::perspective</list-element>
+        <list-element>Fixed GCC warnings</list-element>
+        <list-element>Fixed packDouble2x32 on XCode</list-element>
+        <list-element>Fixed mix for vec4 SSE implementation</list-element>
+        <list-element>Fixed 0x2013 dash character in comments that cause issue in Windows Japanese mode</list-element>
+        <list-element>Fixed documentation warnings</list-element>
+        <list-element>Fixed CUDA warnings</list-element>
+      </list>
+
+      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.4.2/glm-0.9.4.2.zip/download">GLM 0.9.4.2 (zip)</source>
+      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.4.2/glm-0.9.4.2.7z/download">GLM 0.9.4.2 (7z)</source>
+      <source type="Link" href="https://github.com/g-truc/glm/issues">Submit a bug report</source>
+      <source type="Link" href="http://glm.g-truc.net/glm-0.9.4.pdf">GLM 0.9.4 Manual</source>
+      <source type="Link" href="http://glm.g-truc.net/api-0.9.4/index.html">GLM 0.9.4 API</source>
+    </news>
+    
     <news index="0082" date="22/12/2012" title="GLM 0.9.4.1 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
       <paragraph>
         GLM 0.9.4.1 fixes various bugs and clarifies quaternion interpolations. There are now three different functions now: <codeword>mix</codeword>, <codeword>slerp</codeword> and <codeword>lerp</codeword>.
