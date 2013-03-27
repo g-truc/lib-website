@@ -3,6 +3,7 @@
 <glm copyright="Copyright © 2005 - 2012">
   <downloads>
     <section name="GLM - zip files">
+      <download name="GLM 0.9.4.3" date="20/03/2013" size="5.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.4.3/glm-0.9.4.3.zip/download"/>
       <download name="GLM 0.9.4.2" date="14/02/2013" size="4.4 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.4.2/glm-0.9.4.2.zip/download"/>
       <download name="GLM 0.9.4.1" date="22/12/2012" size="4.5 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.4.1/glm-0.9.4.1.zip/download"/>
       <download name="GLM 0.9.4.0" date="18/11/2012" size="4.5 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.4.0/glm-0.9.4.0.zip/download"/>
@@ -80,6 +81,7 @@
       <download name="GLM 0.1.0.0" date="02/21/2005" size="29.2 KB" link="http://prdownloads.sourceforge.net/glf/glm-0.1-ur.zip?download"/>
     </section>
     <section name="GLM - 7z files">
+      <download name="GLM 0.9.4.3" date="20/03/2013" size="3.0 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.4.3/glm-0.9.4.3.7z/download"/>
       <download name="GLM 0.9.4.2" date="14/02/2013" size="2.3 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.4.2/glm-0.9.4.2.7z/download"/>
       <download name="GLM 0.9.4.1" date="22/12/2012" size="2.4 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.4.1/glm-0.9.4.1.7z/download"/>
       <download name="GLM 0.9.4.0" date="18/11/2012" size="2.4 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.4.0/glm-0.9.4.0.7z/download"/>
@@ -184,6 +186,28 @@
   </todo>
 
   <page_news>
+    <news index="0084" date="20/03/2013" title="GLM 0.9.4.3 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
+
+      <list name="Changelog:">
+        <list-element>Detected qualifier for Clang</list-element>
+        <list-element>Fixed C++11 mode for GCC, couldn't be enabled without MS extensions</list-element>
+        <list-element>Fixed squad, intermediate and exp quaternion functions</list-element>
+        <list-element>Fixed GTX_polar_coordinates euclidean function, takes a vec2 instead of a vec3</list-element>
+        <list-element>Clarify the license applying on the manual</list-element>
+        <list-element>Added a docx copy of the manual</list-element>
+        <list-element>Fixed GLM_GTX_matrix_interpolation</list-element>
+        <list-element>Fixed isnan and isinf on Android with Clang</list-element>
+        <list-element>Autodetected C++ version using __cplusplus value</list-element>
+        <list-element>Fixed mix for bool and bvec* third parameter</list-element>
+      </list>
+
+      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.4.3/glm-0.9.4.3.zip/download">GLM 0.9.4.3 (zip)</source>
+      <source type="Download" href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.4.3/glm-0.9.4.3.7z/download">GLM 0.9.4.3 (7z)</source>
+      <source type="Link" href="https://github.com/g-truc/glm/issues">Submit a bug report</source>
+      <source type="Link" href="http://glm.g-truc.net/glm-0.9.4.pdf">GLM 0.9.4 Manual</source>
+      <source type="Link" href="http://glm.g-truc.net/api-0.9.4/index.html">GLM 0.9.4 API</source>
+    </news>
+    
     <news index="0083" date="14/02/2013" title="GLM 0.9.4.2 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
       <paragraph>
         A new revision of GLM is available. It fixes the following issues.
