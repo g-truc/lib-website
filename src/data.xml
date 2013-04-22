@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<glm copyright="Copyright © 2005 - 2012">
+<glm copyright="Copyright © 2005 - 2013">
   <downloads>
     <section name="GLM - zip files">
       <download name="GLM 0.9.4.3" date="20/03/2013" size="5.1 MB" link="https://sourceforge.net/projects/ogl-math/files/glm-0.9.4.3/glm-0.9.4.3.zip/download"/>
@@ -2103,7 +2103,6 @@
       <menu-entry name="Downloads" href="./download.html" />
       <menu-entry name="OpenGL SDK page" href="http://www.opengl.org/sdk/libs/GLM/" />
       <menu-entry name="Github page" href="https://github.com/g-truc/glm" />
-
     </menu-group>
 
     <menu-group name="Documentation">
@@ -2112,6 +2111,14 @@
       <menu-entry name="Code samples" href="./code.html" />
       <menu-entry name="GLSL Specification" href="http://www.opengl.org/registry/doc/GLSLangSpec.4.30.6.diff.pdf" />
     </menu-group>
+    
+    <menu-group name="Linux packages">
+      <menu-entry name="Fedora" href="http://koji.fedoraproject.org/koji/packageinfo?packageID=14633" />
+      <menu-entry name="Ubuntu" href="http://packages.ubuntu.com/source/raring/glm" />
+      <menu-entry name="archlinux" href="https://www.archlinux.org/packages/community/any/glm/" />
+      <menu-entry name="Mint" href="http://community.linuxmint.com/software/view/libglm-dev" />
+      <menu-entry name="OpenSuse" href="https://build.opensuse.org/package/show?package=glm&amp;project=devel%3Alibraries%3Ac_c%2B%2B" />
+    </menu-group>    
 
     <menu-group name="GLM 0.9.4">
       <menu-entry name="GLM 0.9.4.1 release" href="http://sourceforge.net/projects/ogl-math/files/glm-0.9.4.1/glm-0.9.4.1.zip/download" />
