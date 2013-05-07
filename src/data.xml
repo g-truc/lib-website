@@ -2121,7 +2121,7 @@
     </menu-group>    
 
     <menu-group name="GLM 0.9.4">
-      <menu-entry name="GLM 0.9.4.1 release" href="http://sourceforge.net/projects/ogl-math/files/glm-0.9.4.1/glm-0.9.4.1.zip/download" />
+      <menu-entry name="GLM 0.9.4.3 release" href="http://sourceforge.net/projects/ogl-math/files/glm-0.9.4.3/glm-0.9.4.3.zip/download" />
       <menu-entry name="GLM 0.9.4 snapshot" href="https://github.com/g-truc/glm/zipball/0.9.4" />
       <menu-entry name="GLM 0.9.4 Manual" href="./glm-0.9.4.pdf" />
       <menu-entry name="GLM 0.9.4 API" href="./api-0.9.4/index.html" />
