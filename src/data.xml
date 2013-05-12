@@ -2113,12 +2113,13 @@
     </menu-group>
     
     <menu-group name="Linux packages">
-      <menu-entry name="Fedora" href="http://koji.fedoraproject.org/koji/packageinfo?packageID=14633" />
-      <menu-entry name="Ubuntu" href="http://packages.ubuntu.com/source/raring/glm" />
       <menu-entry name="archlinux" href="https://www.archlinux.org/packages/community/any/glm/" />
+      <menu-entry name="Debian" href="http://packages.debian.org/search?suite=all&amp;searchon=names&amp;keywords=glm" />
+      <menu-entry name="Fedora" href="http://koji.fedoraproject.org/koji/packageinfo?packageID=14633" />
       <menu-entry name="Mint" href="http://community.linuxmint.com/software/view/libglm-dev" />
       <menu-entry name="OpenSuse" href="https://build.opensuse.org/package/show?package=glm&amp;project=devel%3Alibraries%3Ac_c%2B%2B" />
-    </menu-group>    
+      <menu-entry name="Ubuntu" href="http://packages.ubuntu.com/source/raring/glm" />
+    </menu-group>
 
     <menu-group name="GLM 0.9.4">
       <menu-entry name="GLM 0.9.4.3 release" href="http://sourceforge.net/projects/ogl-math/files/glm-0.9.4.3/glm-0.9.4.3.zip/download" />
