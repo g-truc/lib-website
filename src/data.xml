@@ -186,6 +186,29 @@
   </todo>
 
   <page_news>
+  <news index="0085" date="27/05/2013" title="GLM packages for Linux" image="goodies/logo.png" image-mini="image/logo-mini.png">
+    <meta>
+      <tag>gtc-tech-project-glm</tag>
+    </meta>
+
+    <paragraph>
+     	GLM is now included in many major Linux distributions. Here is a quick list of available packages.
+    </paragraph>
+
+    <list>
+      <list-element href="https://www.archlinux.org/packages/community/any/glm/">archlinux</list-element>
+      <list-element href="http://packages.debian.org/search?searchon=sourcenames&amp;keywords=glm">Debian</list-element>
+      <list-element href="http://koji.fedoraproject.org/koji/packageinfo?packageID=14633">Fedora</list-element>
+      <list-element href="http://packages.ubuntu.com/source/raring/glm">Ubuntu</list-element>
+      <list-element href="http://community.linuxmint.com/software/view/libglm-dev">Mint</list-element>
+      <list-element href="https://build.opensuse.org/package/show?package=glm&amp;project=devel%3Alibraries%3Ac_c%2B%2B">OpenSuse</list-element>
+    </list>
+
+	<paragraph>
+		Thanks to the package maintainers for these contributions!
+	</paragraph>
+  </news>
+  
     <news index="0084" date="20/03/2013" title="GLM 0.9.4.3 released" image="goodies/logo.png" image-mini="image/logo-mini.png">
 
       <list name="Changelog:">
@@ -2110,15 +2133,7 @@
       <menu-entry name="Ask a question" href="http://www.opengl.org/discussion_boards/ubbthreads.php?ubb=postlist&amp;Board=10&amp;page=1" />
       <menu-entry name="Code samples" href="./code.html" />
       <menu-entry name="GLSL Specification" href="http://www.opengl.org/registry/doc/GLSLangSpec.4.30.6.diff.pdf" />
-    </menu-group>
-    
-    <menu-group name="Linux packages">
-      <menu-entry name="Fedora" href="http://koji.fedoraproject.org/koji/packageinfo?packageID=14633" />
-      <menu-entry name="Ubuntu" href="http://packages.ubuntu.com/source/raring/glm" />
-      <menu-entry name="archlinux" href="https://www.archlinux.org/packages/community/any/glm/" />
-      <menu-entry name="Mint" href="http://community.linuxmint.com/software/view/libglm-dev" />
-      <menu-entry name="OpenSuse" href="https://build.opensuse.org/package/show?package=glm&amp;project=devel%3Alibraries%3Ac_c%2B%2B" />
-    </menu-group>    
+    </menu-group>   
 
     <menu-group name="GLM 0.9.4">
       <menu-entry name="GLM 0.9.4.3 release" href="http://sourceforge.net/projects/ogl-math/files/glm-0.9.4.3/glm-0.9.4.3.zip/download" />
