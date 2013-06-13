@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<website>
+	<constant name="website-title" value="OpenGL Mathematics" />
+	<constant name="website-short" value="GLM" />
+	<constant name="website-url" value="http://glm.g-truc.net" />
+	<constant name="email" value="mailto://mail@g-truc.net" />
+	<constant name="author" value="Christophe Riccio" />
+ 
+	<constant name="logo" value="../common/logo.png" />
+	<constant name="splash" value="../goodies/splash.png" />
+
+	<constant name="copyright" value="Copyright © 2005 - 2013" />
+	<constant name="copyright-title" value="G-Truc Creation" />
+	<constant name="copyright-url" value="http://www.g-truc.net" />
+</website>

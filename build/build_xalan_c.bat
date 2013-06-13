@@ -1,6 +1,4 @@
-xalan -m -o ..\index.html     ..\src\data.xml   ..\src\news.xsl
-xalan -m -o ..\download.html  ..\src\data.xml	..\src\download.xsl
-xalan -m -o ..\goodies.html   ..\src\data.xml   ..\src\goodies.xsl
-xalan -m -o ..\about.html     ..\src\data.xml   ..\src\about.xsl
-xalan -m -o ..\code.html      ..\src\data.xml   ..\src\code.xsl
+xalan -m -o ..\index.html     ..\source\data.xml   ..\source\index.xsl
+xalan -m -o ..\updates.html   ..\source\data.xml   ..\source\updates.xsl
+xalan -m -o ..\code.html      ..\source\data.xml   ..\source\code.xsl
 pause

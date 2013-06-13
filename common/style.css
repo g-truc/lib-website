@@ -8,12 +8,37 @@ body
 	width:100%;
 }
 
-table
+div.root
 {
-	background-color:#ffffff;
-	width:1000px;
+	width:800px;
 	margin-left:auto;
 	margin-right:auto;
+	margin-top:32px;
+	margin-bottom:32px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	box-shadow: 0px 0px 0px #FFFFFF;
+	background-color:#FFFFFF;
+}
+
+div.version
+{
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	text-align:right;
+	background-color:#FFEEDD;
+	padding:8px;
+}
+
+table
+{
+	width:100%;
+	background-color:#ffffff;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	border-width:0px;
 }
 
 ul
@@ -22,50 +47,24 @@ ul
 	margin:0px;
 }
 
-table.principale
-{
-	background-color:#ff8000;
-	border-style:none;
-	border-width:0px;
-	border-spacing:0px;
-	margin: 0px;
-	padding: 0px;
-	width:100%;
-}
-
-tr.principale
-{
-	background-color:#ff8000;
-	border-style:none;
-	border-width:0px;
-	border-spacing:0px;
-	margin: 0px;
-	padding: 0px;	
-}
-
 div.title1
 {
     text-align:center;
     font-size:48px;
+    font-weight:normal;
     border-style:solid;
     border-width:0px;
     color:#000000;
+    padding-top:8px;
+    padding-bottom:8px;
 }
 
 div.title2
 {
-    text-align:left;
-    font-size:20px;
-    font-weight:bold;
-    color:#000000;
-}
-
-div.title3
-{
     text-align:center;
-    font-size:16px;
-    border-style:none;
-    border-width:1px;
+    font-size:14px;
+    font-weight:normal;
+    color:#000000;
 }
 
 h3
@@ -85,18 +84,33 @@ div.title-date
     color:#FF8000;
 }
 
-div.menu1
+div.menu
 {
     text-align:center;
-    font-size:12px;
-    font-weight:bolder;
-	padding:16px;
+	padding:0px;
+    padding-top:8px;
+    padding-bottom:8px;
+    width:192px;
 }
 
-div.menu2
+div.menu-logo
 {
-    text-align:center;
-    font-size:12px;
+	padding-bottom:12px;
+}
+
+div.menu-entry1
+{
+    font-weight:bolder;
+    padding-top:12px;
+    padding-bottom:12px;
+    border-top-color:#FFF8F0;
+    border-top-width:0px;
+    border-top-style:solid;
+}
+
+div.menu-entry2
+{
+	font-weight:normal;
 }
 
 div.news-separator
@@ -178,11 +192,13 @@ div.comment
 td.page
 {
     vertical-align:top;
-	padding-right: 32px;
-	padding-left: 32px;
-	padding-bottom: 0px;
-	padding-top: 0px;
+	padding-right: 16px;
+	padding-left: 16px;
+	padding-bottom: 16px;
+	padding-top: 16px;
 	width:100%;
+	background-color:#FFF8F0;
+	border-width:0px;
 }
 
 td.menu
@@ -197,22 +213,35 @@ td.menu
 	padding-left: 0px;
 	padding-bottom: 0px;
 	padding-top: 0px;
+	margin:0px;
+	background-color:#FFFFFF;
 }
-/*
-a.menu
-{
-    color:#FF8000;
-    font-weight:bolder;   
-}
-*/
+
 a.menu
 {
     color:#000000;    
+	text-decoration:none;
+}
+
+a.menu:hover
+{
+	color:#000000; 
+	text-decoration:underline;
 }
 
 a
 {
     color:#000000;    
+}
+
+a.active
+{
+    color:#FF8000;    
+}
+
+a:hover
+{
+    color:#FF8000;    
 }
 
 div.issue-content
@@ -237,92 +266,35 @@ span.bold
 	font-weight:bold;	
 }
 
-span.code-title
-{
-	padding-left:0px;
-	color:#803300;
-}
-
-span.code-line-content
-{
-	display:inline;
-	color:#000000;
-	border-left-style:solid;
-	border-left-width:1px;
-	border-left-color:#ffdac1;
-	margin-left:0px;
-	padding-left:8px;
-}
-
-ul.code-list
-{
-	border-style:solid;
-	border-width:1px;
-	border-color:#ffdac1;
-	color:#803300;
-	margin-bottom:16px;
-	margin-left:0px;
-	margin-right:0px;
-}
-
 li
 {
 	list-style-position:inside;
 	padding-left:8px;
 }
 
-li.code-line
+// New since template
+h1
 {
-	color:#008080;
-	font-family:"Courier New";
-	font-size:11px;
-	clear:both;
 	width:100%;
-	list-style-position:inside;
-	list-style-type:decimal-leading-zero;
-	margin:0px;
-	padding:0px;
-	padding-left:0px;
+	font-family:Consolas;
+	font-size:16px;	
+	text-align:center;
 }
 
-li.code-line:after
+a.copyright
 {
-	clear:both;
+	width:100%;
 }
 
-span.code-line-content
+div.copyright
 {
-	display:inline;
-	color:#000000;
-	border-left-style:solid;
-	border-left-width:1px;
-	border-left-color:#ffdac1;
-	margin-left:0px;
-	padding-left:8px;
+	text-align:center;
 }
 
-span.userword
+hr
 {
-	color:#ff8000;	
-}
-
-span.keyword
-{
-	color:#0000ff;
-}
-
-span.comment
-{
-	color:#008000;
-}
-
-span.string
-{
-	color:#800000;
-}
-
-span.codeword
-{
-	color:#000000;
-	font-family:"Courier New";
+	color: #FF8000;
+	background-color: #FF8000;
+	height:1px;
+	border:0px;
 }

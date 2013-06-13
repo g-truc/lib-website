@@ -1,6 +1,19 @@
-java -jar xalan.jar -OUT ../index.html     -IN ../src/data.xml   -XSL ../src/news.xsl
-java -jar xalan.jar -OUT ../download.html  -IN ../src/data.xml   -XSL ../src/download.xsl
-java -jar xalan.jar -OUT ../goodies.html   -IN ../src/data.xml   -XSL ../src/goodies.xsl
-java -jar xalan.jar -OUT ../about.html     -IN ../src/data.xml   -XSL ../src/about.xsl
-java -jar xalan.jar -OUT ../code.html      -IN ../src/data.xml   -XSL ../src/code.xsl
+java -jar xalan.jar -OUT ../0.9.5/index.html    -IN ../source/data.xml   -XSL ../source/index.xsl	-PARAM VERSION '0.9.5'
+java -jar xalan.jar -OUT ../0.9.5/updates.html  -IN ../source/data.xml   -XSL ../source/updates.xsl -PARAM VERSION '0.9.5'
+java -jar xalan.jar -OUT ../0.9.5/code.html     -IN ../source/data.xml   -XSL ../source/code.xsl	-PARAM VERSION '0.9.5'
+java -jar xalan.jar -OUT ../0.9.4/index.html    -IN ../source/data.xml   -XSL ../source/index.xsl	-PARAM VERSION '0.9.4'
+java -jar xalan.jar -OUT ../0.9.4/updates.html  -IN ../source/data.xml   -XSL ../source/updates.xsl -PARAM VERSION '0.9.4'
+java -jar xalan.jar -OUT ../0.9.4/code.html     -IN ../source/data.xml   -XSL ../source/code.xsl	-PARAM VERSION '0.9.4'
+java -jar xalan.jar -OUT ../0.9.3/index.html    -IN ../source/data.xml   -XSL ../source/index.xsl	-PARAM VERSION '0.9.3'
+java -jar xalan.jar -OUT ../0.9.3/updates.html  -IN ../source/data.xml   -XSL ../source/updates.xsl -PARAM VERSION '0.9.3'
+java -jar xalan.jar -OUT ../0.9.3/code.html     -IN ../source/data.xml   -XSL ../source/code.xsl	-PARAM VERSION '0.9.3'
+java -jar xalan.jar -OUT ../0.9.2/index.html    -IN ../source/data.xml   -XSL ../source/index.xsl	-PARAM VERSION '0.9.2'
+java -jar xalan.jar -OUT ../0.9.2/updates.html  -IN ../source/data.xml   -XSL ../source/updates.xsl -PARAM VERSION '0.9.2'
+java -jar xalan.jar -OUT ../0.9.2/code.html     -IN ../source/data.xml   -XSL ../source/code.xsl	-PARAM VERSION '0.9.2'
+java -jar xalan.jar -OUT ../0.9.1/index.html    -IN ../source/data.xml   -XSL ../source/index.xsl	-PARAM VERSION '0.9.1'
+java -jar xalan.jar -OUT ../0.9.1/updates.html  -IN ../source/data.xml   -XSL ../source/updates.xsl -PARAM VERSION '0.9.1'
+java -jar xalan.jar -OUT ../0.9.1/code.html     -IN ../source/data.xml   -XSL ../source/code.xsl	-PARAM VERSION '0.9.1'
+java -jar xalan.jar -OUT ../0.9.0/index.html    -IN ../source/data.xml   -XSL ../source/index.xsl	-PARAM VERSION '0.9.0'
+java -jar xalan.jar -OUT ../0.9.0/updates.html  -IN ../source/data.xml   -XSL ../source/updates.xsl -PARAM VERSION '0.9.0'
+java -jar xalan.jar -OUT ../0.9.0/code.html     -IN ../source/data.xml   -XSL ../source/code.xsl	-PARAM VERSION '0.9.0'
 pause
