@@ -28,12 +28,11 @@
         	    		<xsl:call-template name="page-menu" />
     	        	</td>
 	            	<td class="page">
-              			<div class="title1">
+              			<h1>
               				<xsl:value-of select="document($FILE_CNST)/website/constant[./@name='website-title']/@value"/>
-              			</div>
-            	  		<div class="title2">
-        	      			<xsl:apply-templates select="./website/about-short" />
-				  		</div>
+              			</h1>
+        	      		<xsl:apply-templates select="./website/about-short" />
+				  		<br />
 				  		<br />
 			  			<xsl:apply-templates select="./website/about-long" />
 			  			<br />

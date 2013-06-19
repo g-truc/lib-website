@@ -1,3 +1,4 @@
+java -jar xalan.jar -OUT ../glm.atom            -IN ../source/data.xml   -XSL ../source/atom.xsl    -PARAM SERVE atom
 java -jar xalan.jar -OUT ../0.9.5/index.html    -IN ../source/data.xml   -XSL ../source/index.xsl	-PARAM VERSION '0.9.5'
 java -jar xalan.jar -OUT ../0.9.5/updates.html  -IN ../source/data.xml   -XSL ../source/updates.xsl -PARAM VERSION '0.9.5'
 java -jar xalan.jar -OUT ../0.9.5/code.html     -IN ../source/data.xml   -XSL ../source/code.xsl	-PARAM VERSION '0.9.5'

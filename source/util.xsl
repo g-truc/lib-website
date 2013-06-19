@@ -116,53 +116,74 @@
 		<a href="{./@href}"><xsl:value-of select="." /></a>
 	</xsl:template>
 
-	<!-- Legacy source tag: To delete -->
-	<xsl:template match="source">
+	<xsl:template match="entry">
 		<li xmlns="http://www.w3.org/1999/xhtml">
-			<xsl:value-of select="./@type"/>: <a href="{./@href}"><xsl:value-of select="."/></a><br />
+          	<!--xsl:if test="./@type">
+            	<xsl:text>: </xsl:text>
+            	<xsl:value-of select="./@tag"/>
+          	</xsl:if-->			
+			<xsl:choose>
+				<xsl:when test="./@href">
+					<a href="{./@href}">
+						<xsl:apply-templates />
+					</a>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:apply-templates />
+				</xsl:otherwise>
+			</xsl:choose>
 		</li>
 	</xsl:template>
 
-  <xsl:template match="source-list">
-    <ul xmlns="http://www.w3.org/1999/xhtml">
-      <xsl:apply-templates />
-    </ul>
+	<xsl:template match="download">
+    	<xsl:param name="Index" select="./@index" />
+    	<xsl:param name="Download" select="document($FILE_DOWN)/website/download[@version=$Index]" />
+
+    	<li xmlns="http://www.w3.org/1999/xhtml">
+    		<xsl:text>Download: </xsl:text>
+      		<a href="{$Download/item[1]/@href}">
+          		<xsl:value-of select="document($FILE_CNST)/website/constant[./@name='website-short']/@value" />
+          		<xsl:text> </xsl:text>
+          		<xsl:value-of select="$Download/@version" />
+      		</a>
+			
+			<xsl:for-each select="$Download/item">
+				<xsl:text> (</xsl:text>
+        		<a href="{./@href}">
+          			<xsl:value-of select="./@type"/>
+          			<xsl:if test="./@size">
+            			<xsl:text>, </xsl:text>
+            			<xsl:value-of select="./@size"/>
+          			</xsl:if>
+        		</a>
+        		<xsl:text>) </xsl:text>
+      		</xsl:for-each>
+    	</li>
   </xsl:template>
 
-  <xsl:template match="source-element">
-    <li xmlns="http://www.w3.org/1999/xhtml">
-      <xsl:value-of select="./@type"/>
-      <xsl:text>: </xsl:text>
-      <a href="{./@href}">
-        <xsl:value-of select="./@title"/>
-      </a>
-    </li>
-  </xsl:template>
-
-  <xsl:template match="source-download">
-    <xsl:param name="Index" select="./@index" />
-    <xsl:param name="Download" select="document($FILE_DOWN)/website/download[@version=$Index]" />
-
-    <li xmlns="http://www.w3.org/1999/xhtml">
-      <xsl:text>Download: </xsl:text>
-      <a href="{$Download/item[1]/@href}">
-          <xsl:value-of select="document($FILE_CNST)/website/constant[./@name='website-short']/@value" />
-          <xsl:text> </xsl:text>
-          <xsl:value-of select="$Download/@version" />
-      </a>
-      <xsl:for-each select="$Download/item">
-        <xsl:text> (</xsl:text>
-        <a href="{./@href}">
-          <xsl:value-of select="./@type"/>
-          <xsl:if test="./@size">
-            <xsl:text>, </xsl:text>
-            <xsl:value-of select="./@size"/>
-          </xsl:if>
-        </a>
-        <xsl:text>) </xsl:text>
-      </xsl:for-each>
-    </li>
-  </xsl:template>
+	<xsl:template match="list">
+		<p xmlns="http://www.w3.org/1999/xhtml">
+			<xsl:if test="./@title">
+				<xsl:choose>
+					<xsl:when test="./@href">
+						<span class="list">
+							<a href="{./@href}">
+								<xsl:value-of select="./@title" />
+							</a>
+						</span>
+					</xsl:when>
+					<xsl:otherwise>
+						<span class="list">
+							<xsl:value-of select="./@title" />
+						</span>
+					</xsl:otherwise>
+				</xsl:choose>
+			</xsl:if>
+			<ul>
+				<xsl:apply-templates />
+			</ul>
+		</p>
+	</xsl:template>
 
   <xsl:template match="image">
     <xsl:choose>
@@ -188,71 +209,14 @@
     </xsl:if>
   </xsl:template>
 
-  <xsl:template match="image-list">
-		<div xmlns="http://www.w3.org/1999/xhtml" class="news-image">
-		  <xsl:apply-templates select="./image-element" />
-		</div>
-	  </xsl:template>
-
-	  <xsl:template match="image-element">
-		<a href="{./@normal}">
-		  <img src="{./@small}" alt="{./@title}" />
-		</a>
-	  </xsl:template>
-
-	<xsl:template match="list">
-		<div xmlns="http://www.w3.org/1999/xhtml">
-			<xsl:if test="./@name">
-				<xsl:choose>
-					<xsl:when test="./@href">
-						<span class="list">
-							<a href="{./@href}">
-								<xsl:value-of select="./@name" />
-							</a>
-						</span>
-					</xsl:when>
-					<xsl:otherwise>
-						<span class="list">
-							<xsl:value-of select="./@name" />
-						</span>
-					</xsl:otherwise>
-				</xsl:choose>
-			</xsl:if>
-			<ul>
-				<xsl:apply-templates select="./list-element"/>
-			</ul>
-		</div>
-		<br xmlns="http://www.w3.org/1999/xhtml" />
-	</xsl:template>
-
-	<xsl:template match="list-element">
-		<li xmlns="http://www.w3.org/1999/xhtml">
-			<xsl:choose>
-				<xsl:when test="./@href">
-					<a href="{./@href}">
-						<xsl:apply-templates />
-					</a>
-				</xsl:when>
-				<xsl:otherwise>
-					<xsl:apply-templates />
-				</xsl:otherwise>
-			</xsl:choose>
-		</li>
-	</xsl:template>
-
-	<xsl:template match="element">
-		<xsl:apply-templates /><br />
-	</xsl:template>
-
 	<xsl:template match="paragraph">
 		<p><xsl:text /><xsl:apply-templates /><xsl:text /></p>
 	</xsl:template>
 
 	<xsl:template match="about-short">
-	  <div class="title2">
-		<xsl:apply-templates select="./element" />
-	  </div>
-	  <br />
+	  <h2>
+		<xsl:value-of select="." />
+	  </h2>
 	</xsl:template>
 
 	<!-- Elements for code listing -->

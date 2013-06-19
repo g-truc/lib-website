@@ -18,6 +18,7 @@
 
     	<menu>
       		<menu-entry name="GLSL Specification" href="http://www.opengl.org/registry/doc/GLSLangSpec.4.30.6.diff.pdf" />
+      		<menu-entry name="GLSL man pages" href="http://www.opengl.org/documentation/glsl" />
     		<menu-entry name="Forum" href="http://www.opengl.org/discussion_boards/ubbthreads.php?ubb=postlist&amp;Board=10&amp;page=1" />
 			<menu-entry name="Stack Overflow" href="http://stackoverflow.com/search?q=GLM" />
 			<menu-entry name="OpenGL SDK page" href="http://www.opengl.org/sdk/libs/GLM/" />
@@ -41,6 +42,7 @@
 
     	<menu>
       		<menu-entry name="GLSL Specification" href="http://www.opengl.org/registry/doc/GLSLangSpec.4.30.6.diff.pdf" />
+      		<menu-entry name="GLSL man pages" href="http://www.opengl.org/documentation/glsl" />
     		<menu-entry name="Forum" href="http://www.opengl.org/discussion_boards/ubbthreads.php?ubb=postlist&amp;Board=10&amp;page=1" />
 			<menu-entry name="Stack Overflow" href="http://stackoverflow.com/search?q=GLM" />
 			<menu-entry name="OpenGL SDK page" href="http://www.opengl.org/sdk/libs/GLM/" />
@@ -64,6 +66,7 @@
 
     	<menu>
       		<menu-entry name="GLSL Specification" href="http://www.opengl.org/registry/doc/GLSLangSpec.4.30.6.diff.pdf" />
+      		<menu-entry name="GLSL man pages" href="http://www.opengl.org/documentation/glsl" />
     		<menu-entry name="Forum" href="http://www.opengl.org/discussion_boards/ubbthreads.php?ubb=postlist&amp;Board=10&amp;page=1" />
 			<menu-entry name="Stack Overflow" href="http://stackoverflow.com/search?q=GLM" />
 			<menu-entry name="OpenGL SDK page" href="http://www.opengl.org/sdk/libs/GLM/" />
@@ -87,6 +90,7 @@
 
     	<menu>
       		<menu-entry name="GLSL Specification" href="http://www.opengl.org/registry/doc/GLSLangSpec.4.30.6.diff.pdf" />
+      		<menu-entry name="GLSL man pages" href="http://www.opengl.org/documentation/glsl" />
     		<menu-entry name="Forum" href="http://www.opengl.org/discussion_boards/ubbthreads.php?ubb=postlist&amp;Board=10&amp;page=1" />
 			<menu-entry name="Stack Overflow" href="http://stackoverflow.com/search?q=GLM" />
 			<menu-entry name="OpenGL SDK page" href="http://www.opengl.org/sdk/libs/GLM/" />
@@ -110,6 +114,7 @@
 
     	<menu>
       		<menu-entry name="GLSL Specification" href="http://www.opengl.org/registry/doc/GLSLangSpec.4.30.6.diff.pdf" />
+      		<menu-entry name="GLSL man pages" href="http://www.opengl.org/documentation/glsl" />
     		<menu-entry name="Forum" href="http://www.opengl.org/discussion_boards/ubbthreads.php?ubb=postlist&amp;Board=10&amp;page=1" />
 			<menu-entry name="Stack Overflow" href="http://stackoverflow.com/search?q=GLM" />
 			<menu-entry name="OpenGL SDK page" href="http://www.opengl.org/sdk/libs/GLM/" />
@@ -133,6 +138,7 @@
 
     	<menu>
       		<menu-entry name="GLSL Specification" href="http://www.opengl.org/registry/doc/GLSLangSpec.4.30.6.diff.pdf" />
+      		<menu-entry name="GLSL man pages" href="http://www.opengl.org/documentation/glsl" />
     		<menu-entry name="Forum" href="http://www.opengl.org/discussion_boards/ubbthreads.php?ubb=postlist&amp;Board=10&amp;page=1" />
 			<menu-entry name="Stack Overflow" href="http://stackoverflow.com/search?q=GLM" />
 			<menu-entry name="OpenGL SDK page" href="http://www.opengl.org/sdk/libs/GLM/" />

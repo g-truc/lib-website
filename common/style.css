@@ -47,7 +47,12 @@ ul
 	margin:0px;
 }
 
-div.title1
+li.source
+{
+	list-style-type:none;
+}
+
+h1
 {
     text-align:center;
     font-size:48px;
@@ -57,14 +62,18 @@ div.title1
     color:#000000;
     padding-top:8px;
     padding-bottom:8px;
+    margin-top:8px;
+    margin-bottom:8px;
 }
 
-div.title2
+h2
 {
     text-align:center;
     font-size:14px;
     font-weight:normal;
     color:#000000;
+    margin-top:8px;
+    margin-bottom:8px;
 }
 
 h3
@@ -113,17 +122,6 @@ div.menu-entry2
 	font-weight:normal;
 }
 
-div.news-separator
-{
-	text-align:center;
-	color:#FF8000;
-}
-
-div.email
-{
-	text-align:center;
-}
-
 div.image
 {
 	text-align:right;
@@ -156,7 +154,7 @@ div.post-image-title
 	display:block;
 	font-style:italic;
 	text-align:center;
-	padding-bottom:32px;
+	padding-bottom:0px;
 }
 
 img.menu-img
