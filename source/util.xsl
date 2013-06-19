@@ -163,23 +163,21 @@
 
 	<xsl:template match="list">
 		<p xmlns="http://www.w3.org/1999/xhtml">
-			<xsl:if test="./@title">
-				<xsl:choose>
-					<xsl:when test="./@href">
-						<span class="list">
-							<a href="{./@href}">
-								<xsl:value-of select="./@title" />
-							</a>
-						</span>
-					</xsl:when>
-					<xsl:otherwise>
-						<span class="list">
-							<xsl:value-of select="./@title" />
-						</span>
-					</xsl:otherwise>
-				</xsl:choose>
-			</xsl:if>
 			<ul>
+				<xsl:if test="./@title">
+					<li class="title">
+						<xsl:choose>
+							<xsl:when test="./@href">
+								<a href="{./@href}">
+									<xsl:value-of select="./@title" />
+								</a>
+							</xsl:when>
+							<xsl:otherwise>
+								<xsl:value-of select="./@title" />
+							</xsl:otherwise>
+						</xsl:choose>
+					</li>
+				</xsl:if>
 				<xsl:apply-templates />
 			</ul>
 		</p>

@@ -24,20 +24,20 @@
 				</div>
         		<table>
           			<tr>
-            		<td class="menu">
-        	    		<xsl:call-template name="page-menu" />
-    	        	</td>
-	            	<td class="page">
-              			<h1>
-              				<xsl:value-of select="document($FILE_CNST)/website/constant[./@name='website-title']/@value"/>
-              			</h1>
-        	      		<xsl:apply-templates select="./website/about-short" />
-				  		<br />
-				  		<br />
-			  			<xsl:apply-templates select="./website/about-long" />
-			  			<br />
-            			<xsl:call-template name="page-foot" />
-        	    	</td>
+            			<td class="menu">
+        	    			<xsl:call-template name="page-menu" />
+    	        		</td>
+	            		<td class="page">
+              				<h1>
+              					<xsl:value-of select="document($FILE_CNST)/website/constant[./@name='website-title']/@value"/>
+              				</h1>
+        	      			<xsl:apply-templates select="./website/about-short" />
+				  			<br />
+				  			<br />
+			  				<xsl:apply-templates select="./website/about-long" />
+			  				<br />
+            				<xsl:call-template name="page-foot" />
+        	    		</td>
     	      		</tr>
 	        	</table>		
 			</div>
