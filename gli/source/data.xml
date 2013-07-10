@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <website>
-	<post index="0001" date="XX/XX/2013" std-date="2013-05-29T23:30:00.00Z" title="GLI 0.5.0.0 released">
+	<draft index="0002" date="XX/XX/2013" std-date="2013-05-29T23:30:00.00Z" title="GLI 0.5.0.0 released">
 		<list title="Changelog:">
 			<entry>Fixed slerp when costheta is close to 1 #65</entry>
 			<entry>Fixed mat4x2 value_type constructor #70</entry>
@@ -19,6 +19,17 @@
 			<entry href="https://github.com/g-truc/gli/issues">Submit a bug report</entry>
 			<entry href="../0.5.0/gli-0.5.0.pdf">GLI 0.5.0 Manual</entry>
 			<entry href="../0.5.0/api/index.html">GLI 0.5.0 API</entry>
+		</list>
+	</draft>
+
+	<post index="0001" date="10/07/2013" std-date="2013-07-10T23:30:00.00Z" title="GLI website available">
+		<paragraph>
+			Welcome on GLI website where new releases will be published and documentation will be provided.
+		</paragraph>
+
+		<list>
+			<download index="0.4.1.0" />
+			<entry href="https://github.com/g-truc/gli/issues">Submit a bug report</entry>
 		</list>
 	</post>
 
@@ -58,9 +69,9 @@
 	</about-long>
 
 	<about-short>
-		GLSL + Optional features = OpenGL Image (GLI)
+		Effective texture loading, access and processing.
 	</about-short>
 	<about-short>
-		A C++ image library for graphics programming
+		A C++ image library based on OpenGL conventions
 	</about-short>
 </website>
