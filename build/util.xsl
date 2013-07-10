@@ -21,7 +21,7 @@
 			<title><xsl:value-of select="$Title" /></title>
 		  	<meta http-equiv="Content-Language" content="en" />
 		  	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=iso-8859-1" />
-		  	<meta name="copyright" content="{document($FILE_CNST)/website/constant[./@name='copyright-title']/@value}" />
+		  	<meta name="copyright" content="{document(concat($DIRECTORY, $FILE_CNST))/website/constant[./@name='copyright-title']/@value}" />
 		  	<link href="../common/style.css" rel="stylesheet" media="screen, print, embossed" type="text/css" />
 			<link href="../common/code.css" rel="stylesheet" media="screen, print, embossed" type="text/css" />
 
@@ -43,10 +43,10 @@
 
   	<xsl:template name="page-foot">
 		<div xmlns="http://www.w3.org/1999/xhtml" class="copyright">
-        	<xsl:value-of select="document($FILE_CNST)/website/constant[./@name='copyright']/@value" />
+        	<xsl:value-of select="document(concat($DIRECTORY, $FILE_CNST))/website/constant[./@name='copyright']/@value" />
         	<xsl:text> </xsl:text>
-    		<a href="{document($FILE_CNST)/website/constant[./@name='copyright-url']/@value}">
-    			<xsl:value-of select="document($FILE_CNST)/website/constant[./@name='copyright-title']/@value" />
+    		<a href="{document(concat($DIRECTORY, $FILE_CNST))/website/constant[./@name='copyright-url']/@value}">
+    			<xsl:value-of select="document(concat($DIRECTORY, $FILE_CNST))/website/constant[./@name='copyright-title']/@value" />
     		</a>
 		</div>
 	</xsl:template>
@@ -66,7 +66,18 @@
       	</xsl:choose>
 		<xsl:text> </xsl:text>
 	</xsl:template>	
-	
+
+	<xsl:template match="tab">
+		<xsl:choose>
+        	<xsl:when test="./@active='yes'">
+				<a xmlns="http://www.w3.org/1999/xhtml" href="{./@href}" class="active"><xsl:value-of select="./@name"/></a><xsl:text> </xsl:text>
+        	</xsl:when>
+			<xsl:otherwise>
+				<a xmlns="http://www.w3.org/1999/xhtml" href="{./@href}"><xsl:value-of select="./@name"/></a><xsl:text> </xsl:text>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:template>
+
 	<xsl:template match="menu">
         <div xmlns="http://www.w3.org/1999/xhtml" class="menu-entry1">
         	<xsl:if test="./@title">
@@ -87,21 +98,21 @@
 	<xsl:template name="page-menu">	
 		<div xmlns="http://www.w3.org/1999/xhtml" class="menu">
 			<div xmlns="http://www.w3.org/1999/xhtml" class="menu-logo">
-		  		<a href="{document($FILE_CNST)/website/constant[./@name='splash']/@value}">
-					<img class="menu-img" src="{document($FILE_CNST)/website/constant[./@name='logo']/@value}" alt="Logo"/>
+		  		<a href="{document(concat($DIRECTORY, $FILE_CNST))/website/constant[./@name='splash']/@value}">
+					<img class="menu-img" src="{document(concat($DIRECTORY, $FILE_CNST))/website/constant[./@name='logo']/@value}" alt="Logo"/>
 				</a>
 			</div>
 			
 			<div xmlns="http://www.w3.org/1999/xhtml" class="menu-entry1">
-				<a class="menu" href="{document($FILE_DOWN)/website/download[contains(@version, $VERSION)][1]/item[./@type='ZIP']/@href}">
+				<a class="menu" href="{document(concat($DIRECTORY, $FILE_DOWN))/website/download[contains(@version, $VERSION)][1]/item[./@type='ZIP']/@href}">
 					<xsl:text>Download </xsl:text>
-					<xsl:value-of select="document($FILE_DOWN)/website/download[contains(@version, $VERSION)][1]/@title" />
+					<xsl:value-of select="document(concat($DIRECTORY, $FILE_DOWN))/website/download[contains(@version, $VERSION)][1]/@title" />
 					<xsl:text> </xsl:text>
-					<xsl:value-of select="document($FILE_DOWN)/website/download[contains(@version, $VERSION)][1]/@version" />
+					<xsl:value-of select="document(concat($DIRECTORY, $FILE_DOWN))/website/download[contains(@version, $VERSION)][1]/@version" />
 	 			</a>
 			</div>
 			
-	  		<xsl:apply-templates select="document($FILE_MENU)/website/version[./@value=$VERSION]/menu" />
+	  		<xsl:apply-templates select="document(concat($DIRECTORY, $FILE_MENU))/website/version[./@value=$VERSION]/menu" />
 	  		
 	  		<br />
 			<div xmlns="http://www.w3.org/1999/xhtml">
@@ -137,12 +148,12 @@
 
 	<xsl:template match="download">
     	<xsl:param name="Index" select="./@index" />
-    	<xsl:param name="Download" select="document($FILE_DOWN)/website/download[@version=$Index]" />
+    	<xsl:param name="Download" select="document(concat($DIRECTORY, $FILE_DOWN))/website/download[@version=$Index]" />
 
     	<li xmlns="http://www.w3.org/1999/xhtml">
     		<xsl:text>Download: </xsl:text>
       		<a href="{$Download/item[1]/@href}">
-          		<xsl:value-of select="document($FILE_CNST)/website/constant[./@name='website-short']/@value" />
+          		<xsl:value-of select="document(concat($DIRECTORY, $FILE_CNST))/website/constant[./@name='website-short']/@value" />
           		<xsl:text> </xsl:text>
           		<xsl:value-of select="$Download/@version" />
       		</a>

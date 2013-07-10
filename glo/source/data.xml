@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<website>
+	<post index="0001" date="21/02/2005" title="GLM 0.1 is available">
+		<paragraph>
+			This is the first public availability of GLM.
+			This library supports a part of GLSL specification: All vector, matrice types, the operators and associated functions.
+		</paragraph>
+		<paragraph>
+			For now, there isn't a detailed documentation, but you can have a look on GLSL specifications. Consider any mismatch between GLSL and GLM as a bug.
+			Keep in mind the library is included in the namespace "glm".
+		</paragraph>
+		<paragraph>
+			This project is multi-platform and was successfully tested under Visual C++ 7.1, MinGW 3.4 and GCC 3.4.
+		</paragraph>
+		
+		<list>
+			<entry href="http://prdownloads.sourceforge.net/glf/glm-0.1-ur.zip?download">GLM 0.1 User Release</entry>
+			<entry href="http://prdownloads.sourceforge.net/glf/glm-0.1-uc.zip?download">GLM 0.1 Contributor Release</entry>
+			<entry href="http://oss.sgi.com/projects/ogl-sample/registry/ARB/GLSLangSpec.Full.1.10.59.pdf">GLSL 1.10.59 specifications</entry>
+		</list>
+	</post>
+
+	<about-long>
+		<paragraph>
+			OpenGL Mathematics (GLM) is a header only C++ mathematics library for graphics software 
+			based on the <link href="http://www.opengl.org/documentation/glsl/">OpenGL Shading Language (GLSL)</link> specification and released under the <link href="./copying.txt">MIT license</link>.
+		</paragraph>
+		<paragraph>
+			This library provides classes and functions designed and implemented following as strictly as possible the GLSL conventions 
+			and functionalities so that when a programmer knows GLSL, he knows GLM as well, making it really easy to use.
+		</paragraph>
+		<paragraph>
+			This project isn't limited to GLSL features. An extension system provides extended capabilities: 
+			matrix transformations, quaternions, half-based types, random number generation, procedural noise functions, etc. 
+		</paragraph>
+		<paragraph>
+			GLM ensures interoperability with third party libraries, SDKs and OpenGL; replacing advantageously the deprecated matrix functions.
+			It is a good candidate for software rendering (Raytracing / Rasterisation), image processing, physic simulations and any context that requires a simple and convenient mathematics library.
+		</paragraph>
+		<list title="It is a platform independent library with no dependence to external libraries even OpenGL. GLM is written in C++98 but can take advantage of C++11 when available. It supports the following compilers:">
+			<entry><link href="http://clang.llvm.org">Clang</link> 2.6 and higher</entry>
+			<entry><link href="http://developer.nvidia.com/category/zone/cuda-zone">CUDA</link> 3.0 and higher</entry>
+			<entry><link href="http://gcc.gnu.org/">GCC</link> 3.4 and higher</entry>
+			<entry><link href="http://software.intel.com/en-us/intel-compilers/">Intel C++ Composer</link> XE 2013 and higher</entry>
+			<entry><link href="http://llvm.org/">LLVM</link> 2.3 through GCC 4.2 front-end and higher</entry>
+			<entry><link href="http://msdn.microsoft.com/en-us/visualc/default">Visual C++</link> 2005 and higher</entry>
+			<entry>Any conform C++98 or C++11 compiler</entry>
+		</list>
+		<paragraph>
+			For more information about GLM, please have a look at <link href="http://glm.g-truc.net/glm.pdf">the manual</link> and <link href="http://glm.g-truc.net/api/index.html">the API reference documentation</link>.
+		</paragraph>
+		<paragraph>
+			Thanks for contributing to the project by <link href="https://github.com/g-truc/glm/issues">submitting issues</link> for bug reports and feature requests. 
+			Any feedback is welcome at <link href="mailto://glm@g-truc.net">glm@g-truc.net</link>.
+		</paragraph>
+	</about-long>
+
+	<about-short>
+		Core Profile + debugging functionalities = OpenGL Overload (GLO)
+	</about-short>
+	<about-short>
+		A non object oriented C++ OpenGL wrapper library.
+	</about-short>
+</website>

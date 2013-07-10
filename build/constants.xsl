@@ -19,4 +19,5 @@
   <xsl:variable name="THEME_CURRENT"><xsl:value-of select="$THEME_NAME_ORANGE"/></xsl:variable>
 
   <xsl:param name="VERSION" select="index" />
+  <xsl:param name="DIRECTORY" />
 </xsl:stylesheet>

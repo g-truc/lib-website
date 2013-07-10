@@ -8,19 +8,16 @@
 	<xsl:template match="/">
 		<html>
     	<xsl:call-template name="page-head">
-			<xsl:with-param name="Title" select="document($FILE_CNST)/website/constant[./@name='website-title']/@value" />
+			<xsl:with-param name="Title" select="document(concat($DIRECTORY, $FILE_CNST))/website/constant[./@name='website-title']/@value" />
 		</xsl:call-template>
 
 		<body>
 			<div class="root">
 				<div class="version">
 					<div>
-						<a href="http://glm.g-truc.net" class="active">GLM</a><xsl:text> </xsl:text>
-						<a href="http://gli.g-truc.net">GLI</a><xsl:text> </xsl:text>
-						<a href="http://glo.g-truc.net">GLO</a><xsl:text> </xsl:text>
-						<a href="http://glu.g-truc.net">GLU</a>
+						<xsl:apply-templates select="document(concat($DIRECTORY, $FILE_MENU))/website/tab" />
 					</div>
-					<xsl:apply-templates select="document($FILE_MENU)/website/version" />
+					<xsl:apply-templates select="document(concat($DIRECTORY, $FILE_MENU))/website/version" />
 				</div>
         		<table>
           			<tr>
@@ -29,7 +26,7 @@
     	        		</td>
 	            		<td class="page">
               				<h1>
-              					<xsl:value-of select="document($FILE_CNST)/website/constant[./@name='website-title']/@value"/>
+              					<xsl:value-of select="document(concat($DIRECTORY, $FILE_CNST))/website/constant[./@name='website-title']/@value"/>
               				</h1>
         	      			<xsl:apply-templates select="./website/about-short" />
 				  			<br />

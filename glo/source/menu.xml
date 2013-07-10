@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<website>
+	<tab name="GLM" href="http://glm.g-truc.net" active="no" />
+	<tab name="GLI" href="http://gli.g-truc.net" active="no" />
+	<tab name="GLO" href="http://glo.g-truc.net" active="yes" />
+	<tab name="GLU" href="http://glu.g-truc.net" active="no" />
+
+	<version value="0.3.0">
+    	<menu>
+      		<menu-entry name="Snapshot" href="https://github.com/g-truc/glo/zipball/0.3.0" />
+    	</menu>
+
+    	<menu>
+    		<menu-entry name="Updates" href="../0.3.0/updates.html" />
+      		<menu-entry name="Downloads" href="http://sourceforge.net/projects/ogl-overload/files" />
+      		<menu-entry name="Repository" href="https://github.com/g-truc/glo" />
+      		<menu-entry name="Report a bug" href="https://github.com/g-truc/glo/issues" />
+    	</menu>
+
+    	<menu>
+      		<menu-entry name="GLSL Specification" href="http://www.opengl.org/registry/doc/GLSLangSpec.4.30.6.diff.pdf" />
+      		<menu-entry name="GLSL man pages" href="http://www.opengl.org/documentation/glsl" />
+    		<menu-entry name="Forum" href="http://www.opengl.org/discussion_boards/ubbthreads.php?ubb=postlist&amp;Board=10&amp;page=1" />
+			<menu-entry name="Stack Overflow" href="http://stackoverflow.com/search?q=GLO" />
+		</menu>
+	</version>
+</website>

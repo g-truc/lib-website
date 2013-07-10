@@ -2,7 +2,7 @@ body
 {
 	font-family: Lucida Grande, Verdana, Geneva, Arial, sans-serif;
 	font-size: 12px;
-	background-color:#000000;
+	background-color:#bf6000;
 	margin:0px;
 	padding:0px;
 	width:100%;
@@ -10,7 +10,7 @@ body
 
 div.root
 {
-	width:800px;
+	width:960px;
 	margin-left:auto;
 	margin-right:auto;
 	margin-top:32px;

@@ -2,7 +2,7 @@ body
 {
 	font-family: Lucida Grande, Verdana, Geneva, Arial, sans-serif;
 	font-size: 12px;
-	background-color:#000000;
+	background-color:#990026;
 	margin:0px;
 	padding:0px;
 	width:100%;
@@ -10,7 +10,7 @@ body
 
 div.root
 {
-	width:800px;
+	width:960px;
 	margin-left:auto;
 	margin-right:auto;
 	margin-top:32px;
@@ -27,7 +27,7 @@ div.version
 	border-top-left-radius: 8px;
 	border-top-right-radius: 8px;
 	text-align:right;
-	background-color:#FFDDEE;
+	background-color:#fff0f4;
 	padding:8px;
 }
 
@@ -117,7 +117,7 @@ div.menu-entry1
     font-weight:bolder;
     padding-top:12px;
     padding-bottom:12px;
-    border-top-color:#FFF0F8;
+    border-top-color:#fffafb;
     border-top-width:0px;
     border-top-style:solid;
 }
@@ -177,19 +177,9 @@ div.paragraph
     text-align:justify;
 }
 
-div.include
-{
-	color:#0000FF;
-}
-
 spam.key
 {
 	color:#0000FF;
-}
-
-div.comment
-{
-	color:#008000;
 }
 
 td.page
@@ -200,7 +190,7 @@ td.page
 	padding-bottom: 16px;
 	padding-top: 16px;
 	width:100%;
-	background-color:#FFF0F8;
+	background-color:#fff7f9;
 	border-width:0px;
 }
 
@@ -255,13 +245,6 @@ div.issue-content
 div.issue-title
 {
     font-weight:bold;    
-}
-
-span.progword
-{
-	color:#000000;
-	font-family:Consolas, "Courier New";
-	font-size:11px;	
 }
 
 span.bold
