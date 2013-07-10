@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<website>
+	<post index="0001" date="XX/XX/2013" std-date="2013-05-29T23:30:00.00Z" title="GLI 0.5.0.0 released">
+		<list title="Changelog:">
+			<entry>Fixed slerp when costheta is close to 1 #65</entry>
+			<entry>Fixed mat4x2 value_type constructor #70</entry>
+			<entry>Fixed glm.natvis for Visual C++ 12 #82</entry>
+			<entry>Added assert in inversesqrt to detect division by zero #61</entry>
+			<entry>Fixed missing swizzle operators #86</entry>
+			<entry>Fixed CUDA warnings #86</entry>
+			<entry>Fixed GLM natvis for VC11 #82</entry>
+			<entry>Fixed GLM_GTX_multiple with negative values #79</entry>
+			<entry>Fixed glm::perspective when zNear is zero #71</entry>
+		</list>
+
+		<list>
+			<download index="0.5.0.0" />
+			<entry href="https://github.com/g-truc/gli/issues">Submit a bug report</entry>
+			<entry href="../0.5.0/gli-0.5.0.pdf">GLI 0.5.0 Manual</entry>
+			<entry href="../0.5.0/api/index.html">GLI 0.5.0 API</entry>
+		</list>
+	</post>
+
+	<about-long>
+		<paragraph>
+			OpenGL Image (GLI) is a header only C++ image library for graphics software 
+			based on the <link href="http://www.opengl.org/documentation/glsl/">OpenGL Shading Language (GLSL)</link> specification and released under the <link href="./copying.txt">MIT license</link>.
+		</paragraph>
+		<paragraph>
+			This library provides classes and functions designed and implemented following as strictly as possible the GLSL conventions 
+			and functionalities so that when a programmer knows GLSL, he knows GLM as well, making it really easy to use.
+		</paragraph>
+		<paragraph>
+			This project isn't limited to GLSL features. An extension system provides extended capabilities: 
+			matrix transformations, quaternions, half-based types, random number generation, procedural noise functions, etc. 
+		</paragraph>
+		<paragraph>
+			GLM ensures interoperability with third party libraries, SDKs and OpenGL; replacing advantageously the deprecated matrix functions.
+			It is a good candidate for software rendering (Raytracing / Rasterisation), image processing, physic simulations and any context that requires a simple and convenient mathematics library.
+		</paragraph>
+		<list title="It is a platform independent library with no dependence to external libraries even OpenGL. GLM is written in C++98 but can take advantage of C++11 when available. It supports the following compilers:">
+			<entry><link href="http://clang.llvm.org">Clang</link> 2.6 and higher</entry>
+			<entry><link href="http://developer.nvidia.com/category/zone/cuda-zone">CUDA</link> 3.0 and higher</entry>
+			<entry><link href="http://gcc.gnu.org/">GCC</link> 3.4 and higher</entry>
+			<entry><link href="http://software.intel.com/en-us/intel-compilers/">Intel C++ Composer</link> XE 2013 and higher</entry>
+			<entry><link href="http://llvm.org/">LLVM</link> 2.3 through GCC 4.2 front-end and higher</entry>
+			<entry><link href="http://msdn.microsoft.com/en-us/visualc/default">Visual C++</link> 2005 and higher</entry>
+			<entry>Any conform C++98 or C++11 compiler</entry>
+		</list>
+		<paragraph>
+			For more information about GLI, please have a look at <link href="http://gli.g-truc.net/gli.pdf">the manual</link> and <link href="http://gli.g-truc.net/api/index.html">the API reference documentation</link>.
+		</paragraph>
+		<paragraph>
+			Thanks for contributing to the project by <link href="https://github.com/g-truc/gli/issues">submitting issues</link> for bug reports and feature requests. 
+			Any feedback is welcome at <link href="mailto://gli@g-truc.net">gli@g-truc.net</link>.
+		</paragraph>
+	</about-long>
+
+	<about-short>
+		GLSL + Optional features = OpenGL Image (GLI)
+	</about-short>
+	<about-short>
+		A C++ image library for graphics programming
+	</about-short>
+</website>
