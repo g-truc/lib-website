@@ -98,7 +98,7 @@
 	<xsl:template name="page-menu">	
 		<div xmlns="http://www.w3.org/1999/xhtml" class="menu">
 			<div xmlns="http://www.w3.org/1999/xhtml" class="menu-logo">
-		  		<a href="{document(concat($DIRECTORY, $FILE_CNST))/website/constant[./@name='splash']/@value}">
+		  		<a href="./index.html">
 					<img class="menu-img" src="{document(concat($DIRECTORY, $FILE_CNST))/website/constant[./@name='logo']/@value}" alt="Logo"/>
 				</a>
 			</div>

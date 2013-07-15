@@ -2,8 +2,8 @@
 
 <website>
 	<tab name="GLM" href="http://glm.g-truc.net" active="yes" />
-	<tab name="GLI" href="http://gli.g-truc.net" active="no" />
-	<!--tab name="GLO" href="http://glo.g-truc.net" active="no" />
+	<!--tab name="GLI" href="http://gli.g-truc.net" active="no" />
+	<tab name="GLO" href="http://glo.g-truc.net" active="no" />
 	<tab name="GLU" href="http://glu.g-truc.net" active="no" /-->
 
 	<!--version value="0.9.5">

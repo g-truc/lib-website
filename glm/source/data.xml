@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <website>
+	<post index="0087" date="29/05/2013" std-date="2013-05-29T23:30:00.00Z" title="GLM 0.9.4.5 released">
+		<paragraph>
+			GLM 0.9.4.5 is available fixing the following minor issues. This is the occasion to also launch the revised GLM website.
+		</paragraph>
+
+		<list title="Changelog:">
+			<entry>Fixed inclusion of intrinsics in "pure" mode #92 </entry>
+			<entry>Fixed language detection on GCC when the C++0x mode isn't enabled #95</entry>
+			<entry>Fixed issue #97: register is deprecated in C++11</entry>
+			<entry>Fixed issue #96: CUDA issues</entry>
+			<entry>Added Windows CE detection #92</entry>
+		</list>
+
+		<list>
+			<download index="0.9.4.5" />
+			<entry href="https://github.com/g-truc/glm/issues">Submit a bug report</entry>
+			<entry href="../0.9.4/glm-0.9.4.pdf">GLM 0.9.4 Manual</entry>
+			<entry href="../0.9.4/api/index.html">GLM 0.9.4 API</entry>
+		</list>
+	</post>
+
 	<post index="0086" date="29/05/2013" std-date="2013-05-29T23:30:00.00Z" title="GLM 0.9.4.4 released">
 		<list title="Changelog:">
 			<entry>Fixed slerp when costheta is close to 1 #65</entry>
