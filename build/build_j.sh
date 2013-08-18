@@ -17,4 +17,4 @@ java -jar xalan.jar -OUT ../glm/0.9.1/code.html     -IN ../glm/source/data.xml  
 java -jar xalan.jar -OUT ../glm/0.9.0/index.html    -IN ../glm/source/data.xml   -XSL ./index.xsl	-PARAM DIRECTORY ../glm/source/ -PARAM VERSION '0.9.0'
 java -jar xalan.jar -OUT ../glm/0.9.0/updates.html  -IN ../glm/source/data.xml   -XSL ./updates.xsl	-PARAM DIRECTORY ../glm/source/ -PARAM VERSION '0.9.0'
 java -jar xalan.jar -OUT ../glm/0.9.0/code.html     -IN ../glm/source/data.xml   -XSL ./code.xsl	-PARAM DIRECTORY ../glm/source/ -PARAM VERSION '0.9.0'
-pause
+

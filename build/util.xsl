@@ -97,27 +97,32 @@
 	
 	<xsl:template name="page-menu">	
 		<div xmlns="http://www.w3.org/1999/xhtml" class="menu">
-			<div xmlns="http://www.w3.org/1999/xhtml" class="menu-logo">
+			<div class="menu-logo">
 		  		<a href="./index.html">
 					<img class="menu-img" src="{document(concat($DIRECTORY, $FILE_CNST))/website/constant[./@name='logo']/@value}" alt="Logo"/>
 				</a>
 			</div>
 			
 			<xsl:if test="document(concat($DIRECTORY, $FILE_DOWN))/website/download">
-				<div xmlns="http://www.w3.org/1999/xhtml" class="menu-entry1">
+				<div class="menu-entry1">
 					<a class="menu" href="{document(concat($DIRECTORY, $FILE_DOWN))/website/download[contains(@version, $VERSION)][1]/item[./@type='ZIP']/@href}">
-						<xsl:text>Download </xsl:text>
-						<xsl:value-of select="document(concat($DIRECTORY, $FILE_DOWN))/website/download[contains(@version, $VERSION)][1]/@title" />
-						<xsl:text> </xsl:text>
-						<xsl:value-of select="document(concat($DIRECTORY, $FILE_DOWN))/website/download[contains(@version, $VERSION)][1]/@version" />
-	 				</a>
+						<div>
+							<xsl:text>Download </xsl:text>
+							<xsl:value-of select="document(concat($DIRECTORY, $FILE_DOWN))/website/download[contains(@version, $VERSION)][1]/@title" />
+							<xsl:text> </xsl:text>
+							<xsl:value-of select="document(concat($DIRECTORY, $FILE_DOWN))/website/download[contains(@version, $VERSION)][1]/@version" />
+	 					</div>
+						<div>
+							<xsl:value-of select="document(concat($DIRECTORY, $FILE_DOWN))/website/download[contains(@version, $VERSION)][1]/@date" />
+						</div>
+					</a>
 				</div>
 			</xsl:if>
 			
 	  		<xsl:apply-templates select="document(concat($DIRECTORY, $FILE_MENU))/website/version[./@value=$VERSION]/menu" />
 	  		
 	  		<br />
-			<div xmlns="http://www.w3.org/1999/xhtml">
+			<div>
 				<a href="http://www.g-truc.net">
 					<img class="menu-img" src="../common/g-truc.jpg" alt="G-Truc Creation"/>
 				</a>
@@ -126,7 +131,7 @@
 	</xsl:template>
 
 	<xsl:template match="link">
-		<a href="{./@href}"><xsl:value-of select="." /></a>
+		<a xmlns="http://www.w3.org/1999/xhtml" href="{./@href}"><xsl:value-of select="." /></a>
 	</xsl:template>
 
 	<xsl:template match="entry">
@@ -221,11 +226,11 @@
   </xsl:template>
 
 	<xsl:template match="paragraph">
-		<p><xsl:text /><xsl:apply-templates /><xsl:text /></p>
+		<p xmlns="http://www.w3.org/1999/xhtml"><xsl:text /><xsl:apply-templates /><xsl:text /></p>
 	</xsl:template>
 
 	<xsl:template match="about-short">
-	  <h2>
+	  <h2 xmlns="http://www.w3.org/1999/xhtml">
 		<xsl:value-of select="." />
 	  </h2>
 	</xsl:template>

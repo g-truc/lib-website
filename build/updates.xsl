@@ -6,36 +6,36 @@
   	<xsl:include href="./util.xsl" />
 
   	<xsl:template match="/">
-    	<html>
-    	<xsl:call-template name="page-head">
-			<xsl:with-param name="Title" select="document(concat($DIRECTORY, $FILE_CNST))/website/constant[./@name='website-title']/@value" />
-		</xsl:call-template>
+    	<html xmlns="http://www.w3.org/1999/xhtml">
+	    	<xsl:call-template name="page-head">
+				<xsl:with-param name="Title" select="document(concat($DIRECTORY, $FILE_CNST))/website/constant[./@name='website-title']/@value" />
+			</xsl:call-template>
 
-      	<body>
-			<div class="root">
-				<div class="version">
-					<div>
-						<xsl:apply-templates select="document(concat($DIRECTORY, $FILE_MENU))/website/tab" />
+    		<body>
+				<div class="root">
+					<div class="version">
+						<div>
+							<xsl:apply-templates select="document(concat($DIRECTORY, $FILE_MENU))/website/tab" />
+						</div>
+						<xsl:apply-templates select="document(concat($DIRECTORY, $FILE_MENU))/website/version" />
 					</div>
-					<xsl:apply-templates select="document(concat($DIRECTORY, $FILE_MENU))/website/version" />
-				</div>
-        	<table>
-          		<tr>
-            		<td class="menu">
-            			<xsl:call-template name="page-menu" />
-            		</td>
-            		<td class="page">
-              			<xsl:apply-templates select="./website/post" />
-            		</td>
-          			</tr>
-        		</table>
-        	</div>
-      	</body>
+        			<table>
+          				<tr>
+            				<td class="menu">
+            					<xsl:call-template name="page-menu" />
+            				</td>
+            				<td class="page">
+              					<xsl:apply-templates select="./website/post" />
+            				</td>
+          				</tr>
+        			</table>
+        		</div>
+      		</body>
 		</html>
 	</xsl:template>
 
 	<xsl:template match="post">
-    	<div>
+    	<div xmlns="http://www.w3.org/1999/xhtml">
 			<h3>
 				<xsl:value-of select="./@date" /><xsl:text> - </xsl:text>
 				<xsl:value-of select="./@title" />
