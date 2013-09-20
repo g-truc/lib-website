@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <website>
-	<post index="0087" date="13/08/2013" std-date="2013-08-13T23:30:00.00Z" title="GLM 0.9.4.5 released">
+	<post index="0088" date="20/09/2013" std-date="2013-08-20T14:00:00.00Z" title="GLM 0.9.4.6 released">
+		<paragraph>
+			New revision of GLM 0.9.4 available thanks to user contributions.
+		</paragraph>
+
+		<list title="Changelog:">
+			<entry>Fixed detection to select the last known compiler if newer version #106</entry>
+			<entry>Fixed is_int and is_uint code duplication with GCC and C++11 #107</entry>
+			<entry>Fixed test suite build while using Clang in C++11 mode</entry>
+			<entry>Added c++1y mode support in CMake test suite</entry>
+			<entry>Added pedantic mode to CMake test suite for Clang and GCC</entry>
+			<entry>Added use of GCC frontend on Unix for ICC and Visual C++ fronted on Windows for ICC</entry>
+			<entry>Added compilation errors for unsupported compiler versions</entry>
+			<entry>Removed ms extension mode to CMake when no using Visual C++</entry>
+			<entry>Fixed glm::orientation with GLM_FORCE_RADIANS defined #112</entry>
+			<entry>Fixed const ref issue on assignment operator taking a scalar parameter #116</entry>
+			<entry>Fixed glm::eulerAngleY implementation</entry>
+		</list>
+
+		<list>
+			<download index="0.9.4.6" />
+			<entry href="https://github.com/g-truc/glm/issues">Submit a bug report</entry>
+			<entry href="../0.9.4/glm-0.9.4.pdf">GLM 0.9.4 Manual</entry>
+			<entry href="../0.9.4/api/index.html">GLM 0.9.4 API</entry>
+		</list>
+	</post>
+  <post index="0087" date="13/08/2013" std-date="2013-08-13T23:30:00.00Z" title="GLM 0.9.4.5 released">
 		<paragraph>
 			GLM 0.9.4.5 is available fixing the following minor issues. This is the occasion to also launch the revised GLM website.
 		</paragraph>
@@ -1560,7 +1586,7 @@
 			<entry>Any conform C++98 or C++11 compiler</entry>
 		</list>
 		<paragraph>
-			For more information about GLM, please have a look at <link href="http://glm.g-truc.net/glm.pdf">the manual</link> and <link href="http://glm.g-truc.net/api/index.html">the API reference documentation</link>.
+			For more information about GLM, please have a look at <link href="http://glm.g-truc.net/0.9.4/glm-0.9.4.pdf">the manual</link> and <link href="http://glm.g-truc.net/0.9.4/api/index.html">the API reference documentation</link>.
 		</paragraph>
 		<paragraph>
 			Thanks for contributing to the project by <link href="https://github.com/g-truc/glm/issues">submitting issues</link> for bug reports and feature requests. 
