@@ -1,7 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <website>
-    <code title="Create a texture with GLI 0.4 and save it to a DDS file:">
+	<code version="0.5" title="Create GLI texture views and copies:">
+		<line><keyword>#include </keyword><string>&lt;gli/gli.hpp&gt;</string></line>
+		<line></line>
+		<line>gli::texture2DArray TextureArray(gli::load_dds("texture.dds"));</line>
+		<line></line>
+		<line>gli::texture2DArray TextureViewA(TextureArray, </line>
+		<line align="32px">TextureArray.baseLayer(), TextureArray.maxLayer(), </line>
+		<line align="32px">TextureArray.baseLevel() + 1, TextureArray.maxLevel());</line>
+		<line></line>
+		<line>gli::texture2D TextureViewB(TextureArray, </line>
+		<line align="32px">TextureArray.baseLayer(), </line>
+		<line align="32px">TextureArray.baseLevel(), TextureArray.maxLevel());</line>
+		<line></line>
+		<line><comment>// Equivalent to the contructor usage</comment></line>
+		<line>gli::texture2D TextureViewC(gli::view(TextureArray, </line>
+		<line align="32px">TextureArray.baseLayer(), </line>
+		<line align="32px">TextureArray.baseLevel(), TextureArray.maxLevel());</line>
+		<line></line>
+		<line><comment>// Allocate a new storage matching the memory size accessible by TextureViewC</comment></line>
+		<line>gli::texture2D TextureCopyC(gli::copy(TextureViewC);</line>
+		<line></line>
+		<line>gli::texture2DArray TextureCopyA(gli::copy(TextureArray, </line>
+		<line align="32px">TextureArray.baseLayer(), TextureArray.maxLayer(), </line>
+		<line align="32px">TextureArray.baseLevel() + 1, TextureArray.maxLevel());</line>
+		<line></line>
+	</code>
+
+	<code version="0.5" title="Loading an OpenGL texture:">	
+		<line><keyword>#include </keyword><string>&lt;gli/gli.hpp&gt;</string></line>
+		<line></line>
+		<line>gli::storage Storage(gli::load_dds("texture.dds"));</line>
+		<line>assert(!Storage.empty())</line>
+		<line></line>
+		<line>GLenum Target = Storage.layers() &gt; 1 ? GL_TEXTURE_2D_ARRAY : GL_TEXTURE_2D;</line>
+		<line></line>
+		<line>glGenTextures(1, &amp;TextureName);</line>
+		<line>glBindTexture(Target, TextureName);</line>
+		<line>glTexParameteri(Target, GL_TEXTURE_BASE_LEVEL, 0);</line>
+		<line>glTexParameteri(Target, GL_TEXTURE_MAX_LEVEL, static_cast&lt;GLint&gt;(Texture.levels() - 1));</line>
+		<line>glTexParameteri(Target, GL_TEXTURE_MIN_FILTER, Texture.levels() &gt; 1 ? GL_LINEAR_MIPMAP_LINEAR : GL_LINEAR);</line>
+		<line>glTexParameteri(Target, GL_TEXTURE_MAG_FILTER, GL_LINEAR);</line>
+		<line></line>
+		<line><keyword>if</keyword>(Storage.layers() &gt; 1)</line>
+		<line>{</line>
+		<line align="32px">gli::texture2DArray Texture(Storage);</line>
+		<line align="32px"></line>
+		<line align="32px">glTexStorage3D(Target, static_cast&lt;GLint&gt;(Texture.levels()),</line>
+		<line align="64px">static_cast&lt;GLenum&gt;(gli::internal_format(Texture.format())),</line>
+		<line align="64px">static_cast&lt;GLsizei&gt;(Texture.dimensions().x), </line>
+		<line align="64px">static_cast&lt;GLsizei&gt;(Texture.dimensions().y),</line> 
+		<line align="64px">static_cast&lt;GLsizei&gt;(Texture.layers()));</line>
+		<line align="32px"></line>
+      	<line align="32px"><keyword>if</keyword>(gli::is_compressed(Texture.format()))</line>
+      	<line align="32px">{</line>
+      	<line align="64px"><keyword>for</keyword>(gli::texture2DArray::size_type Layer = 0; Layer &lt; Texture.layers(); ++Layer)</line>
+		<line align="64px"><keyword>for</keyword>(gli::texture2DArray::size_type Level = 0; Level &lt; Texture.levels(); ++Level)</line>
+		<line align="64px">{</line>
+		<line align="96px">glCompressedTexSubImage3D(Target, </line>
+		<line align="128px">static_cast&lt;GLint&gt;(Level), </line>
+		<line align="128px">0, 0, static_cast&lt;GLint&gt;(Layer), </line>
+		<line align="128px">static_cast&lt;GLsizei&gt;(Texture[Layer][Level].dimensions().x), </line>
+		<line align="128px">static_cast&lt;GLsizei&gt;(Texture[Layer][Level].dimensions().y), </line>
+		<line align="128px">static_cast&lt;GLsizei&gt;(1), </line>
+		<line align="128px">static_cast&lt;GLenum&gt;(gli::external_format(Texture.format())), </line>
+		<line align="128px">static_cast&lt;GLsizei&gt;(Texture[Layer][Level].size()), </line>
+		<line align="128px">Texture[Layer][Level].data()); </line>
+		<line align="64px">}</line>
+      	<line align="32px">}</line>
+      	<line align="32px"><keyword>else</keyword></line>
+      	<line align="32px">{</line>
+		<line align="64px"><keyword>for</keyword>(gli::texture2DArray::size_type Layer = 0; Layer &lt; Texture.layers(); ++Layer)</line>
+		<line align="64px"><keyword>for</keyword>(gli::texture2DArray::size_type Level = 0; Level &lt; Texture.levels(); ++Level)</line>
+		<line align="64px">{</line>
+		<line align="96px">glTexSubImage3D(Target, </line>
+		<line align="128px">static_cast&lt;GLint&gt;(Level), </line>
+		<line align="128px">0, 0, static_cast&lt;GLint&gt;(Layer), </line>
+		<line align="128px">static_cast&lt;GLsizei&gt;(Texture[Layer][Level].dimensions().x), </line>
+		<line align="128px">static_cast&lt;GLsizei&gt;(Texture[Layer][Level].dimensions().y), </line>
+		<line align="128px">static_cast&lt;GLsizei&gt;(1), </line>
+		<line align="128px">static_cast&lt;GLenum&gt;(gli::external_format(Texture.format())), </line>
+		<line align="128px">static_cast&lt;GLenum&gt;(gli::type_format(Texture.format())), </line>
+		<line align="128px">Texture[Layer][Level].data()); </line>
+		<line align="64px">}</line>
+      	<line align="32px">}</line>
+		<line>}</line>
+		<line><keyword>else</keyword></line>
+		<line>{</line>
+		<line align="32px">gli::texture2D Texture(Storage);</line>
+		<line align="32px"></line>
+		<line align="32px">glTexStorage2D(Target, static_cast&lt;GLint&gt;(Texture.levels()),</line>
+		<line align="64px">static_cast&lt;GLenum&gt;(gli::internal_format(Texture.format())),</line>
+		<line align="64px">static_cast&lt;GLsizei&gt;(Texture.dimensions().x), static_cast&lt;GLsizei&gt;(Texture.dimensions().y));</line>
+		<line align="32px"></line>
+      	<line align="32px"><keyword>if</keyword>(gli::is_compressed(Texture.format()))</line>
+      	<line align="32px">{</line>
+		<line align="64px"><keyword>for</keyword>(gli::texture2D::size_type Level = 0; Level &lt; Texture.levels(); ++Level)</line>
+		<line align="64px">{</line>
+		<line align="96px">glCompressedTexSubImage2D(Target, </line>
+		<line align="128px">static_cast&lt;GLint&gt;(Level), 0, 0,</line>
+		<line align="128px">static_cast&lt;GLsizei&gt;(Texture[Level].dimensions().x), </line>
+		<line align="128px">static_cast&lt;GLsizei&gt;(Texture[Level].dimensions().y), </line>
+		<line align="128px">static_cast&lt;GLenum&gt;(gli::external_format(Texture.format())), </line>
+		<line align="128px">static_cast&lt;GLsizei&gt;(Texture[Level].size()), </line>
+		<line align="128px">Texture[Level].data()); </line>
+		<line align="64px">}</line>
+      	<line align="32px">}</line>
+      	<line align="32px"><keyword>else</keyword></line>
+      	<line align="32px">{</line>
+		<line align="64px"><keyword>for</keyword>(gli::texture2D::size_type Level = 0; Level &lt; Texture.levels(); ++Level)</line>
+		<line align="64px">{</line>
+		<line align="96px">glTexSubImage2D(Target, </line>
+		<line align="128px">static_cast&lt;GLint&gt;(Level), 0, 0,</line>
+		<line align="128px">static_cast&lt;GLsizei&gt;(Texture[Level].dimensions().x), </line>
+		<line align="128px">static_cast&lt;GLsizei&gt;(Texture[Level].dimensions().y), </line>
+		<line align="128px">static_cast&lt;GLenum&gt;(gli::external_format(Texture.format())), </line>
+		<line align="128px">static_cast&lt;GLenum&gt;(gli::type_format(Texture.format())), </line>
+		<line align="128px">Texture[Level].data()); </line>
+		<line align="64px">}</line>
+      	<line align="32px">}</line>
+		<line>}</line>
+    </code>	
+
+	<code version="0.5" title="Create a texture with GLI 0.5 and save it to a DDS file:">
+		<line><keyword>#include </keyword><string>&lt;glm/glm.hpp&gt;</string></line>
+		<line><keyword>#include </keyword><string>&lt;gli/gli.hpp&gt;</string></line>
+		<line></line>
+		<line><comment>// Allocated a 32 bits texture with one mipmap level</comment></line>
+		<line>gli::texture2D Texture(3, gli::RGBA8_UNORM, gli::texture2D::dimensions_type(256, 256));</line>
+		<line></line>
+		<line>Texture[0].clear(glm::u8vec4(255,   0, 0, 255)));</line>
+		<line>Texture[1].clear(glm::u8vec4(255, 128, 0, 255)));</line>
+		<line>Texture[2].clear(glm::u8vec4(255, 255, 0, 255)));</line>
+		<line></line>
+		<line>glm::u8vec4 * LinearAddress0 = Texture[0].data&lt;glm::u8vec4&gt;();</line>
+		<line>glm::u8vec4 * LinearAddress1 = Texture[1].data&lt;glm::u8vec4&gt;();</line>
+		<line>glm::u8vec4 * LinearAddress2 = Texture[2].data&lt;glm::u8vec4&gt;();</line>
+		<line>...</line>
+		<line><comment>// Do something</comment></line>
+		<line>...</line>
+		<line>gli::save_dds(Texture, "texture.dds");</line>
+    </code>	
+
+    <code version="0.4" title="Create a texture with GLI 0.4 and save it to a DDS file:">
       <line>
         <keyword>#include </keyword>
         <string>&lt;glm/glm.hpp&gt;</string>
@@ -35,7 +177,7 @@
       </line>
     </code>
 
-    <code title="Create an OpenGL 4.2 texture with GLI 0.4:">
+    <code version="0.4" title="Create an OpenGL 4.2 texture with GLI 0.4:">
       <line>
         <keyword>#include </keyword>
         <string>&lt;gli/gli.hpp&gt;</string>

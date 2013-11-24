@@ -8,7 +8,7 @@
 	<xsl:template match="/">
 		<html xmlns="http://www.w3.org/1999/xhtml">
 			<xsl:call-template name="page-head">
-				<xsl:with-param name="Title" select="document(concat($DIRECTORY, $FILE_CNST))/website/constant[./@name='website-title']/@value + 'code'" />
+				<xsl:with-param name="Title" select="document(concat($DIRECTORY, $FILE_CNST))/website/constant[./@name='website-title']/@value" />
 			</xsl:call-template>
 	  	
 			<body>
@@ -26,7 +26,7 @@
             				</td>
           					<td class="page">
           						<h3><xsl:text>Code samples</xsl:text></h3>
-              					<xsl:apply-templates select="document(concat($DIRECTORY, $FILE_CODE))/website/code" />
+              					<xsl:apply-templates select="document(concat($DIRECTORY, $FILE_CODE))/website/code[contains($VERSION, @version)]" />
           					</td>
         				</tr>
       				</table>
