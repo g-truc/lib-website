@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <website>
-	<code title="Compute a triangle normal:">
+    <code title="Compute a triangle normal:">
       <line>
         <keyword>#include </keyword>
         <string>&lt;glm/glm.hpp&gt;</string>
@@ -380,6 +380,6 @@
       <line>
         }
       </line>
-	</code>
+  </code>
 
 </website>

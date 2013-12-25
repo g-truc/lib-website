@@ -7,12 +7,11 @@
 	<tab name="GLU" href="http://glu.g-truc.net" active="no" /-->
 	
 	<version value="0.5.0">
-    	<menu>
-      		<menu-entry name="Manual" href="../0.5.0/gli-0.5.0.pdf" />
-      		<menu-entry name="API" href="../0.5.0/api/index.html" />
-      		<menu-entry name="Code samples" href="../0.5.0/code.html" />
-      		<menu-entry name="Snapshot" href="https://github.com/g-truc/gli/zipball/0.5.0" />
-    	</menu>
+		<menu>
+			<menu-entry name="API" href="../0.5.0/api/index.html" />
+			<menu-entry name="Code samples" href="../0.5.0/code.html" />
+			<menu-entry name="Snapshot" href="https://github.com/g-truc/gli/archive/0.5.0.zip" />
+		</menu>
 
     	<menu>
       		<menu-entry name="Updates" href="../0.5.0/updates.html" />
@@ -32,7 +31,7 @@
 	<version value="0.4.1">
     	<menu>
       		<menu-entry name="Code samples" href="../0.4.1/code.html" />
-      		<menu-entry name="Snapshot" href="https://github.com/g-truc/gli/zipball/0.4.1" />
+      		<menu-entry name="Snapshot" href="https://github.com/g-truc/gli/archive/0.4.1.zip" />
     	</menu>
 
     	<menu>

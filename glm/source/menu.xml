@@ -6,36 +6,36 @@
 	<!--tab name="GLO" href="http://glo.g-truc.net" active="no" />
 	<tab name="GLU" href="http://glu.g-truc.net" active="no" /-->
 
-	<!--version value="0.9.5">
-    	<menu>
-      		<menu-entry name="Manual" href="../0.9.5/glm-0.9.5.pdf" />
-      		<menu-entry name="API" href="../0.9.5/api/index.html" />
-      		<menu-entry name="Code samples" href="../0.9.5/code.html" />
-      		<menu-entry name="Snapshot" href="https://github.com/g-truc/glm/zipball/0.9.5" />
-    	</menu>
+  <version value="0.9.5">
+    <menu>
+      <menu-entry name="Manual" href="../0.9.5/glm-0.9.5.pdf" />
+      <menu-entry name="API" href="../0.9.5/api/index.html" />
+      <menu-entry name="Code samples" href="../0.9.5/code.html" />
+      <menu-entry name="Snapshot" href="https://github.com/g-truc/glm/archive/0.9.5.zip" />
+    </menu>
 
-    	<menu>
-      		<menu-entry name="Updates" href="../0.9.5/updates.html" />
-      		<menu-entry name="Downloads" href="http://sourceforge.net/projects/ogl-math/files" />
-      		<menu-entry name="Repository" href="https://github.com/g-truc/glm" />
-      		<menu-entry name="Report a bug" href="https://github.com/g-truc/glm/issues" />
-    	</menu>
+    <menu>
+      <menu-entry name="Updates" href="../0.9.5/updates.html" />
+      <menu-entry name="Downloads" href="http://sourceforge.net/projects/ogl-math/files" />
+      <menu-entry name="Repository" href="https://github.com/g-truc/glm" />
+      <menu-entry name="Report a bug" href="https://github.com/g-truc/glm/issues" />
+    </menu>
 
-    	<menu>
-      		<menu-entry name="GLSL Specification" href="http://www.opengl.org/registry/doc/GLSLangSpec.4.30.6.diff.pdf" />
-      		<menu-entry name="GLSL man pages" href="http://www.opengl.org/documentation/glsl" />
-    		<menu-entry name="Forum" href="http://www.opengl.org/discussion_boards/ubbthreads.php?ubb=postlist&amp;Board=10&amp;page=1" />
-			<menu-entry name="Stack Overflow" href="http://stackoverflow.com/search?q=GLM" />
-			<menu-entry name="OpenGL SDK page" href="http://www.opengl.org/sdk/libs/GLM/" />
-		</menu>
-	</version-->
-	
+    <menu>
+      <menu-entry name="GLSL Specification" href="http://www.opengl.org/registry/doc/GLSLangSpec.4.30.6.diff.pdf" />
+      <menu-entry name="GLSL man pages" href="http://www.opengl.org/documentation/glsl" />
+      <menu-entry name="Forum" href="http://www.opengl.org/discussion_boards/ubbthreads.php?ubb=postlist&amp;Board=10&amp;page=1" />
+      <menu-entry name="Stack Overflow" href="http://stackoverflow.com/search?q=GLM" />
+      <menu-entry name="OpenGL SDK page" href="http://www.opengl.org/sdk/libs/GLM/" />
+    </menu>
+  </version>
+
 	<version value="0.9.4">
     	<menu>
       		<menu-entry name="Manual" href="../0.9.4/glm-0.9.4.pdf" />
       		<menu-entry name="API" href="../0.9.4/api/index.html" />
       		<menu-entry name="Code samples" href="../0.9.4/code.html" />
-      		<menu-entry name="Snapshot" href="https://github.com/g-truc/glm/zipball/0.9.4" />
+      		<menu-entry name="Snapshot" href="https://github.com/g-truc/glm/archive/0.9.4.zip" />
     	</menu>
 
     	<menu>
@@ -59,7 +59,7 @@
       		<menu-entry name="Manual" href="../0.9.3/glm-0.9.3.pdf" />
       		<menu-entry name="API" href="../0.9.3/api/index.html" />
       		<menu-entry name="Code samples" href="../0.9.3/code.html" />
-      		<menu-entry name="Snapshot" href="https://github.com/g-truc/glm/zipball/0.9.3" />
+      		<menu-entry name="Snapshot" href="https://github.com/g-truc/glm/archive/0.9.3.zip" />
     	</menu>
 
     	<menu>
@@ -83,7 +83,7 @@
       		<menu-entry name="Manual" href="../0.9.2/glm-0.9.2.pdf" />
       		<menu-entry name="API" href="../0.9.2/api/index.html" />
       		<menu-entry name="Code samples" href="../0.9.2/code.html" />
-      		<menu-entry name="Snapshot" href="https://github.com/g-truc/glm/zipball/0.9.2" />
+      		<menu-entry name="Snapshot" href="https://github.com/g-truc/glm/archive/0.9.2.zip" />
     	</menu>
 
     	<menu>
@@ -107,7 +107,7 @@
       		<menu-entry name="Manual" href="../0.9.1/glm-0.9.1.pdf" />
       		<menu-entry name="API" href="../0.9.1/api/index.html" />
       		<menu-entry name="Code samples" href="../0.9.1/code.html" />
-      		<menu-entry name="Snapshot" href="https://github.com/g-truc/glm/zipball/0.9.1" />
+      		<menu-entry name="Snapshot" href="https://github.com/g-truc/glm/archive/0.9.1.zip" />
     	</menu>
 
     	<menu>
@@ -127,26 +127,26 @@
 	</version>
 	
 	<version value="0.9.0">
-    	<menu>
-      		<menu-entry name="Manual" href="../0.9.0/glm-0.9.0.pdf" />
-      		<menu-entry name="API" href="../0.9.0/api/index.html" />
-      		<menu-entry name="Code samples" href="../0.9.0/code.html" />
-      		<menu-entry name="Snapshot" href="https://github.com/g-truc/glm/zipball/0.9.0" />
-    	</menu>
+    <menu>
+      <menu-entry name="Manual" href="../0.9.0/glm-0.9.0.pdf" />
+      <menu-entry name="API" href="../0.9.0/api/index.html" />
+      <menu-entry name="Code samples" href="../0.9.0/code.html" />
+      <menu-entry name="Snapshot" href="https://github.com/g-truc/glm/archive/0.9.0.zip" />
+    </menu>
 
-    	<menu>
-    		<menu-entry name="Updates" href="../0.9.0/updates.html" />
-      		<menu-entry name="Downloads" href="http://sourceforge.net/projects/ogl-math/files" />
-      		<menu-entry name="Repository" href="https://github.com/g-truc/glm" />
-      		<menu-entry name="Report a bug" href="https://github.com/g-truc/glm/issues" />
-    	</menu>
+    <menu>
+      <menu-entry name="Updates" href="../0.9.0/updates.html" />
+      <menu-entry name="Downloads" href="http://sourceforge.net/projects/ogl-math/files" />
+      <menu-entry name="Repository" href="https://github.com/g-truc/glm" />
+      <menu-entry name="Report a bug" href="https://github.com/g-truc/glm/issues" />
+    </menu>
 
-    	<menu>
-      		<menu-entry name="GLSL Specification" href="http://www.opengl.org/registry/doc/GLSLangSpec.4.30.6.diff.pdf" />
-      		<menu-entry name="GLSL man pages" href="http://www.opengl.org/documentation/glsl" />
-    		<menu-entry name="Forum" href="http://www.opengl.org/discussion_boards/ubbthreads.php?ubb=postlist&amp;Board=10&amp;page=1" />
-			<menu-entry name="Stack Overflow" href="http://stackoverflow.com/search?q=GLM" />
-			<menu-entry name="OpenGL SDK page" href="http://www.opengl.org/sdk/libs/GLM/" />
-		</menu>
+    <menu>
+      <menu-entry name="GLSL Specification" href="http://www.opengl.org/registry/doc/GLSLangSpec.4.30.6.diff.pdf" />
+      <menu-entry name="GLSL man pages" href="http://www.opengl.org/documentation/glsl" />
+      <menu-entry name="Forum" href="http://www.opengl.org/discussion_boards/ubbthreads.php?ubb=postlist&amp;Board=10&amp;page=1" />
+      <menu-entry name="Stack Overflow" href="http://stackoverflow.com/search?q=GLM" />
+      <menu-entry name="OpenGL SDK page" href="http://www.opengl.org/sdk/libs/GLM/" />
+    </menu>
 	</version>
 </website>

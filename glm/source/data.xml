@@ -1562,7 +1562,7 @@
 	<about-long>
 		<paragraph>
 			OpenGL Mathematics (GLM) is a header only C++ mathematics library for graphics software 
-			based on the <link href="http://www.opengl.org/documentation/glsl/">OpenGL Shading Language (GLSL)</link> specification and released under the <link href="./copying.txt">MIT license</link>.
+			based on the <link href="http://www.opengl.org/documentation/glsl/">OpenGL Shading Language (GLSL)</link> specification and released under the <link href="../copying.txt">MIT license</link>.
 		</paragraph>
 		<paragraph>
 			This library provides classes and functions designed and implemented following as strictly as possible the GLSL conventions 
