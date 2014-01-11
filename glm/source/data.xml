@@ -1,7 +1,160 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <website>
-	<post index="0088" date="20/09/2013" std-date="2013-08-20T14:00:00.00Z" title="GLM 0.9.4.6 released">
+  <post index="0090" date="25/12/2013" std-date="2013-12-25T23:30:00.00Z" title="GLM 0.9.5.1 released">
+    <paragraph>
+      One of the annoying aspect of GLM is that sometime angles are expressed in degrees and sometime angles are expressed in radians.
+      Angles expressed in radians are features coming from GLSL where all the angles are expressed in radians and angles expressed in degrees are features coming from OpenGL compatibility profile.
+    </paragraph>
+    <paragraph>
+      GLM provides the define <codeword>GLM_FORCE_RADIANS</codeword> to enfore all the angles to be radians. GLM 0.9.5 deprecates degrees so that in GLM 0.9.6 those will be removed.
+      Starting with GLM 0.9.5.1, warnings will be prompt for each instance of usage degrees. This is designed to help transitioning user code.
+      Defining <codeword>GLM_FORCE_RADIANS</codeword> will quiet these messages.
+    </paragraph>
+
+    <code title="Transitioning degrees to radians:">
+      <line>
+        <keyword>#define </keyword> GLM_FORCE_RADIANS
+      </line>
+      <line>
+        <keyword>#include </keyword>
+        <string>&lt;glm/gtc/matrix_tansform.hpp&gt;</string>
+      </line>
+      <line>
+        <keyword>#include </keyword>
+        <string>&lt;glm/gtc/constants.hpp&gt;</string>
+      </line>
+      <line>
+
+      </line>
+      <line>
+        <keyword>void</keyword> transitioning_to_radians()
+      </line>
+      <line>
+        {
+      </line>
+      <line align="32px">
+        ...
+      </line>
+      <line align="32px">
+        glm::mat4 m1 = glm::rotate(glm::mat4(1.f), glm::radians(45.0f), glm::vec3(0.0, 0.0, 1.0));
+      </line>
+      <line align="32px">
+        glm::mat4 m2 = glm::rotate(glm::mat4(1.f), glm::pi&lt;float&gt;() * 0.25f, glm::vec3(0.0, 0.0, 1.0));
+      </line>
+      <line align="32px">
+        ...
+      </line>
+      <line>
+        }
+      </line>
+    </code>
+    <paragraph>
+      GLM 0.9.5.1 is also fixing multiple bugs essentially related to the new approach allowing to include each feature individually.
+    </paragraph>
+    
+    <list title="Changelog:">
+      <entry>Fixed angle and orientedAngle that sometimes return NaN values (#145)</entry>
+      <entry>Deprecated degrees for function parameters and display a message</entry>
+      <entry>Added possible static_cast conversion of GLM types (#72)</entry>
+      <entry>Fixed error 'inverse' is not a member of 'glm' from glm::unProject (#146)</entry>
+      <entry>Fixed mismatch between some declarations and definitions</entry>
+      <entry>Fixed inverse link error when using namespace glm; (#147)</entry>
+      <entry>Optimized matrix inverse and division code (#149)</entry>
+      <entry>Added intersectRayPlane function (#153)</entry>
+      <entry>Fixed outerProduct return type (#155)</entry>
+    </list>
+    
+    <list>
+      <download index="0.9.5.1" />
+      <entry href="https://github.com/g-truc/glm/issues">Submit a bug report</entry>
+      <entry href="../0.9.5/glm-0.9.5.pdf">GLM 0.9.5 Manual</entry>
+      <entry href="../0.9.5/api/index.html">GLM 0.9.5 API</entry>
+    </list>
+  </post>
+  
+  <post index="0089" date="25/12/2013" std-date="2013-12-25T23:30:00.00Z" title="GLM 0.9.5.0 released">
+    <paragraph>
+      GLM 0.9.5 broke compatibility with GLM 0.9.4 to bring multiple improvements on multiple fronts: compilation time, generated code performances and usage reliability.
+    </paragraph>
+    <paragraph>
+      First, in previous version GLM switched from including &lt;glm/ext.hpp&gt; to include individual extensions. 
+      Just like we can still use &lt;glm/ext.hpp&gt; for global inclusion, with GLM 0.9.5 we can use individual headers to include only the features we need. For example: 
+      &lt;glm/vec3.hpp&gt; for glm::vec3, &lt;glm/mat4x4.hpp&gt; for glm::mat4 or &lt;glm/geometry.hpp&gt; for all the version of the geometry section of the GLSL specifications.
+    </paragraph>
+    <paragraph>
+      Futhermore, GLM has a new forward declaration header &lt;glm/fwd.hpp&gt; to help reducing dependecies to GLM code.
+    </paragraph>
+    <paragraph>
+      As a result and for experimentation, <link href="https://github.com/g-truc/ovtsa">a simple raytracer</link> can be compile in less than half the time with GLM 0.9.5 than GLM 0.9.4.
+    </paragraph>
+
+    <paragraph>
+      Second, the definition of the precision qualifier (lowp, mediump and highp) has changed and now express computation precision in term of ULPs.
+      As a conscequence for example sizeof(glm::lowp_vec2), sizeof(glm::mediump_vec2) and sizeof(glm::highp_vec2) return the same values.
+      However, the effective computation can be different. For example, the implementation of inversesqrt uses
+      <link href="https://en.wikipedia.org/wiki/Fast_inverse_square_root">fast inverse square root</link> for lowp.
+    </paragraph>
+
+    <paragraph>
+      Finally, some efforts have be put into increasing reliability with a larger coverage of assert and static_assert to give more informative compiler error messages.
+      Also, all the half based type have been deleted. 
+      These types could be used just like any float of double types but such usage were bad usages requiring a lot of conversions from half to float and float to half, hence very slow performances.
+      Instead, GLM 0.9.5 provides a extensive set of packing and unpacking functions (glm/gtc/packing.hpp) so that we have to perform arithmetics in float and when it's done we pack it in half data.
+    </paragraph>
+
+    <paragraph>
+      For more details, see the changelog following, enjoy!
+    </paragraph>
+
+    <list title="Changelog:">
+      <entry>Added forward declarations (glm/fwd.hpp) for faster compilations</entry>
+      <entry>Added per feature headers</entry>
+      <entry>Minimized GLM internal dependencies</entry>
+      <entry>Improved Intel Compiler detection</entry>
+      <entry>Added bitfieldInterleave and _mm_bit_interleave_si128 functions</entry>
+      <entry>Added GTX_scalar_relational</entry>
+      <entry>Added GTX_dual_quaternion</entry>
+      <entry>Added rotation function to GTX_quaternion (#22)</entry>
+      <entry>Added precision variation of each type</entry>
+      <entry>Added quaternion comparison functions</entry>
+      <entry>Fixed GTX_multiple for negative value</entry>
+      <entry>Removed GTX_ocl_type extension</entry>
+      <entry>Fixed post increment and decrement operators</entry>
+      <entry>Fixed perspective with zNear == 0 (#71)</entry>
+      <entry>Removed l-value swizzle operators</entry>
+      <entry>Cleaned up compiler detection code for unsupported compilers</entry>
+      <entry>Replaced C cast by C++ casts</entry>
+      <entry>Fixed .length() that should return a int and not a size_t</entry>
+      <entry>Added GLM_FORCE_SIZE_T_LENGTH and glm::length_t</entry>
+      <entry>Removed unnecessary conversions</entry>
+      <entry>Optimized packing and unpacking functions</entry>
+      <entry>Removed the normalization of the up argument of lookAt function (#114)</entry>
+      <entry>Added low precision specializations of inversesqrt</entry>
+      <entry>Fixed ldexp and frexp implementations</entry>
+      <entry>Increased assert coverage</entry>
+      <entry>Increased static_assert coverage</entry>
+      <entry>Replaced GLM traits by STL traits when possible</entry>
+      <entry>Allowed including individual core feature</entry>
+      <entry>Increased unit tests completness</entry>
+      <entry>Added creating of a quaternion from two vectors</entry>
+      <entry>Added C++11 initializer lists</entry>
+      <entry>Fixed umulExtended and imulExtended implementations for vector types (#76)</entry>
+      <entry>Fixed CUDA coverage for GTC extensions</entry>
+      <entry>Added GTX_io extension</entry>
+      <entry>Improved GLM messages enabled when defining GLM_MESSAGES</entry>
+      <entry>Hidden matrix _inverse function implementation detail into private section</entry>
+    </list>
+
+    <list>
+      <download index="0.9.5.0" />
+      <entry href="https://github.com/g-truc/glm/issues">Submit a bug report</entry>
+      <entry href="../0.9.5/glm-0.9.5.pdf">GLM 0.9.5 Manual</entry>
+      <entry href="../0.9.5/api/index.html">GLM 0.9.5 API</entry>
+    </list>
+  </post>
+
+  <post index="0088" date="20/09/2013" std-date="2013-08-20T14:00:00.00Z" title="GLM 0.9.4.6 released">
 		<paragraph>
 			New revision of GLM 0.9.4 available thanks to user contributions.
 		</paragraph>

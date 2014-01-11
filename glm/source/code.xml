@@ -1,10 +1,367 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <website>
-    <code title="Compute a triangle normal:">
+  <code version="0.9.5" title="Compute a triangle normal:">
+    <line>
+      <keyword>#include </keyword><string>&lt;glm/vec3.hpp&gt;</string><comment>// glm::vec3</comment>
+    </line>
+    <line>
+      <keyword>#include </keyword><string>&lt;glm/geometry.hpp&gt;</string><comment>// glm::cross, glm::normalize</comment>
+    </line>
+    <line>
+
+    </line>
+    <line>
+      <keyword>void </keyword> computeNormal(triangle &amp; Triangle)
+    </line>
+    <line>
+      {
+    </line>
+    <line align="32px">
+      glm::<userword>vec3 </userword><keyword>const </keyword> &amp; a = Triangle.Position[0];
+    </line>
+    <line align="32px">
+      glm::<userword>vec3 </userword><keyword>const </keyword> &amp; b = Triangle.Position[1];
+    </line>
+    <line align="32px">
+      glm::<userword>vec3 </userword><keyword>const </keyword> &amp; c = Triangle.Position[2];
+    </line>
+    <line align="32px">
+      Triangle.Normal = glm::normalize(glm::cross(c - a, b - a));
+    </line>
+    <line>
+      }
+    </line>
+  </code>
+
+  <code version="0.9.5" title="Matrix transform:">
+    <line>
+      <keyword>#include </keyword><string>&lt;glm/vec3.hpp&gt; </string><comment>// glm::vec3</comment>
+    </line>
+    <line>
+      <keyword>#include </keyword><string>&lt;glm/vec4.hpp&gt; </string><comment>// glm::vec4, glm::ivec4</comment>
+    </line>
+    <line>
+      <keyword>#include </keyword><string>&lt;glm/mat4x4.hpp&gt; </string><comment>// glm::mat4</comment>
+    </line>
+    <line>
+      <keyword>#include </keyword><string>&lt;glm/gtc/matrix_transform.hpp&gt; </string><comment>// glm::translate, glm::rotate, glm::scale, glm::perspective</comment>
+    </line>
+    <line>
+      <keyword>#include </keyword><string>&lt;glm/gtc/type_ptr.hpp&gt; </string><comment>// glm::value_ptr</comment>
+    </line>
+    <line>
+
+    </line>
+    <line>
+      <keyword>void</keyword> func(GLuint LocationMVP)
+    </line>
+    <line>
+      {
+    </line>
+
+    <line align="32px">
+      glm::<userword>mat4</userword> Projection = glm::perspective(45.0f, 4.0f / 3.0f, 0.1f, 100.f);
+    </line>
+    <line align="32px">
+      glm::<userword>mat4</userword> ViewTranslate = glm::translate(glm::<userword>mat4</userword>(1.0f), glm::<userword>vec3</userword>(0.0f, 0.0f, -Translate));
+    </line>
+    <line align="32px">
+      glm::<userword>mat4</userword> ViewRotateX = glm::rotate(ViewTranslate, Rotate.y, glm::<userword>vec3</userword>(-1.0f, 0.0f, 0.0f));
+    </line>
+    <line align="32px">
+      glm::<userword>mat4</userword> View = glm::rotate(ViewRotateX, Rotate.x, glm::<userword>vec3</userword>(0.0f, 1.0f, 0.0f));
+    </line>
+    <line align="32px">
+      glm::<userword>mat4</userword> Model = glm::scale(glm::<userword>mat4</userword>(1.0f), glm::<userword>vec3</userword>(0.5f));
+    </line>
+    <line align="32px">
+      glm::<userword>mat4</userword> MVP = Projection * View * Model;
+    </line>
+    <line>
+
+    </line>
+    <line align="32px">
+      glUniformMatrix4fv(LocationMVP, 1, GL_FALSE, glm::value_ptr(MVP));
+    </line>
+    <line>
+      }
+    </line>
+  </code>
+
+  <code version="0.9.5" title="Vector types:">
+    <line>
+      <keyword>#include </keyword><string>&lt;glm/vec2.hpp&gt;</string><comment>// glm::vec2</comment>
+    </line>
+    <line>
+      <keyword>#include </keyword><string>&lt;glm/packing.hpp&gt;</string><comment>// glm::packUnorm2x16</comment>
+    </line>
+    <line>
+      <keyword>#include </keyword><string>&lt;glm/integer.hpp&gt;</string><comment>// glm::uint</comment>
+    </line>
+    <line>
+      <keyword>#include </keyword><string>&lt;glm/gtc/type_precision.hpp&gt;</string><comment>// glm::i8vec2, glm::i32vec2</comment>
+    </line>
+    <line>
+
+    </line>
+    <line>
+      std::size_t <keyword>const </keyword>VertexCount = 4;
+    </line>
+    <line>
+
+    </line>
+    <line>
+      <comment>// Float quad geometry</comment>
+    </line>
+    <line>
+      std::size_t <keyword>const </keyword>PositionSizeF32 = VertexCount * <keyword>sizeof</keyword>(glm::<userword>vec2</userword>);
+    </line>
+    <line>
+      glm::<userword>vec2 </userword><keyword>const </keyword>PositionDataF32[VertexCount] =
+    </line>
+    <line>
+      {
+    </line>
+    <line align="32px">
+      glm::<userword>vec2</userword>(-1.0f,-1.0f),
+    </line>
+    <line align="32px">
+      glm::<userword>vec2</userword>( 1.0f,-1.0f),
+    </line>
+    <line align="32px">
+      glm::<userword>vec2</userword>( 1.0f, 1.0f),
+    </line>
+    <line align="32px">
+      glm::<userword>vec2</userword>(-1.0f, 1.0f)
+    </line>
+    <line>
+      };
+    </line>
+    <line>
+
+    </line>
+    <line>
+      <comment>// Half-float quad geometry</comment>
+    </line>
+    <line>
+      std::size_t <keyword>const </keyword>PositionSizeF16 = VertexCount * <keyword>sizeof</keyword>(glm::<userword>uint</userword>);
+    </line>
+    <line>
+      glm::<userword>uint </userword><keyword>const </keyword>PositionDataF16[VertexCount] =
+    </line>
+    <line>
+      {
+    </line>
+    <line align="32px">
+      glm::<userword>uint</userword>(glm::packUnorm2x16(-1.0f, -1.0f)),
+    </line>
+    <line align="32px">
+      glm::<userword>uint</userword>(glm::packUnorm2x16( 1.0f, -1.0f)),
+    </line>
+    <line align="32px">
+      glm::<userword>uint</userword>(glm::packUnorm2x16( 1.0f,  1.0f)),
+    </line>
+    <line align="32px">
+      glm::<userword>uint</userword>(glm::packUnorm2x16(-1.0f,  1.0f))
+    </line>
+    <line>
+      };
+    </line>
+    <line>
+
+    </line>
+    <line>
+      <comment>// 8 bits signed integer quad geometry</comment>
+    </line>
+    <line>
+      std::size_t <keyword>const </keyword>PositionSizeI8 = VertexCount * <keyword>sizeof</keyword>(glm::<userword>i8vec2</userword>);
+    </line>
+    <line>
+      glm::<userword>i8vec2 </userword><keyword>const </keyword> PositionDataI8[VertexCount] =
+    </line>
+    <line>
+      {
+    </line>
+    <line align="32px">
+      glm::<userword>i8vec2</userword>(-1,-1),
+    </line>
+    <line align="32px">
+      glm::<userword>i8vec2</userword>( 1,-1),
+    </line>
+    <line align="32px">
+      glm::<userword>i8vec2</userword>( 1, 1),
+    </line>
+    <line align="32px">
+      glm::<userword>i8vec2</userword>(-1, 1)
+    </line>
+    <line>
+      };
+    </line>
+    <line>
+
+    </line>
+    <line>
+      <comment>// 32 bits signed integer quad geometry</comment>
+    </line>
+    <line>
+      std::size_t <keyword>const </keyword>PositionSizeI32 = VertexCount * <keyword>sizeof</keyword>(glm::<userword>i32vec2</userword>);
+    </line>
+    <line>
+      glm::<userword>i32vec2 </userword><keyword>const </keyword>PositionDataI32[VertexCount] =
+    </line>
+    <line>
+      {
+    </line>
+    <line align="32px">
+      glm::<userword>i32vec2 </userword>(-1,-1),
+    </line>
+    <line align="32px">
+      glm::<userword>i32vec2 </userword>( 1,-1),
+    </line>
+    <line align="32px">
+      glm::<userword>i32vec2 </userword>( 1, 1),
+    </line>
+    <line align="32px">
+      glm::<userword>i32vec2 </userword>(-1, 1)
+    </line>
+    <line>
+      };
+    </line>
+  </code>
+
+  <code version="0.9.5" title="Lighting:">
+    <line>
+      <keyword>#include </keyword><string>&lt;glm/vec3.hpp&gt;</string><comment>// glm::vec3</comment>
+    </line>
+    <line>
+      <keyword>#include </keyword><string>&lt;glm/geometry.hpp&gt;</string><comment>// glm::normalize, glm::dot, glm::reflect</comment>
+    </line>
+    <line>
+      <keyword>#include </keyword><string>&lt;glm/exponential.hpp&gt;</string><comment>// glm::pow</comment>
+    </line>
+    <line>
+      <keyword>#include </keyword><string>&lt;glm/gtc/random.hpp&gt;</string><comment>// glm::vecRand3</comment>
+    </line>
+    <line>
+
+    </line>
+    <line>
+      glm::<userword>vec3 </userword> lighting
+    </line>
+    <line>
+      (
+    </line>
+    <line align="32px">
+      intersection<keyword> const </keyword>&amp; Intersection,
+    </line>
+    <line align="32px">
+      material<keyword> const </keyword>&amp; Material,
+    </line>
+    <line align="32px">
+      light<keyword> const </keyword>&amp; Light,
+    </line>
+    <line align="32px">
+      glm::<userword>vec3 </userword>const &amp; View
+    </line>
+    <line>
+      )
+    </line>
+    <line>
+      {
+    </line>
+    <line align="32px">
+      glm::<userword>vec3 </userword> Color(0.0f);
+    </line>
+    <line>
+
+    </line>
+    <line align="32px">
+      glm::<userword>vec3 </userword>LightVertor(glm::normalize(
+    </line>
+    <line align="64px">
+      Light.position() - Intersection.globalPosition() +
+    </line>
+    <line align="64px">
+      glm::vecRand3(0.0f, Light.inaccuracy()));
+    </line>
+    <line>
+
+    </line>
+    <line align="32px">
+      <keyword>if</keyword>(!shadow(Intersection.globalPosition(), Light.position(), LightVertor))
+    </line>
+    <line align="32px">
+      {
+    </line>
+    <line align="64px">
+      <keyword>float</keyword> Diffuse = glm::dot(Intersection.normal(), LightVector);
+    </line>
+    <line align="64px">
+
+    </line>
+    <line align="64px">
+      <keyword>if</keyword>(Diffuse &lt;= 0.0f)
+    </line>
+    <line align="96px">
+      <keyword>return</keyword> Color;
+    </line>
+    <line align="64px">
+      <keyword>if</keyword>(Material.isDiffuse())
+    </line>
+    <line align="96px">
+      Color += Light.color() * Material.diffuse() * Diffuse;
+    </line>
+    <line align="64px">
+
+    </line>
+    <line align="64px">
+      <keyword>if</keyword>(Material.isSpecular())
+    </line>
+    <line align="64px">
+      {
+    </line>
+    <line align="96px">
+      glm::<userword>vec3 </userword>Reflect(glm::reflect(
+    </line>
+    <line align="128px">
+      glm::normalize(-LightVector),
+    </line>
+    <line align="128px">
+      glm::normalize(Intersection.normal())));
+    </line>
+    <line align="96px">
+      <keyword>float</keyword> Dot = glm::dot(Reflect, View);
+    </line>
+    <line align="96px">
+      <keyword>float</keyword> Base = Dot > 0.0f ? Dot : 0.0f;
+    </line>
+    <line align="96px">
+      <keyword>float</keyword> Specular = glm::pow(Base, Material.exponent());
+    </line>
+    <line align="96px">
+      Color += Material.specular() * Specular;
+    </line>
+    <line align="64px">
+      }
+    </line>
+    <line align="32px">
+      }
+    </line>
+    <line>
+
+    </line>
+    <line align="32px">
+      <keyword>return</keyword> Color;
+    </line>
+    <line>
+      }
+    </line>
+  </code>
+
+  <code version="0.9.4" title="Compute a triangle normal:">
       <line>
-        <keyword>#include </keyword>
-        <string>&lt;glm/glm.hpp&gt;</string>
+        <keyword>#include </keyword><string>&lt;glm/glm.hpp&gt;</string>
       </line>
       <line>
 
@@ -32,7 +389,7 @@
       </line>
     </code>
 
-    <code title="Matrix transform:">
+    <code version="0.9.4" title="Matrix transform:">
       <line>
         <comment>// glm::vec3, glm::vec4, glm::ivec4, glm::mat4</comment>
       </line>
@@ -120,7 +477,7 @@
       </line>
     </code>
 
-    <code title="Vector types:">
+    <code version="0.9.4" title="Vector types:">
       <line>
         <keyword>#include </keyword>
         <string>&lt;glm/glm.hpp&gt;</string>
@@ -257,7 +614,7 @@
       </line>
     </code>
 
-    <code title="Lighting:">
+    <code version="0.9.4" title="Lighting:">
       <line>
         <keyword>#include </keyword>
         <string>&lt;glm/glm.hpp&gt;</string>
