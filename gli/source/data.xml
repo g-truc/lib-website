@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <website>
+	<post index="0003" date="18/01/2014" std-date="2014-01-18T23:30:00.00Z" title="GLI 0.5.1.0 released">
+		<list title="Changelog:">
+			<entry>Added flip function</entry>
+			<entry>Added level_count function</entry>
+			<entry>Fixed interaction with std::map (#33)</entry>
+			<entry>Added texelFetch and texelWrite functions</entry>
+		</list>
+
+		<list>
+			<download index="0.5.1.0" />
+			<entry href="https://github.com/g-truc/gli/issues">Submit a bug report</entry>
+			<entry href="../0.5.1/api/index.html">GLI 0.5.1 API</entry>
+		</list>
+	</post>
+
 	<post index="0002" date="23/11/2013" std-date="2013-11-23T23:30:00.00Z" title="GLI 0.5.0.0 released">
 		<list title="Changelog:">
 			<entry>Essencially a rewrite of the library</entry>
