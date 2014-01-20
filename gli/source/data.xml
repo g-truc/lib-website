@@ -1,67 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <website>
-	<post index="0003" date="18/01/2014" std-date="2014-01-18T23:30:00.00Z" title="GLI 0.5.1.0 released">
-		<list title="Changelog:">
-			<entry>Added flip function</entry>
-			<entry>Added level_count function</entry>
-			<entry>Fixed interaction with std::map (#33)</entry>
-			<entry>Added texelFetch and texelWrite functions</entry>
-		</list>
+  <post index="0003" date="20/01/2014" std-date="2014-01-20T23:30:00.00Z" title="GLI 0.5.1.1 released">
+    <paragraph>
+      Tested with Visual C++, GCC, Clang and ICC.
+    </paragraph>
+    <list title="Changelog:">
+      <entry>Fixed swizzled RGB channel when reading back a DDS</entry>
+      <entry>Fixed getMask* link errors</entry>
+    </list>
 
-		<list>
-			<download index="0.5.1.0" />
-			<entry href="https://github.com/g-truc/gli/issues">Submit a bug report</entry>
-			<entry href="../0.5.1/api/index.html">GLI 0.5.1 API</entry>
-		</list>
-	</post>
+    <list>
+      <download index="0.5.1.1" />
+      <entry href="https://github.com/g-truc/gli/issues">Submit a bug report</entry>
+      <entry href="../0.5.1/api/index.html">GLI 0.5.1 API</entry>
+    </list>
+  </post>
 
-	<post index="0002" date="23/11/2013" std-date="2013-11-23T23:30:00.00Z" title="GLI 0.5.0.0 released">
-		<list title="Changelog:">
-			<entry>Essencially a rewrite of the library</entry>
-			<entry>Added explicit copies</entry>
-			<entry>Added single memory allocation per texture storage</entry>
-			<entry>Added texture views</entry>
-			<entry>Added texture copies</entry>
-			<entry>Added comparison operators</entry>
-			<entry>Added clear</entry>
-		</list>
+  <post index="0003" date="18/01/2014" std-date="2014-01-18T23:30:00.00Z" title="GLI 0.5.1.0 released">
+    <list title="Changelog:">
+      <entry>Added flip function</entry>
+      <entry>Added level_count function</entry>
+      <entry>Fixed interaction with std::map (#33)</entry>
+      <entry>Added texelFetch and texelWrite functions</entry>
+    </list>
 
-		<list>
-			<download index="0.5.0.0" />
-			<entry href="https://github.com/g-truc/gli/issues">Submit a bug report</entry>
-			<entry href="../0.5.0/api/index.html">GLI 0.5.0 API</entry>
-		</list>
-	</post>
+    <list>
+      <download index="0.5.1.0" />
+      <entry href="https://github.com/g-truc/gli/issues">Submit a bug report</entry>
+      <entry href="../0.5.1/api/index.html">GLI 0.5.1 API</entry>
+    </list>
+  </post>
 
-	<post index="0001" date="10/07/2013" std-date="2013-07-10T23:30:00.00Z" title="GLI website available">
-		<paragraph>
-			Welcome on GLI website where new releases will be published and documentation will be provided.
-		</paragraph>
+  <post index="0002" date="23/11/2013" std-date="2013-11-23T23:30:00.00Z" title="GLI 0.5.0.0 released">
+    <list title="Changelog:">
+      <entry>Essencially a rewrite of the library</entry>
+      <entry>Added explicit copies</entry>
+      <entry>Added single memory allocation per texture storage</entry>
+      <entry>Added texture views</entry>
+      <entry>Added texture copies</entry>
+      <entry>Added comparison operators</entry>
+      <entry>Added clear</entry>
+    </list>
 
-		<list>
-			<download index="0.4.1.0" />
-			<entry href="https://github.com/g-truc/gli/issues">Submit a bug report</entry>
-		</list>
-	</post>
+    <list>
+      <download index="0.5.0.0" />
+      <entry href="https://github.com/g-truc/gli/issues">Submit a bug report</entry>
+      <entry href="../0.5.0/api/index.html">GLI 0.5.0 API</entry>
+    </list>
+  </post>
 
-	<about-long>
-		<paragraph>
-			OpenGL Image (GLI) is a header only C++ image library for graphics software 
-			based on the <link href="http://www.opengl.org/documentation/glsl/">OpenGL Shading Language (GLSL)</link> specification and released under the <link href="../copying.txt">MIT license</link>.
-		</paragraph>
-		<paragraph>
-			For more information about GLI, please have a look at <link href="http://gli.g-truc.net/gli.pdf">the manual</link> and <link href="../0.5.0/api/index.html">the API reference documentation</link>.
-		</paragraph>
-		<paragraph>
-			Thanks for contributing to the project by <link href="https://github.com/g-truc/gli/issues">submitting issues</link> for bug reports and feature requests. Any feedback is welcome at <link href="mailto://gli@g-truc.net">gli@g-truc.net</link>.
-		</paragraph>
-	</about-long>
+  <post index="0001" date="10/07/2013" std-date="2013-07-10T23:30:00.00Z" title="GLI website available">
+    <paragraph>
+      Welcome on GLI website where new releases will be published and documentation will be provided.
+    </paragraph>
 
-	<about-short>
-		Effective texture loading, access and processing.
-	</about-short>
-	<about-short>
-		A C++ image library based on OpenGL conventions
-	</about-short>
+    <list>
+      <download index="0.4.1.0" />
+      <entry href="https://github.com/g-truc/gli/issues">Submit a bug report</entry>
+    </list>
+  </post>
+
+  <about-long>
+    <paragraph>
+      OpenGL Image (GLI) is a header only C++ image library for graphics software
+      based on the <link href="http://www.opengl.org/documentation/glsl/">OpenGL Shading Language (GLSL)</link> specification and released under the <link href="../copying.txt">MIT license</link>.
+    </paragraph>
+    <paragraph>
+      For more information about GLI, please have a look at <link href="http://gli.g-truc.net/gli.pdf">the manual</link> and <link href="../0.5.0/api/index.html">the API reference documentation</link>.
+    </paragraph>
+    <paragraph>
+      Thanks for contributing to the project by <link href="https://github.com/g-truc/gli/issues">submitting issues</link> for bug reports and feature requests. Any feedback is welcome at <link href="mailto://gli@g-truc.net">gli@g-truc.net</link>.
+    </paragraph>
+  </about-long>
+
+  <about-short>
+    Effective texture loading, access and processing.
+  </about-short>
+  <about-short>
+    A C++ image library based on OpenGL conventions
+  </about-short>
 </website>

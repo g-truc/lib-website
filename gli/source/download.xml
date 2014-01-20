@@ -1,6 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 
 <website>
+  <download date="20/01/2014" title="GLI" version="0.5.1.1">
+    <item href="https://sourceforge.net/projects/ogl-image/files/gli-0.5.1.1/gli-0.5.1.1.zip/download" type="ZIP" size="5.9 MB" />
+    <item href="https://sourceforge.net/projects/ogl-image/files/gli-0.5.1.1/gli-0.5.1.1.7z/download" type="7Z" size="3.4 MB" />
+  </download>
   <download date="18/01/2014" title="GLI" version="0.5.1.0">
     <item href="https://sourceforge.net/projects/ogl-image/files/gli-0.5.1.0/gli-0.5.1.0.zip/download" type="ZIP" size="6.0 MB" />
     <item href="https://sourceforge.net/projects/ogl-image/files/gli-0.5.1.0/gli-0.5.1.0.7z/download" type="7Z" size="3.4 MB" />
