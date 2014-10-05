@@ -1,6 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <website>
+  <post index="0093" date="21/06/2014" std-date="2014-06-21T18:30:00.00Z" title="GLM 0.9.5.4 released">
+    <list title="Changelog:">
+      <entry>Added GTX_io for io with 'iostream' #144</entry>
+      <entry>Added FindGLM install for CMake #189</entry>
+      <entry>Optimized quaternion vector rotation #205</entry>
+      <entry>Fixed non-utf8 character #196</entry>
+      <entry>Fixed GTX_color_space - saturation #195</entry>
+      <entry>Fixed glm::isinf and glm::isnan for with Android NDK 9d #191</entry>
+      <entry>Fixed builtin GLM_ARCH_SSE4 #204</entry>
+      <entry>Fixed missing doxygen @endcond tag #211</entry>
+      <entry>Fixed instruction set detection with Clang #158</entry>
+      <entry>Fixed orientate3 function #207</entry>
+      <entry>Fixed lerp when cosTheta is close to 1 in quaternion slerp #210</entry>
+      <entry>Fixed fastDistance ambiguity #215</entry>
+      <entry>Fixed tweakedInfinitePerspective #208 and added user-defined epsilon to tweakedInfinitePerspective</entry>
+      <entry>Fixed std::copy and std::vector with GLM types #214</entry>
+      <entry>Fixed strict aliasing issues #212, #152</entry>
+      <entry>Fixed std::nextafter not supported with C++11 on Android #213</entry>
+      <entry>Fixed corner cases in exp and log functions for quaternions #199</entry>
+    </list>
+
+    <list>
+      <download index="0.9.5.4" />
+      <entry href="https://github.com/g-truc/glm/issues">Submit a bug report</entry>
+      <entry href="../0.9.5/glm-0.9.5.pdf">GLM 0.9.5 Manual</entry>
+      <entry href="../0.9.5/api/index.html">GLM 0.9.5 API</entry>
+    </list>
+  </post>
+  
+  <post index="0092" date="02/04/2014" std-date="2014-04-02T02:30:00.00Z" title="GLM 0.9.5.3 released">
+    <list title="Changelog:">
+      <entry>Added instruction set auto detection with Visual C++ using _M_IX86_FP - /arch compiler argument</entry>
+      <entry>Fixed GTX_raw_data code dependency</entry>
+      <entry>Fixed GCC instruction set detection</entry>
+      <entry>Added GLM_GTX_matrix_transform_2d extension (#178, #176)</entry>
+      <entry>Fixed CUDA issues (#169, #168, #183, #182)</entry>
+      <entry>Added support for all extensions but GTX_string_cast to CUDA</entry>
+      <entry>Fixed strict aliasing warnings in GCC 4.8.1 / Android NDK 9c (#152)</entry>
+      <entry>Fixed missing bitfieldInterleave definitions</entry>
+      <entry>Fixed usubBorrow (#171)</entry>
+      <entry>Fixed eulerAngle*** not consistent for right-handed coordinate system (#173)</entry>
+      <entry>Added full tests for eulerAngle*** functions (#173)</entry>
+      <entry>Added workaround for a CUDA compiler bug (#186, #185)</entry>
+    </list>
+    
+    <list>
+      <download index="0.9.5.3" />
+      <entry href="https://github.com/g-truc/glm/issues">Submit a bug report</entry>
+      <entry href="../0.9.5/glm-0.9.5.pdf">GLM 0.9.5 Manual</entry>
+      <entry href="../0.9.5/api/index.html">GLM 0.9.5 API</entry>
+    </list>
+  </post>
+
   <post index="0091" date="08/02/2014" std-date="2014-02-08T23:30:00.00Z" title="GLM 0.9.5.2 released">
     <paragraph>
       C++ 11 introduced <link href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2672.htm">
@@ -13,9 +66,7 @@
       <line><keyword>#include </keyword><string>&lt;glm/vec4.hpp&gt;</string></line>
       <line><keyword>#include </keyword><string>&lt;glm/mat4.hpp&gt;</string></line>
       <line><keyword>#include </keyword><string>&lt;glm/gtc/quat.hpp&gt;</string></line>
-      <line>
-
-      </line>
+      <line></line>
       <line>{</line>
       <line align="32px">...</line>
       <line align="32px">glm::vec4 A{0, 1, 2, 3};</line>
@@ -52,9 +103,6 @@
       <line align="32px">...</line>
       <line>}</line>
     </code>
-    <paragraph>
-      GLM 0.9.5.1 is also fixing multiple bugs essentially related to the new approach allowing to include each feature individually.
-    </paragraph>
 
     <list title="Changelog:">
       <entry>Fixed initializer list ambiguity (#159, #160)</entry>

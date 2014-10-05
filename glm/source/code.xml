@@ -6,7 +6,7 @@
       <keyword>#include </keyword><string>&lt;glm/vec3.hpp&gt;</string><comment>// glm::vec3</comment>
     </line>
     <line>
-      <keyword>#include </keyword><string>&lt;glm/geometry.hpp&gt;</string><comment>// glm::cross, glm::normalize</comment>
+      <keyword>#include </keyword><string>&lt;glm/geometric.hpp&gt;</string><comment>// glm::cross, glm::normalize</comment>
     </line>
     <line>
 
@@ -54,7 +54,7 @@
 
     </line>
     <line>
-      <keyword>void</keyword> func(GLuint LocationMVP)
+      <keyword>void</keyword> func(GLuint LocationMVP, float Translate, glm::vec2 const &amp; Rotate)
     </line>
     <line>
       {
@@ -154,16 +154,16 @@
       {
     </line>
     <line align="32px">
-      glm::<userword>uint</userword>(glm::packUnorm2x16(-1.0f, -1.0f)),
+      glm::<userword>uint</userword>(glm::packUnorm2x16(glm::vec2(-1.0f, -1.0f))),
     </line>
     <line align="32px">
-      glm::<userword>uint</userword>(glm::packUnorm2x16( 1.0f, -1.0f)),
+      glm::<userword>uint</userword>(glm::packUnorm2x16(glm::vec2( 1.0f, -1.0f)),
     </line>
     <line align="32px">
-      glm::<userword>uint</userword>(glm::packUnorm2x16( 1.0f,  1.0f)),
+      glm::<userword>uint</userword>(glm::packUnorm2x16(glm::vec2( 1.0f,  1.0f))),
     </line>
     <line align="32px">
-      glm::<userword>uint</userword>(glm::packUnorm2x16(-1.0f,  1.0f))
+      glm::<userword>uint</userword>(glm::packUnorm2x16(glm::vec2(-1.0f,  1.0f)))
     </line>
     <line>
       };
@@ -235,7 +235,7 @@
       <keyword>#include </keyword><string>&lt;glm/vec3.hpp&gt;</string><comment>// glm::vec3</comment>
     </line>
     <line>
-      <keyword>#include </keyword><string>&lt;glm/geometry.hpp&gt;</string><comment>// glm::normalize, glm::dot, glm::reflect</comment>
+      <keyword>#include </keyword><string>&lt;glm/geometric.hpp&gt;</string><comment>// glm::normalize, glm::dot, glm::reflect</comment>
     </line>
     <line>
       <keyword>#include </keyword><string>&lt;glm/exponential.hpp&gt;</string><comment>// glm::pow</comment>
@@ -277,7 +277,7 @@
 
     </line>
     <line align="32px">
-      glm::<userword>vec3 </userword>LightVertor(glm::normalize(
+      glm::<userword>vec3 </userword>LightVector(glm::normalize(
     </line>
     <line align="64px">
       Light.position() - Intersection.globalPosition() +
@@ -289,8 +289,8 @@
 
     </line>
     <line align="32px">
-      <keyword>if</keyword>(!shadow(Intersection.globalPosition(), Light.position(), LightVertor))
-    </line>
+      <keyword>if</keyword>(!shadow(Intersection.globalPosition(), Light.position(), LightVector))
+	</line>
     <line align="32px">
       {
     </line>
