@@ -330,5 +330,20 @@
 		<span xmlns="http://www.w3.org/1999/xhtml" class="comment">
 			<xsl:apply-templates />
 		</span>
-	</xsl:template>	
+	</xsl:template>
+
+  <xsl:template match="subtitle">
+    <h5 xmlns="http://www.w3.org/1999/xhtml">
+      <xsl:choose>
+        <xsl:when test="./@href">
+          <a href="{./@href}">
+            <xsl:apply-templates />
+          </a>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:apply-templates />
+        </xsl:otherwise>
+      </xsl:choose>
+    </h5>
+  </xsl:template>
 </xsl:stylesheet>

@@ -34,16 +34,16 @@
 		</html>
 	</xsl:template>
 
-	<xsl:template match="post">
-    	<div xmlns="http://www.w3.org/1999/xhtml">
-			<h3>
-				<xsl:value-of select="./@date" /><xsl:text> - </xsl:text>
-				<xsl:value-of select="./@title" />
-			</h3>
-			<div>
-				<xsl:apply-templates />
-			</div>
-			<br />
-    	</div>
-  	</xsl:template>
+  <xsl:template match="post">
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <h3>
+        <xsl:value-of select="./@date" /><xsl:text> - </xsl:text>
+        <xsl:value-of select="./@title" />
+      </h3>
+      <div>
+        <xsl:apply-templates />
+      </div>
+      <br />
+    </div>
+  </xsl:template>
 </xsl:stylesheet>
