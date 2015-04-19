@@ -1,631 +1,727 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <website>
-  <post index="0094" date="30/11/2014" std-date="2014-11-30T23:30:00.00Z" title="GLM 0.9.6.0 released">
-    <paragraph>
-      GLM 0.9.6.0 is available with many changes.
-    </paragraph>
+	<post index="0097" date="15/02/2015" std-date="2015-02-15T23:30:00.00Z"  title="GLM 0.9.6.3 released">
+		<list title="Fixes:">
+			<entry>Fixed Android doesn't have C++ 11 STL #284</entry>
+		</list>
 
-    <subtitle>Transition from degrees to radians compatibility break and GLM 0.9.5.4 help</subtitle>
-    <paragraph>
-      One of the long term issue with GLM is that some functions were using radians, functions from GLSL and others were using degrees, functions from GLU or legacy OpenGL.
-    </paragraph>
-    <paragraph>
-      In GLM 0.9.5, we can use <codeword>GLM_FORCE_RADIANS</codeword> to force all GLM functions to adopt radians.
-    </paragraph>
+		<source-list>
+			<download index="0.9.6.3" />
+			<source-element type="Link" href="http://glm.g-truc.net/0.9.6/glm-0.9.6.pdf" title="GLM 0.9.6 manual" />
+			<source-element type="Link" href="http://glm.g-truc.net/0.9.6/api/index.html" title="GLM 0.9.6 api documentation" />
+			<source-element type="Link" href="https://github.com/g-truc/glm/issues" title="Submit a bug report" />
+		</source-list>
+	</post>
 
-    <code title="In GLM 0.9.5 in degrees:">
-      <line>
-        <keyword>#include </keyword>
-        <string>&lt;glm/mat4.hpp&gt;</string>
-      </line>
-      <line>
-        <keyword>#include </keyword>
-        <string>&lt;glm/gtc/matrix_tansform.hpp&gt;</string>
-      </line>
-      <line></line>
-      <line>
-        glm::mat4 my_rotateZ(glm::mat4 <keyword>const</keyword> &amp; m, <keyword>float</keyword> angleInRadians)
-      </line>
-      <line>{</line>
-      <line align="32px">
-        <keyword>return</keyword> glm::rotate(m, glm::degrees(angleInRadians), glm::vec3(0.0, 0.0, 1.0));
-      </line>
-      <line>}</line>
-    </code>
+	<post index="0096" date="15/02/2015" std-date="2015-02-15T23:30:00.00Z"  title="GLM 0.9.6.2 released">
+		<list title="Features:">
+			<entry>Added display of GLM version with other GLM_MESSAGES</entry>
+			<entry>Added ARM instruction set detection</entry>
+		</list>
 
-    <code title="In GLM 0.9.5 in radians:">
-      <line>
-        <keyword>#define </keyword> GLM_FORCE_RADIANS
-      </line>
-      <line>
-        <keyword>#include </keyword>
-        <string>&lt;glm/mat4.hpp&gt;</string>
-      </line>
-      <line>
-        <keyword>#include </keyword>
-        <string>&lt;glm/gtc/matrix_tansform.hpp&gt;</string>
-      </line>
-      <line></line>
-      <line>
-        glm::mat4 my_rotateZ(glm::mat4 <keyword>const</keyword> &amp; m, <keyword>float</keyword> angleInRadians)
-      </line>
-      <line>{</line>
-      <line align="32px">
-        <keyword>return</keyword> glm::rotate(m, angleInRadians, glm::vec3(0.0, 0.0, 1.0));
-      </line>
-      <line>}</line>
-    </code>
+		<list title="Improvements:">
+			<entry>Removed assert for perspective with zFar &lt; zNear #298</entry>
+			<entry>Added Visual Studio natvis support for vec1, quat and dualqual types</entry>
+			<entry>Cleaned up C++11 feature detections</entry>
+			<entry>Clarify GLM licensing</entry>
+		</list>
 
-    <code title="In GLM 0.9.6 in radians only:">
-      <line>
-        <keyword>#include </keyword>
-        <string>&lt;glm/mat4.hpp&gt;</string>
-      </line>
-      <line>
-        <keyword>#include </keyword>
-        <string>&lt;glm/gtc/matrix_tansform.hpp&gt;</string>
-      </line>
-      <line></line>
-      <line>
-        glm::mat4 my_rotateZ(glm::mat4 <keyword>const</keyword> &amp; m, <keyword>float</keyword> angleInRadians)
-      </line>
-      <line>{</line>
-      <line align="32px">
-        <keyword>return</keyword> glm::rotate(m, angleInRadians, glm::vec3(0.0, 0.0, 1.0));
-      </line>
-      <line>}</line>
-    </code>
+		<list title="Fixes:">
+			<entry>Fixed faceforward build #289</entry>
+			<entry>Fixed conflict with Xlib #define True 1 #293</entry>
+			<entry>Fixed decompose function VS2010 templating issues #294</entry>
+			<entry>Fixed mat4x3 = mat2x3 * mat4x2 operator #297</entry>
+			<entry>Fixed warnings in F2x11_1x10 packing function in GTC_packing #295</entry>
+			<entry>Fixed Visual Studio natvis support for vec4 #288</entry>
+			<entry>Fixed GTC_packing *pack*norm*x* build and added tests #292</entry>
+			<entry>Disabled GTX_scalar_multiplication for GCC, failing to build tests #242</entry>
+			<entry>Fixed Visual C++ 2015 constexpr errors: Disabled only partial support</entry>
+			<entry>Fixed functions not inlined with Clang #302</entry>
+			<entry>Fixed memory corruption (undefined behaviour) #303</entry>
+		</list>
 
-    <code title="In GLM 0.9.6 if you what to use degrees anyway:">
-      <line>
-        <keyword>#include </keyword>
-        <string>&lt;glm/mat4.hpp&gt;</string>
-      </line>
-      <line>
-        <keyword>#include </keyword>
-        <string>&lt;glm/gtc/matrix_tansform.hpp&gt;</string>
-      </line>
-      <line></line>
-      <line>
-        glm::mat4 my_rotateZ(glm::mat4 <keyword>const</keyword> &amp; m, <keyword>float</keyword> angleInDegrees)
-      </line>
-      <line>{</line>
-      <line align="32px">
-        <keyword>return</keyword> glm::rotate(m, glm::radians(angleInDegrees), glm::vec3(0.0, 0.0, 1.0));
-      </line>
-      <line>}</line>
-    </code>
+		<source-list>
+			<download index="0.9.6.2" />
+			<source-element type="Link" href="http://glm.g-truc.net/0.9.6/glm-0.9.6.pdf" title="GLM 0.9.6 manual" />
+			<source-element type="Link" href="http://glm.g-truc.net/0.9.6/api/index.html" title="GLM 0.9.6 api documentation" />
+			<source-element type="Link" href="https://github.com/g-truc/glm/issues" title="Submit a bug report" />
+		</source-list>
+	</post>
 
-    <paragraph>
-      GLM 0.9.5 will show warning messages at compilation each time a function taking degrees is used.
-    </paragraph>
+	<post index="0095" date="10/12/2014" std-date="2014-12-10T23:30:00.00Z"  title="GLM 0.9.6.1 released">
+		<paragraph>
+			GLM 0.9.6.0 came with its set of major glitches: C++98 only mode, 32 bit build, Cuda and Android support should all be fixed in GLM 0.9.6.1 release.
+		</paragraph>
 
-    <quote>
-      GLM: rotate function taking degrees as a parameter is deprecated. <codeword>#define GLM_FORCE_RADIANS</codeword> before including GLM headers to remove this message.
-    </quote>
+		<list title="Features:">
+			<entry>Added GLM_LANG_CXX14_FLAG and GLM_LANG_CXX1Z_FLAG language feature flags</entry>
+			<entry>Added C++14 detection</entry>
+		</list>
 
-    <paragraph>
-      If you are using a version of GLM older than GLM 0.9.5.1, update to <link href="./post-0660.html">GLM 0.9.5.4</link> before transitioning to GLM 0.9.6 to get this help in that process.
-    </paragraph>
+		<list title="Improvements:">
+			<entry>Clean up GLM_MESSAGES compilation log to report only detected capabilities</entry>
+		</list>
 
-    <title>Make sure to build and run successfully your application with GLM 0.9.5 with GLM_FORCE_RADIANS, before transistioning to GLM 0.9.6</title>
+		<list title="Fixes:">
+			<entry>Fixed scalar uaddCarry build error with Cuda #276</entry>
+			<entry>Fixed C++11 explicit conversion operators detection #282</entry>
+			<entry>Fixed missing explicit convertion when using integer log2 with *vec1 types</entry>
+			<entry>Fixed 64 bits integer GTX_string_cast to_string on VC 32 bit compiler</entry>
+			<entry>Fixed Android build issue, STL C++11 is not supported by the NDK #284</entry>
+			<entry>Fixed unsupported _BitScanForward64 and _BitScanReverse64 in VC10</entry>
+			<entry>Fixed Visual C++ 32 bit build #283</entry>
+			<entry>Fixed GLM_FORCE_SIZE_FUNC pragma message</entry>
+			<entry>Fixed C++98 only build</entry>
+			<entry>Fixed conflict between GTX_compatibility and GTC_quaternion #286</entry>
+			<entry>Fixed C++ language restriction using GLM_FORCE_CXX**</entry>
+		</list>
 
-    <paragraph>
-      Finally, here is a list of all the functions that could use degrees in GLM 0.9.5.4 that requires radians in GLM 0.9.6:
-      <codeword>rotate</codeword> (matrices and quaternions),
-      <codeword>perspective</codeword>,
-      <codeword>perspectiveFov</codeword>,
-      <codeword>infinitePerspective</codeword>,
-      <codeword>tweakedInfinitePerspective</codeword>,
-      <codeword>roll</codeword>,
-      <codeword>pitch</codeword>,
-      <codeword>yaw</codeword>,
-      <codeword>angle</codeword>,
-      <codeword>angleAxis</codeword>,
-      <codeword>polar</codeword>,
-      <codeword>euclidean</codeword>,
-      <codeword>rotateNormalizedAxis</codeword>,
-      <codeword>rotateX</codeword>,
-      <codeword>rotateY</codeword>,
-      <codeword>rotateZ</codeword> and
-      <codeword>orientedAngle</codeword>.
-    </paragraph>
+		<source-list>
+			<download index="0.9.6.1" />
+			<source-element type="Link" href="http://glm.g-truc.net/0.9.6/glm-0.9.6.pdf" title="GLM 0.9.6 manual" />
+			<source-element type="Link" href="http://glm.g-truc.net/0.9.6/api/index.html" title="GLM 0.9.6 api documentation" />
+			<source-element type="Link" href="https://github.com/g-truc/glm/issues" title="Submit a bug report" />
+		</source-list>
+	</post>
 
-    <subtitle>Using GLM template types</subtitle>
-    <paragraph>
-      There are a lot of reasons for using template types: Writing new template classes and functions or defining new types.
-      Unfortunately, until GLM 0.9.5, GLM template types were defined into the <codeword>detail</codeword> namespace indicating there are implementation details that may changed.
-    </paragraph>
-    <paragraph>
-      With GLM 0.9.6, template types are accessible from the GLM namespace and guarantee to be stable onward.
-    </paragraph>
+	<post index="0094" date="30/11/2014" std-date="2014-11-30T23:30:00.00Z" title="GLM 0.9.6.0 released">
+		<paragraph>
+			GLM 0.9.6.0 is available with many changes.
+		</paragraph>
 
-    <code title="Example of template functions, GLM 0.9.5 and 0.9.6 style:">
-      <line>
-        <keyword>#include </keyword>
-        <string>&lt;glm/geometry.hpp&gt;</string>
-      </line>
-      <line>
-        <keyword>#include </keyword>
-        <string>&lt;glm/exponential.hpp&gt;</string>
-      </line>
-      <line></line>
-      <line>
-        <keyword>template</keyword> &lt;<keyword>typename</keyword> vecType&gt;
-      </line>
-      <line>
-        <keyword>typename</keyword> vecType::value_type normalizeDot(vecType <keyword>const</keyword> &amp; a, vecType <keyword>const</keyword> &amp; b)
-      </line>
-      <line>{</line>
-      <line align="32px">
-        <keyword>return</keyword> glm::dot(a, b) * glm::inversesqrt(glm::dot(a, a) * glm::dot(b, b));
-      </line>
-      <line>}</line>
-      <line></line>
-      <line>
-        <keyword>#include </keyword>
-        <string>&lt;glm/vec4.hpp&gt;</string>
-      </line>
-      <line></line>
-      <line>
-        <keyword>int</keyword> main()
-      </line>
-      <line>{</line>
-      <line align="32px">
-        <keyword>return</keyword> normalizeDot(glm::vec4(2.0), glm::vec4(2.0)) &gt; 0.0f ? 0 : 1
-      </line>
-      <line>}</line>
-    </code>
+		<subtitle>Transition from degrees to radians compatibility break and GLM 0.9.5.4 help</subtitle>
+		<paragraph>
+			One of the long term issue with GLM is that some functions were using radians, functions from GLSL and others were using degrees, functions from GLU or legacy OpenGL.
+		</paragraph>
+		<paragraph>
+			In GLM 0.9.5, we can use <codeword>GLM_FORCE_RADIANS</codeword> to force all GLM functions to adopt radians.
+		</paragraph>
 
-    <code title="Example of template functions, alternative GLM 0.9.6 style:">
-      <line>
-        <keyword>#include </keyword>
-        <string>&lt;glm/geometry.hpp&gt;</string>
-      </line>
-      <line>
-        <keyword>#include </keyword>
-        <string>&lt;glm/exponential.hpp&gt;</string>
-      </line>
-      <line></line>
-      <line>
-        <keyword>template</keyword> &lt;<keyword>typename</keyword> T, <keyword>template</keyword> &lt;<keyword>typename</keyword>, glm::precision&gt; <keyword>class</keyword> vecType&gt;
-      </line>
-      <line>
-        T normalizeDot(vecType&lt;T, P&gt; <keyword>const</keyword> &amp; a, vecType&lt;T, P&gt; <keyword>const</keyword> &amp; b)
-      </line>
-      <line>{</line>
-      <line align="32px">
-        <keyword>return</keyword> glm::dot(a, b) * glm::inversesqrt(glm::dot(a, a) * glm::dot(b, b));
-      </line>
-      <line>}</line>
-      <line></line>
-      <line>
-        <keyword>#include </keyword>
-        <string>&lt;glm/vec4.hpp&gt;</string>
-      </line>
-      <line></line>
-      <line>
-        <keyword>int</keyword> main()
-      </line>
-      <line>{</line>
-      <line align="32px">
-        <keyword>return</keyword> normalizeDot(glm::vec4(2.0), glm::vec4(2.0)) &gt; 0.0f ? 0 : 1
-      </line>
-      <line>}</line>
-    </code>
+		<code title="In GLM 0.9.5 in degrees:">
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/mat4.hpp&gt;</string>
+			</line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/gtc/matrix_tansform.hpp&gt;</string>
+			</line>
+			<line></line>
+			<line>
+				glm::mat4 my_rotateZ(glm::mat4 <keyword>const</keyword> &amp; m, <keyword>float</keyword> angleInRadians)
+			</line>
+			<line>{</line>
+			<line align="32px">
+				<keyword>return</keyword> glm::rotate(m, glm::degrees(angleInRadians), glm::vec3(0.0, 0.0, 1.0));
+			</line>
+			<line>}</line>
+		</code>
 
-    <code title="Example of typedefs with GLM 0.9.6:">
-      <line>
-        <keyword>#include </keyword>
-        <string>&lt;cstddef&gt;</string>
-      </line>
-      <line>
-        <keyword>#include </keyword>
-        <string>&lt;glm/vec4.hpp&gt;</string>
-      </line>
-      <line>
-        <keyword>#include </keyword>
-        <string>&lt;glm/mat4.hpp&gt;</string>
-      </line>
-      <line></line>
-      <line>
-        <keyword>typedef </keyword> glm::tvec4&lt;std::size_t&gt; size4;
-      </line>
-      <line>
-        <keyword>typedef </keyword> glm::tvec4&lt;<keyword>long double</keyword>, glm::highp&gt; ldvec4;
-      </line>
-      <line>
-        <keyword>typedef </keyword> glm::tmat4x4&lt;<keyword>long double</keyword>, glm::highp&gt; ldmat4x4;
-      </line>
-    </code>
+		<code title="In GLM 0.9.5 in radians:">
+			<line>
+				<keyword>#define </keyword> GLM_FORCE_RADIANS
+			</line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/mat4.hpp&gt;</string>
+			</line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/gtc/matrix_tansform.hpp&gt;</string>
+			</line>
+			<line></line>
+			<line>
+				glm::mat4 my_rotateZ(glm::mat4 <keyword>const</keyword> &amp; m, <keyword>float</keyword> angleInRadians)
+			</line>
+			<line>{</line>
+			<line align="32px">
+				<keyword>return</keyword> glm::rotate(m, angleInRadians, glm::vec3(0.0, 0.0, 1.0));
+			</line>
+			<line>}</line>
+		</code>
 
-    <subtitle>Optimizations</subtitle>
-    <paragraph>
-      With GLM 0.9.5, the library started to tackle the issue of compilation time by introducing forward declarations through <codeword>&lt;glm/fwd.hpp&gt;</codeword> but also by providing an alternative to the monolithic <codeword>&lt;glm/glm.hpp&gt;</codeword> headers with <codeword>&lt;glm/vec2.hpp&gt;</codeword>, <codeword>&lt;glm/mat3x2.hpp&gt;</codeword> and <codeword>&lt;glm/common.hpp&gt;</codeword>, etc.
-    </paragraph>
-    <paragraph>
-      With GLM 0.9.6, the library took advantage of dropping old compilers to replace preprocessor instantiation of the code by template instantiation.
-      The issue of preprocessor instantiation (among them!) is that all the code is generated even if it is never used resulting in building and compiling much bigger header files.
-    </paragraph>
-    <paragraph>
-      Furthermore, a lot of code optimizations have been done to provide better performance at run time by leveraging integer bitfield tricks and compiler intrinsics.
-      The test framework has been extended to include performance tests. The total code size of the tests is now 50% of the library code which is still not enough but pretty solid.
-    </paragraph>
+		<code title="In GLM 0.9.6 in radians only:">
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/mat4.hpp&gt;</string>
+			</line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/gtc/matrix_tansform.hpp&gt;</string>
+			</line>
+			<line></line>
+			<line>
+				glm::mat4 my_rotateZ(glm::mat4 <keyword>const</keyword> &amp; m, <keyword>float</keyword> angleInRadians)
+			</line>
+			<line>{</line>
+			<line align="32px">
+				<keyword>return</keyword> glm::rotate(m, angleInRadians, glm::vec3(0.0, 0.0, 1.0));
+			</line>
+			<line>}</line>
+		</code>
 
-    <subtitle>Compilers support</subtitle>
-    <paragraph>
-      GLM 0.9.6 removed support for a lot of old compiler versions. If you are really insisting in using an older compiler, you are welcome to keep using GLM 0.9.5.
-    </paragraph>
-    <list title="Supported compilers by GLM 0.9.6:">
-      <entry>Apple Clang 4.0 and higher</entry>
-      <entry>CUDA 4.0 and higher</entry>
-      <entry>GCC 4.4 and higher</entry>
-      <entry>LLVM 3.0 and higher</entry>
-      <entry>Intel C++ Composer XE 2013 and higher</entry>
-      <entry>Visual Studio 2010 and higher</entry>
-      <entry>Any conform C++98 compiler</entry>
-    </list>
+		<code title="In GLM 0.9.6 if you what to use degrees anyway:">
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/mat4.hpp&gt;</string>
+			</line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/gtc/matrix_tansform.hpp&gt;</string>
+			</line>
+			<line></line>
+			<line>
+				glm::mat4 my_rotateZ(glm::mat4 <keyword>const</keyword> &amp; m, <keyword>float</keyword> angleInDegrees)
+			</line>
+			<line>{</line>
+			<line align="32px">
+				<keyword>return</keyword> glm::rotate(m, glm::radians(angleInDegrees), glm::vec3(0.0, 0.0, 1.0));
+			</line>
+			<line>}</line>
+		</code>
 
-    <subtitle>Lisence</subtitle>
-    <paragraph>
-      Finally, GLM is changing Lisence to adopt the <link href="http://glm.g-truc.net/copying.txt">Happy Bunny Lisence</link>.
-    </paragraph>
+		<paragraph>
+			GLM 0.9.5 will show warning messages at compilation each time a function taking degrees is used.
+		</paragraph>
 
-    <subtitle>Release note</subtitle>
-    <list title="Features:">
-      <entry>Exposed template vector and matrix types in 'glm' namespace #239, #244</entry>
-      <entry>Added GTX_scalar_multiplication for C++ 11 compiler only #242</entry>
-      <entry>Added GTX_range for C++ 11 compiler only #240</entry>
-      <entry>Added closestPointOnLine function for tvec2 to GTX_closest_point #238</entry>
-      <entry>Added GTC_vec1 extension, *vec1 support to *vec* types</entry>
-      <entry>Updated GTX_associated_min_max with vec1 support</entry>
-      <entry>Added support of precision and integers to linearRand #230</entry>
-      <entry>Added Integer types support to GTX_string_cast #249</entry>
-      <entry>Added vec3 slerp #237</entry>
-      <entry>Added GTX_common with isdenomal #223</entry>
-      <entry>Added GLM_FORCE_SIZE_FUNC to replace .length() by .size() #245</entry>
-      <entry>Added GLM_FORCE_NO_CTOR_INIT</entry>
-      <entry>Added 'uninitialize' to explicitly not initialize a GLM type</entry>
-      <entry>Added GTC_bitfield extension, promoted GTX_bit</entry>
-      <entry>Added GTC_integer extension, promoted GTX_bit and GTX_integer</entry>
-      <entry>Added GTC_round extension, promoted GTX_bit</entry>
-      <entry>Added GLM_FORCE_EXPLICIT_CTOR to require explicit type conversions #269</entry>
-      <entry>Added GTX_type_aligned for aligned vector, matrix and quaternion types</entry>
-    </list>
+		<quote>
+			GLM: rotate function taking degrees as a parameter is deprecated. <codeword>#define GLM_FORCE_RADIANS</codeword> before including GLM headers to remove this message.
+		</quote>
 
-    <list title="Improvements:">
-      <entry>Rely on C++11 to implement isinf and isnan</entry>
-      <entry>Removed GLM_FORCE_CUDA, Cuda is implicitly detected</entry>
-      <entry>Separated Apple Clang and LLVM compiler detection</entry>
-      <entry>Used pragma once</entry>
-      <entry>Undetected C++ compiler automatically compile with GLM_FORCE_CXX98 and GLM_FORCE_PURE</entry>
-      <entry>Added not function (from GLSL specification) on VC12</entry>
-      <entry>Optimized bitfieldReverse and bitCount functions</entry>
-      <entry>Optimized findLSB and findMSB functions</entry>
-      <entry>Optimized matrix-vector multiple performance with Cuda #257, #258</entry>
-      <entry>Reduced integer type redifinitions #233</entry>
-      <entry>Rewrited of GTX_fast_trigonometry #264 #265</entry>
-      <entry>Made types trivially copyable #263</entry>
-      <entry>Removed iostream in GLM tests</entry>
-      <entry>Used std features within GLM without redeclaring</entry>
-      <entry>Optimized cot function #272</entry>
-      <entry>Optimized sign function #272</entry>
-      <entry>Added explicit cast from quat to mat3 and mat4 #275</entry>
-    </list>
+		<paragraph>
+			If you are using a version of GLM older than GLM 0.9.5.1, update to <link href="./post-0660.html">GLM 0.9.5.4</link> before transitioning to GLM 0.9.6 to get this help in that process.
+		</paragraph>
 
-    <list title="Fixes:">
-      <entry>Fixed std::nextafter not supported with C++11 on Android #217</entry>
-      <entry>Fixed missing value_type for dual quaternion</entry>
-      <entry>Fixed return type of dual quaternion length</entry>
-      <entry>Fixed infinite loop in isfinite function with GCC #221</entry>
-      <entry>Fixed Visual Studio 14 compiler warnings</entry>
-      <entry>Fixed implicit conversion from another tvec2 type to another tvec2 #241</entry>
-      <entry>Fixed lack of consistency of quat and dualquat constructors</entry>
-      <entry>Fixed uaddCarray #253</entry>
-      <entry>Fixed float comparison warnings #270</entry>
-    </list>
+		<title>Make sure to build and run successfully your application with GLM 0.9.5 with GLM_FORCE_RADIANS, before transistioning to GLM 0.9.6</title>
 
-    <list title="Deprecation:">
-      <entry>Removed degrees for function parameters</entry>
-      <entry>Removed GLM_FORCE_RADIANS, active by default</entry>
-      <entry>Removed VC 2005 / 8 and 2008 / 9 support</entry>
-      <entry>Removed GCC 3.4 to 4.5 support</entry>
-      <entry>Removed LLVM GCC support</entry>
-      <entry>Removed LLVM 2.6 to 2.9 support</entry>
-      <entry>Removed CUDA 3.0 to 4.0 support</entry>
-    </list>
+		<paragraph>
+			Finally, here is a list of all the functions that could use degrees in GLM 0.9.5.4 that requires radians in GLM 0.9.6:
+			<codeword>rotate</codeword> (matrices and quaternions),
+			<codeword>perspective</codeword>,
+			<codeword>perspectiveFov</codeword>,
+			<codeword>infinitePerspective</codeword>,
+			<codeword>tweakedInfinitePerspective</codeword>,
+			<codeword>roll</codeword>,
+			<codeword>pitch</codeword>,
+			<codeword>yaw</codeword>,
+			<codeword>angle</codeword>,
+			<codeword>angleAxis</codeword>,
+			<codeword>polar</codeword>,
+			<codeword>euclidean</codeword>,
+			<codeword>rotateNormalizedAxis</codeword>,
+			<codeword>rotateX</codeword>,
+			<codeword>rotateY</codeword>,
+			<codeword>rotateZ</codeword> and
+			<codeword>orientedAngle</codeword>.
+		</paragraph>
 
-    <paragraph>
-      Enjoy!
-    </paragraph>
+		<subtitle>Using GLM template types</subtitle>
+		<paragraph>
+			There are a lot of reasons for using template types: Writing new template classes and functions or defining new types.
+			Unfortunately, until GLM 0.9.5, GLM template types were defined into the <codeword>detail</codeword> namespace indicating there are implementation details that may changed.
+		</paragraph>
+		<paragraph>
+			With GLM 0.9.6, template types are accessible from the GLM namespace and guarantee to be stable onward.
+		</paragraph>
 
-    <list>
-      <download index="0.9.6.0" />
-      <entry href="https://github.com/g-truc/glm/issues">Submit a bug report</entry>
-      <entry href="../0.9.6/glm-0.9.6.pdf">GLM 0.9.6 Manual</entry>
-      <entry href="../0.9.6/api/index.html">GLM 0.9.6 API</entry>
-    </list>
-  </post>
+		<code title="Example of template functions, GLM 0.9.5 and 0.9.6 style:">
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/geometry.hpp&gt;</string>
+			</line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/exponential.hpp&gt;</string>
+			</line>
+			<line></line>
+			<line>
+				<keyword>template</keyword> &lt;<keyword>typename</keyword> vecType&gt;
+			</line>
+			<line>
+				<keyword>typename</keyword> vecType::value_type normalizeDot(vecType <keyword>const</keyword> &amp; a, vecType <keyword>const</keyword> &amp; b)
+			</line>
+			<line>{</line>
+			<line align="32px">
+				<keyword>return</keyword> glm::dot(a, b) * glm::inversesqrt(glm::dot(a, a) * glm::dot(b, b));
+			</line>
+			<line>}</line>
+			<line></line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/vec4.hpp&gt;</string>
+			</line>
+			<line></line>
+			<line>
+				<keyword>int</keyword> main()
+			</line>
+			<line>{</line>
+			<line align="32px">
+				<keyword>return</keyword> normalizeDot(glm::vec4(2.0), glm::vec4(2.0)) &gt; 0.0f ? 0 : 1
+			</line>
+			<line>}</line>
+		</code>
 
-  <post index="0093" date="21/06/2014" std-date="2014-06-21T18:30:00.00Z" title="GLM 0.9.5.4 released">
-    <list title="Changelog:">
-      <entry>Added GTX_io for io with 'iostream' #144</entry>
-      <entry>Added FindGLM install for CMake #189</entry>
-      <entry>Optimized quaternion vector rotation #205</entry>
-      <entry>Fixed non-utf8 character #196</entry>
-      <entry>Fixed GTX_color_space - saturation #195</entry>
-      <entry>Fixed glm::isinf and glm::isnan for with Android NDK 9d #191</entry>
-      <entry>Fixed builtin GLM_ARCH_SSE4 #204</entry>
-      <entry>Fixed missing doxygen @endcond tag #211</entry>
-      <entry>Fixed instruction set detection with Clang #158</entry>
-      <entry>Fixed orientate3 function #207</entry>
-      <entry>Fixed lerp when cosTheta is close to 1 in quaternion slerp #210</entry>
-      <entry>Fixed fastDistance ambiguity #215</entry>
-      <entry>Fixed tweakedInfinitePerspective #208 and added user-defined epsilon to tweakedInfinitePerspective</entry>
-      <entry>Fixed std::copy and std::vector with GLM types #214</entry>
-      <entry>Fixed strict aliasing issues #212, #152</entry>
-      <entry>Fixed std::nextafter not supported with C++11 on Android #213</entry>
-      <entry>Fixed corner cases in exp and log functions for quaternions #199</entry>
-    </list>
+		<code title="Example of template functions, alternative GLM 0.9.6 style:">
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/geometry.hpp&gt;</string>
+			</line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/exponential.hpp&gt;</string>
+			</line>
+			<line></line>
+			<line>
+				<keyword>template</keyword> &lt;<keyword>typename</keyword> T, <keyword>template</keyword> &lt;<keyword>typename</keyword>, glm::precision&gt; <keyword>class</keyword> vecType&gt;
+			</line>
+			<line>
+				T normalizeDot(vecType&lt;T, P&gt; <keyword>const</keyword> &amp; a, vecType&lt;T, P&gt; <keyword>const</keyword> &amp; b)
+			</line>
+			<line>{</line>
+			<line align="32px">
+				<keyword>return</keyword> glm::dot(a, b) * glm::inversesqrt(glm::dot(a, a) * glm::dot(b, b));
+			</line>
+			<line>}</line>
+			<line></line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/vec4.hpp&gt;</string>
+			</line>
+			<line></line>
+			<line>
+				<keyword>int</keyword> main()
+			</line>
+			<line>{</line>
+			<line align="32px">
+				<keyword>return</keyword> normalizeDot(glm::vec4(2.0), glm::vec4(2.0)) &gt; 0.0f ? 0 : 1
+			</line>
+			<line>}</line>
+		</code>
 
-    <list>
-      <download index="0.9.5.4" />
-      <entry href="https://github.com/g-truc/glm/issues">Submit a bug report</entry>
-      <entry href="../0.9.5/glm-0.9.5.pdf">GLM 0.9.5 Manual</entry>
-      <entry href="../0.9.5/api/index.html">GLM 0.9.5 API</entry>
-    </list>
-  </post>
-  
-  <post index="0092" date="02/04/2014" std-date="2014-04-02T02:30:00.00Z" title="GLM 0.9.5.3 released">
-    <list title="Changelog:">
-      <entry>Added instruction set auto detection with Visual C++ using _M_IX86_FP - /arch compiler argument</entry>
-      <entry>Fixed GTX_raw_data code dependency</entry>
-      <entry>Fixed GCC instruction set detection</entry>
-      <entry>Added GLM_GTX_matrix_transform_2d extension (#178, #176)</entry>
-      <entry>Fixed CUDA issues (#169, #168, #183, #182)</entry>
-      <entry>Added support for all extensions but GTX_string_cast to CUDA</entry>
-      <entry>Fixed strict aliasing warnings in GCC 4.8.1 / Android NDK 9c (#152)</entry>
-      <entry>Fixed missing bitfieldInterleave definitions</entry>
-      <entry>Fixed usubBorrow (#171)</entry>
-      <entry>Fixed eulerAngle*** not consistent for right-handed coordinate system (#173)</entry>
-      <entry>Added full tests for eulerAngle*** functions (#173)</entry>
-      <entry>Added workaround for a CUDA compiler bug (#186, #185)</entry>
-    </list>
-    
-    <list>
-      <download index="0.9.5.3" />
-      <entry href="https://github.com/g-truc/glm/issues">Submit a bug report</entry>
-      <entry href="../0.9.5/glm-0.9.5.pdf">GLM 0.9.5 Manual</entry>
-      <entry href="../0.9.5/api/index.html">GLM 0.9.5 API</entry>
-    </list>
-  </post>
+		<code title="Example of typedefs with GLM 0.9.6:">
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;cstddef&gt;</string>
+			</line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/vec4.hpp&gt;</string>
+			</line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/mat4.hpp&gt;</string>
+			</line>
+			<line></line>
+			<line>
+				<keyword>typedef </keyword> glm::tvec4&lt;std::size_t&gt; size4;
+			</line>
+			<line>
+				<keyword>typedef </keyword> glm::tvec4&lt;<keyword>long double</keyword>, glm::highp&gt; ldvec4;
+			</line>
+			<line>
+				<keyword>typedef </keyword> glm::tmat4x4&lt;<keyword>long double</keyword>, glm::highp&gt; ldmat4x4;
+			</line>
+		</code>
 
-  <post index="0091" date="08/02/2014" std-date="2014-02-08T23:30:00.00Z" title="GLM 0.9.5.2 released">
-    <paragraph>
-      C++ 11 introduced <link href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2672.htm">
-      initializer lists and uniform initialization syntax</link> and GLM 0.9.5.0 tried to leverage this functionality but didn't get it quite right.
-      GLM 0.9.5.2 is fixing this.
-    </paragraph>
+		<subtitle>Optimizations</subtitle>
+		<paragraph>
+			With GLM 0.9.5, the library started to tackle the issue of compilation time by introducing forward declarations through <codeword>&lt;glm/fwd.hpp&gt;</codeword> but also by providing an alternative to the monolithic <codeword>&lt;glm/glm.hpp&gt;</codeword> headers with <codeword>&lt;glm/vec2.hpp&gt;</codeword>, <codeword>&lt;glm/mat3x2.hpp&gt;</codeword> and <codeword>&lt;glm/common.hpp&gt;</codeword>, etc.
+		</paragraph>
+		<paragraph>
+			With GLM 0.9.6, the library took advantage of dropping old compilers to replace preprocessor instantiation of the code by template instantiation.
+			The issue of preprocessor instantiation (among them!) is that all the code is generated even if it is never used resulting in building and compiling much bigger header files.
+		</paragraph>
+		<paragraph>
+			Furthermore, a lot of code optimizations have been done to provide better performance at run time by leveraging integer bitfield tricks and compiler intrinsics.
+			The test framework has been extended to include performance tests. The total code size of the tests is now 50% of the library code which is still not enough but pretty solid.
+		</paragraph>
 
-    <code title="Examples of usage with GLM:">
-      <line><keyword>#define </keyword> GLM_FORCE_RADIANS</line>
-      <line><keyword>#include </keyword><string>&lt;glm/vec4.hpp&gt;</string></line>
-      <line><keyword>#include </keyword><string>&lt;glm/mat4.hpp&gt;</string></line>
-      <line><keyword>#include </keyword><string>&lt;glm/gtc/quat.hpp&gt;</string></line>
-      <line></line>
-      <line>{</line>
-      <line align="32px">...</line>
-      <line align="32px">glm::vec4 A{0, 1, 2, 3};</line>
-      <line></line>
-      <line align="32px">glm::mat4 B{</line>
-      <line align="64px">{0, 1, 2, 3},</line>
-      <line align="64px">{4, 5, 6, 7},</line>
-      <line align="64px">{8, 9, 10, 11},</line>
-      <line align="64px">{12, 13, 14, 15}};</line>
-      <line></line>
-      <line align="32px">std::vector&lt;glm::mat4&gt; C{</line>
-      <line align="64px">{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15},</line>
-      <line align="64px">{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15}};</line>
-      <line></line>
-      <line align="32px">std::vector&lt;glm::mat4&gt; D{</line>
-      <line align="64px">{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15},</line>
-      <line align="64px">{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15}};</line>
-      <line></line>
-      <line align="32px">std::vector&lt;glm::mat4&gt; E{</line>
-      <line align="64px">{</line>
-      <line align="96px">{ 0, 1, 2, 3 },</line>
-      <line align="96px">{ 4, 5, 6, 7 },</line>
-      <line align="96px">{ 8, 9, 10, 11 },</line>
-      <line align="96px">{ 12, 13, 14, 15 }</line>
-      <line align="64px">},</line>
-      <line align="64px">{</line>
-      <line align="96px">{ 0, 1, 2, 3 },</line>
-      <line align="96px">{ 4, 5, 6, 7 },</line>
-      <line align="96px">{ 8, 9, 10, 11 },</line>
-      <line align="96px">{ 12, 13, 14, 15 }</line>
-      <line align="64px">}};</line>
-      <line></line>
-      <line align="32px">glm::quat F{0, 1, 2, 3};</line>
-      <line align="32px">...</line>
-      <line>}</line>
-    </code>
+		<subtitle>Compilers support</subtitle>
+		<paragraph>
+			GLM 0.9.6 removed support for a lot of old compiler versions. If you are really insisting in using an older compiler, you are welcome to keep using GLM 0.9.5.
+		</paragraph>
+		<list title="Supported compilers by GLM 0.9.6:">
+			<entry>Apple Clang 4.0 and higher</entry>
+			<entry>CUDA 4.0 and higher</entry>
+			<entry>GCC 4.4 and higher</entry>
+			<entry>LLVM 3.0 and higher</entry>
+			<entry>Intel C++ Composer XE 2013 and higher</entry>
+			<entry>Visual Studio 2010 and higher</entry>
+			<entry>Any conform C++98 compiler</entry>
+		</list>
 
-    <list title="Changelog:">
-      <entry>Fixed initializer list ambiguity (#159, #160)</entry>
-      <entry>Fixed warnings with the Android NDK 9c</entry>
-      <entry>Fixed non power of two matrix products</entry>
-      <entry>Fixed mix function link error</entry>
-      <entry>Fixed SSE code included in GLM tests on "pure" platforms</entry>
-      <entry>Fixed undefined reference to fastInverseSqrt (#161)</entry>
-      <entry>Fixed GLM_FORCE_RADIANS with &lt;glm/ext.hpp&gt; build error (#165)</entry>
-      <entry>Fix dot product clamp range for vector angle functions. (#163)</entry>
-      <entry>Tentative fix for strict aliasing warning in GCC 4.8.1 / Android NDK 9c (#152)</entry>
-      <entry>Fixed GLM_GTC_constants description brief (#162)</entry>
-    </list>
-    
-    <list>
-      <download index="0.9.5.2" />
-      <entry href="https://github.com/g-truc/glm/issues">Submit a bug report</entry>
-      <entry href="../0.9.5/glm-0.9.5.pdf">GLM 0.9.5 Manual</entry>
-      <entry href="../0.9.5/api/index.html">GLM 0.9.5 API</entry>
-    </list>
-  </post>
-  
-  <post index="0090" date="11/01/2013" std-date="2013-01-11T23:30:00.00Z" title="GLM 0.9.5.1 released">
-    <paragraph>
-      One of the annoying aspect of GLM is that sometime angles are expressed in degrees and sometime angles are expressed in radians.
-      Angles expressed in radians are features coming from GLSL where all the angles are expressed in radians and angles expressed in degrees are features coming from OpenGL compatibility profile.
-    </paragraph>
-    <paragraph>
-      GLM provides the define <codeword>GLM_FORCE_RADIANS</codeword> to enfore all the angles to be radians. GLM 0.9.5 deprecates degrees so that in GLM 0.9.6 those will be removed.
-      Starting with GLM 0.9.5.1, warnings will be prompt for each instance of usage degrees. This is designed to help transitioning user code.
-      Defining <codeword>GLM_FORCE_RADIANS</codeword> will quiet these messages.
-    </paragraph>
+		<subtitle>Lisence</subtitle>
+		<paragraph>
+			Finally, GLM is changing Lisence to adopt the <link href="http://glm.g-truc.net/copying.txt">Happy Bunny Lisence</link>.
+		</paragraph>
 
-    <code title="Transitioning degrees to radians:">
-      <line>
-        <keyword>#define </keyword> GLM_FORCE_RADIANS
-      </line>
-      <line>
-        <keyword>#include </keyword>
-        <string>&lt;glm/gtc/matrix_tansform.hpp&gt;</string>
-      </line>
-      <line>
-        <keyword>#include </keyword>
-        <string>&lt;glm/gtc/constants.hpp&gt;</string>
-      </line>
-      <line>
+		<subtitle>Release note</subtitle>
+		<list title="Features:">
+			<entry>Exposed template vector and matrix types in 'glm' namespace #239, #244</entry>
+			<entry>Added GTX_scalar_multiplication for C++ 11 compiler only #242</entry>
+			<entry>Added GTX_range for C++ 11 compiler only #240</entry>
+			<entry>Added closestPointOnLine function for tvec2 to GTX_closest_point #238</entry>
+			<entry>Added GTC_vec1 extension, *vec1 support to *vec* types</entry>
+			<entry>Updated GTX_associated_min_max with vec1 support</entry>
+			<entry>Added support of precision and integers to linearRand #230</entry>
+			<entry>Added Integer types support to GTX_string_cast #249</entry>
+			<entry>Added vec3 slerp #237</entry>
+			<entry>Added GTX_common with isdenomal #223</entry>
+			<entry>Added GLM_FORCE_SIZE_FUNC to replace .length() by .size() #245</entry>
+			<entry>Added GLM_FORCE_NO_CTOR_INIT</entry>
+			<entry>Added 'uninitialize' to explicitly not initialize a GLM type</entry>
+			<entry>Added GTC_bitfield extension, promoted GTX_bit</entry>
+			<entry>Added GTC_integer extension, promoted GTX_bit and GTX_integer</entry>
+			<entry>Added GTC_round extension, promoted GTX_bit</entry>
+			<entry>Added GLM_FORCE_EXPLICIT_CTOR to require explicit type conversions #269</entry>
+			<entry>Added GTX_type_aligned for aligned vector, matrix and quaternion types</entry>
+		</list>
 
-      </line>
-      <line>
-        <keyword>void</keyword> transitioning_to_radians()
-      </line>
-      <line>
-        {
-      </line>
-      <line align="32px">
-        ...
-      </line>
-      <line align="32px">
-        glm::mat4 m1 = glm::rotate(glm::mat4(1.f), glm::radians(45.0f), glm::vec3(0.0, 0.0, 1.0));
-      </line>
-      <line align="32px">
-        glm::mat4 m2 = glm::rotate(glm::mat4(1.f), glm::pi&lt;float&gt;() * 0.25f, glm::vec3(0.0, 0.0, 1.0));
-      </line>
-      <line align="32px">
-        ...
-      </line>
-      <line>
-        }
-      </line>
-    </code>
-    <paragraph>
-      GLM 0.9.5.1 is also fixing multiple bugs essentially related to the new approach allowing to include each feature individually.
-    </paragraph>
-    
-    <list title="Changelog:">
-      <entry>Fixed angle and orientedAngle that sometimes return NaN values (#145)</entry>
-      <entry>Deprecated degrees for function parameters and display a message</entry>
-      <entry>Added possible static_cast conversion of GLM types (#72)</entry>
-      <entry>Fixed error 'inverse' is not a member of 'glm' from glm::unProject (#146)</entry>
-      <entry>Fixed mismatch between some declarations and definitions</entry>
-      <entry>Fixed inverse link error when using namespace glm; (#147)</entry>
-      <entry>Optimized matrix inverse and division code (#149)</entry>
-      <entry>Added intersectRayPlane function (#153)</entry>
-      <entry>Fixed outerProduct return type (#155)</entry>
-    </list>
-    
-    <list>
-      <download index="0.9.5.1" />
-      <entry href="https://github.com/g-truc/glm/issues">Submit a bug report</entry>
-      <entry href="../0.9.5/glm-0.9.5.pdf">GLM 0.9.5 Manual</entry>
-      <entry href="../0.9.5/api/index.html">GLM 0.9.5 API</entry>
-    </list>
-  </post>
-  
-  <post index="0089" date="25/12/2013" std-date="2013-12-25T23:30:00.00Z" title="GLM 0.9.5.0 released">
-    <paragraph>
-      GLM 0.9.5 broke compatibility with GLM 0.9.4 to bring multiple improvements on multiple fronts: compilation time, generated code performances and usage reliability.
-    </paragraph>
-    <paragraph>
-      First, in previous version GLM switched from including &lt;glm/ext.hpp&gt; to include individual extensions. 
-      Just like we can still use &lt;glm/ext.hpp&gt; for global inclusion, with GLM 0.9.5 we can use individual headers to include only the features we need. For example: 
-      &lt;glm/vec3.hpp&gt; for glm::vec3, &lt;glm/mat4x4.hpp&gt; for glm::mat4 or &lt;glm/geometry.hpp&gt; for all the version of the geometry section of the GLSL specifications.
-    </paragraph>
-    <paragraph>
-      Futhermore, GLM has a new forward declaration header &lt;glm/fwd.hpp&gt; to help reducing dependecies to GLM code.
-    </paragraph>
-    <paragraph>
-      As a result and for experimentation, <link href="https://github.com/g-truc/ovtsa">a simple raytracer</link> can be compile in less than half the time with GLM 0.9.5 than GLM 0.9.4.
-    </paragraph>
+		<list title="Improvements:">
+			<entry>Rely on C++11 to implement isinf and isnan</entry>
+			<entry>Removed GLM_FORCE_CUDA, Cuda is implicitly detected</entry>
+			<entry>Separated Apple Clang and LLVM compiler detection</entry>
+			<entry>Used pragma once</entry>
+			<entry>Undetected C++ compiler automatically compile with GLM_FORCE_CXX98 and GLM_FORCE_PURE</entry>
+			<entry>Added not function (from GLSL specification) on VC12</entry>
+			<entry>Optimized bitfieldReverse and bitCount functions</entry>
+			<entry>Optimized findLSB and findMSB functions</entry>
+			<entry>Optimized matrix-vector multiple performance with Cuda #257, #258</entry>
+			<entry>Reduced integer type redifinitions #233</entry>
+			<entry>Rewrited of GTX_fast_trigonometry #264 #265</entry>
+			<entry>Made types trivially copyable #263</entry>
+			<entry>Removed iostream in GLM tests</entry>
+			<entry>Used std features within GLM without redeclaring</entry>
+			<entry>Optimized cot function #272</entry>
+			<entry>Optimized sign function #272</entry>
+			<entry>Added explicit cast from quat to mat3 and mat4 #275</entry>
+		</list>
 
-    <paragraph>
-      Second, the definition of the precision qualifier (lowp, mediump and highp) has changed and now express computation precision in term of ULPs.
-      As a conscequence for example sizeof(glm::lowp_vec2), sizeof(glm::mediump_vec2) and sizeof(glm::highp_vec2) return the same values.
-      However, the effective computation can be different. For example, the implementation of inversesqrt uses
-      <link href="https://en.wikipedia.org/wiki/Fast_inverse_square_root">fast inverse square root</link> for lowp.
-    </paragraph>
+		<list title="Fixes:">
+			<entry>Fixed std::nextafter not supported with C++11 on Android #217</entry>
+			<entry>Fixed missing value_type for dual quaternion</entry>
+			<entry>Fixed return type of dual quaternion length</entry>
+			<entry>Fixed infinite loop in isfinite function with GCC #221</entry>
+			<entry>Fixed Visual Studio 14 compiler warnings</entry>
+			<entry>Fixed implicit conversion from another tvec2 type to another tvec2 #241</entry>
+			<entry>Fixed lack of consistency of quat and dualquat constructors</entry>
+			<entry>Fixed uaddCarray #253</entry>
+			<entry>Fixed float comparison warnings #270</entry>
+		</list>
 
-    <paragraph>
-      Finally, some efforts have be put into increasing reliability with a larger coverage of assert and static_assert to give more informative compiler error messages.
-      Also, all the half based type have been deleted. 
-      These types could be used just like any float of double types but such usage were bad usages requiring a lot of conversions from half to float and float to half, hence very slow performances.
-      Instead, GLM 0.9.5 provides a extensive set of packing and unpacking functions (glm/gtc/packing.hpp) so that we have to perform arithmetics in float and when it's done we pack it in half data.
-    </paragraph>
+		<list title="Deprecation:">
+			<entry>Removed degrees for function parameters</entry>
+			<entry>Removed GLM_FORCE_RADIANS, active by default</entry>
+			<entry>Removed VC 2005 / 8 and 2008 / 9 support</entry>
+			<entry>Removed GCC 3.4 to 4.5 support</entry>
+			<entry>Removed LLVM GCC support</entry>
+			<entry>Removed LLVM 2.6 to 2.9 support</entry>
+			<entry>Removed CUDA 3.0 to 4.0 support</entry>
+		</list>
 
-    <paragraph>
-      For more details, see the changelog following, enjoy!
-    </paragraph>
+		<paragraph>
+			Enjoy!
+		</paragraph>
 
-    <list title="Changelog:">
-      <entry>Added forward declarations (glm/fwd.hpp) for faster compilations</entry>
-      <entry>Added per feature headers</entry>
-      <entry>Minimized GLM internal dependencies</entry>
-      <entry>Improved Intel Compiler detection</entry>
-      <entry>Added bitfieldInterleave and _mm_bit_interleave_si128 functions</entry>
-      <entry>Added GTX_scalar_relational</entry>
-      <entry>Added GTX_dual_quaternion</entry>
-      <entry>Added rotation function to GTX_quaternion (#22)</entry>
-      <entry>Added precision variation of each type</entry>
-      <entry>Added quaternion comparison functions</entry>
-      <entry>Fixed GTX_multiple for negative value</entry>
-      <entry>Removed GTX_ocl_type extension</entry>
-      <entry>Fixed post increment and decrement operators</entry>
-      <entry>Fixed perspective with zNear == 0 (#71)</entry>
-      <entry>Removed l-value swizzle operators</entry>
-      <entry>Cleaned up compiler detection code for unsupported compilers</entry>
-      <entry>Replaced C cast by C++ casts</entry>
-      <entry>Fixed .length() that should return a int and not a size_t</entry>
-      <entry>Added GLM_FORCE_SIZE_T_LENGTH and glm::length_t</entry>
-      <entry>Removed unnecessary conversions</entry>
-      <entry>Optimized packing and unpacking functions</entry>
-      <entry>Removed the normalization of the up argument of lookAt function (#114)</entry>
-      <entry>Added low precision specializations of inversesqrt</entry>
-      <entry>Fixed ldexp and frexp implementations</entry>
-      <entry>Increased assert coverage</entry>
-      <entry>Increased static_assert coverage</entry>
-      <entry>Replaced GLM traits by STL traits when possible</entry>
-      <entry>Allowed including individual core feature</entry>
-      <entry>Increased unit tests completness</entry>
-      <entry>Added creating of a quaternion from two vectors</entry>
-      <entry>Added C++11 initializer lists</entry>
-      <entry>Fixed umulExtended and imulExtended implementations for vector types (#76)</entry>
-      <entry>Fixed CUDA coverage for GTC extensions</entry>
-      <entry>Added GTX_io extension</entry>
-      <entry>Improved GLM messages enabled when defining GLM_MESSAGES</entry>
-      <entry>Hidden matrix _inverse function implementation detail into private section</entry>
-    </list>
+		<list>
+			<download index="0.9.6.0" />
+			<entry href="https://github.com/g-truc/glm/issues">Submit a bug report</entry>
+			<entry href="../0.9.6/glm-0.9.6.pdf">GLM 0.9.6 Manual</entry>
+			<entry href="../0.9.6/api/index.html">GLM 0.9.6 API</entry>
+		</list>
+	</post>
 
-    <list>
-      <download index="0.9.5.0" />
-      <entry href="https://github.com/g-truc/glm/issues">Submit a bug report</entry>
-      <entry href="../0.9.5/glm-0.9.5.pdf">GLM 0.9.5 Manual</entry>
-      <entry href="../0.9.5/api/index.html">GLM 0.9.5 API</entry>
-    </list>
-  </post>
+	<post index="0093" date="21/06/2014" std-date="2014-06-21T18:30:00.00Z" title="GLM 0.9.5.4 released">
+		<list title="Changelog:">
+			<entry>Added GTX_io for io with 'iostream' #144</entry>
+			<entry>Added FindGLM install for CMake #189</entry>
+			<entry>Optimized quaternion vector rotation #205</entry>
+			<entry>Fixed non-utf8 character #196</entry>
+			<entry>Fixed GTX_color_space - saturation #195</entry>
+			<entry>Fixed glm::isinf and glm::isnan for with Android NDK 9d #191</entry>
+			<entry>Fixed builtin GLM_ARCH_SSE4 #204</entry>
+			<entry>Fixed missing doxygen @endcond tag #211</entry>
+			<entry>Fixed instruction set detection with Clang #158</entry>
+			<entry>Fixed orientate3 function #207</entry>
+			<entry>Fixed lerp when cosTheta is close to 1 in quaternion slerp #210</entry>
+			<entry>Fixed fastDistance ambiguity #215</entry>
+			<entry>Fixed tweakedInfinitePerspective #208 and added user-defined epsilon to tweakedInfinitePerspective</entry>
+			<entry>Fixed std::copy and std::vector with GLM types #214</entry>
+			<entry>Fixed strict aliasing issues #212, #152</entry>
+			<entry>Fixed std::nextafter not supported with C++11 on Android #213</entry>
+			<entry>Fixed corner cases in exp and log functions for quaternions #199</entry>
+		</list>
 
-  <post index="0088" date="20/09/2013" std-date="2013-08-20T14:00:00.00Z" title="GLM 0.9.4.6 released">
+		<list>
+			<download index="0.9.5.4" />
+			<entry href="https://github.com/g-truc/glm/issues">Submit a bug report</entry>
+			<entry href="../0.9.5/glm-0.9.5.pdf">GLM 0.9.5 Manual</entry>
+			<entry href="../0.9.5/api/index.html">GLM 0.9.5 API</entry>
+		</list>
+	</post>
+
+	<post index="0092" date="02/04/2014" std-date="2014-04-02T02:30:00.00Z" title="GLM 0.9.5.3 released">
+		<list title="Changelog:">
+			<entry>Added instruction set auto detection with Visual C++ using _M_IX86_FP - /arch compiler argument</entry>
+			<entry>Fixed GTX_raw_data code dependency</entry>
+			<entry>Fixed GCC instruction set detection</entry>
+			<entry>Added GLM_GTX_matrix_transform_2d extension (#178, #176)</entry>
+			<entry>Fixed CUDA issues (#169, #168, #183, #182)</entry>
+			<entry>Added support for all extensions but GTX_string_cast to CUDA</entry>
+			<entry>Fixed strict aliasing warnings in GCC 4.8.1 / Android NDK 9c (#152)</entry>
+			<entry>Fixed missing bitfieldInterleave definitions</entry>
+			<entry>Fixed usubBorrow (#171)</entry>
+			<entry>Fixed eulerAngle*** not consistent for right-handed coordinate system (#173)</entry>
+			<entry>Added full tests for eulerAngle*** functions (#173)</entry>
+			<entry>Added workaround for a CUDA compiler bug (#186, #185)</entry>
+		</list>
+
+		<list>
+			<download index="0.9.5.3" />
+			<entry href="https://github.com/g-truc/glm/issues">Submit a bug report</entry>
+			<entry href="../0.9.5/glm-0.9.5.pdf">GLM 0.9.5 Manual</entry>
+			<entry href="../0.9.5/api/index.html">GLM 0.9.5 API</entry>
+		</list>
+	</post>
+
+	<post index="0091" date="08/02/2014" std-date="2014-02-08T23:30:00.00Z" title="GLM 0.9.5.2 released">
+		<paragraph>
+			C++ 11 introduced <link href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2672.htm">
+				initializer lists and uniform initialization syntax
+			</link> and GLM 0.9.5.0 tried to leverage this functionality but didn't get it quite right.
+			GLM 0.9.5.2 is fixing this.
+		</paragraph>
+
+		<code title="Examples of usage with GLM:">
+			<line>
+				<keyword>#define </keyword> GLM_FORCE_RADIANS
+			</line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/vec4.hpp&gt;</string>
+			</line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/mat4.hpp&gt;</string>
+			</line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/gtc/quat.hpp&gt;</string>
+			</line>
+			<line></line>
+			<line>{</line>
+			<line align="32px">...</line>
+			<line align="32px">glm::vec4 A{0, 1, 2, 3};</line>
+			<line></line>
+			<line align="32px">glm::mat4 B{</line>
+			<line align="64px">{0, 1, 2, 3},</line>
+			<line align="64px">{4, 5, 6, 7},</line>
+			<line align="64px">{8, 9, 10, 11},</line>
+			<line align="64px">{12, 13, 14, 15}};</line>
+			<line></line>
+			<line align="32px">std::vector&lt;glm::mat4&gt; C{</line>
+			<line align="64px">{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15},</line>
+			<line align="64px">{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15}};</line>
+			<line></line>
+			<line align="32px">std::vector&lt;glm::mat4&gt; D{</line>
+			<line align="64px">{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15},</line>
+			<line align="64px">{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15}};</line>
+			<line></line>
+			<line align="32px">std::vector&lt;glm::mat4&gt; E{</line>
+			<line align="64px">{</line>
+			<line align="96px">{ 0, 1, 2, 3 },</line>
+			<line align="96px">{ 4, 5, 6, 7 },</line>
+			<line align="96px">{ 8, 9, 10, 11 },</line>
+			<line align="96px">{ 12, 13, 14, 15 }</line>
+			<line align="64px">},</line>
+			<line align="64px">{</line>
+			<line align="96px">{ 0, 1, 2, 3 },</line>
+			<line align="96px">{ 4, 5, 6, 7 },</line>
+			<line align="96px">{ 8, 9, 10, 11 },</line>
+			<line align="96px">{ 12, 13, 14, 15 }</line>
+			<line align="64px">}};</line>
+			<line></line>
+			<line align="32px">glm::quat F{0, 1, 2, 3};</line>
+			<line align="32px">...</line>
+			<line>}</line>
+		</code>
+
+		<list title="Changelog:">
+			<entry>Fixed initializer list ambiguity (#159, #160)</entry>
+			<entry>Fixed warnings with the Android NDK 9c</entry>
+			<entry>Fixed non power of two matrix products</entry>
+			<entry>Fixed mix function link error</entry>
+			<entry>Fixed SSE code included in GLM tests on "pure" platforms</entry>
+			<entry>Fixed undefined reference to fastInverseSqrt (#161)</entry>
+			<entry>Fixed GLM_FORCE_RADIANS with &lt;glm/ext.hpp&gt; build error (#165)</entry>
+			<entry>Fix dot product clamp range for vector angle functions. (#163)</entry>
+			<entry>Tentative fix for strict aliasing warning in GCC 4.8.1 / Android NDK 9c (#152)</entry>
+			<entry>Fixed GLM_GTC_constants description brief (#162)</entry>
+		</list>
+
+		<list>
+			<download index="0.9.5.2" />
+			<entry href="https://github.com/g-truc/glm/issues">Submit a bug report</entry>
+			<entry href="../0.9.5/glm-0.9.5.pdf">GLM 0.9.5 Manual</entry>
+			<entry href="../0.9.5/api/index.html">GLM 0.9.5 API</entry>
+		</list>
+	</post>
+
+	<post index="0090" date="11/01/2013" std-date="2013-01-11T23:30:00.00Z" title="GLM 0.9.5.1 released">
+		<paragraph>
+			One of the annoying aspect of GLM is that sometime angles are expressed in degrees and sometime angles are expressed in radians.
+			Angles expressed in radians are features coming from GLSL where all the angles are expressed in radians and angles expressed in degrees are features coming from OpenGL compatibility profile.
+		</paragraph>
+		<paragraph>
+			GLM provides the define <codeword>GLM_FORCE_RADIANS</codeword> to enfore all the angles to be radians. GLM 0.9.5 deprecates degrees so that in GLM 0.9.6 those will be removed.
+			Starting with GLM 0.9.5.1, warnings will be prompt for each instance of usage degrees. This is designed to help transitioning user code.
+			Defining <codeword>GLM_FORCE_RADIANS</codeword> will quiet these messages.
+		</paragraph>
+
+		<code title="Transitioning degrees to radians:">
+			<line>
+				<keyword>#define </keyword> GLM_FORCE_RADIANS
+			</line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/gtc/matrix_tansform.hpp&gt;</string>
+			</line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/gtc/constants.hpp&gt;</string>
+			</line>
+			<line>
+
+			</line>
+			<line>
+				<keyword>void</keyword> transitioning_to_radians()
+			</line>
+			<line>
+				{
+			</line>
+			<line align="32px">
+				...
+			</line>
+			<line align="32px">
+				glm::mat4 m1 = glm::rotate(glm::mat4(1.f), glm::radians(45.0f), glm::vec3(0.0, 0.0, 1.0));
+			</line>
+			<line align="32px">
+				glm::mat4 m2 = glm::rotate(glm::mat4(1.f), glm::pi&lt;float&gt;() * 0.25f, glm::vec3(0.0, 0.0, 1.0));
+			</line>
+			<line align="32px">
+				...
+			</line>
+			<line>
+				}
+			</line>
+		</code>
+		<paragraph>
+			GLM 0.9.5.1 is also fixing multiple bugs essentially related to the new approach allowing to include each feature individually.
+		</paragraph>
+
+		<list title="Changelog:">
+			<entry>Fixed angle and orientedAngle that sometimes return NaN values (#145)</entry>
+			<entry>Deprecated degrees for function parameters and display a message</entry>
+			<entry>Added possible static_cast conversion of GLM types (#72)</entry>
+			<entry>Fixed error 'inverse' is not a member of 'glm' from glm::unProject (#146)</entry>
+			<entry>Fixed mismatch between some declarations and definitions</entry>
+			<entry>Fixed inverse link error when using namespace glm; (#147)</entry>
+			<entry>Optimized matrix inverse and division code (#149)</entry>
+			<entry>Added intersectRayPlane function (#153)</entry>
+			<entry>Fixed outerProduct return type (#155)</entry>
+		</list>
+
+		<list>
+			<download index="0.9.5.1" />
+			<entry href="https://github.com/g-truc/glm/issues">Submit a bug report</entry>
+			<entry href="../0.9.5/glm-0.9.5.pdf">GLM 0.9.5 Manual</entry>
+			<entry href="../0.9.5/api/index.html">GLM 0.9.5 API</entry>
+		</list>
+	</post>
+
+	<post index="0089" date="25/12/2013" std-date="2013-12-25T23:30:00.00Z" title="GLM 0.9.5.0 released">
+		<paragraph>
+			GLM 0.9.5 broke compatibility with GLM 0.9.4 to bring multiple improvements on multiple fronts: compilation time, generated code performances and usage reliability.
+		</paragraph>
+		<paragraph>
+			First, in previous version GLM switched from including &lt;glm/ext.hpp&gt; to include individual extensions.
+			Just like we can still use &lt;glm/ext.hpp&gt; for global inclusion, with GLM 0.9.5 we can use individual headers to include only the features we need. For example:
+			&lt;glm/vec3.hpp&gt; for glm::vec3, &lt;glm/mat4x4.hpp&gt; for glm::mat4 or &lt;glm/geometry.hpp&gt; for all the version of the geometry section of the GLSL specifications.
+		</paragraph>
+		<paragraph>
+			Futhermore, GLM has a new forward declaration header &lt;glm/fwd.hpp&gt; to help reducing dependecies to GLM code.
+		</paragraph>
+		<paragraph>
+			As a result and for experimentation, <link href="https://github.com/g-truc/ovtsa">a simple raytracer</link> can be compile in less than half the time with GLM 0.9.5 than GLM 0.9.4.
+		</paragraph>
+
+		<paragraph>
+			Second, the definition of the precision qualifier (lowp, mediump and highp) has changed and now express computation precision in term of ULPs.
+			As a conscequence for example sizeof(glm::lowp_vec2), sizeof(glm::mediump_vec2) and sizeof(glm::highp_vec2) return the same values.
+			However, the effective computation can be different. For example, the implementation of inversesqrt uses
+			<link href="https://en.wikipedia.org/wiki/Fast_inverse_square_root">fast inverse square root</link> for lowp.
+		</paragraph>
+
+		<paragraph>
+			Finally, some efforts have be put into increasing reliability with a larger coverage of assert and static_assert to give more informative compiler error messages.
+			Also, all the half based type have been deleted.
+			These types could be used just like any float of double types but such usage were bad usages requiring a lot of conversions from half to float and float to half, hence very slow performances.
+			Instead, GLM 0.9.5 provides a extensive set of packing and unpacking functions (glm/gtc/packing.hpp) so that we have to perform arithmetics in float and when it's done we pack it in half data.
+		</paragraph>
+
+		<paragraph>
+			For more details, see the changelog following, enjoy!
+		</paragraph>
+
+		<list title="Changelog:">
+			<entry>Added forward declarations (glm/fwd.hpp) for faster compilations</entry>
+			<entry>Added per feature headers</entry>
+			<entry>Minimized GLM internal dependencies</entry>
+			<entry>Improved Intel Compiler detection</entry>
+			<entry>Added bitfieldInterleave and _mm_bit_interleave_si128 functions</entry>
+			<entry>Added GTX_scalar_relational</entry>
+			<entry>Added GTX_dual_quaternion</entry>
+			<entry>Added rotation function to GTX_quaternion (#22)</entry>
+			<entry>Added precision variation of each type</entry>
+			<entry>Added quaternion comparison functions</entry>
+			<entry>Fixed GTX_multiple for negative value</entry>
+			<entry>Removed GTX_ocl_type extension</entry>
+			<entry>Fixed post increment and decrement operators</entry>
+			<entry>Fixed perspective with zNear == 0 (#71)</entry>
+			<entry>Removed l-value swizzle operators</entry>
+			<entry>Cleaned up compiler detection code for unsupported compilers</entry>
+			<entry>Replaced C cast by C++ casts</entry>
+			<entry>Fixed .length() that should return a int and not a size_t</entry>
+			<entry>Added GLM_FORCE_SIZE_T_LENGTH and glm::length_t</entry>
+			<entry>Removed unnecessary conversions</entry>
+			<entry>Optimized packing and unpacking functions</entry>
+			<entry>Removed the normalization of the up argument of lookAt function (#114)</entry>
+			<entry>Added low precision specializations of inversesqrt</entry>
+			<entry>Fixed ldexp and frexp implementations</entry>
+			<entry>Increased assert coverage</entry>
+			<entry>Increased static_assert coverage</entry>
+			<entry>Replaced GLM traits by STL traits when possible</entry>
+			<entry>Allowed including individual core feature</entry>
+			<entry>Increased unit tests completness</entry>
+			<entry>Added creating of a quaternion from two vectors</entry>
+			<entry>Added C++11 initializer lists</entry>
+			<entry>Fixed umulExtended and imulExtended implementations for vector types (#76)</entry>
+			<entry>Fixed CUDA coverage for GTC extensions</entry>
+			<entry>Added GTX_io extension</entry>
+			<entry>Improved GLM messages enabled when defining GLM_MESSAGES</entry>
+			<entry>Hidden matrix _inverse function implementation detail into private section</entry>
+		</list>
+
+		<list>
+			<download index="0.9.5.0" />
+			<entry href="https://github.com/g-truc/glm/issues">Submit a bug report</entry>
+			<entry href="../0.9.5/glm-0.9.5.pdf">GLM 0.9.5 Manual</entry>
+			<entry href="../0.9.5/api/index.html">GLM 0.9.5 API</entry>
+		</list>
+	</post>
+
+	<post index="0088" date="20/09/2013" std-date="2013-08-20T14:00:00.00Z" title="GLM 0.9.4.6 released">
 		<paragraph>
 			New revision of GLM 0.9.4 available thanks to user contributions.
 		</paragraph>
@@ -651,7 +747,7 @@
 			<entry href="../0.9.4/api/index.html">GLM 0.9.4 API</entry>
 		</list>
 	</post>
-  <post index="0087" date="13/08/2013" std-date="2013-08-13T23:30:00.00Z" title="GLM 0.9.4.5 released">
+	<post index="0087" date="13/08/2013" std-date="2013-08-13T23:30:00.00Z" title="GLM 0.9.4.5 released">
 		<paragraph>
 			GLM 0.9.4.5 is available fixing the following minor issues. This is the occasion to also launch the revised GLM website.
 		</paragraph>
@@ -692,7 +788,7 @@
 			<entry href="../0.9.4/api/index.html">GLM 0.9.4 API</entry>
 		</list>
 	</post>
-	
+
 	<post index="0085" date="27/05/2013" std-date="2013-05-27T23:30:00.00Z" title="GLM packages for Linux">
 		<paragraph>
 			GLM is now included in many major Linux distributions. Here is a quick list of available packages.
@@ -765,9 +861,9 @@
 			GLM 0.9.4.1 fixes various bugs and clarifies quaternion interpolations. There are now three different functions now: <codeword>mix</codeword>, <codeword>slerp</codeword> and <codeword>lerp</codeword>.
 		</paragraph>
 		<paragraph>
-			<codeword>lerp</codeword> performs a linear interpolation between two quaternions. 
-			This operation is only defined with interpolation factors between [0, 1] and doesn't perform the rotation at constant speed. 
-			<codeword>slerp</codeword> perform a spherical linear interpolation between two quaternion. 
+			<codeword>lerp</codeword> performs a linear interpolation between two quaternions.
+			This operation is only defined with interpolation factors between [0, 1] and doesn't perform the rotation at constant speed.
+			<codeword>slerp</codeword> perform a spherical linear interpolation between two quaternion.
 			It always takes the short rotation path and it is performed at constant speed for interpolation factors between ]-inf, +inf[. This function is similar to the old <codeword>shortMix</codeword> function.
 			<codeword>mix</codeword> is an oriented spherical linear interpolation between two quaternion. It is performed at constant speed for interpolation factors between ]-inf, +inf[.
 		</paragraph>
@@ -794,8 +890,12 @@
 	<post index="0081" date="18/11/2012" std-date="2012-11-18T23:30:00.00Z" title="GLM 0.9.4.0 released">
 		<list title="Changelog:">
 			<entry>Added Intel Composer Compiler support</entry>
-			<entry>Promoted <link href="http://glm.g-truc.net/0.9.4/api/a00146.html">GLM_GTC_espilon</link> extension</entry>
-			<entry>Promoted <link href="http://glm.g-truc.net/0.9.4/api/a00159.html">GLM_GTC_ulp</link> extension</entry>
+			<entry>
+				Promoted <link href="http://glm.g-truc.net/0.9.4/api/a00146.html">GLM_GTC_espilon</link> extension
+			</entry>
+			<entry>
+				Promoted <link href="http://glm.g-truc.net/0.9.4/api/a00159.html">GLM_GTC_ulp</link> extension
+			</entry>
 			<entry>Removed GLM website from the source repository</entry>
 			<entry>Added GLM_FORCE_RADIANS so that all functions takes radians for arguments</entry>
 			<entry>Fixed detection of Clang and LLVM GCC on MacOS X</entry>
@@ -838,16 +938,22 @@
 	<post index="0079" date="10/05/2012" std-date="2012-05-10T23:30:00.00Z" title="GLM 0.9.3.3 released">
 		<paragraph>
 			Nearly two months since the previous release of a GLM revision gave enough time to fix few things reported.
-			Most importantly, this revision should provide a better compatibility with Intel C++ compiler. 
+			Most importantly, this revision should provide a better compatibility with Intel C++ compiler.
 		</paragraph>
 
 		<list title="Changelog:">
-			<entry>Fixed <link href="http://glm.g-truc.net/api-0.9.4/a00129.html#ga69fcbd40e0ce359f832329c0c93d5912">isinf</link> and <link href="http://glm.g-truc.net/api-0.9.4/a00129.html#ga5efda4205aed487be515b5f2921303f8">isnan</link></entry>
+			<entry>
+				Fixed <link href="http://glm.g-truc.net/api-0.9.4/a00129.html#ga69fcbd40e0ce359f832329c0c93d5912">isinf</link> and <link href="http://glm.g-truc.net/api-0.9.4/a00129.html#ga5efda4205aed487be515b5f2921303f8">isnan</link>
+			</entry>
 			<entry>Improved compatibility with Intel compiler</entry>
 			<entry>Added CMake test build options: SIMD, C++11, fast math and MS land ext</entry>
 			<entry>Fixed SIMD mat4 test on GCC</entry>
-			<entry>Fixed <link href="http://glm.g-truc.net/api-0.9.4/a00151.html#gac2bbb4ae38c7cc549feefae5406517d7">perspectiveFov</link> implementation</entry>
-			<entry>Fixed <link href="http://glm.g-truc.net/api-0.9.4/a00133.html#ga0e48491a51b3f366d671c01894705605">matrixCompMult</link> for none-square matrices</entry>
+			<entry>
+				Fixed <link href="http://glm.g-truc.net/api-0.9.4/a00151.html#gac2bbb4ae38c7cc549feefae5406517d7">perspectiveFov</link> implementation
+			</entry>
+			<entry>
+				Fixed <link href="http://glm.g-truc.net/api-0.9.4/a00133.html#ga0e48491a51b3f366d671c01894705605">matrixCompMult</link> for none-square matrices
+			</entry>
 			<entry>Fixed namespace issue on stream operators</entry>
 			<entry>Fixed various warnings</entry>
 			<entry>Added VC11 support</entry>
@@ -882,15 +988,15 @@
 
 	<post index="0077" date="10/03/2012" std-date="2012-03-10T23:30:00.00Z" title="GLM on GitHub">
 		<paragraph>
-        After years of using <link href="http://sourceforge.net/projects/ogl-math/?source=directory">SourceForge.net</link>, GLM is moving to <link href="https://github.com/Groovounet/glm">GitHub</link>,
-        as least for its repository. GitHub provides easy ways to clone the repository and submit pull requests which seems a definity advantage for the community contribution.
-        It also allows to download snapshots of every branches.
+			After years of using <link href="http://sourceforge.net/projects/ogl-math/?source=directory">SourceForge.net</link>, GLM is moving to <link href="https://github.com/Groovounet/glm">GitHub</link>,
+			as least for its repository. GitHub provides easy ways to clone the repository and submit pull requests which seems a definity advantage for the community contribution.
+			It also allows to download snapshots of every branches.
 		</paragraph>
 
-			<entry href="https://github.com/g-truc/glm/issues">Browse GLM repository on GitHub</entry>
-			<entry href="https://github.com/Groovounet/glm/zipball/master">GLM master branch snapshot</entry>
-			<entry href="https://github.com/Groovounet/glm/zipball/0.9.3">GLM 0.9.3 branch snapshot</entry>
-			<entry href="https://github.com/Groovounet/glm/zipball/0.9.4">GLM 0.9.4 branch snapshot</entry>
+		<entry href="https://github.com/g-truc/glm/issues">Browse GLM repository on GitHub</entry>
+		<entry href="https://github.com/Groovounet/glm/zipball/master">GLM master branch snapshot</entry>
+		<entry href="https://github.com/Groovounet/glm/zipball/0.9.3">GLM 0.9.3 branch snapshot</entry>
+		<entry href="https://github.com/Groovounet/glm/zipball/0.9.4">GLM 0.9.4 branch snapshot</entry>
 	</post>
 
 	<post index="0076" date="25/01/2012" std-date="2012-01-25T23:30:00.00Z" title="GLM 0.9.3.1 released">
@@ -898,11 +1004,11 @@
 			GLM 0.9.3.1 fixes some platforms detection issues and warnings.
 		</paragraph>
 
-			<entry href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.1/glm-0.9.3.1.zip/download">GLM 0.9.3.1 (zip)</entry>
-			<entry href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.1/glm-0.9.3.1.7z/download">GLM 0.9.3.1 (7z)</entry>
-			<entry href="https://github.com/g-truc/glm/issues">Submit a bug report</entry>
-			<entry href="http://glm.g-truc.net/glm-0.9.3.pdf">GLM 0.9.3 Manual</entry>
-			<entry href="http://glm.g-truc.net/api-0.9.3/index.html">GLM 0.9.3 API</entry>
+		<entry href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.1/glm-0.9.3.1.zip/download">GLM 0.9.3.1 (zip)</entry>
+		<entry href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.1/glm-0.9.3.1.7z/download">GLM 0.9.3.1 (7z)</entry>
+		<entry href="https://github.com/g-truc/glm/issues">Submit a bug report</entry>
+		<entry href="http://glm.g-truc.net/glm-0.9.3.pdf">GLM 0.9.3 Manual</entry>
+		<entry href="http://glm.g-truc.net/api-0.9.3/index.html">GLM 0.9.3 API</entry>
 	</post>
 
 	<post index="0075" date="09/01/2012" title="GLM 0.9.3.0 released">
@@ -915,7 +1021,7 @@
 		</paragraph>
 		<image img="../image/0075-1.jpg" title="2D simplex noise with GLM_GTC_noise" color="'white'" />
 		<paragraph>
-			Additionally, the random number generation functions (GLM_GTC_random) which provides various interesting distributions as illustrated below. 
+			Additionally, the random number generation functions (GLM_GTC_random) which provides various interesting distributions as illustrated below.
 			Also reaching GLM tool box, the new experimental extension GLM_GTX_constants provides a set of constants.
 		</paragraph>
 		<image img="../image/0075-2.jpg" title="Spherical random distribution with GLM_GTC_random" color="'white'" />
@@ -927,94 +1033,94 @@
 		</paragraph>
 
 		<code title="Implementation for C++ 98 compilers:">
-        <line>
-          <comment>// To declare before including glm.hpp, to use the swizzle operators</comment>          
-        </line>
-        <line>
-          <keyword>#define </keyword> GLM_SWIZZLE 
-        </line>
-        <line>
-          <keyword>#include </keyword>
-          <string>&lt;glm/glm.hpp&gt;</string>
-        </line>
-        <line>
+			<line>
+				<comment>// To declare before including glm.hpp, to use the swizzle operators</comment>
+			</line>
+			<line>
+				<keyword>#define </keyword> GLM_SWIZZLE
+			</line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/glm.hpp&gt;</string>
+			</line>
+			<line>
 
-        </line>
-        <line>
-          <keyword>void</keyword> example_cpp98()
-        </line>
-        <line>
-          {
-        </line>
-        <line align="32px">
-          glm::vec4 a = glm::vec4(2, 0, 0, 0);
-        </line>
-        <line align="32px">
-          glm::vec4 b = glm::vec4(0, 2, 0, 0);
-        </line>
-        <line align="32px">
-          glm::vec3 c = vec4((a.zyx() + b.xyz()).xyz() * 0.5f, 1.0f);
-        </line>
-        <line align="32px">
-          glm::vec2 d = glm::normalize(glm::vec2(c.yz()));
-        </line>
-        <line align="32px">
-          a.xyzw() = d.xyxy();
-        </line>
-        <line>
-          }
-        </line>
-      </code>
+			</line>
+			<line>
+				<keyword>void</keyword> example_cpp98()
+			</line>
+			<line>
+				{
+			</line>
+			<line align="32px">
+				glm::vec4 a = glm::vec4(2, 0, 0, 0);
+			</line>
+			<line align="32px">
+				glm::vec4 b = glm::vec4(0, 2, 0, 0);
+			</line>
+			<line align="32px">
+				glm::vec3 c = vec4((a.zyx() + b.xyz()).xyz() * 0.5f, 1.0f);
+			</line>
+			<line align="32px">
+				glm::vec2 d = glm::normalize(glm::vec2(c.yz()));
+			</line>
+			<line align="32px">
+				a.xyzw() = d.xyxy();
+			</line>
+			<line>
+				}
+			</line>
+		</code>
 
-      <code title="Implementation for C++ 11 compilers:">
-        <line>
-          <comment>// To declare before including glm.hpp, to use the swizzle operators</comment>
-        </line>
-        <line>
-          <keyword>#define </keyword> GLM_SWIZZLE
-        </line>
-        <line>
-          <keyword>#include </keyword>
-          <string>&lt;glm/glm.hpp&gt;</string>
-        </line>
-        <line>
+		<code title="Implementation for C++ 11 compilers:">
+			<line>
+				<comment>// To declare before including glm.hpp, to use the swizzle operators</comment>
+			</line>
+			<line>
+				<keyword>#define </keyword> GLM_SWIZZLE
+			</line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/glm.hpp&gt;</string>
+			</line>
+			<line>
 
-        </line>
-        <line>
-          <keyword>void</keyword> example_cpp11()
-        </line>
-        <line>
-          {
-        </line>
-        <line align="32px">
-          glm::vec4 a = glm::vec4(2, 0, 0, 0);
-        </line>
-        <line align="32px">
-          glm::vec4 b = glm::vec4(0, 2, 0, 0);
-        </line>
-          <comment>// To use a swizzle operator with an operator, it needs to be cast into a vector either explicitly or with the operator ()</comment> 
-        <line align="32px">
-          glm::vec4 c = glm::vec4((a.zyx() + b.xyz()).xyz * 0.5f, 1.0f);
-        </line>
-        <line align="32px">
-          <comment>// Before being pasted to a function, a swizzle operator needs to be cast into</comment> 
-        </line>
-        <line align="32px">
-          <comment>// a vector either explicitly or with the operator ()</comment>
-        </line>
-        <line align="32px">
-          glm::vec2 d = glm::normalize(glm::vec2(c.yz));
-        </line>
-          <line align="32px">
-              <comment>// glm::vec2 d = glm::normalize(c.yz()); // Equivalent code</comment>
-          </line>
-        <line align="32px">
-          a.xyzw = d.xyxy;
-        </line>
-        <line>
-          }
-        </line>
-      </code>
+			</line>
+			<line>
+				<keyword>void</keyword> example_cpp11()
+			</line>
+			<line>
+				{
+			</line>
+			<line align="32px">
+				glm::vec4 a = glm::vec4(2, 0, 0, 0);
+			</line>
+			<line align="32px">
+				glm::vec4 b = glm::vec4(0, 2, 0, 0);
+			</line>
+			<comment>// To use a swizzle operator with an operator, it needs to be cast into a vector either explicitly or with the operator ()</comment>
+			<line align="32px">
+				glm::vec4 c = glm::vec4((a.zyx() + b.xyz()).xyz * 0.5f, 1.0f);
+			</line>
+			<line align="32px">
+				<comment>// Before being pasted to a function, a swizzle operator needs to be cast into</comment>
+			</line>
+			<line align="32px">
+				<comment>// a vector either explicitly or with the operator ()</comment>
+			</line>
+			<line align="32px">
+				glm::vec2 d = glm::normalize(glm::vec2(c.yz));
+			</line>
+			<line align="32px">
+				<comment>// glm::vec2 d = glm::normalize(c.yz()); // Equivalent code</comment>
+			</line>
+			<line align="32px">
+				a.xyzw = d.xyxy;
+			</line>
+			<line>
+				}
+			</line>
+		</code>
 
 		<list>
 			<entry href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.0/glm-0.9.3.0.zip/download">GLM 0.9.3.0 (zip)</entry>
@@ -1041,20 +1147,20 @@
 
 	<post index="0073" date="11/11/2011" title="GLM 0.9.3 alpha released">
 		<paragraph>
-			GLM 0.9.3 is making progress which is illustrated by the release of this first alpha. 
+			GLM 0.9.3 is making progress which is illustrated by the release of this first alpha.
 		</paragraph>
 		<list title="Changelog:">
 			<entry>Improved doxygen documentation</entry>
-        	<entry>Added new swizzle operators for C++11 compilers</entry>
-        	<entry>Added new swizzle operators declared as functions</entry>
-        	<entry>Added GLSL 4.20 length for vector and matrix types</entry>
-        	<entry>Added GLSL core noise functions</entry>
-        	<entry>Promoted GLM_GTC_noise extension: simplex, perlin, periodic noise functions</entry>
-        	<entry>Promoted GLM_GTC_random extension: linear, gaussian and various random number generation distribution</entry>
-        	<entry>Added GLM_GTX_constants: provides usefull constants</entry>
-        	<entry>Fixed half based type contructors</entry>
+			<entry>Added new swizzle operators for C++11 compilers</entry>
+			<entry>Added new swizzle operators declared as functions</entry>
+			<entry>Added GLSL 4.20 length for vector and matrix types</entry>
+			<entry>Added GLSL core noise functions</entry>
+			<entry>Promoted GLM_GTC_noise extension: simplex, perlin, periodic noise functions</entry>
+			<entry>Promoted GLM_GTC_random extension: linear, gaussian and various random number generation distribution</entry>
+			<entry>Added GLM_GTX_constants: provides usefull constants</entry>
+			<entry>Fixed half based type contructors</entry>
 		</list>
-		
+
 		<list>
 			<entry href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.A/glm-0.9.3.A.zip/download">GLM 0.9.3.A (zip)</entry>
 			<entry href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.3.A/glm-0.9.3.A.7z/download">GLM 0.9.3.A (7z)</entry>
@@ -1069,69 +1175,69 @@
 			This revision fixes two problems: First, it adds all matrix products for all possible combinations of none-squared matrices. Thanks to <a href="http://www.zeuscmd.com">Grant James</a> who has provide the code for that.
 		</paragraph>
 
-      <code>
-        <line>
-          <keyword>#include </keyword>
-          <string>&lt;glm/glm.hpp&gt;</string>
-        </line>
-        <line>
+		<code>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/glm.hpp&gt;</string>
+			</line>
+			<line>
 
-        </line>
-        <line>
-          <keyword>void</keyword> kueken()
-        </line>
-        <line>
-          {
-        </line>
-        <line align="32px">
-          glm::mat3x2 m1;
-        </line>
-        <line align="32px">
-          glm::mat2x3 n1;
-        </line>
-        <line align="32px">
-          ...
-        </line>
-        <line align="32px">
-          glm::mat2x2 P = m1 * n1; <comment>// Valid before GLM 0.9.2.7</comment>
-        </line>
-        <line>
+			</line>
+			<line>
+				<keyword>void</keyword> kueken()
+			</line>
+			<line>
+				{
+			</line>
+			<line align="32px">
+				glm::mat3x2 m1;
+			</line>
+			<line align="32px">
+				glm::mat2x3 n1;
+			</line>
+			<line align="32px">
+				...
+			</line>
+			<line align="32px">
+				glm::mat2x2 P = m1 * n1; <comment>// Valid before GLM 0.9.2.7</comment>
+			</line>
+			<line>
 
-        </line>
-        <line align="32px">
-          glm::mat3x2 m2;
-        </line>
-        <line align="32px">
-          glm::mat4x3 n2;
-        </line>
-        <line align="32px">
-          ...
-        </line>
-        <line align="32px">
-          glm::mat4x2 P2 = m2 * n2; <comment>// Fixed in GLM 0.9.2.7</comment>
-        </line>
-        <line>
+			</line>
+			<line align="32px">
+				glm::mat3x2 m2;
+			</line>
+			<line align="32px">
+				glm::mat4x3 n2;
+			</line>
+			<line align="32px">
+				...
+			</line>
+			<line align="32px">
+				glm::mat4x2 P2 = m2 * n2; <comment>// Fixed in GLM 0.9.2.7</comment>
+			</line>
+			<line>
 
-        </line>
-        <line align="32px">
-          glm::mat4x3 m3;
-        </line>
-        <line align="32px">
-          glm::mat4x4 n3;
-        </line>
-        <line align="32px">
-          ...
-        </line>
-        <line align="32px">
-          glm::mat4x3 P3 = m3 * n3; <comment>// Fixed in GLM 0.9.2.7</comment>
-        </line>
-        <line align="32px">
-          ...
-        </line>
-        <line>
-          }
-        </line>
-      </code>
+			</line>
+			<line align="32px">
+				glm::mat4x3 m3;
+			</line>
+			<line align="32px">
+				glm::mat4x4 n3;
+			</line>
+			<line align="32px">
+				...
+			</line>
+			<line align="32px">
+				glm::mat4x3 P3 = m3 * n3; <comment>// Fixed in GLM 0.9.2.7</comment>
+			</line>
+			<line align="32px">
+				...
+			</line>
+			<line>
+				}
+			</line>
+		</code>
 		<paragraph>
 			This support is actually pretty useful as soon as we are interested in optimizing the matrix storage.
 		</paragraph>
@@ -1204,28 +1310,28 @@
 		</paragraph>
 		<code>
 			<line>
-				  <keyword>#include </keyword>
-				  <string>&lt;glm/glm.hpp&gt;</string>
-			  </line>
-			  <line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/glm.hpp&gt;</string>
+			</line>
+			<line>
 
-			  </line>
-			  <line>
-				  <comment>// Create an identity matrix</comment>
-			  </line>
-			  <line>
-				  glm::mat3 m(
-			  </line>
-			  <line align="32px">
-				  1, 0.0, 0,
-			  </line>
-			  <line align="32px">
-				  0.0, 1.0, 0.0f, 
-			  </line>
-			  <line align="32px">
-				  0, 0.0, 1.0f);
-			  </line>
-			</code>
+			</line>
+			<line>
+				<comment>// Create an identity matrix</comment>
+			</line>
+			<line>
+				glm::mat3 m(
+			</line>
+			<line align="32px">
+				1, 0.0, 0,
+			</line>
+			<line align="32px">
+				0.0, 1.0, 0.0f,
+			</line>
+			<line align="32px">
+				0, 0.0, 1.0f);
+			</line>
+		</code>
 		<paragraph>
 			The quaternion implementation has been updated as well, fixing the various slerp implementation flavours (mix, shortMix and fastMix) and providing more completeness: Added interaction with GLM_GTX_epsilon and missing lowp_quat, mediump_quat and highp_quat but also none square matrix equivalents.
 		</paragraph>
@@ -1448,9 +1554,9 @@
 			GLM 0.9.0.5 fixes the usual set of bugs, some allowing a better <link href="http://clang.llvm.org/cxx_status.html">Clang</link> support.
 		</paragraph>
 
-			<entry href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.5/glm-0.9.0.5.zip/download">GLM 0.9.0.5 (zip, 2.2 MB)</entry>
-			<entry href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.5/glm-0.9.0.5.7z/download">GLM 0.9.0.5 (7z, 1.6 MB)</entry>
-			<entry href="https://github.com/g-truc/glm/issues">Submit a bug report</entry>
+		<entry href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.5/glm-0.9.0.5.zip/download">GLM 0.9.0.5 (zip, 2.2 MB)</entry>
+		<entry href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.0.5/glm-0.9.0.5.7z/download">GLM 0.9.0.5 (7z, 1.6 MB)</entry>
+		<entry href="https://github.com/g-truc/glm/issues">Submit a bug report</entry>
 	</post>
 
 	<post index="0055" date="04/10/2010" title="GLM 0.9.0.4 released">
@@ -1534,7 +1640,7 @@
 		<paragraph>
 			Various bug fixes and manual updates have been done too.
 		</paragraph>
-		
+
 		<list>
 			<entry href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.B.2/glm-0.9.B.2.zip/download">GLM 0.9.B.2 (zip, 1.07 MB)</entry>
 			<entry href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.B.2/glm-0.9.B.2.7z/download">GLM 0.9.B.2 (7z, 555 KB)</entry>
@@ -1554,7 +1660,7 @@
 			Reaching the beta status, this new features close the feature list of GLM 0.9.
 			Further development releases may happen before the final release.
 		</paragraph>
-		
+
 		<list>
 			<entry href="https://sourceforge.net/projects/glf/files/glm/glm-0.9.B.1/glm-0.9.B.1.zip/download">GLM 0.9.B.1 (zip, 964 KB)</entry>
 			<entry href="https://sourceforge.net/projects/glf/files/glm/glm-0.9.B.1/glm-0.9.B.1.7z/download">GLM 0.9.B.1 (7z, 414 KB)</entry>
@@ -1565,7 +1671,7 @@
 		<paragraph>
 			This update fixes some problem of Alpha 1 but also brings some improvements in case of errors when using GLM to provide more relevant messages.
 		</paragraph>
-		
+
 		<list>
 			<entry href="https://sourceforge.net/projects/glf/files/glm/glm-0.9.A.2/glm-0.9.A.2.zip/download">GLM 0.9.A.2 (zip, 1.3 MB)</entry>
 			<entry href="https://sourceforge.net/projects/glf/files/glm/glm-0.9.A.2/glm-0.9.A.2.7z/download">GLM 0.9.A.2 (7z, 726 KB)</entry>
@@ -1586,7 +1692,7 @@
 		<paragraph>
 			This release is still UNSTABLE and not recommanded for commertial products.
 		</paragraph>
-		
+
 		<list>
 			<entry href="https://sourceforge.net/projects/glf/files/glm/glm-0.9.A.1/glm-0.9.A.1.zip/download">GLM 0.9.A.1 (zip, 950 KB)</entry>
 			<entry href="https://sourceforge.net/projects/glf/files/glm/glm-0.9.A.1/glm-0.9.A.1.7z/download">GLM 0.9.A.1 (7z, 391 KB)</entry>
@@ -1601,7 +1707,7 @@
 		<paragraph>
 			By the way, if you have questions about GLM, a good place for those is the <link href="http://www.opengl.org/discussion_boards/ubbthreads.php?ubb=postlist&amp;Board=10&amp;page=1">OpenGL.org Toolkits forum</link>.
 		</paragraph>
-		
+
 		<list>
 			<entry href="https://sourceforge.net/projects/glf/files/glm/glm-0.8.4.4/glm-0.8.4.4.zip/download">GLM 0.8.4.4 (zip, 1.1 MB)</entry>
 			<entry href="https://sourceforge.net/projects/glf/files/glm/glm-0.8.4.4/glm-0.8.4.4.7z/download">GLM 0.8.4.4 (7z, 479 KB)</entry>
@@ -1616,7 +1722,7 @@
 			Half floating point value should be use only to store GPU data.
 			GPUs have native support for half values, not x86 CPUs.
 		</paragraph>
-		
+
 		<list>
 			<entry href="https://sourceforge.net/projects/glf/files/glm/glm-0.8.4.3/glm-0.8.4.3.zip/download">GLM 0.8.4.3 (zip, 1.1 MB)</entry>
 			<entry href="https://sourceforge.net/projects/glf/files/glm/glm-0.8.4.3/glm-0.8.4.3.7z/download">GLM 0.8.4.3 (7z, 463 KB)</entry>
@@ -1628,7 +1734,7 @@
 		<paragraph>
 			This version is a really minor updates, fixing single issue with half float types.
 		</paragraph>
-		
+
 		<list>
 			<entry href="https://sourceforge.net/projects/glf/files/glm/glm-0.8.4.2/glm-0.8.4.2.zip/download">GLM 0.8.4.2 (zip, 1.1 MB)</entry>
 			<entry href="https://sourceforge.net/projects/glf/files/glm/glm-0.8.4.2/glm-0.8.4.2.7z/download">GLM 0.8.4.2 (7z, 443 KB)</entry>
@@ -1640,7 +1746,7 @@
 		<paragraph>
 			This version fixes few bugs and provides an major update of the manual thanks to Damian Trebilco.
 		</paragraph>
-		
+
 		<list>
 			<entry href="http://prdownloads.sourceforge.net/glf/glm-0.8.4.1.zip?download">GLM 0.8.4.1 (zip, 1.1 MB)</entry>
 			<entry href="http://prdownloads.sourceforge.net/glf/glm-0.8.4.1.7z?download">GLM 0.8.4.1 (7z, 443 KB)</entry>
@@ -1652,7 +1758,7 @@
 		<paragraph>
 			This new version mainly adds support for Visual Studio 2010 and GCC 4.4. It also provides various code optimization, bug fixes and an extension.
 		</paragraph>
-		
+
 		<list>
 			<entry href="http://prdownloads.sourceforge.net/glf/glm-0.8.4.0.zip?download">GLM 0.8.4.0 (zip, 1.1 MB)</entry>
 			<entry href="http://prdownloads.sourceforge.net/glf/glm-0.8.4.0.7z?download">GLM 0.8.4.0 (7z, 439 KB)</entry>
@@ -1664,7 +1770,7 @@
 		<paragraph>
 			Fixed extension bugs introduced by core update.
 		</paragraph>
-		
+
 		<list>
 			<entry href="http://prdownloads.sourceforge.net/glf/glm-0.8.3.5.zip?download">GLM 0.8.3.5 (zip, 971 KB)</entry>
 			<entry href="http://prdownloads.sourceforge.net/glf/glm-0.8.3.5.7z?download">GLM 0.8.3.5 (7z, 405 KB)</entry>
@@ -1676,7 +1782,7 @@
 		<paragraph>
 			Fixed varius bugs. Move determinant fonction to core following GLSL 1.5 specification.
 		</paragraph>
-		
+
 		<list>
 			<entry href="http://prdownloads.sourceforge.net/glf/glm-0.8.3.4.zip?download">GLM 0.8.3.4 (zip, 971 KB)</entry>
 			<entry href="http://prdownloads.sourceforge.net/glf/glm-0.8.3.4.7z?download">GLM 0.8.3.4 (7z, 405 KB)</entry>
@@ -1688,7 +1794,7 @@
 		<paragraph>
 			Fixed varius bugs.
 		</paragraph>
-		
+
 		<list>
 			<entry href="http://prdownloads.sourceforge.net/glf/glm-0.8.3.3.zip?download">GLM 0.8.3.3 (zip, 971 KB)</entry>
 			<entry href="http://prdownloads.sourceforge.net/glf/glm-0.8.3.3.7z?download">GLM 0.8.3.3 (7z, 405 KB)</entry>
@@ -1700,7 +1806,7 @@
 		<paragraph>
 			Add GLM_GTC_quaternion and GLM_GTC_type_precision extensions both subset of GLM_GTX_quaternion and GLM_GTX_number_precision
 		</paragraph>
-		
+
 		<list>
 			<entry href="http://prdownloads.sourceforge.net/glf/glm-0.8.3.2.zip?download">GLM 0.8.3.2 (zip, 971 KB)</entry>
 			<entry href="http://prdownloads.sourceforge.net/glf/glm-0.8.3.2.7z?download">GLM 0.8.3.2 (7z, 405 KB)</entry>
@@ -1712,7 +1818,7 @@
 		<paragraph>
 			The old way to use extensions have been fixed and GLM_GTX_bit extension gets updated with more functions to manipulate bit fields.
 		</paragraph>
-		
+
 		<list>
 			<entry href="http://prdownloads.sourceforge.net/glf/glm-0.8.3.1.zip?download">GLM 0.8.3.1 (zip, 954 KB)</entry>
 			<entry href="http://prdownloads.sourceforge.net/glf/glm-0.8.3.1.7z?download">GLM 0.8.3.1 (7z, 402 KB)</entry>
@@ -1733,7 +1839,7 @@
 		<paragraph>
 			Finally, quite some file have been renamed, using "hpp" instead of ".h". Old file have been deprecated but are still available so that GLM 0.8.3.0 is fully compatible with GLM 0.8.2.x.
 		</paragraph>
-		
+
 		<list>
 			<entry href="http://prdownloads.sourceforge.net/glf/glm-0.8.3.0.zip?download">GLM 0.8.3.0 (zip, 896 KB)</entry>
 			<entry href="http://prdownloads.sourceforge.net/glf/glm-0.8.3.0.7z?download">GLM 0.8.3.0 (7z, 359 KB)</entry>
@@ -1752,7 +1858,7 @@
 		<paragraph>
 			A new release is available and inogurate a patch number. The goal of this patch number is to release faster fixes from bug reports.
 		</paragraph>
-		
+
 		<list>
 			<entry href="http://prdownloads.sourceforge.net/glf/glm-0.8.2.1.zip?download">GLM 0.8.2.1 (zip, 963 KB)</entry>
 			<entry href="http://prdownloads.sourceforge.net/glf/glm-0.8.2.1.7z?download">GLM 0.8.2.1 (7z, 381 KB)</entry>
@@ -1763,7 +1869,7 @@
 		<paragraph>
 			This release only fixes bugs. Left sided swizzle operators, quaternion operators, vectors access operators for the main onces.
 		</paragraph>
-		
+
 		<list>
 			<entry href="http://prdownloads.sourceforge.net/glf/glm-0.8.2.zip?download">GLM 0.8.2 (zip, 963 KB)</entry>
 			<entry href="http://prdownloads.sourceforge.net/glf/glm-0.8.2.7z?download">GLM 0.8.2 (7z, 381 KB)</entry>
@@ -1783,7 +1889,7 @@
 		<paragraph>
 			Finally, a pack of programmable oriented OpenGL samples using GLM is under development and planed to be release in December.
 		</paragraph>
-		
+
 		<list>
 			<entry href="https://sourceforge.net/tracker2/?group_id=129808&amp;atid=1126032">Tracker</entry>
 		</list>
@@ -1793,7 +1899,7 @@
 		<paragraph>
 			GLM 0.8.1 is released. This new version mainly fixes 64 bit integers with GCC and various bugs.
 		</paragraph>
-		
+
 		<list>
 			<entry href="http://prdownloads.sourceforge.net/glf/glm-0.8.1.zip?download">GLM 0.8.1 (zip, 938 KB)</entry>
 			<entry href="http://prdownloads.sourceforge.net/glf/glm-0.8.1.7z?download">GLM 0.8.1 (7z, 372 KB)</entry>
@@ -1819,7 +1925,7 @@
 		<paragraph>
 			Have a look on the manual and the changelog for more information. Don't forget to send your <link href="./about.html">feedback</link> and enjoy!
 		</paragraph>
-		
+
 		<list>
 			<entry href="http://prdownloads.sourceforge.net/glf/glm-0.8.0.zip?download">GLM 0.8.0 (zip, 936 KB)</entry>
 			<entry href="http://prdownloads.sourceforge.net/glf/glm-0.8.0.7z?download">GLM 0.8.0 (7z, 370 KB)</entry>
@@ -1830,7 +1936,7 @@
 		<paragraph>
 			Ambient aperture lighting <link href="http://www.humus.name">Humus</link> demo have been updated to use GLM as math library.
 		</paragraph>
-		
+
 		<list>
 			<entry href="http://prdownloads.sourceforge.net/glf/AmbientApertureLighting.zip?download">Updated demo + all sources (zip, 2.38 MB)</entry>
 			<entry href="http://www.humus.name/3D/AmbientApertureLighting.zip">Original demo (zip, 1.40 MB)</entry>
@@ -1867,7 +1973,7 @@
 		<paragraph>
 			Various bugs and updates of extensions have been done too. Final release is coming...
 		</paragraph>
-		
+
 		<list>
 			<entry href="http://prdownloads.sourceforge.net/glf/glm-0.8.0-beta2.zip?download">GLM 0.8.0 Beta 2 (zip, 798 KB)</entry>
 			<entry href="http://prdownloads.sourceforge.net/glf/glm-0.8.0-beta2.7z?download">GLM 0.8.0 Beta 2 (7z, 327 KB)</entry>
@@ -2012,7 +2118,7 @@
 		<paragraph>
 			GLM 0.6.1 is a minor update that fix an issue on extension namespace and add two more extensions.
 		</paragraph>
-		
+
 		<list>
 			<entry href="http://prdownloads.sourceforge.net/glf/glm-0.6.1.zip?download">GLM 0.6.1 (zip, 1.8 MB)</entry>
 			<entry href="http://prdownloads.sourceforge.net/glf/glm-0.6.1.7z?download">GLM 0.6.1 (7z, 632 KB)</entry>
@@ -2185,234 +2291,355 @@
 
 	<about-long version="0.9.6">
 		<paragraph>
-		  OpenGL Mathematics (GLM) is a header only C++ mathematics library for graphics software
-		  based on the <link href="http://www.opengl.org/documentation/glsl/">OpenGL Shading Language (GLSL)</link> specifications.
+			OpenGL Mathematics (GLM) is a header only C++ mathematics library for graphics software
+			based on the <link href="http://www.opengl.org/documentation/glsl/">OpenGL Shading Language (GLSL)</link> specifications.
 		</paragraph>
 		<paragraph>
-		  GLM provides classes and functions designed and implemented with the same naming conventions and functionalities than GLSL so that when a programmer knows GLSL, he knows GLM as well which makes it really easy to use.
+			GLM provides classes and functions designed and implemented with the same naming conventions and functionalities than GLSL so that anyone who knows GLSL, can use GLM as well in C++.
 		</paragraph>
 		<paragraph>
-		  This project isn't limited to GLSL features. An extension system, based on the GLSL extension conventions, provides extended capabilities: matrix transformations, quaternions, data packing, random numbers, noise, etc...
+			This project isn't limited to GLSL features. An extension system, based on the GLSL extension conventions, provides extended capabilities: matrix transformations, quaternions, data packing, random numbers, noise, etc...
 		</paragraph>
 		<paragraph>
-		  This library works perfectly with OpenGL but it also ensures interoperability with other third party libraries and SDK. It is a good candidate for software rendering (raytracing / rasterisation), image processing, physic simulations and any development context that requires a simple and convenient mathematics library.
+			This library works perfectly with OpenGL but it also ensures interoperability with other third party libraries and SDK. It is a good candidate for software rendering (raytracing / rasterisation), image processing, physic simulations and any development context that requires a simple and convenient mathematics library.
 		</paragraph>
 		<list title="GLM is written in C++98 but can take advantage of C++11 when supported by the compiler. It is a platform independent library with no dependence and it officially supports the following compilers:">
-		  <entry><link href="https://developer.apple.com/Library/mac/documentation/CompilerTools/Conceptual/LLVMCompilerOverview/index.html">Apple Clang</link> 4.0 and higher</entry>
-		  <entry><link href="http://gcc.gnu.org/">GCC</link> 4.2 and higher</entry>
-		  <entry><link href="https://software.intel.com/en-us/intel-compilers">Intel C++ Composer</link> XE 2013 and higher</entry>
-		  <entry><link href="http://llvm.org/">LLVM</link> 3.0 and higher</entry>
-		  <entry><link href="http://www.visualstudio.com/">Visual C++</link> 2010 and higher</entry>
-		  <entry><link href="https://developer.nvidia.com/about-cuda">CUDA</link> 4.0 and higher (experimental)</entry>
-		  <entry>Any conform C++98 or C++11 compiler</entry>
+			<entry>
+				<link href="https://developer.apple.com/Library/mac/documentation/CompilerTools/Conceptual/LLVMCompilerOverview/index.html">Apple Clang</link> 4.0 and higher
+			</entry>
+			<entry>
+				<link href="http://gcc.gnu.org/">GCC</link> 4.2 and higher
+			</entry>
+			<entry>
+				<link href="https://software.intel.com/en-us/intel-compilers">Intel C++ Composer</link> XE 2013 and higher
+			</entry>
+			<entry>
+				<link href="http://llvm.org/">LLVM</link> 3.0 and higher
+			</entry>
+			<entry>
+				<link href="http://www.visualstudio.com/">Visual C++</link> 2010 and higher
+			</entry>
+			<entry>
+				<link href="https://developer.nvidia.com/about-cuda">CUDA</link> 4.0 and higher (experimental)
+			</entry>
+			<entry>Any conform C++98 or C++11 compiler</entry>
 		</list>
 		<paragraph>
-		  For more information about GLM, please have a look at <link href="http://glm.g-truc.net/0.9.6/glm-0.9.6.pdf">the manual</link> and <link href="http://glm.g-truc.net/0.9.6/api/index.html">the API reference documentation</link>.
+			For more information about GLM, please have a look at <link href="http://glm.g-truc.net/0.9.6/glm-0.9.6.pdf">the manual</link> and <link href="http://glm.g-truc.net/0.9.6/api/index.html">the API reference documentation</link>.
 		</paragraph>
 		<paragraph>
-		  The source code and the documentation, including this manual, are licensed under <link href="http://glm.g-truc.net/copying.txt">the Happy Bunny License (Modified MIT) and the MIT License</link>.
+			The source code and the documentation, including this manual, are licensed under <link href="http://glm.g-truc.net/copying.txt">the Happy Bunny License (Modified MIT) and the MIT License</link>.
 		</paragraph>
 		<paragraph>
-		  Thanks for contributing to the project by <link href="https://github.com/g-truc/glm/issues">submitting issues</link> for bug reports and feature requests.
-		  Any feedback is welcome at <link href="mailto://glm@g-truc.net">glm@g-truc.net</link>.
+			Thanks for contributing to the project by <link href="https://github.com/g-truc/glm/issues">submitting issues</link> for bug reports and feature requests.
+			Any feedback is welcome at <link href="mailto://glm@g-truc.net">glm@g-truc.net</link>.
 		</paragraph>
+		<code title="Code sample:">
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/vec3.hpp&gt; </string>
+				<comment>// glm::vec3</comment>
+			</line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/vec4.hpp&gt; </string>
+				<comment>// glm::vec4</comment>
+			</line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/mat4x4.hpp&gt; </string>
+				<comment>// glm::mat4</comment>
+			</line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/gtc/matrix_transform.hpp&gt; </string>
+				<comment>// glm::translate, glm::rotate, glm::scale, glm::perspective</comment>
+			</line>
+			<line>
+
+			</line>
+			<line>
+				glm::<userword>mat4</userword> camera(<keyword>float</keyword> Translate, glm::<userword>vec2 </userword><keyword>const</keyword> &amp; Rotate)
+			</line>
+			<line>
+				{
+			</line>
+
+			<line align="32px">
+				glm::<userword>mat4</userword> Projection = glm::perspective(45.0f, 4.0f / 3.0f, 0.1f, 100.f);
+			</line>
+			<line align="32px">
+				glm::<userword>mat4</userword> View = glm::translate(glm::<userword>mat4</userword>(1.0f), glm::<userword>vec3</userword>(0.0f, 0.0f, -Translate));
+			</line>
+			<line align="32px">
+				View = glm::rotate(View, Rotate.y, glm::<userword>vec3</userword>(-1.0f, 0.0f, 0.0f));
+			</line>
+			<line align="32px">
+				View = glm::rotate(View, Rotate.x, glm::<userword>vec3</userword>(0.0f, 1.0f, 0.0f));
+			</line>
+			<line align="32px">
+				glm::<userword>mat4</userword> Model = glm::scale(glm::<userword>mat4</userword>(1.0f), glm::<userword>vec3</userword>(0.5f));
+			</line>
+			<line align="32px">
+				<keyword>return </keyword> Projection * View * Model;
+			</line>
+			<line>
+				}
+			</line>
+		</code>
 	</about-long>
 
 	<about-long version="0.9.5">
 		<paragraph>
-			OpenGL Mathematics (GLM) is a header only C++ mathematics library for graphics software 
+			OpenGL Mathematics (GLM) is a header only C++ mathematics library for graphics software
 			based on the <link href="http://www.opengl.org/documentation/glsl/">OpenGL Shading Language (GLSL)</link> specification and released under the <link href="../copying.txt">MIT license</link>.
 		</paragraph>
 		<paragraph>
-			This library provides classes and functions designed and implemented following as strictly as possible the GLSL conventions 
+			This library provides classes and functions designed and implemented following as strictly as possible the GLSL conventions
 			and functionalities so that when a programmer knows GLSL, he knows GLM as well, making it really easy to use.
 		</paragraph>
 		<paragraph>
-			This project isn't limited to GLSL features. An extension system provides extended capabilities: 
-			matrix transformations, quaternions, half-based types, random number generation, procedural noise functions, etc. 
+			This project isn't limited to GLSL features. An extension system provides extended capabilities:
+			matrix transformations, quaternions, half-based types, random number generation, procedural noise functions, etc.
 		</paragraph>
 		<paragraph>
 			GLM ensures interoperability with third party libraries, SDKs and OpenGL; replacing advantageously the deprecated matrix functions.
 			It is a good candidate for software rendering (Raytracing / Rasterisation), image processing, physic simulations and any context that requires a simple and convenient mathematics library.
 		</paragraph>
 		<list title="It is a platform independent library with no dependence to external libraries even OpenGL. GLM is written in C++98 but can take advantage of C++11 when available. It supports the following compilers:">
-			<entry><link href="http://clang.llvm.org">Clang</link> 2.6 and higher</entry>
-			<entry><link href="http://developer.nvidia.com/category/zone/cuda-zone">CUDA</link> 3.0 and higher</entry>
-			<entry><link href="http://gcc.gnu.org/">GCC</link> 3.4 and higher</entry>
-			<entry><link href="http://software.intel.com/en-us/intel-compilers/">Intel C++ Composer</link> XE 2013 and higher</entry>
-			<entry><link href="http://llvm.org/">LLVM</link> 2.3 through GCC 4.2 front-end and higher</entry>
-			<entry><link href="http://msdn.microsoft.com/en-us/visualc/default">Visual C++</link> 2005 and higher</entry>
+			<entry>
+				<link href="http://clang.llvm.org">Clang</link> 2.6 and higher
+			</entry>
+			<entry>
+				<link href="http://developer.nvidia.com/category/zone/cuda-zone">CUDA</link> 3.0 and higher
+			</entry>
+			<entry>
+				<link href="http://gcc.gnu.org/">GCC</link> 3.4 and higher
+			</entry>
+			<entry>
+				<link href="http://software.intel.com/en-us/intel-compilers/">Intel C++ Composer</link> XE 2013 and higher
+			</entry>
+			<entry>
+				<link href="http://llvm.org/">LLVM</link> 2.3 through GCC 4.2 front-end and higher
+			</entry>
+			<entry>
+				<link href="http://msdn.microsoft.com/en-us/visualc/default">Visual C++</link> 2005 and higher
+			</entry>
 			<entry>Any conform C++98 or C++11 compiler</entry>
 		</list>
 		<paragraph>
 			For more information about GLM, please have a look at <link href="http://glm.g-truc.net/0.9.5/glm-0.9.5.pdf">the manual</link> and <link href="http://glm.g-truc.net/0.9.5/api/index.html">the API reference documentation</link>.
 		</paragraph>
 		<paragraph>
-			Thanks for contributing to the project by <link href="https://github.com/g-truc/glm/issues">submitting issues</link> for bug reports and feature requests. 
+			Thanks for contributing to the project by <link href="https://github.com/g-truc/glm/issues">submitting issues</link> for bug reports and feature requests.
 			Any feedback is welcome at <link href="mailto://glm@g-truc.net">glm@g-truc.net</link>.
 		</paragraph>
 	</about-long>
 
 	<about-long version="0.9.4">
 		<paragraph>
-			OpenGL Mathematics (GLM) is a header only C++ mathematics library for graphics software 
+			OpenGL Mathematics (GLM) is a header only C++ mathematics library for graphics software
 			based on the <link href="http://www.opengl.org/documentation/glsl/">OpenGL Shading Language (GLSL)</link> specification and released under the <link href="../copying.txt">MIT license</link>.
 		</paragraph>
 		<paragraph>
-			This library provides classes and functions designed and implemented following as strictly as possible the GLSL conventions 
+			This library provides classes and functions designed and implemented following as strictly as possible the GLSL conventions
 			and functionalities so that when a programmer knows GLSL, he knows GLM as well, making it really easy to use.
 		</paragraph>
 		<paragraph>
-			This project isn't limited to GLSL features. An extension system provides extended capabilities: 
-			matrix transformations, quaternions, half-based types, random number generation, procedural noise functions, etc. 
+			This project isn't limited to GLSL features. An extension system provides extended capabilities:
+			matrix transformations, quaternions, half-based types, random number generation, procedural noise functions, etc.
 		</paragraph>
 		<paragraph>
 			GLM ensures interoperability with third party libraries, SDKs and OpenGL; replacing advantageously the deprecated matrix functions.
 			It is a good candidate for software rendering (Raytracing / Rasterisation), image processing, physic simulations and any context that requires a simple and convenient mathematics library.
 		</paragraph>
 		<list title="It is a platform independent library with no dependence to external libraries even OpenGL. GLM is written in C++98 but can take advantage of C++11 when available. It supports the following compilers:">
-			<entry><link href="http://clang.llvm.org">Clang</link> 2.6 and higher</entry>
-			<entry><link href="http://developer.nvidia.com/category/zone/cuda-zone">CUDA</link> 3.0 and higher</entry>
-			<entry><link href="http://gcc.gnu.org/">GCC</link> 3.4 and higher</entry>
-			<entry><link href="http://software.intel.com/en-us/intel-compilers/">Intel C++ Composer</link> XE 2013 and higher</entry>
-			<entry><link href="http://llvm.org/">LLVM</link> 2.3 through GCC 4.2 front-end and higher</entry>
-			<entry><link href="http://msdn.microsoft.com/en-us/visualc/default">Visual C++</link> 2005 and higher</entry>
+			<entry>
+				<link href="http://clang.llvm.org">Clang</link> 2.6 and higher
+			</entry>
+			<entry>
+				<link href="http://developer.nvidia.com/category/zone/cuda-zone">CUDA</link> 3.0 and higher
+			</entry>
+			<entry>
+				<link href="http://gcc.gnu.org/">GCC</link> 3.4 and higher
+			</entry>
+			<entry>
+				<link href="http://software.intel.com/en-us/intel-compilers/">Intel C++ Composer</link> XE 2013 and higher
+			</entry>
+			<entry>
+				<link href="http://llvm.org/">LLVM</link> 2.3 through GCC 4.2 front-end and higher
+			</entry>
+			<entry>
+				<link href="http://msdn.microsoft.com/en-us/visualc/default">Visual C++</link> 2005 and higher
+			</entry>
 			<entry>Any conform C++98 or C++11 compiler</entry>
 		</list>
 		<paragraph>
 			For more information about GLM, please have a look at <link href="http://glm.g-truc.net/0.9.4/glm-0.9.4.pdf">the manual</link> and <link href="http://glm.g-truc.net/0.9.4/api/index.html">the API reference documentation</link>.
 		</paragraph>
 		<paragraph>
-			Thanks for contributing to the project by <link href="https://github.com/g-truc/glm/issues">submitting issues</link> for bug reports and feature requests. 
+			Thanks for contributing to the project by <link href="https://github.com/g-truc/glm/issues">submitting issues</link> for bug reports and feature requests.
 			Any feedback is welcome at <link href="mailto://glm@g-truc.net">glm@g-truc.net</link>.
 		</paragraph>
 	</about-long>
 
 	<about-long version="0.9.3">
 		<paragraph>
-			OpenGL Mathematics (GLM) is a header only C++ mathematics library for graphics software 
+			OpenGL Mathematics (GLM) is a header only C++ mathematics library for graphics software
 			based on the <link href="http://www.opengl.org/documentation/glsl/">OpenGL Shading Language (GLSL)</link> specification and released under the <link href="../copying.txt">MIT license</link>.
 		</paragraph>
 		<paragraph>
-			This library provides classes and functions designed and implemented following as strictly as possible the GLSL conventions 
+			This library provides classes and functions designed and implemented following as strictly as possible the GLSL conventions
 			and functionalities so that when a programmer knows GLSL, he knows GLM as well, making it really easy to use.
 		</paragraph>
 		<paragraph>
-			This project isn't limited to GLSL features. An extension system provides extended capabilities: 
-			matrix transformations, quaternions, half-based types, random number generation, procedural noise functions, etc. 
+			This project isn't limited to GLSL features. An extension system provides extended capabilities:
+			matrix transformations, quaternions, half-based types, random number generation, procedural noise functions, etc.
 		</paragraph>
 		<paragraph>
 			GLM ensures interoperability with third party libraries, SDKs and OpenGL; replacing advantageously the deprecated matrix functions.
 			It is a good candidate for software rendering (Raytracing / Rasterisation), image processing, physic simulations and any context that requires a simple and convenient mathematics library.
 		</paragraph>
 		<list title="It is a platform independent library with no dependence to external libraries even OpenGL. GLM is written in C++98 but can take advantage of C++11 when available. It supports the following compilers:">
-			<entry><link href="http://clang.llvm.org">Clang</link> 2.6 and higher</entry>
-			<entry><link href="http://developer.nvidia.com/category/zone/cuda-zone">CUDA</link> 3.0 and higher</entry>
-			<entry><link href="http://gcc.gnu.org/">GCC</link> 3.4 and higher</entry>
-			<entry><link href="http://llvm.org/">LLVM</link> 2.3 through GCC 4.2 front-end and higher</entry>
-			<entry><link href="http://msdn.microsoft.com/en-us/visualc/default">Visual C++</link> 2005 and higher</entry>
+			<entry>
+				<link href="http://clang.llvm.org">Clang</link> 2.6 and higher
+			</entry>
+			<entry>
+				<link href="http://developer.nvidia.com/category/zone/cuda-zone">CUDA</link> 3.0 and higher
+			</entry>
+			<entry>
+				<link href="http://gcc.gnu.org/">GCC</link> 3.4 and higher
+			</entry>
+			<entry>
+				<link href="http://llvm.org/">LLVM</link> 2.3 through GCC 4.2 front-end and higher
+			</entry>
+			<entry>
+				<link href="http://msdn.microsoft.com/en-us/visualc/default">Visual C++</link> 2005 and higher
+			</entry>
 			<entry>Any conform C++98 or C++11 compiler</entry>
 		</list>
 		<paragraph>
 			For more information about GLM, please have a look at <link href="http://glm.g-truc.net/0.9.3/glm-0.9.3.pdf">the manual</link> and <link href="http://glm.g-truc.net/0.9.3/api/index.html">the API reference documentation</link>.
 		</paragraph>
 		<paragraph>
-			Thanks for contributing to the project by <link href="https://github.com/g-truc/glm/issues">submitting issues</link> for bug reports and feature requests. 
+			Thanks for contributing to the project by <link href="https://github.com/g-truc/glm/issues">submitting issues</link> for bug reports and feature requests.
 			Any feedback is welcome at <link href="mailto://glm@g-truc.net">glm@g-truc.net</link>.
 		</paragraph>
 	</about-long>
 
 	<about-long version="0.9.2">
 		<paragraph>
-			OpenGL Mathematics (GLM) is a header only C++ mathematics library for graphics software 
+			OpenGL Mathematics (GLM) is a header only C++ mathematics library for graphics software
 			based on the <link href="http://www.opengl.org/documentation/glsl/">OpenGL Shading Language (GLSL)</link> specification and released under the <link href="../copying.txt">MIT license</link>.
 		</paragraph>
 		<paragraph>
-			This library provides classes and functions designed and implemented following as strictly as possible the GLSL conventions 
+			This library provides classes and functions designed and implemented following as strictly as possible the GLSL conventions
 			and functionalities so that when a programmer knows GLSL, he knows GLM as well, making it really easy to use.
 		</paragraph>
 		<paragraph>
-			This project isn't limited to GLSL features. An extension system provides extended capabilities: 
-			matrix transformations, quaternions, half-based types, random number generation, procedural noise functions, etc. 
+			This project isn't limited to GLSL features. An extension system provides extended capabilities:
+			matrix transformations, quaternions, half-based types, random number generation, procedural noise functions, etc.
 		</paragraph>
 		<paragraph>
 			GLM ensures interoperability with third party libraries, SDKs and OpenGL; replacing advantageously the deprecated matrix functions.
 			It is a good candidate for software rendering (Raytracing / Rasterisation), image processing, physic simulations and any context that requires a simple and convenient mathematics library.
 		</paragraph>
 		<list title="It is a platform independent library with no dependence to external libraries even OpenGL. GLM is written in C++98 but can take advantage of C++11 when available. It supports the following compilers:">
-			<entry><link href="http://clang.llvm.org">Clang</link> 2.0 and higher</entry>
-			<entry><link href="http://developer.nvidia.com/category/zone/cuda-zone">CUDA</link> 3.0 and higher</entry>
-			<entry><link href="http://gcc.gnu.org/">GCC</link> 3.4 and higher</entry>
-			<entry><link href="http://llvm.org/">LLVM</link> 2.3 through GCC 4.2 front-end and higher</entry>
-			<entry><link href="http://msdn.microsoft.com/en-us/visualc/default">Visual C++</link> 2005 and higher</entry>
+			<entry>
+				<link href="http://clang.llvm.org">Clang</link> 2.0 and higher
+			</entry>
+			<entry>
+				<link href="http://developer.nvidia.com/category/zone/cuda-zone">CUDA</link> 3.0 and higher
+			</entry>
+			<entry>
+				<link href="http://gcc.gnu.org/">GCC</link> 3.4 and higher
+			</entry>
+			<entry>
+				<link href="http://llvm.org/">LLVM</link> 2.3 through GCC 4.2 front-end and higher
+			</entry>
+			<entry>
+				<link href="http://msdn.microsoft.com/en-us/visualc/default">Visual C++</link> 2005 and higher
+			</entry>
 		</list>
 		<paragraph>
 			For more information about GLM, please have a look at <link href="http://glm.g-truc.net/0.9.2/glm-0.9.2.pdf">the manual</link> and <link href="http://glm.g-truc.net/0.9.2/api/index.html">the API reference documentation</link>.
 		</paragraph>
 		<paragraph>
-			Thanks for contributing to the project by <link href="https://github.com/g-truc/glm/issues">submitting issues</link> for bug reports and feature requests. 
+			Thanks for contributing to the project by <link href="https://github.com/g-truc/glm/issues">submitting issues</link> for bug reports and feature requests.
 			Any feedback is welcome at <link href="mailto://glm@g-truc.net">glm@g-truc.net</link>.
 		</paragraph>
 	</about-long>
 
 	<about-long version="0.9.1">
 		<paragraph>
-			OpenGL Mathematics (GLM) is a header only C++ mathematics library for graphics software 
+			OpenGL Mathematics (GLM) is a header only C++ mathematics library for graphics software
 			based on the <link href="http://www.opengl.org/documentation/glsl/">OpenGL Shading Language (GLSL)</link> specification and released under the <link href="../copying.txt">MIT license</link>.
 		</paragraph>
 		<paragraph>
-			This library provides classes and functions designed and implemented following as strictly as possible the GLSL conventions 
+			This library provides classes and functions designed and implemented following as strictly as possible the GLSL conventions
 			and functionalities so that when a programmer knows GLSL, he knows GLM as well, making it really easy to use.
 		</paragraph>
 		<paragraph>
-			This project isn't limited to GLSL features. An extension system provides extended capabilities: 
-			matrix transformations, quaternions, half-based types, random number generation, procedural noise functions, etc. 
+			This project isn't limited to GLSL features. An extension system provides extended capabilities:
+			matrix transformations, quaternions, half-based types, random number generation, procedural noise functions, etc.
 		</paragraph>
 		<paragraph>
 			GLM ensures interoperability with third party libraries, SDKs and OpenGL; replacing advantageously the deprecated matrix functions.
 			It is a good candidate for software rendering (Raytracing / Rasterisation), image processing, physic simulations and any context that requires a simple and convenient mathematics library.
 		</paragraph>
 		<list title="It is a platform independent library with no dependence to external libraries even OpenGL. GLM is written in C++98 but can take advantage of C++11 when available. It supports the following compilers:">
-			<entry><link href="http://gcc.gnu.org/">GCC</link> 3.4 and higher</entry>
-			<entry><link href="http://llvm.org/">LLVM</link> 2.3 through GCC 4.2 front-end and higher</entry>
-			<entry><link href="http://msdn.microsoft.com/en-us/visualc/default">Visual C++</link> 2005 and higher</entry>
+			<entry>
+				<link href="http://gcc.gnu.org/">GCC</link> 3.4 and higher
+			</entry>
+			<entry>
+				<link href="http://llvm.org/">LLVM</link> 2.3 through GCC 4.2 front-end and higher
+			</entry>
+			<entry>
+				<link href="http://msdn.microsoft.com/en-us/visualc/default">Visual C++</link> 2005 and higher
+			</entry>
 		</list>
 		<paragraph>
 			For more information about GLM, please have a look at <link href="http://glm.g-truc.net/0.9.1/glm-0.9.1.pdf">the manual</link> and <link href="http://glm.g-truc.net/0.9.1/api/index.html">the API reference documentation</link>.
 		</paragraph>
 		<paragraph>
-			Thanks for contributing to the project by <link href="https://github.com/g-truc/glm/issues">submitting issues</link> for bug reports and feature requests. 
+			Thanks for contributing to the project by <link href="https://github.com/g-truc/glm/issues">submitting issues</link> for bug reports and feature requests.
 			Any feedback is welcome at <link href="mailto://glm@g-truc.net">glm@g-truc.net</link>.
 		</paragraph>
 	</about-long>
 
 	<about-long version="0.9.0">
 		<paragraph>
-			OpenGL Mathematics (GLM) is a header only C++ mathematics library for graphics software 
+			OpenGL Mathematics (GLM) is a header only C++ mathematics library for graphics software
 			based on the <link href="http://www.opengl.org/documentation/glsl/">OpenGL Shading Language (GLSL)</link> specification and released under the <link href="../copying.txt">MIT license</link>.
 		</paragraph>
 		<paragraph>
-			This library provides classes and functions designed and implemented following as strictly as possible the GLSL conventions 
+			This library provides classes and functions designed and implemented following as strictly as possible the GLSL conventions
 			and functionalities so that when a programmer knows GLSL, he knows GLM as well, making it really easy to use.
 		</paragraph>
 		<paragraph>
-			This project isn't limited to GLSL features. An extension system provides extended capabilities: 
-			matrix transformations, quaternions, half-based types, random number generation, procedural noise functions, etc. 
+			This project isn't limited to GLSL features. An extension system provides extended capabilities:
+			matrix transformations, quaternions, half-based types, random number generation, procedural noise functions, etc.
 		</paragraph>
 		<paragraph>
 			GLM ensures interoperability with third party libraries, SDKs and OpenGL; replacing advantageously the deprecated matrix functions.
 			It is a good candidate for software rendering (Raytracing / Rasterisation), image processing, physic simulations and any context that requires a simple and convenient mathematics library.
 		</paragraph>
 		<list title="It is a platform independent library with no dependence to external libraries even OpenGL. GLM is written in C++98 but can take advantage of C++11 when available. It supports the following compilers:">
-			<entry><link href="http://gcc.gnu.org/">GCC</link> 3.4 and higher</entry>
-			<entry><link href="http://llvm.org/">LLVM</link> 2.3 through GCC 4.2 front-end and higher</entry>
-			<entry><link href="http://msdn.microsoft.com/en-us/visualc/default">Visual C++</link> 2005 and higher</entry>
+			<entry>
+				<link href="http://gcc.gnu.org/">GCC</link> 3.4 and higher
+			</entry>
+			<entry>
+				<link href="http://llvm.org/">LLVM</link> 2.3 through GCC 4.2 front-end and higher
+			</entry>
+			<entry>
+				<link href="http://msdn.microsoft.com/en-us/visualc/default">Visual C++</link> 2005 and higher
+			</entry>
 		</list>
 		<paragraph>
 			For more information about GLM, please have a look at <link href="http://glm.g-truc.net/0.9.0/glm-0.9.0.pdf">the manual</link> and <link href="http://glm.g-truc.net/0.9.0/api/index.html">the API reference documentation</link>.
 		</paragraph>
 		<paragraph>
-			Thanks for contributing to the project by <link href="https://github.com/g-truc/glm/issues">submitting issues</link> for bug reports and feature requests. 
+			Thanks for contributing to the project by <link href="https://github.com/g-truc/glm/issues">submitting issues</link> for bug reports and feature requests.
 			Any feedback is welcome at <link href="mailto://glm@g-truc.net">glm@g-truc.net</link>.
 		</paragraph>
 	</about-long>

@@ -10,7 +10,7 @@
 	<constant name="logo" value="../common/logo.png" />
 	<constant name="splash" value="../goodies/splash.png" />
 
-	<constant name="copyright" value="Copyright © 2005 - 2014" />
+	<constant name="copyright" value="Copyright © 2005 - 2015" />
 	<constant name="copyright-title" value="G-Truc Creation" />
 	<constant name="copyright-url" value="http://www.g-truc.net" />
 </website>
