@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <website>
+	<post index="0005" date="18/07/2015" std-date="2015-07-18T23:30:00.00Z" title="GLI 0.6.1.1 released">
+		<list title="Changelog:">
+			<entry>Fixed interface inconsistencies</entry>
+			<entry>Improved clear(), data() and size() performance using caching</entry>
+			<entry>Removed internal dependence to std::fstream</entry>
+			<entry>Added FORMAT_BGRX8_UNORM and FORMAT_BGRX8_SRGB support #48, #43</entry>
+			<entry>Improved FORMAT_RGB8_UNORM loading</entry>
+		</list>
+
+		<list>
+			<download index="0.6.1.1" />
+			<entry href="https://github.com/g-truc/gli/issues">Submit a bug report</entry>
+			<entry href="../0.6.1/api/index.html">GLI 0.6.1 API</entry>
+		</list>
+	</post>
+
 	<post index="0005" date="28/06/2015" std-date="2015-06-28T23:30:00.00Z" title="GLI 0.6.0.0 released">
 		<list title="Changelog:">
 			<entry>Large refactoring</entry>
@@ -85,7 +101,7 @@
 			based on the <link href="http://www.opengl.org/documentation/glsl/">OpenGL Shading Language (GLSL)</link> specification and released under the <link href="../copying.txt">MIT license</link>.
 		</paragraph>
 		<paragraph>
-			For more information about GLI, please have a look at <link href="../0.6.0/api/index.html">the API reference documentation</link>.
+			For more information about GLI, please have a look at <link href="../0.6.1/api/index.html">the API reference documentation</link>.
 		</paragraph>
 		<paragraph>
 			Thanks for contributing to the project by <link href="https://github.com/g-truc/gli/issues">submitting issues</link> for bug reports and feature requests. Any feedback is welcome at <link href="mailto://gli@g-truc.net">gli@g-truc.net</link>.
