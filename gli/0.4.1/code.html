@@ -11,98 +11,98 @@
         			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
         			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         		})();
-      		</script></head><body><div class="root"><div class="version"><div><a href="http://glm.g-truc.net">GLM</a> <a class="active" href="http://gli.g-truc.net">GLI</a> </div><a href="../0.5.1/index.html">0.5.1</a> <a href="../0.5.0/index.html">0.5.0</a> <a href="../0.4.1/index.html" class="active">0.4.1</a> </div><table><tr><td class="menu"><div class="menu"><div class="menu-logo"><a href="./index.html"><img alt="Logo" src="../common/logo.png" class="menu-img" /></a></div><div class="menu-entry1"><a href="https://sourceforge.net/projects/ogl-image/files/gli-0.4.1.0/gli-0.4.1.0.zip/download" class="menu"><div>Download GLI 0.4.1.0</div><div>10/03/2013</div></a></div><div class="menu-entry1"><div class="menu-entry2"><a class="menu" href="../0.4.1/code.html">Code samples</a></div><div class="menu-entry2"><a class="menu" href="https://github.com/g-truc/gli/archive/0.4.1.zip">Snapshot</a></div></div><div class="menu-entry1"><div class="menu-entry2"><a class="menu" href="../0.4.1/updates.html">Updates</a></div><div class="menu-entry2"><a class="menu" href="http://sourceforge.net/projects/ogl-image/files">Downloads</a></div><div class="menu-entry2"><a class="menu" href="https://github.com/g-truc/gli">Repository</a></div><div class="menu-entry2"><a class="menu" href="https://github.com/g-truc/gli/issues">Report a bug</a></div></div><br /><div><a href="http://www.g-truc.net"><img alt="G-Truc Creation" src="../common/g-truc.jpg" class="menu-img" /></a></div></div></td><td class="page"><h3>Code samples</h3><span class="code-title">Create a texture with GLI 0.4 and save it to a DDS file:</span><ul class="code-list"><li class="code-line"><span class="code-line-content"><span class="keyword">#include </span><span class="string">&lt;glm/glm.hpp&gt;</span></span></li><li class="code-line"><span class="code-line-content"><span class="keyword">#include </span><span class="string">&lt;gli/gli.hpp&gt;</span></span></li><li class="code-line"><span class="code-line-content" /></li><li class="code-line"><span class="code-line-content"><span class="comment">// Allocated a 32 bits texture with one mipmap level</span></span></li><li class="code-line"><span class="code-line-content">
-        gli::texture2D Texture(1, gli::RGBA8_UNORM, gli::texture2D::dimensions_type(256, 256));
-      </span></li><li class="code-line"><span class="code-line-content">
-        glm::u8vec4 * LinearAddress = Texture.data&lt;glm::u8vec4&gt;();
-      </span></li><li class="code-line"><span class="code-line-content">
-        ...
-      </span></li><li class="code-line"><span class="code-line-content"><span class="comment">// Do something</span></span></li><li class="code-line"><span class="code-line-content">
-        ...
-      </span></li><li class="code-line"><span class="code-line-content">
-        gli::saveStorageDDS(Texture, "texture.dds");
-      </span></li></ul><span class="code-title">Create an OpenGL 4.2 texture with GLI 0.4:</span><ul class="code-list"><li class="code-line"><span class="code-line-content"><span class="keyword">#include </span><span class="string">&lt;gli/gli.hpp&gt;</span></span></li><li class="code-line"><span class="code-line-content" /></li><li class="code-line"><span class="code-line-content"><span class="comment">// </span></span></li><li class="code-line"><span class="code-line-content">
-        gli::texture2D Texture(gli::loadStorageDDS("kueken2.dds"));
-      </span></li><li class="code-line"><span class="code-line-content">
-        assert(!Texture.empty());
-      </span></li><li class="code-line"><span class="code-line-content" /></li><li class="code-line"><span class="code-line-content">
-        glBindTexture(GL_TEXTURE_2D, TextureName);
-      </span></li><li class="code-line"><span class="code-line-content">
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_BASE_LEVEL, 0);
-      </span></li><li class="code-line"><span class="code-line-content">
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAX_LEVEL, GLint(Texture.levels() - 1));
-      </span></li><li class="code-line"><span class="code-line-content">
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_SWIZZLE_R, GL_RED);
-      </span></li><li class="code-line"><span class="code-line-content">
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_SWIZZLE_G, GL_GREEN);
-      </span></li><li class="code-line"><span class="code-line-content">
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_SWIZZLE_B, GL_BLUE);
-      </span></li><li class="code-line"><span class="code-line-content">
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_SWIZZLE_A, GL_ALPHA);
-      </span></li><li class="code-line"><span class="code-line-content">
-        glTexStorage2D(GL_TEXTURE_2D,
-      </span></li><li class="code-line"><span style="padding-left:32px" class="code-line-content">
-        GLint(Texture.levels()),
-      </span></li><li class="code-line"><span style="padding-left:32px" class="code-line-content">
-        GLenum(gli::internal_format(Texture.format())),
-      </span></li><li class="code-line"><span style="padding-left:32px" class="code-line-content">
-        GLsizei(Texture.dimensions().x),
-      </span></li><li class="code-line"><span style="padding-left:32px" class="code-line-content">
-        GLsizei(Texture.dimensions().y));
-      </span></li><li class="code-line"><span class="code-line-content" /></li><li class="code-line"><span class="code-line-content">
-        if(gli::is_compressed(Texture.format()))
-      </span></li><li class="code-line"><span class="code-line-content">
-        {
-      </span></li><li class="code-line"><span style="padding-left:32px" class="code-line-content">
-        for(gli::texture2D::size_type Level = 0; Level &lt; Texture.levels(); ++Level)
-      </span></li><li class="code-line"><span style="padding-left:32px" class="code-line-content">
-        {
-      </span></li><li class="code-line"><span style="padding-left:64px" class="code-line-content">
-        glCompressedTexSubImage2D(GL_TEXTURE_2D,
-      </span></li><li class="code-line"><span style="padding-left:96px" class="code-line-content">
-        GLint(Level),
-      </span></li><li class="code-line"><span style="padding-left:96px" class="code-line-content">
-        0, 0,
-      </span></li><li class="code-line"><span style="padding-left:96px" class="code-line-content">
-        GLsizei(Texture[Level].dimensions().x),
-      </span></li><li class="code-line"><span style="padding-left:96px" class="code-line-content">
-        GLsizei(Texture[Level].dimensions().y),
-      </span></li><li class="code-line"><span style="padding-left:96px" class="code-line-content">
-        GLenum(gli::internal_format(Texture.format())),
-      </span></li><li class="code-line"><span style="padding-left:96px" class="code-line-content">
-        GLsizei(Texture[Level].size()),
-      </span></li><li class="code-line"><span style="padding-left:96px" class="code-line-content">
-        Texture[Level].data());
-      </span></li><li class="code-line"><span style="padding-left:32px" class="code-line-content">
-        }
-      </span></li><li class="code-line"><span class="code-line-content">
-        }
-      </span></li><li class="code-line"><span class="code-line-content">
-        else
-      </span></li><li class="code-line"><span class="code-line-content">
-        {
-      </span></li><li class="code-line"><span style="padding-left:32px" class="code-line-content">
-        for(gli::texture2D::size_type Level = 0; Level &lt; Texture.levels(); ++Level)
-      </span></li><li class="code-line"><span style="padding-left:32px" class="code-line-content">
-        {
-      </span></li><li class="code-line"><span style="padding-left:64px" class="code-line-content">
-        glTexSubImage2D(GL_TEXTURE_2D,
-      </span></li><li class="code-line"><span style="padding-left:96px" class="code-line-content">
-        GLint(Level),
-      </span></li><li class="code-line"><span style="padding-left:96px" class="code-line-content">
-        0, 0,
-      </span></li><li class="code-line"><span style="padding-left:96px" class="code-line-content">
-        GLsizei(Texture[Level].dimensions().x),
-      </span></li><li class="code-line"><span style="padding-left:96px" class="code-line-content">
-        GLsizei(Texture[Level].dimensions().y),
-      </span></li><li class="code-line"><span style="padding-left:96px" class="code-line-content">
-        GLenum(gli::external_format(Texture.format())),
-      </span></li><li class="code-line"><span style="padding-left:96px" class="code-line-content">
-        GLenum(gli::type_format(Texture.format())),
-      </span></li><li class="code-line"><span style="padding-left:96px" class="code-line-content">
-        Texture[Level].data());
-      </span></li><li class="code-line"><span style="padding-left:32px" class="code-line-content">
-        }
-      </span></li><li class="code-line"><span class="code-line-content">
-        }
-      </span></li></ul></td></tr></table></div></body></html>
+      		</script></head><body><div class="root"><div class="version"><div><a href="http://glm.g-truc.net">GLM</a> <a class="active" href="http://gli.g-truc.net">GLI</a> </div><a href="../0.6.1/index.html">0.6.1</a> <a href="../0.6.0/index.html">0.6.0</a> <a href="../0.5.1/index.html">0.5.1</a> <a href="../0.5.0/index.html">0.5.0</a> <a href="../0.4.1/index.html" class="active">0.4.1</a> </div><table><tr><td class="menu"><div class="menu"><div class="menu-logo"><a href="./index.html"><img alt="Logo" src="../common/logo.png" class="menu-img" /></a></div><div class="menu-entry1"><a href="https://sourceforge.net/projects/ogl-image/files/gli-0.4.1.0/gli-0.4.1.0.zip/download" class="menu"><div>Download GLI 0.4.1.0</div><div>10/03/2013</div></a></div><div class="menu-entry1"><div class="menu-entry2"><a class="menu" href="../0.4.1/code.html">Code samples</a></div><div class="menu-entry2"><a class="menu" href="https://github.com/g-truc/gli/archive/0.4.1.zip">Snapshot</a></div></div><div class="menu-entry1"><div class="menu-entry2"><a class="menu" href="../0.4.1/updates.html">Updates</a></div><div class="menu-entry2"><a class="menu" href="http://sourceforge.net/projects/ogl-image/files">Downloads</a></div><div class="menu-entry2"><a class="menu" href="https://github.com/g-truc/gli">Repository</a></div><div class="menu-entry2"><a class="menu" href="https://github.com/g-truc/gli/issues">Report a bug</a></div></div><br /><div><a href="http://www.g-truc.net"><img alt="G-Truc Creation" src="../common/g-truc.jpg" class="menu-img" /></a></div></div></td><td class="page"><h3>Code samples</h3><span class="code-title">Create a texture with GLI 0.4 and save it to a DDS file:</span><ul class="code-list"><li class="code-line"><span class="code-line-content"><span class="keyword">#include </span><span class="string">&lt;glm/glm.hpp&gt;</span></span></li><li class="code-line"><span class="code-line-content"><span class="keyword">#include </span><span class="string">&lt;gli/gli.hpp&gt;</span></span></li><li class="code-line"><span class="code-line-content" /></li><li class="code-line"><span class="code-line-content"><span class="comment">// Allocated a 32 bits texture with one mipmap level</span></span></li><li class="code-line"><span class="code-line-content">
+			gli::texture2D Texture(1, gli::RGBA8_UNORM, gli::texture2D::dimensions_type(256, 256));
+		</span></li><li class="code-line"><span class="code-line-content">
+			glm::u8vec4 * LinearAddress = Texture.data&lt;glm::u8vec4&gt;();
+		</span></li><li class="code-line"><span class="code-line-content">
+			...
+		</span></li><li class="code-line"><span class="code-line-content"><span class="comment">// Do something</span></span></li><li class="code-line"><span class="code-line-content">
+			...
+		</span></li><li class="code-line"><span class="code-line-content">
+			gli::saveStorageDDS(Texture, "texture.dds");
+		</span></li></ul><span class="code-title">Create an OpenGL 4.2 texture with GLI 0.4:</span><ul class="code-list"><li class="code-line"><span class="code-line-content"><span class="keyword">#include </span><span class="string">&lt;gli/gli.hpp&gt;</span></span></li><li class="code-line"><span class="code-line-content" /></li><li class="code-line"><span class="code-line-content"><span class="comment">// </span></span></li><li class="code-line"><span class="code-line-content">
+		  gli::texture2D Texture(gli::loadStorageDDS("kueken2.dds"));
+		</span></li><li class="code-line"><span class="code-line-content">
+		  assert(!Texture.empty());
+		</span></li><li class="code-line"><span class="code-line-content" /></li><li class="code-line"><span class="code-line-content">
+		  glBindTexture(GL_TEXTURE_2D, TextureName);
+		</span></li><li class="code-line"><span class="code-line-content">
+		  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_BASE_LEVEL, 0);
+		</span></li><li class="code-line"><span class="code-line-content">
+		  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAX_LEVEL, GLint(Texture.levels() - 1));
+		</span></li><li class="code-line"><span class="code-line-content">
+		  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_SWIZZLE_R, GL_RED);
+		</span></li><li class="code-line"><span class="code-line-content">
+		  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_SWIZZLE_G, GL_GREEN);
+		</span></li><li class="code-line"><span class="code-line-content">
+		  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_SWIZZLE_B, GL_BLUE);
+		</span></li><li class="code-line"><span class="code-line-content">
+		  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_SWIZZLE_A, GL_ALPHA);
+		</span></li><li class="code-line"><span class="code-line-content">
+		  glTexStorage2D(GL_TEXTURE_2D,
+		</span></li><li class="code-line"><span style="padding-left:32px" class="code-line-content">
+		  GLint(Texture.levels()),
+		</span></li><li class="code-line"><span style="padding-left:32px" class="code-line-content">
+		  GLenum(gli::internal_format(Texture.format())),
+		</span></li><li class="code-line"><span style="padding-left:32px" class="code-line-content">
+		  GLsizei(Texture.dimensions().x),
+		</span></li><li class="code-line"><span style="padding-left:32px" class="code-line-content">
+		  GLsizei(Texture.dimensions().y));
+		</span></li><li class="code-line"><span class="code-line-content" /></li><li class="code-line"><span class="code-line-content">
+		  if(gli::is_compressed(Texture.format()))
+		</span></li><li class="code-line"><span class="code-line-content">
+		  {
+		</span></li><li class="code-line"><span style="padding-left:32px" class="code-line-content">
+		  for(gli::texture2D::size_type Level = 0; Level &lt; Texture.levels(); ++Level)
+		</span></li><li class="code-line"><span style="padding-left:32px" class="code-line-content">
+		  {
+		</span></li><li class="code-line"><span style="padding-left:64px" class="code-line-content">
+		  glCompressedTexSubImage2D(GL_TEXTURE_2D,
+		</span></li><li class="code-line"><span style="padding-left:96px" class="code-line-content">
+		  GLint(Level),
+		</span></li><li class="code-line"><span style="padding-left:96px" class="code-line-content">
+		  0, 0,
+		</span></li><li class="code-line"><span style="padding-left:96px" class="code-line-content">
+		  GLsizei(Texture[Level].dimensions().x),
+		</span></li><li class="code-line"><span style="padding-left:96px" class="code-line-content">
+		  GLsizei(Texture[Level].dimensions().y),
+		</span></li><li class="code-line"><span style="padding-left:96px" class="code-line-content">
+		  GLenum(gli::internal_format(Texture.format())),
+		</span></li><li class="code-line"><span style="padding-left:96px" class="code-line-content">
+		  GLsizei(Texture[Level].size()),
+		</span></li><li class="code-line"><span style="padding-left:96px" class="code-line-content">
+		  Texture[Level].data());
+		</span></li><li class="code-line"><span style="padding-left:32px" class="code-line-content">
+		  }
+		</span></li><li class="code-line"><span class="code-line-content">
+		  }
+		</span></li><li class="code-line"><span class="code-line-content">
+		  else
+		</span></li><li class="code-line"><span class="code-line-content">
+		  {
+		</span></li><li class="code-line"><span style="padding-left:32px" class="code-line-content">
+		  for(gli::texture2D::size_type Level = 0; Level &lt; Texture.levels(); ++Level)
+		</span></li><li class="code-line"><span style="padding-left:32px" class="code-line-content">
+		  {
+		</span></li><li class="code-line"><span style="padding-left:64px" class="code-line-content">
+		  glTexSubImage2D(GL_TEXTURE_2D,
+		</span></li><li class="code-line"><span style="padding-left:96px" class="code-line-content">
+		  GLint(Level),
+		</span></li><li class="code-line"><span style="padding-left:96px" class="code-line-content">
+		  0, 0,
+		</span></li><li class="code-line"><span style="padding-left:96px" class="code-line-content">
+		  GLsizei(Texture[Level].dimensions().x),
+		</span></li><li class="code-line"><span style="padding-left:96px" class="code-line-content">
+		  GLsizei(Texture[Level].dimensions().y),
+		</span></li><li class="code-line"><span style="padding-left:96px" class="code-line-content">
+		  GLenum(gli::external_format(Texture.format())),
+		</span></li><li class="code-line"><span style="padding-left:96px" class="code-line-content">
+		  GLenum(gli::type_format(Texture.format())),
+		</span></li><li class="code-line"><span style="padding-left:96px" class="code-line-content">
+		  Texture[Level].data());
+		</span></li><li class="code-line"><span style="padding-left:32px" class="code-line-content">
+		  }
+		</span></li><li class="code-line"><span class="code-line-content">
+		  }
+		</span></li></ul></td></tr></table></div></body></html>

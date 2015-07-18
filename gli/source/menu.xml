@@ -5,28 +5,66 @@
 	<tab name="GLI" href="http://gli.g-truc.net" active="yes" />
 	<!--tab name="GLO" href="http://glo.g-truc.net" active="no" />
 	<tab name="GLU" href="http://glu.g-truc.net" active="no" /-->
-	
-  <version value="0.5.1">
-    <menu>
-      <menu-entry name="API" href="../0.5.1/api/index.html" />
-      <menu-entry name="Code samples" href="../0.5.1/code.html" />
-      <menu-entry name="Snapshot" href="https://github.com/g-truc/gli/archive/0.5.1.zip" />
-    </menu>
 
-    <menu>
-      <menu-entry name="Updates" href="../0.5.1/updates.html" />
-      <menu-entry name="Downloads" href="http://sourceforge.net/projects/ogl-image/files" />
-      <menu-entry name="Repository" href="https://github.com/g-truc/gli" />
-      <menu-entry name="Report a bug" href="https://github.com/g-truc/gli/issues" />
-    </menu>
+	<version value="0.6.1">
+		<menu>
+			<menu-entry name="API" href="../0.6.1/api/index.html" />
+			<menu-entry name="Code samples" href="../0.6.1/code.html" />
+			<menu-entry name="Snapshot" href="https://github.com/g-truc/gli/archive/0.6.1.zip" />
+		</menu>
 
-    <menu>
-      <menu-entry name="GLSL Specification" href="http://www.opengl.org/registry/doc/GLSLangSpec.4.40.diff.pdf" />
-      <menu-entry name="GLSL man pages" href="http://www.opengl.org/documentation/glsl" />
-      <menu-entry name="Forum" href="http://www.opengl.org/discussion_boards/ubbthreads.php?ubb=postlist&amp;Board=10&amp;page=1" />
-      <menu-entry name="Stack Overflow" href="http://stackoverflow.com/search?q=GLI" />
-    </menu>
-  </version>
+		<menu>
+			<menu-entry name="Updates" href="../0.6.1/updates.html" />
+			<menu-entry name="Downloads" href="https://github.com/g-truc/gli/releases" />
+			<menu-entry name="Repository" href="https://github.com/g-truc/gli" />
+			<menu-entry name="Report a bug" href="https://github.com/g-truc/gli/issues" />
+		</menu>
+
+		<menu>
+			<menu-entry name="Forum" href="http://www.opengl.org/discussion_boards/ubbthreads.php?ubb=postlist&amp;Board=10&amp;page=1" />
+			<menu-entry name="Stack Overflow" href="http://stackoverflow.com/search?q=GLI" />
+		</menu>
+	</version>
+
+	<version value="0.6.0">
+		<menu>
+			<menu-entry name="API" href="../0.6.0/api/index.html" />
+			<menu-entry name="Code samples" href="../0.6.0/code.html" />
+			<menu-entry name="Snapshot" href="https://github.com/g-truc/gli/archive/0.6.0.zip" />
+		</menu>
+
+		<menu>
+			<menu-entry name="Updates" href="../0.6.0/updates.html" />
+			<menu-entry name="Downloads" href="https://github.com/g-truc/gli/releases" />
+			<menu-entry name="Repository" href="https://github.com/g-truc/gli" />
+			<menu-entry name="Report a bug" href="https://github.com/g-truc/gli/issues" />
+		</menu>
+
+		<menu>
+			<menu-entry name="Forum" href="http://www.opengl.org/discussion_boards/ubbthreads.php?ubb=postlist&amp;Board=10&amp;page=1" />
+			<menu-entry name="Stack Overflow" href="http://stackoverflow.com/search?q=GLI" />
+		</menu>
+	</version>
+
+	<version value="0.5.1">
+		<menu>
+			<menu-entry name="API" href="../0.5.1/api/index.html" />
+			<menu-entry name="Code samples" href="../0.5.1/code.html" />
+			<menu-entry name="Snapshot" href="https://github.com/g-truc/gli/archive/0.5.1.zip" />
+		</menu>
+
+		<menu>
+			<menu-entry name="Updates" href="../0.5.1/updates.html" />
+			<menu-entry name="Downloads" href="http://sourceforge.net/projects/ogl-image/files" />
+			<menu-entry name="Repository" href="https://github.com/g-truc/gli" />
+			<menu-entry name="Report a bug" href="https://github.com/g-truc/gli/issues" />
+		</menu>
+
+		<menu>
+			<menu-entry name="Forum" href="http://www.opengl.org/discussion_boards/ubbthreads.php?ubb=postlist&amp;Board=10&amp;page=1" />
+			<menu-entry name="Stack Overflow" href="http://stackoverflow.com/search?q=GLI" />
+		</menu>
+	</version>
 
 	<version value="0.5.0">
 		<menu>
@@ -35,32 +73,30 @@
 			<menu-entry name="Snapshot" href="https://github.com/g-truc/gli/archive/0.5.0.zip" />
 		</menu>
 
-    	<menu>
-      		<menu-entry name="Updates" href="../0.5.0/updates.html" />
-      		<menu-entry name="Downloads" href="http://sourceforge.net/projects/ogl-image/files" />
-      		<menu-entry name="Repository" href="https://github.com/g-truc/gli" />
-      		<menu-entry name="Report a bug" href="https://github.com/g-truc/gli/issues" />
-    	</menu>
+			<menu>
+				<menu-entry name="Updates" href="../0.5.0/updates.html" />
+				<menu-entry name="Downloads" href="http://sourceforge.net/projects/ogl-image/files" />
+				<menu-entry name="Repository" href="https://github.com/g-truc/gli" />
+				<menu-entry name="Report a bug" href="https://github.com/g-truc/gli/issues" />
+			</menu>
 
-    	<menu>
-      		<menu-entry name="GLSL Specification" href="http://www.opengl.org/registry/doc/GLSLangSpec.4.30.6.diff.pdf" />
-      		<menu-entry name="GLSL man pages" href="http://www.opengl.org/documentation/glsl" />
-    		<menu-entry name="Forum" href="http://www.opengl.org/discussion_boards/ubbthreads.php?ubb=postlist&amp;Board=10&amp;page=1" />
+			<menu>
+			<menu-entry name="Forum" href="http://www.opengl.org/discussion_boards/ubbthreads.php?ubb=postlist&amp;Board=10&amp;page=1" />
 			<menu-entry name="Stack Overflow" href="http://stackoverflow.com/search?q=GLI" />
 		</menu>
 	</version>
-	
-	<version value="0.4.1">
-    	<menu>
-      		<menu-entry name="Code samples" href="../0.4.1/code.html" />
-      		<menu-entry name="Snapshot" href="https://github.com/g-truc/gli/archive/0.4.1.zip" />
-    	</menu>
 
-    	<menu>
-      		<menu-entry name="Updates" href="../0.4.1/updates.html" />
-      		<menu-entry name="Downloads" href="http://sourceforge.net/projects/ogl-image/files" />
-      		<menu-entry name="Repository" href="https://github.com/g-truc/gli" />
-      		<menu-entry name="Report a bug" href="https://github.com/g-truc/gli/issues" />
-    	</menu>
+	<version value="0.4.1">
+			<menu>
+				<menu-entry name="Code samples" href="../0.4.1/code.html" />
+				<menu-entry name="Snapshot" href="https://github.com/g-truc/gli/archive/0.4.1.zip" />
+			</menu>
+
+			<menu>
+				<menu-entry name="Updates" href="../0.4.1/updates.html" />
+				<menu-entry name="Downloads" href="http://sourceforge.net/projects/ogl-image/files" />
+				<menu-entry name="Repository" href="https://github.com/g-truc/gli" />
+				<menu-entry name="Report a bug" href="https://github.com/g-truc/gli/issues" />
+			</menu>
 	</version>
 </website>
