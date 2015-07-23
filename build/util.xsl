@@ -16,62 +16,62 @@
 
 	<xsl:template name="page-head">
 		<xsl:param name="Title" />
-	
+
 		<head xmlns="http://www.w3.org/1999/xhtml">
 			<title><xsl:value-of select="$Title" /></title>
-		  	<meta http-equiv="Content-Language" content="en" />
-		  	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=iso-8859-1" />
-		  	<meta name="copyright" content="{document(concat($DIRECTORY, $FILE_CNST))/website/constant[./@name='copyright-title']/@value}" />
-		  	<link href="../common/style.css" rel="stylesheet" media="screen, print, embossed" type="text/css" />
+			<meta http-equiv="Content-Language" content="en" />
+			<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=iso-8859-1" />
+			<meta name="copyright" content="{document(concat($DIRECTORY, $FILE_CNST))/website/constant[./@name='copyright-title']/@value}" />
+			<link href="../common/style.css" rel="stylesheet" media="screen, print, embossed" type="text/css" />
 			<link href="../common/code.css" rel="stylesheet" media="screen, print, embossed" type="text/css" />
 
-      		<script type="text/javascript">
-        		var _gaq = _gaq || [];
-        		_gaq.push(['_setAccount', 'UA-20182250-1']);
-        		_gaq.push(['_setDomainName', '.g-truc.net']);
-        		_gaq.push(['_trackPageview']);
+			<script type="text/javascript">
+				var _gaq = _gaq || [];
+				_gaq.push(['_setAccount', 'UA-20182250-1']);
+				_gaq.push(['_setDomainName', '.g-truc.net']);
+				_gaq.push(['_trackPageview']);
 
-        		(function() 
-        		{
-        			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        		})();
-      		</script>
-	  	</head>  
+				(function() 
+				{
+					var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+					ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+					var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+				})();
+			</script>
+		</head>
 	</xsl:template>
 
-  	<xsl:template name="page-foot">
+	<xsl:template name="page-foot">
 		<div xmlns="http://www.w3.org/1999/xhtml" class="copyright">
-        	<xsl:value-of select="document(concat($DIRECTORY, $FILE_CNST))/website/constant[./@name='copyright']/@value" />
-        	<xsl:text> </xsl:text>
-    		<a href="{document(concat($DIRECTORY, $FILE_CNST))/website/constant[./@name='copyright-url']/@value}">
-    			<xsl:value-of select="document(concat($DIRECTORY, $FILE_CNST))/website/constant[./@name='copyright-title']/@value" />
-    		</a>
+			<xsl:value-of select="document(concat($DIRECTORY, $FILE_CNST))/website/constant[./@name='copyright']/@value" />
+			<xsl:text> </xsl:text>
+			<a href="{document(concat($DIRECTORY, $FILE_CNST))/website/constant[./@name='copyright-url']/@value}">
+				<xsl:value-of select="document(concat($DIRECTORY, $FILE_CNST))/website/constant[./@name='copyright-title']/@value" />
+			</a>
 		</div>
 	</xsl:template>
-	
+
 	<xsl:template match="version">
-    	<xsl:choose>
-        	<xsl:when test="$VERSION=./@value">
+		<xsl:choose>
+			<xsl:when test="$VERSION=./@value">
 				<a xmlns="http://www.w3.org/1999/xhtml" class="active" href="{concat('../', ./@value, '/index.html')}">
 					<xsl:value-of select="./@value" />
 				</a>
-        	</xsl:when>
-        	<xsl:otherwise>
+			</xsl:when>
+			<xsl:otherwise>
 				<a xmlns="http://www.w3.org/1999/xhtml" href="{concat('../', ./@value, '/index.html')}">
 					<xsl:value-of select="./@value" />
 				</a>
-        	</xsl:otherwise>
-      	</xsl:choose>
+			</xsl:otherwise>
+		</xsl:choose>
 		<xsl:text> </xsl:text>
 	</xsl:template>	
 
 	<xsl:template match="tab">
 		<xsl:choose>
-        	<xsl:when test="./@active='yes'">
+			<xsl:when test="./@active='yes'">
 				<a xmlns="http://www.w3.org/1999/xhtml" href="{./@href}" class="active"><xsl:value-of select="./@name"/></a><xsl:text> </xsl:text>
-        	</xsl:when>
+			</xsl:when>
 			<xsl:otherwise>
 				<a xmlns="http://www.w3.org/1999/xhtml" href="{./@href}"><xsl:value-of select="./@name"/></a><xsl:text> </xsl:text>
 			</xsl:otherwise>
@@ -79,22 +79,30 @@
 	</xsl:template>
 
 	<xsl:template match="menu">
-        <div xmlns="http://www.w3.org/1999/xhtml" class="menu-entry1">
-        	<xsl:if test="./@title">
-            	<xsl:value-of select="./@title"/>
-        	</xsl:if>
+		<div xmlns="http://www.w3.org/1999/xhtml" class="menu-entry1">
+			<xsl:if test="./@title">
+				<xsl:value-of select="./@title"/>
+			</xsl:if>
 			<xsl:apply-templates />
 		</div>
 	</xsl:template>
 
 	<xsl:template match="menu-entry">
-	  <div xmlns="http://www.w3.org/1999/xhtml" class="menu-entry2">
-		<a href="{./@href}" class="menu">
-		  <xsl:value-of select="./@name"/>
-		</a>
-	  </div>
+		<div xmlns="http://www.w3.org/1999/xhtml" class="menu-entry2">
+			<a href="{./@href}" class="menu">
+				<xsl:value-of select="./@name"/>
+			</a>
+		</div>
 	</xsl:template>
-	
+
+	<xsl:template match="menu-image">
+		<div xmlns="http://www.w3.org/1999/xhtml" class="menu-entry2">
+			<a href="{./@href}">
+				<img class="menu-img" src="{./@img}" alt="{./@name}"/>
+			</a>
+		</div>
+	</xsl:template>
+
 	<xsl:template name="page-menu">	
 		<div xmlns="http://www.w3.org/1999/xhtml" class="menu">
 			<div class="menu-logo">
@@ -119,9 +127,9 @@
 				</div>
 			</xsl:if>
 			
-	  		<xsl:apply-templates select="document(concat($DIRECTORY, $FILE_MENU))/website/version[./@value=$VERSION]/menu" />
-	  		
-	  		<br />
+			<xsl:apply-templates select="document(concat($DIRECTORY, $FILE_MENU))/website/version[./@value=$VERSION]/menu" />
+			
+			<br />
 			<div>
 				<a href="http://www.g-truc.net">
 					<img class="menu-img" src="../common/g-truc.jpg" alt="G-Truc Creation"/>
@@ -154,30 +162,30 @@
 	</xsl:template>
 
 	<xsl:template match="download">
-    	<xsl:param name="Index" select="./@index" />
-    	<xsl:param name="Download" select="document(concat($DIRECTORY, $FILE_DOWN))/website/download[@version=$Index]" />
+		<xsl:param name="Index" select="./@index" />
+		<xsl:param name="Download" select="document(concat($DIRECTORY, $FILE_DOWN))/website/download[@version=$Index]" />
 
-    	<li xmlns="http://www.w3.org/1999/xhtml">
-    		<xsl:text>Download: </xsl:text>
-      		<a href="{$Download/item[1]/@href}">
-          		<xsl:value-of select="document(concat($DIRECTORY, $FILE_CNST))/website/constant[./@name='website-short']/@value" />
-          		<xsl:text> </xsl:text>
-          		<xsl:value-of select="$Download/@version" />
-      		</a>
-			
+		<li xmlns="http://www.w3.org/1999/xhtml">
+			<xsl:text>Download: </xsl:text>
+			<a href="{$Download/item[1]/@href}">
+				<xsl:value-of select="document(concat($DIRECTORY, $FILE_CNST))/website/constant[./@name='website-short']/@value" />
+				<xsl:text> </xsl:text>
+				<xsl:value-of select="$Download/@version" />
+			</a>
+
 			<xsl:for-each select="$Download/item">
 				<xsl:text> (</xsl:text>
-        		<a href="{./@href}">
-          			<xsl:value-of select="./@type"/>
-          			<xsl:if test="./@size">
-            			<xsl:text>, </xsl:text>
-            			<xsl:value-of select="./@size"/>
-          			</xsl:if>
-        		</a>
-        		<xsl:text>) </xsl:text>
-      		</xsl:for-each>
-    	</li>
-  </xsl:template>
+				<a href="{./@href}">
+					<xsl:value-of select="./@type"/>
+					<xsl:if test="./@size">
+					<xsl:text>, </xsl:text>
+					<xsl:value-of select="./@size"/>
+					</xsl:if>
+				</a>
+				<xsl:text>) </xsl:text>
+			</xsl:for-each>
+		</li>
+	</xsl:template>
 
 	<xsl:template match="list">
 		<p xmlns="http://www.w3.org/1999/xhtml">
@@ -201,38 +209,38 @@
 		</p>
 	</xsl:template>
 
-  <xsl:template match="image">
-    <xsl:choose>
-      <xsl:when test="contains(./@color, 'white')">
-        <div xmlns="http://www.w3.org/1999/xhtml" class="post-image-white">
-          <a href="{./@href}">
-            <img src="{./@img}" alt="{./@title}" />
-          </a>
-        </div>
-      </xsl:when>
-      <xsl:otherwise>
-        <div xmlns="http://www.w3.org/1999/xhtml" class="post-image-black">
-          <a href="{./@href}">
-            <img src="{./@img}" alt="{./@title}" />
-          </a>
-        </div>
-      </xsl:otherwise>
-    </xsl:choose>
-    <xsl:if test="./@title">
-      <div xmlns="http://www.w3.org/1999/xhtml" class="post-image-title">
-        <xsl:value-of select="./@title"/>
-      </div>
-    </xsl:if>
-  </xsl:template>
+	<xsl:template match="image">
+		<xsl:choose>
+			<xsl:when test="contains(./@color, 'white')">
+				<div xmlns="http://www.w3.org/1999/xhtml" class="post-image-white">
+					<a href="{./@href}">
+						<img src="{./@img}" alt="{./@title}" />
+					</a>
+				</div>
+				</xsl:when>
+				<xsl:otherwise>
+				<div xmlns="http://www.w3.org/1999/xhtml" class="post-image-black">
+					<a href="{./@href}">
+						<img src="{./@img}" alt="{./@title}" />
+					</a>
+				</div>
+			</xsl:otherwise>
+		</xsl:choose>
+		<xsl:if test="./@title">
+			<div xmlns="http://www.w3.org/1999/xhtml" class="post-image-title">
+				<xsl:value-of select="./@title"/>
+			</div>
+		</xsl:if>
+	</xsl:template>
 
 	<xsl:template match="paragraph">
 		<p xmlns="http://www.w3.org/1999/xhtml"><xsl:text /><xsl:apply-templates /><xsl:text /></p>
 	</xsl:template>
 
 	<xsl:template match="about-short">
-	  <h2 xmlns="http://www.w3.org/1999/xhtml">
-		<xsl:value-of select="." />
-	  </h2>
+		<h2 xmlns="http://www.w3.org/1999/xhtml">
+			<xsl:value-of select="." />
+		</h2>
 	</xsl:template>
 
 	<!-- Elements for code listing -->

@@ -12,6 +12,7 @@
       <menu-entry name="API" href="../0.9.6/api/index.html" />
       <menu-entry name="Code samples" href="../0.9.6/code.html" />
       <menu-entry name="Snapshot" href="https://github.com/g-truc/glm/archive/0.9.6.zip" />
+      <menu-image name="Build Status" href="https://drone.io/github.com/g-truc/glm" img="https://drone.io/github.com/g-truc/glm/status.png" />
     </menu>
 
     <menu>

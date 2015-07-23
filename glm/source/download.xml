@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 
 <website>
-	<download date="15/02/2015" title="GLM 0.9.6.3" version="0.9.6.3">
+	<download date="15/02/2015" title="GLM" version="0.9.6.3">
 		<item href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.6.3/glm-0.9.6.3.zip/download" type="ZIP" size="4.1 MB" />
 		<item href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.6.3/glm-0.9.6.3.7z/download" type="7Z" size="2.7 MB" />
 	</download>
-	<download date="15/02/2015" title="GLM 0.9.6.2" version="0.9.6.2">
+	<download date="15/02/2015" title="GLM" version="0.9.6.2">
 		<item href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.6.2/glm-0.9.6.2.zip/download" type="ZIP" size="4.1 MB" />
 		<item href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.6.2/glm-0.9.6.2.7z/download" type="7Z" size="2.7 MB" />
 	</download>
-	<download date="10/12/2014" title="GLM 0.9.6.1" version="0.9.6.1">
+	<download date="10/12/2014" title="GLM" version="0.9.6.1">
 		<item href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.6.1/glm-0.9.6.1.zip/download" type="ZIP" size="4.1 MB" />
 		<item href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.6.1/glm-0.9.6.1.7z/download" type="7Z" size="2.7 MB" />
 	</download>

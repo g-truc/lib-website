@@ -95,17 +95,103 @@
 		</list>
 	</post>
 
-	<about-long>
+	<about-long version="0.6.1">
 		<paragraph>
-			OpenGL Image (GLI) is a header only C++ image library for graphics software
-			based on the <link href="http://www.opengl.org/documentation/glsl/">OpenGL Shading Language (GLSL)</link> specification and released under the <link href="../copying.txt">MIT license</link>.
+			OpenGL Image (GLI) is a header only C++ image library for graphics software.
 		</paragraph>
+		<paragraph>
+			This library works perfectly with <link href="https://www.opengl.org">OpenGL</link> but it also ensures interoperability with other third party libraries and SDK. It is a good candidate for software rendering (raytracing / rasterisation), image processing, physic simulations and any development context that requires a simple and convenient mathematics library.
+		</paragraph>
+		<list title="GLI is written in C++11. It is a platform independent library with no dependence and it supports the following compilers:">
+			<entry>
+				<link href="https://developer.apple.com/library/mac/documentation/CompilerTools/Conceptual/LLVMCompilerOverview/index.html">Apple Clang</link> 4.0 and higher
+			</entry>
+			<entry>
+				<link href="http://gcc.gnu.org/">GCC</link> 4.6 and higher
+			</entry>
+			<entry>
+				<link href="https://software.intel.com/en-us/intel-compilers">Intel C++ Composer</link> XE 2013 and higher
+			</entry>
+			<entry>
+				<link href="http://llvm.org/">LLVM</link> 3.2 and higher
+			</entry>
+			<entry>
+				<link href="http://www.visualstudio.com/">Visual Studio</link> 2012 and higher
+			</entry>
+			<entry>
+				Any conform C++11 compiler
+			</entry>
+		</list>
 		<paragraph>
 			For more information about GLI, please have a look at <link href="../0.6.1/api/index.html">the API reference documentation</link>.
 		</paragraph>
 		<paragraph>
+			The source code and the documentation, including this manual, are licensed under the 
+			<link href="http://glm.g-truc.net/copying.txt">Happy Bunny License (Modified MIT) and the MIT License</link>.
+		</paragraph>
+		<paragraph>
 			Thanks for contributing to the project by <link href="https://github.com/g-truc/gli/issues">submitting issues</link> for bug reports and feature requests. Any feedback is welcome at <link href="mailto://gli@g-truc.net">gli@g-truc.net</link>.
 		</paragraph>
+		<code title="Code sample:">
+			<line><keyword>#include </keyword><string>&lt;gli/gli.hpp&gt;</string></line>
+			<line></line>
+			<line>GLuint CreateTextureArray(<keyword>char </keyword><keyword>const</keyword>* Filename)</line>
+			<line>{</line>
+			<line align="32px">gli::texture2DArray Texture(gli::load_dds(Filename));</line>
+			<line align="32px"><keyword>if</keyword>(Texture.empty())</line>
+			<line align="64px"><keyword>return</keyword> 0;</line>
+			<line></line>
+			<line align="32px">gli::gl GL;</line>
+			<line align="32px">gli::gl::format <keyword>const</keyword> Format = GL.translate(Texture.format());</line>
+			<line></line>
+			<line align="32px">GLuint TextureName = 0;</line>
+			<line align="32px">glGenTextures(1, &amp;TextureName);</line>
+			<line align="32px">glBindTexture(GL_TEXTURE_2D_ARRAY, TextureName);</line>
+			<line></line>
+			<line align="32px">glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_BASE_LEVEL, 0);</line>
+			<line align="32px">glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_MAX_LEVEL, <keyword>static_cast</keyword>&lt;GLint&gt;(Texture.levels() - 1));</line>
+			<line align="32px">glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_SWIZZLE_R, Format.Swizzle[0]);</line>
+			<line align="32px">glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_SWIZZLE_G, Format.Swizzle[1]);</line>
+			<line align="32px">glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_SWIZZLE_B, Format.Swizzle[2]);</line>
+			<line align="32px">glTexParameteri(GL_TEXTURE_2D_ARRAY, GL_TEXTURE_SWIZZLE_A, Format.Swizzle[3]);</line>
+			<line></line>
+			<line align="32px">glTexStorage3D(GL_TEXTURE_2D_ARRAY, <keyword>static_cast</keyword>&lt;GLint&gt;(Texture.levels()),</line>
+			<line align="64px">Format.Internal,</line>
+			<line align="64px"><keyword>static_cast</keyword>&lt;GLsizei&gt;(Texture.dimensions().x),</line>
+			<line align="64px"><keyword>static_cast</keyword>&lt;GLsizei&gt;(Texture.dimensions().y),</line>
+			<line align="64px"><keyword>static_cast</keyword>&lt;GLsizei&gt;(1));</line>
+			<line></line>
+			<line align="32px"><keyword>if</keyword>(gli::is_compressed(Texture.format()))</line>
+			<line align="32px">{</line>
+			<line align="64px"><keyword>for</keyword>(std::size_t Level = 0; Level &lt; Texture.levels(); ++Level)</line>
+			<line align="64px">{</line>
+			<line align="96px">glCompressedTexSubImage3D(GL_TEXTURE_2D_ARRAY, <keyword>static_cast</keyword>&lt;GLint&gt;(Level),</line>
+			<line align="128px">0, 0, 0,</line>
+			<line align="128px"><keyword>static_cast</keyword>&lt;GLsizei&gt;(Texture[Level].dimensions().x),</line>
+			<line align="128px"><keyword>static_cast</keyword>&lt;GLsizei&gt;(Texture[Level].dimensions().y),</line>
+			<line align="128px"><keyword>static_cast</keyword>&lt;GLsizei&gt;(1),</line>
+			<line align="128px">Format.External,</line>
+			<line align="128px"><keyword>static_cast</keyword>&lt;GLsizei&gt;(Texture[Level].size()),</line>
+			<line align="128px">Texture[Level].data());</line>
+			<line align="64px">}</line>
+			<line align="32px">}</line>
+			<line align="32px"><keyword>else</keyword></line>
+			<line align="32px">{</line>
+			<line align="64px"><keyword>for</keyword>(std::size_t Level = 0; Level &lt; Texture.levels(); ++Level)</line>
+			<line align="64px">{</line>
+			<line align="96px">glTexSubImage3D(GL_TEXTURE_2D_ARRAY, <keyword>static_cast</keyword>&lt;GLint&gt;(Level),</line>
+			<line align="128px">0, 0, 0,</line>
+			<line align="128px"><keyword>static_cast</keyword>&lt;GLsizei&gt;(Texture[Level].dimensions().x),</line>
+			<line align="128px"><keyword>static_cast</keyword>&lt;GLsizei&gt;(Texture[Level].dimensions().y),</line>
+			<line align="128px"><keyword>static_cast</keyword>&lt;GLsizei&gt;(1),</line>
+			<line align="128px">Format.External, Format.Type,</line>
+			<line align="128px">Texture[Level].data());</line>
+			<line align="64px">}</line>
+			<line align="32px">}</line>
+			<line></line>
+			<line align="32px"><keyword>return</keyword> TextureName;</line>
+			<line>}</line>
+		</code>
 	</about-long>
 
 	<about-short>
