@@ -27,9 +27,10 @@
 						<td class="page">
 							<h1><xsl:value-of select="document(concat($DIRECTORY, $FILE_CNST))/website/constant[./@name='website-title']/@value"/></h1>
 							<xsl:apply-templates select="./website/about-short" />
-								<br />
-								<br />
-								<xsl:apply-templates select="./website/about-long[contains($VERSION, @version)]" /><br />
+							<br />
+							<br />
+							<xsl:apply-templates select="./website/about-long[contains($VERSION, @version)]" />
+							<br />
 							<xsl:call-template name="page-foot" />
 						</td>
 						</tr>

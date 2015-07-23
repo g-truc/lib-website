@@ -119,7 +119,7 @@
 							<xsl:value-of select="document(concat($DIRECTORY, $FILE_DOWN))/website/download[contains(@version, $VERSION)][1]/@title" />
 							<xsl:text> </xsl:text>
 							<xsl:value-of select="document(concat($DIRECTORY, $FILE_DOWN))/website/download[contains(@version, $VERSION)][1]/@version" />
-	 					</div>
+						</div>
 						<div>
 							<xsl:value-of select="document(concat($DIRECTORY, $FILE_DOWN))/website/download[contains(@version, $VERSION)][1]/@date" />
 						</div>
@@ -138,16 +138,24 @@
 		</div>
 	</xsl:template>
 
+	<xsl:template match="image-list">
+		<div xmlns="http://www.w3.org/1999/xhtml" class="post-image-list">
+			<xsl:apply-templates select="./image-element" />
+		</div>
+	</xsl:template>
+
+	<xsl:template match="image-element">
+		<a xmlns="http://www.w3.org/1999/xhtml" href="{./@normal}">
+			<img src="{./@small}" alt="{./@title}" />
+		</a>
+	</xsl:template>
+
 	<xsl:template match="link">
 		<a xmlns="http://www.w3.org/1999/xhtml" href="{./@href}"><xsl:value-of select="." /></a>
 	</xsl:template>
 
 	<xsl:template match="entry">
 		<li xmlns="http://www.w3.org/1999/xhtml">
-          	<!--xsl:if test="./@type">
-            	<xsl:text>: </xsl:text>
-            	<xsl:value-of select="./@tag"/>
-          	</xsl:if-->			
 			<xsl:choose>
 				<xsl:when test="./@href">
 					<a href="{./@href}">

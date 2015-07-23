@@ -257,6 +257,12 @@ div.issue-title
     font-weight:bold;    
 }
 
+div.post-image-list
+{
+	width:100%;
+	text-align:center;
+}
+
 span.progword
 {
 	color:#000000;

@@ -95,7 +95,7 @@
 		</list>
 	</post>
 
-	<about-long version="0.6.1">
+	<about-long>
 		<paragraph>
 			OpenGL Image (GLI) is a header only C++ image library for graphics software.
 		</paragraph>

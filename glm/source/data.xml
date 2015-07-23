@@ -2387,6 +2387,11 @@
 				}
 			</line>
 		</code>
+		<image-list>
+			<image-element title="Raytracer based on GLM" small="glm2-small.jpg" normal="glm2-normal.jpg" />
+			<image-element title="Animation based on GLM" small="glm3-small.jpg" normal="glm3-normal.jpg" />
+			<image-element title="Animation based on GLM" small="glm4-small.jpg" normal="glm4-normal.jpg" />
+		</image-list>
 	</about-long>
 
 	<about-long version="0.9.5">
