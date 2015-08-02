@@ -2,48 +2,48 @@
 
 <website>
 	<download date="02/08/2015" title="GLM" version="0.9.7.0">
-		<item href="https://github.com/g-truc/glm/releases/download/0.9.7.0/glm-0.9.7.0.zip" type="ZIP" size="4.1 MB" />
-		<item href="https://github.com/g-truc/glm/releases/download/0.9.7.0/glm-0.9.7.0.7z" type="7Z" size="2.7 MB" />
+		<item href="https://github.com/g-truc/glm/releases/download/0.9.7.0/glm-0.9.7.0.zip" type="ZIP" size="4.2 MB" />
+		<item href="https://github.com/g-truc/glm/releases/download/0.9.7.0/glm-0.9.7.0.7z" type="7Z" size="2.8 MB" />
 	</download>
 	<download date="15/02/2015" title="GLM" version="0.9.6.3">
 		<item href="https://github.com/g-truc/glm/releases/download/0.9.6.3/glm-0.9.6.3.zip" type="ZIP" size="4.1 MB" />
 		<item href="https://github.com/g-truc/glm/releases/download/0.9.6.3/glm-0.9.6.3.7z" type="7Z" size="2.7 MB" />
 	</download>
 	<download date="15/02/2015" title="GLM" version="0.9.6.2">
-		<item href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.6.2/glm-0.9.6.2.zip/download" type="ZIP" size="4.1 MB" />
-		<item href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.6.2/glm-0.9.6.2.7z/download" type="7Z" size="2.7 MB" />
+		<item href="https://github.com/g-truc/glm/releases/download/0.9.6.2/glm-0.9.6.2.zip" type="ZIP" size="4.1 MB" />
+		<item href="https://github.com/g-truc/glm/releases/download/0.9.6.2/glm-0.9.6.2.7z" type="7Z" size="2.7 MB" />
 	</download>
 	<download date="10/12/2014" title="GLM" version="0.9.6.1">
-		<item href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.6.1/glm-0.9.6.1.zip/download" type="ZIP" size="4.1 MB" />
-		<item href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.6.1/glm-0.9.6.1.7z/download" type="7Z" size="2.7 MB" />
+		<item href="https://github.com/g-truc/glm/releases/download/0.9.6.1/glm-0.9.6.1.zip" type="ZIP" size="4.1 MB" />
+		<item href="https://github.com/g-truc/glm/releases/download/0.9.6.1/glm-0.9.6.1.7z" type="7Z" size="2.7 MB" />
 	</download>
 	<download date="30/11/2014" title="GLM" version="0.9.6.0">
-		<item href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.6.0/glm-0.9.6.0.zip/download" type="ZIP" size="4.1 MB" />
-		<item href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.6.0/glm-0.9.6.0.7z/download" type="7Z" size="2.7 MB" />
+		<item href="https://github.com/g-truc/glm/releases/download/0.9.6.0/glm-0.9.6.0.zip" type="ZIP" size="4.1 MB" />
+		<item href="https://github.com/g-truc/glm/releases/download/0.9.6.0/glm-0.9.6.0.7z" type="7Z" size="2.7 MB" />
 	</download>
 	<download date="21/06/2014" title="GLM" version="0.9.5.4">
-		<item href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.5.4/glm-0.9.5.4.zip/download" type="ZIP" size="4.0 MB" />
-		<item href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.5.4/glm-0.9.5.4.7z/download" type="7Z" size="2.6 MB" />
+		<item href="https://github.com/g-truc/glm/releases/download/0.9.5.4/glm-0.9.5.4.zip" type="ZIP" size="4.0 MB" />
+		<item href="https://github.com/g-truc/glm/releases/download/0.9.5.4/glm-0.9.5.4.7z" type="7Z" size="2.6 MB" />
 	</download>
 	<download date="02/04/2014" title="GLM" version="0.9.5.3">
-		<item href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.5.3/glm-0.9.5.3.zip/download" type="ZIP" size="4.0 MB" />
-		<item href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.5.3/glm-0.9.5.3.7z/download" type="7Z" size="2.6 MB" />
+		<item href="https://github.com/g-truc/glm/releases/download/0.9.5.3/glm-0.9.5.3.zip" type="ZIP" size="4.0 MB" />
+		<item href="https://github.com/g-truc/glm/releases/download/0.9.5.3/glm-0.9.5.3.7z" type="7Z" size="2.6 MB" />
 	</download>
 	<download date="08/02/2014" title="GLM" version="0.9.5.2">
-		<item href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.5.2/glm-0.9.5.2.zip/download" type="ZIP" size="4.1 MB" />
-		<item href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.5.2/glm-0.9.5.2.7z/download" type="7Z" size="2.7 MB" />
+		<item href="https://github.com/g-truc/glm/releases/download/0.9.5.2/glm-0.9.5.2.zip" type="ZIP" size="4.1 MB" />
+		<item href="https://github.com/g-truc/glm/releases/download/0.9.5.2/glm-0.9.5.2.7z" type="7Z" size="2.7 MB" />
 	</download>
 	<download date="11/01/2014" title="GLM" version="0.9.5.1">
-		<item href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.5.1/glm-0.9.5.1.zip/download" type="ZIP" size="4.1 MB" />
-		<item href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.5.1/glm-0.9.5.1.7z/download" type="7Z" size="2.7 MB" />
+		<item href="https://github.com/g-truc/glm/releases/download/0.9.5.1/glm-0.9.5.1.zip" type="ZIP" size="4.1 MB" />
+		<item href="https://github.com/g-truc/glm/releases/download/0.9.5.1/glm-0.9.5.1.7z" type="7Z" size="2.7 MB" />
 	</download>
 	<download date="25/12/2013" title="GLM" version="0.9.5.0">
-		<item href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.5.0/glm-0.9.5.0.zip/download" type="ZIP" size="4.0 MB" />
-		<item href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.5.0/glm-0.9.5.0.7z/download" type="7Z" size="2.7 MB" />
+		<item href="https://github.com/g-truc/glm/releases/download/0.9.5.0/glm-0.9.5.0.zip" type="ZIP" size="4.0 MB" />
+		<item href="https://github.com/g-truc/glm/releases/download/0.9.5.0/glm-0.9.5.0.7z" type="7Z" size="2.7 MB" />
 	</download>
 	<download date="20/09/2013" title="GLM" version="0.9.4.6">
-		<item href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.4.6/glm-0.9.4.6.zip/download" type="ZIP" size="5.1 MB" />
-		<item href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.4.6/glm-0.9.4.6.7z/download" type="7Z" size="3.0 MB" />
+		<item href="https://github.com/g-truc/glm/releases/download/0.9.4.6/glm-0.9.4.6.zip" type="ZIP" size="5.1 MB" />
+		<item href="https://github.com/g-truc/glm/releases/download/0.9.4.6/glm-0.9.4.6.7z" type="7Z" size="3.0 MB" />
 	</download>
 	<download date="13/08/2013" title="GLM" version="0.9.4.5">
 		<item href="https://sourceforge.net/projects/ogl-math/files/glm-0.9.4.5/glm-0.9.4.5.zip/download" type="ZIP" size="5.2 MB" />
