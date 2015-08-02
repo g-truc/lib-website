@@ -2289,7 +2289,7 @@
 		</list>
 	</post>
 
-	<about-long version="0.9.6">
+	<about-long version="0.9.7">
 		<paragraph>
 			OpenGL Mathematics (GLM) is a header only C++ mathematics library for graphics software
 			based on the <link href="http://www.opengl.org/documentation/glsl/">OpenGL Shading Language (GLSL)</link> specifications.
@@ -2325,10 +2325,10 @@
 			<entry>Any conform C++98 or C++11 compiler</entry>
 		</list>
 		<paragraph>
-			For more information about GLM, please have a look at <link href="http://glm.g-truc.net/0.9.6/glm-0.9.6.pdf">the manual</link> and <link href="http://glm.g-truc.net/0.9.6/api/index.html">the API reference documentation</link>.
+			For more information about GLM, please have a look at <link href="http://glm.g-truc.net/0.9.7/glm-0.9.7.pdf">the manual</link> and <link href="http://glm.g-truc.net/0.9.7/api/index.html">the API reference documentation</link>.
 		</paragraph>
 		<paragraph>
-			The source code and the documentation, including this manual, are licensed under <link href="http://glm.g-truc.net/copying.txt">the Happy Bunny License (Modified MIT) and the MIT License</link>.
+			The source code and the documentation, including this manual, are licensed under <link href="http://glm.g-truc.net/copying.txt">the Happy Bunny License (Modified MIT) or the MIT License</link>.
 		</paragraph>
 		<paragraph>
 			Thanks for contributing to the project by <link href="https://github.com/g-truc/glm/issues">submitting issues</link> for bug reports and feature requests.
@@ -2387,11 +2387,116 @@
 				}
 			</line>
 		</code>
-		<image-list>
+		<!--image-list>
 			<image-element title="Raytracer based on GLM" small="glm2-small.jpg" normal="glm2-normal.jpg" />
 			<image-element title="Animation based on GLM" small="glm3-small.jpg" normal="glm3-normal.jpg" />
 			<image-element title="Animation based on GLM" small="glm4-small.jpg" normal="glm4-normal.jpg" />
-		</image-list>
+		</image-list-->
+	</about-long>
+
+	<about-long version="0.9.6">
+		<paragraph>
+			OpenGL Mathematics (GLM) is a header only C++ mathematics library for graphics software
+			based on the <link href="http://www.opengl.org/documentation/glsl/">OpenGL Shading Language (GLSL)</link> specifications.
+		</paragraph>
+		<paragraph>
+			GLM provides classes and functions designed and implemented with the same naming conventions and functionalities than GLSL so that anyone who knows GLSL, can use GLM as well in C++.
+		</paragraph>
+		<paragraph>
+			This project isn't limited to GLSL features. An extension system, based on the GLSL extension conventions, provides extended capabilities: matrix transformations, quaternions, data packing, random numbers, noise, etc...
+		</paragraph>
+		<paragraph>
+			This library works perfectly with OpenGL but it also ensures interoperability with other third party libraries and SDK. It is a good candidate for software rendering (raytracing / rasterisation), image processing, physic simulations and any development context that requires a simple and convenient mathematics library.
+		</paragraph>
+		<list title="GLM is written in C++98 but can take advantage of C++11 when supported by the compiler. It is a platform independent library with no dependence and it officially supports the following compilers:">
+			<entry>
+				<link href="https://developer.apple.com/Library/mac/documentation/CompilerTools/Conceptual/LLVMCompilerOverview/index.html">Apple Clang</link> 4.0 and higher
+			</entry>
+			<entry>
+				<link href="http://gcc.gnu.org/">GCC</link> 4.2 and higher
+			</entry>
+			<entry>
+				<link href="https://software.intel.com/en-us/intel-compilers">Intel C++ Composer</link> XE 2013 and higher
+			</entry>
+			<entry>
+				<link href="http://llvm.org/">LLVM</link> 3.0 and higher
+			</entry>
+			<entry>
+				<link href="http://www.visualstudio.com/">Visual C++</link> 2010 and higher
+			</entry>
+			<entry>
+				<link href="https://developer.nvidia.com/about-cuda">CUDA</link> 4.0 and higher (experimental)
+			</entry>
+			<entry>Any conform C++98 or C++11 compiler</entry>
+		</list>
+		<paragraph>
+			For more information about GLM, please have a look at <link href="http://glm.g-truc.net/0.9.6/glm-0.9.6.pdf">the manual</link> and <link href="http://glm.g-truc.net/0.9.6/api/index.html">the API reference documentation</link>.
+		</paragraph>
+		<paragraph>
+			The source code and the documentation, including this manual, are licensed under <link href="http://glm.g-truc.net/copying.txt">the Happy Bunny License (Modified MIT) or the MIT License</link>.
+		</paragraph>
+		<paragraph>
+			Thanks for contributing to the project by <link href="https://github.com/g-truc/glm/issues">submitting issues</link> for bug reports and feature requests.
+			Any feedback is welcome at <link href="mailto://glm@g-truc.net">glm@g-truc.net</link>.
+		</paragraph>
+		<code title="Code sample:">
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/vec3.hpp&gt; </string>
+				<comment>// glm::vec3</comment>
+			</line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/vec4.hpp&gt; </string>
+				<comment>// glm::vec4</comment>
+			</line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/mat4x4.hpp&gt; </string>
+				<comment>// glm::mat4</comment>
+			</line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/gtc/matrix_transform.hpp&gt; </string>
+				<comment>// glm::translate, glm::rotate, glm::scale, glm::perspective</comment>
+			</line>
+			<line>
+
+			</line>
+			<line>
+				glm::<userword>mat4</userword> camera(<keyword>float</keyword> Translate, glm::<userword>vec2 </userword><keyword>const</keyword> &amp; Rotate)
+			</line>
+			<line>
+				{
+			</line>
+
+			<line align="32px">
+				glm::<userword>mat4</userword> Projection = glm::perspective(45.0f, 4.0f / 3.0f, 0.1f, 100.f);
+			</line>
+			<line align="32px">
+				glm::<userword>mat4</userword> View = glm::translate(glm::<userword>mat4</userword>(1.0f), glm::<userword>vec3</userword>(0.0f, 0.0f, -Translate));
+			</line>
+			<line align="32px">
+				View = glm::rotate(View, Rotate.y, glm::<userword>vec3</userword>(-1.0f, 0.0f, 0.0f));
+			</line>
+			<line align="32px">
+				View = glm::rotate(View, Rotate.x, glm::<userword>vec3</userword>(0.0f, 1.0f, 0.0f));
+			</line>
+			<line align="32px">
+				glm::<userword>mat4</userword> Model = glm::scale(glm::<userword>mat4</userword>(1.0f), glm::<userword>vec3</userword>(0.5f));
+			</line>
+			<line align="32px">
+				<keyword>return </keyword> Projection * View * Model;
+			</line>
+			<line>
+				}
+			</line>
+		</code>
+		<!--image-list>
+			<image-element title="Raytracer based on GLM" small="glm2-small.jpg" normal="glm2-normal.jpg" />
+			<image-element title="Animation based on GLM" small="glm3-small.jpg" normal="glm3-normal.jpg" />
+			<image-element title="Animation based on GLM" small="glm4-small.jpg" normal="glm4-normal.jpg" />
+		</image-list-->
 	</about-long>
 
 	<about-long version="0.9.5">
