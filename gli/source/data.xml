@@ -1,7 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <website>
-	<post index="0005" date="18/07/2015" std-date="2015-07-18T23:30:00.00Z" title="GLI 0.6.1.1 released">
+	<post index="0007" date="2015-09-05" std-date="2015-07-18T23:30:00.00Z" title="GLI 0.7.0.0 released">
+		<list title="Changelog:">
+			<entry>Added KTX loading and saving</entry>
+			<entry>Added gli::load for generic file loading, either DDS or KTX files depending on filename extensions</entry>
+			<entry>Added gli::save for generic file saving, either DDS or KTX files depending on filename extensions</entry>
+			<entry>Added texture views using different texture format, including compressed texture formats</entry>
+			<entry>Added fine granularity includes</entry>
+			<entry>Improved API documentation</entry>
+			<entry>Much faster texture comparisons is non optimal cases. (Measured ~21x faster on Intel IVB)</entry>
+			<entry>Explicitly handling of texture targets: fixed various cases of cubemap and texture arrays failing to load with DDS</entry>
+			<entry>Fixed GCC</entry>
+			<entry>Fixed warnings</entry>
+			<entry>Fixed saved DDS header size on #52</entry>
+		</list>
+
+		<list>
+			<download index="0.7.0.0" />
+			<entry href="https://github.com/g-truc/gli/issues">Submit a bug report</entry>
+			<entry href="../0.7.0/api/index.html">GLI 0.7.0 API</entry>
+		</list>
+	</post>
+
+	<post index="0006" date="2015-07-18" std-date="2015-07-18T23:30:00.00Z" title="GLI 0.6.1.1 released">
 		<list title="Changelog:">
 			<entry>Fixed interface inconsistencies</entry>
 			<entry>Improved clear(), data() and size() performance using caching</entry>
@@ -17,7 +39,7 @@
 		</list>
 	</post>
 
-	<post index="0005" date="28/06/2015" std-date="2015-06-28T23:30:00.00Z" title="GLI 0.6.0.0 released">
+	<post index="0005" date="2015-06-28" std-date="2015-06-28T23:30:00.00Z" title="GLI 0.6.0.0 released">
 		<list title="Changelog:">
 			<entry>Large refactoring</entry>
 			<entry>Added loading DDS from memory</entry>
@@ -35,7 +57,7 @@
 		</list>
 	</post>
 
-	<post index="0004" date="20/01/2014" std-date="2014-01-20T23:30:00.00Z" title="GLI 0.5.1.1 released">
+	<post index="0004" date="2014-01-20" std-date="2014-01-20T23:30:00.00Z" title="GLI 0.5.1.1 released">
 		<paragraph>
 			Tested with Visual C++, GCC, Clang and ICC.
 		</paragraph>
@@ -51,7 +73,7 @@
 		</list>
 	</post>
 
-	<post index="0003" date="18/01/2014" std-date="2014-01-18T23:30:00.00Z" title="GLI 0.5.1.0 released">
+	<post index="0003" date="2014-01-18" std-date="2014-01-18T23:30:00.00Z" title="GLI 0.5.1.0 released">
 		<list title="Changelog:">
 			<entry>Added flip function</entry>
 			<entry>Added level_count function</entry>
@@ -66,7 +88,7 @@
 		</list>
 	</post>
 
-	<post index="0002" date="23/11/2013" std-date="2013-11-23T23:30:00.00Z" title="GLI 0.5.0.0 released">
+	<post index="0002" date="2013-11-23" std-date="2013-11-23T23:30:00.00Z" title="GLI 0.5.0.0 released">
 		<list title="Changelog:">
 			<entry>Essencially a rewrite of the library</entry>
 			<entry>Added explicit copies</entry>
@@ -84,7 +106,7 @@
 		</list>
 	</post>
 
-	<post index="0001" date="10/07/2013" std-date="2013-07-10T23:30:00.00Z" title="GLI website available">
+	<post index="0001" date="2013-07-10" std-date="2013-07-10T23:30:00.00Z" title="GLI website available">
 		<paragraph>
 			Welcome on GLI website where new releases will be published and documentation will be provided.
 		</paragraph>

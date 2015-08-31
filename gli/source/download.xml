@@ -1,63 +1,67 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 
 <website>
-	<download date="18/07/2015" title="GLI" version="0.6.1.1">
+	<download date="2015-09-05" title="GLI" version="0.7.0.0">
+		<item href="https://github.com/g-truc/gli/releases/download/0.7.0.0/gli-0.7.0.0.zip" type="ZIP" size="9.0 MB" />
+		<item href="https://github.com/g-truc/gli/releases/download/0.7.0.0/gli-0.7.0.0.7z" type="7Z" size="5.7 MB" />
+	</download>
+	<download date="2015-07-18" title="GLI" version="0.6.1.1">
 		<item href="https://github.com/g-truc/gli/releases/download/0.6.1.1/gli-0.6.1.1.zip" type="ZIP" size="9.0 MB" />
 		<item href="https://github.com/g-truc/gli/releases/download/0.6.1.1/gli-0.6.1.1.7z" type="7Z" size="5.7 MB" />
 	</download>
-	<download date="18/07/2015" title="GLI" version="0.6.1.0">
+	<download date="2015-07-18" title="GLI" version="0.6.1.0">
 		<item href="https://github.com/g-truc/gli/releases/download/0.6.1.0/gli-0.6.1.0.zip" type="ZIP" size="9.0 MB" />
 		<item href="https://github.com/g-truc/gli/releases/download/0.6.1.0/gli-0.6.1.0.7z" type="7Z" size="5.7 MB" />
 	</download>
-	<download date="28/06/2015" title="GLI" version="0.6.0.0">
+	<download date="2015-06-28" title="GLI" version="0.6.0.0">
 		<item href="https://github.com/g-truc/gli/releases/download/0.6.0.0/gli-0.6.0.0.zip" type="ZIP" size="8.6 MB" />
 		<item href="https://github.com/g-truc/gli/releases/download/0.6.0.0/gli-0.6.0.0.7z" type="7Z" size="5.5 MB" />
 	</download>
-	<download date="20/01/2014" title="GLI" version="0.5.1.1">
+	<download date="2014-01-20" title="GLI" version="0.5.1.1">
 		<item href="https://sourceforge.net/projects/ogl-image/files/gli-0.5.1.1/gli-0.5.1.1.zip/download" type="ZIP" size="5.9 MB" />
 		<item href="https://sourceforge.net/projects/ogl-image/files/gli-0.5.1.1/gli-0.5.1.1.7z/download" type="7Z" size="3.4 MB" />
 	</download>
-	<download date="18/01/2014" title="GLI" version="0.5.1.0">
+	<download date="2014-01-18" title="GLI" version="0.5.1.0">
 		<item href="https://sourceforge.net/projects/ogl-image/files/gli-0.5.1.0/gli-0.5.1.0.zip/download" type="ZIP" size="6.0 MB" />
 		<item href="https://sourceforge.net/projects/ogl-image/files/gli-0.5.1.0/gli-0.5.1.0.7z/download" type="7Z" size="3.4 MB" />
 	</download>
-	<download date="24/11/2013" title="GLI" version="0.5.0.0">
+	<download date="2013-11-24" title="GLI" version="0.5.0.0">
 		<item href="https://sourceforge.net/projects/ogl-image/files/gli-0.5.0.0/gli-0.5.0.0.zip/download" type="ZIP" size="6.2 MB" />
 		<item href="https://sourceforge.net/projects/ogl-image/files/gli-0.5.0.0/gli-0.5.0.0.7z/download" type="7Z" size="3.1 MB" />
 	</download>
-	<download date="10/03/2013" title="GLI" version="0.4.1.0">
+	<download date="2013-03-10" title="GLI" version="0.4.1.0">
 		<item href="https://sourceforge.net/projects/ogl-image/files/gli-0.4.1.0/gli-0.4.1.0.zip/download" type="ZIP" size="17.6 MB" />
 		<item href="https://sourceforge.net/projects/ogl-image/files/gli-0.4.1.0/gli-0.4.1.0.7z/download" type="7Z" size="14.9 MB" />
 	</download>
-	<download date="28/01/2013" title="GLI" version="0.4.0.0">
+	<download date="2013-01-28" title="GLI" version="0.4.0.0">
 		<item href="https://sourceforge.net/projects/ogl-image/files/gli-0.4.0.0/gli-0.4.0.0.zip/download" type="ZIP" size="4.0 MB" />
 		<item href="https://sourceforge.net/projects/ogl-image/files/gli-0.4.0.0/gli-0.4.0.0.7z/download" type="7Z" size="2.1 MB" />
 	</download>
-	<download date="14/02/2013" title="GLI" version="0.3.1.0">
+	<download date="2013-02-14" title="GLI" version="0.3.1.0">
 		<item href="https://sourceforge.net/projects/ogl-image/files/gli-0.3.1.0/gli-0.3.1.0.zip/download" type="ZIP" size="3.5 MB" />
 		<item href="https://sourceforge.net/projects/ogl-image/files/gli-0.3.1.0/gli-0.3.1.0.7z/download" type="7Z" size="2.1 MB" />
 	</download>
-	<download date="05/04/2011" title="GLI" version="0.3.0.3">
+	<download date="2011-04-05" title="GLI" version="0.3.0.3">
 		<item href="https://sourceforge.net/projects/ogl-image/files/gli-0.3.0.3/gli-0.3.0.3.zip/download" type="ZIP" size="3.5 MB" />
 		<item href="https://sourceforge.net/projects/ogl-image/files/gli-0.3.0.3/gli-0.3.0.3.7z/download" type="7Z" size="2.1 MB" />
 	</download>
-	<download date="08/02/2011" title="GLI" version="0.3.0.2">
+	<download date="2011-02-08" title="GLI" version="0.3.0.2">
 		<item href="https://sourceforge.net/projects/ogl-image/files/gli-0.3.0.2/gli-0.3.0.2.zip/download" type="ZIP" size="1.5 MB" />
 		<item href="https://sourceforge.net/projects/ogl-image/files/gli-0.3.0.2/gli-0.3.0.2.7z/download" type="7Z" size="869 KB" />
 	</download>
-	<download date="15/10/2010" title="GLI" version="0.3.0.1">
+	<download date="2010-10-15" title="GLI" version="0.3.0.1">
 		<item href="https://sourceforge.net/projects/ogl-image/files/gli-0.3.0.1/gli-0.3.0.1.zip/download" type="ZIP" size="35 KB" />
 		<item href="https://sourceforge.net/projects/ogl-image/files/gli-0.3.0.1/gli-0.3.0.1.7z/download" type="7Z" size="17 kB" />
 	</download>
-	<download date="01/10/2010" title="GLI" version="0.3.0.0">
+	<download date="2010-10-01" title="GLI" version="0.3.0.0">
 		<item href="https://sourceforge.net/projects/ogl-image/files/gli-0.3.0.0/gli-0.3.0.0.zip/download" type="ZIP" size="35 KB" />
 		<item href="https://sourceforge.net/projects/ogl-image/files/gli-0.3.0.0/gli-0.3.0.0.7z/download" type="7Z" size="18 KB" />
 	</download>
-	<download date="07/10/2010" title="GLI" version="0.2.2.1">
+	<download date="2010-10-07" title="GLI" version="0.2.2.1">
 		<item href="https://sourceforge.net/projects/ogl-image/files/gli-0.2.2.1/gli-0.2.2.1.zip/download" type="ZIP" size="14 KB" />
 		<item href="https://sourceforge.net/projects/ogl-image/files/gli-0.2.2.1/gli-0.2.2.1.7z/download" type="7Z" size="14 KB" />
 	</download>
-	<download date="15/02/2010" title="GLI" version="0.2.1.0">
+	<download date="2010-02-15" title="GLI" version="0.2.1.0">
 		<item href="https://sourceforge.net/projects/ogl-image/files/gli-0.2.1.0/gli-0.2.1.0.zip/download" type="ZIP" size="17 KB" />
 		<item href="https://sourceforge.net/projects/ogl-image/files/gli-0.2.1.0/gli-0.2.1.0.7z/download" type="7Z" size="10 KB" />
 	</download>
