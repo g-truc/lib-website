@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <website>
-	<post index="0007" date="2015-09-05" std-date="2015-07-18T23:30:00.00Z" title="GLI 0.7.0.0 released">
+	<post index="0007" date="2015-09-01" std-date="2015-09-01T23:30:00.00Z" title="GLI 0.7.0.0 released">
 		<list title="Changelog:">
 			<entry>Added KTX loading and saving</entry>
 			<entry>Added gli::load for generic file loading, either DDS or KTX files depending on filename extensions</entry>
@@ -117,7 +117,285 @@
 		</list>
 	</post>
 
-	<about-long>
+	<about-long version="0.7">
+		<paragraph>
+			OpenGL Image (GLI) is a header only C++ image library for graphics software.
+		</paragraph>
+		<paragraph>
+			*GLI* provides classes and functions to load image files (<link href="https://www.khronos.org/opengles/sdk/tools/KTX/">KTX</link> and (<link href="https://msdn.microsoft.com/en-us/library/windows/desktop/bb943990%28v=vs.85%29.aspx">DDS</link>), facilitating graphics APIs texture creation, comparing, manipulating textures, etc.
+		</paragraph>
+		<paragraph>
+			This library works perfectly with <link href="https://www.opengl.org">OpenGL</link> but it also ensures interoperability with other third party libraries and SDK. It is a good candidate for software rendering (raytracing / rasterisation), image processing, physic simulations and any development context that requires a simple and convenient image library.
+		</paragraph>
+		<list title="GLI is written in C++11. It is a platform independent library with no dependence and it supports the following compilers:">
+			<entry>
+				<link href="https://developer.apple.com/library/mac/documentation/CompilerTools/Conceptual/LLVMCompilerOverview/index.html">Apple Clang</link> 4.0 and higher
+			</entry>
+			<entry>
+				<link href="http://gcc.gnu.org/">GCC</link> 4.6 and higher
+			</entry>
+			<entry>
+				<link href="https://software.intel.com/en-us/intel-compilers">Intel C++ Composer</link> XE 2013 and higher
+			</entry>
+			<entry>
+				<link href="http://llvm.org/">LLVM</link> 3.2 and higher
+			</entry>
+			<entry>
+				<link href="http://www.visualstudio.com/">Visual Studio</link> 2010 and higher
+			</entry>
+			<entry>
+				Any conform C++11 compiler
+			</entry>
+		</list>
+		<paragraph>
+			For more information about GLI, please have a look at <link href="../0.7.0/api/index.html">the API reference documentation</link>.
+		</paragraph>
+		<paragraph>
+			The source code and the documentation, including this manual, are licensed under the
+			<link href="http://glm.g-truc.net/copying.txt">Happy Bunny License (Modified MIT) or the MIT License</link>.
+		</paragraph>
+		<paragraph>
+			Thanks for contributing to the project by <link href="https://github.com/g-truc/gli/issues">submitting issues</link> for bug reports and feature requests. Any feedback is welcome at <link href="mailto://gli@g-truc.net">gli@g-truc.net</link>.
+		</paragraph>
+		<code title="Code sample:">
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;gli/texture.hpp&gt;</string>
+			</line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;gli/load.hpp&gt;</string>
+			</line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;gli/save.hpp&gt;</string>
+			</line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;gli/gl.hpp&gt;</string>
+			</line>
+			<line></line>
+			<line>
+				<comment>/// Filename can be KTX or DDS files</comment>
+			</line>
+			<line>
+				GLuint createTexture(char <keyword>const</keyword>* Filename)
+			</line>
+			<line>{</line>
+			<line align="32px">gli::texture Texture = gli::load(Filename);</line>
+			<line align="32px">
+				<keyword>if</keyword>(Texture.empty())
+			</line>
+			<line align="64px">
+				<keyword>return</keyword> 0;
+			</line>
+			<line></line>
+			<line align="32px">gli::gl GL;</line>
+			<line align="32px">
+				gli::gl::format <keyword>const</keyword> Format = GL.translate(Texture.format());
+			</line>
+			<line align="32px">GLenum Target = GL.translate(Texture.target());</line>
+			<line></line>
+			<line align="32px">GLuint TextureName = 0;</line>
+			<line align="32px">glGenTextures(1, &amp;TextureName);</line>
+			<line align="32px">glBindTexture(Target, TextureName);</line>
+			<line align="32px">glTexParameteri(Target, GL_TEXTURE_BASE_LEVEL, 0);</line>
+			<line align="32px">
+				glTexParameteri(Target, GL_TEXTURE_MAX_LEVEL, <keyword>static_cast</keyword>&lt;GLint&gt;(Texture.levels() - 1));
+			</line>
+			<line align="32px">glTexParameteri(Target, GL_TEXTURE_SWIZZLE_R, Format.Swizzle[0]);</line>
+			<line align="32px">glTexParameteri(Target, GL_TEXTURE_SWIZZLE_G, Format.Swizzle[1]);</line>
+			<line align="32px">glTexParameteri(Target, GL_TEXTURE_SWIZZLE_B, Format.Swizzle[2]);</line>
+			<line align="32px">glTexParameteri(Target, GL_TEXTURE_SWIZZLE_A, Format.Swizzle[3]);</line>
+			<line></line>
+			<line align="32px">
+				glm::tvec3&lt;GLsizei&gt; <keyword>const</keyword> Dimensions(Texture.dimensions());
+			</line>
+			<line align="32px">
+				GLsizei <keyword>const</keyword> FaceTotal = <keyword>static_cast</keyword>&lt;GLsizei&gt;(Texture.layers() * Texture.faces());
+			</line>
+			<line></line>
+			<line align="32px">
+				<keyword>switch</keyword>(Texture.target())
+			</line>
+			<line align="32px">{</line>
+			<line align="32px">
+				<keyword>case</keyword> gli::TARGET_1D:
+			</line>
+			<line align="64px">
+				glTexStorage1D(Target, <keyword>static_cast</keyword>&lt;GLint&gt;(Texture.levels()), Format.Internal, Dimensions.x);
+			</line>
+			<line align="64px">
+				<keyword>break</keyword>;
+			</line>
+			<line align="32px">
+				<keyword>case</keyword> gli::TARGET_1D_ARRAY:
+			</line>
+			<line align="32px">
+				<keyword>case</keyword> gli::TARGET_2D:
+			</line>
+			<line align="32px">
+				<keyword>case</keyword> gli::TARGET_CUBE:
+			</line>
+			<line align="64px">glTexStorage2D(</line>
+			<line align="96px">
+				Target, <keyword>static_cast</keyword>&lt;GLint&gt;(Texture.levels()), Format.Internal,
+			</line>
+			<line align="96px">Dimensions.x, Texture.target() == gli::TARGET_2D ? Dimensions.y : FaceTotal);</line>
+			<line align="64px">
+				<keyword>break</keyword>;
+			</line>
+			<line align="32px">
+				<keyword>case</keyword> gli::TARGET_2D_ARRAY:
+			</line>
+			<line align="32px">
+				<keyword>case</keyword> gli::TARGET_3D:
+			</line>
+			<line align="32px">
+				<keyword>case</keyword> gli::TARGET_CUBE_ARRAY:
+			</line>
+			<line align="64px">glTexStorage3D(</line>
+			<line align="96px">
+				Target, <keyword>static_cast</keyword>&lt;GLint&gt;(Texture.levels()), Format.Internal,
+			</line>
+			<line align="96px">Dimensions.x, Dimensions.y, Texture.target() == gli::TARGET_3D ? Dimensions.z : FaceTotal);</line>
+			<line align="64px">
+				<keyword>break</keyword>;
+			</line>
+			<line align="32px">
+				<keyword>default</keyword>: assert(0); break;
+			</line>
+			<line align="32px">}</line>
+			<line></line>
+			<line align="32px">
+				<keyword>for</keyword>(std::size_t Layer = 0; Layer &lt; Texture.layers(); ++Layer)
+			</line>
+			<line align="32px">
+				<keyword>for</keyword>(std::size_t Face = 0; Face &lt; Texture.faces(); ++Face)
+			</line>
+			<line align="32px">
+				<keyword>for</keyword>(std::size_t Level = 0; Level &lt; Texture.levels(); ++Level)
+			</line>
+			<line align="32px">{</line>
+			<line align="64px">
+				GLsizei <keyword>const</keyword> LayerGL = <keyword>static_cast</keyword>&lt;GLsizei&gt;(Layer);
+			</line>
+			<line align="64px">glm::tvec3&lt;GLsizei&gt; Dimensions(Texture.dimensions(Level));</line>
+			<line align="64px">
+				<keyword>if</keyword>(gli::is_target_cube(Texture.target()))
+			</line>
+			<line align="96px">
+				Target = <keyword>static_cast</keyword>&lt;GLenum&gt;(GL_TEXTURE_CUBE_MAP_POSITIVE_X + Face);
+			</line>
+			<line></line>
+			<line align="64px">
+				<keyword>switch</keyword>(Texture.target())
+			</line>
+			<line align="64px">{</line>
+			<line align="64px">
+				<keyword>case</keyword> gli::TARGET_1D:
+			</line>
+			<line align="96px">
+				<keyword>if</keyword>(gli::is_compressed(Texture.format()))
+			</line>
+			<line align="128px">glCompressedTexSubImage1D(</line>
+			<line align="160px">
+				Target, <keyword>static_cast</keyword>&lt;GLint&gt;(Level), 0, Dimensions.x,
+			</line>
+			<line align="160px">
+				Format.Internal, <keyword>static_cast</keyword>&lt;GLsizei&gt;(Texture.size(Level)),
+			</line>
+			<line align="160px">Texture.data(Layer, Face, Level));</line>
+			<line align="96px">
+				<keyword>else</keyword>
+			</line>
+			<line align="128px">glTexSubImage1D(</line>
+			<line align="160px">
+				Target, <keyword>static_cast</keyword>&lt;GLint&gt;(Level), 0, Dimensions.x, Format.External, Format.Type,
+			</line>
+			<line align="160px">Texture.data(Layer, Face, Level));</line>
+			<line align="96px">
+				<keyword>break</keyword>;
+			</line>
+			<line align="64px">
+				<keyword>case</keyword> gli::TARGET_1D_ARRAY:
+			</line>
+			<line align="64px">
+				<keyword>case</keyword> gli::TARGET_2D:
+			</line>
+			<line align="64px">
+				<keyword>case</keyword> gli::TARGET_CUBE:
+			</line>
+			<line align="96px">
+				<keyword>if</keyword>(gli::is_compressed(Texture.format()))
+			</line>
+			<line align="128px">glCompressedTexSubImage2D(</line>
+			<line align="160px">
+				Target, <keyword>static_cast</keyword>&lt;GLint&gt;(Level), 0, 0,
+			</line>
+			<line align="160px">Dimensions.x, Texture.target() == gli::TARGET_1D_ARRAY ? : Dimensions.y,</line>
+			<line align="160px">
+				Format.Internal, <keyword>static_cast</keyword>&lt;GLsizei&gt;(Texture.size(Level)),
+			</line>
+			<line align="160px">Texture.data(Layer, Face, Level));</line>
+			<line align="96px">
+				<keyword>else</keyword>
+			</line>
+			<line align="128px">glTexSubImage2D(</line>
+			<line align="160px">
+				Target, <keyword>static_cast</keyword>&lt;GLint&gt;(Level), 0, 0,
+			</line>
+			<line align="160px">Dimensions.x, Texture.target() == gli::TARGET_1D_ARRAY ? LayerGL : Dimensions.y,</line>
+			<line align="160px">Format.External, Format.Type, Texture.data(Layer, Face, Level));</line>
+			<line align="96px">
+				<keyword>break;</keyword>
+			</line>
+			<line align="64px">
+				<keyword>case</keyword> gli::TARGET_2D_ARRAY:
+			</line>
+			<line align="64px">
+				<keyword>case</keyword> gli::TARGET_3D:
+			</line>
+			<line align="64px">
+				<keyword>case</keyword> gli::TARGET_CUBE_ARRAY:
+			</line>
+			<line align="96px">
+				<keyword>if</keyword>(gli::is_compressed(Texture.format()))
+			</line>
+			<line align="128px">glCompressedTexSubImage3D(</line>
+			<line align="160px">
+				Target, <keyword>static_cast</keyword>&lt;GLint&gt;(Level), 0, 0, 0,
+			</line>
+			<line align="160px">Dimensions.x, Dimensions.y, Texture.target() == gli::TARGET_3D ? Dimensions.z : LayerGL,</line>
+			<line align="160px">
+				Format.Internal, <keyword>static_cast</keyword>&lt;GLsizei&gt;(Texture.size(Level)),
+			</line>
+			<line align="160px">Texture.data(Layer, Face, Level));</line>
+			<line align="96px">
+				<keyword>else</keyword>
+			</line>
+			<line align="128px">glTexSubImage3D(</line>
+			<line align="160px">
+				Target, <keyword>static_cast</keyword>&lt;GLint&gt;(Level), 0, 0, 0,
+			</line>
+			<line align="160px">Dimensions.x, Dimensions.y, Texture.target() == gli::TARGET_3D ? Dimensions.z : LayerGL,</line>
+			<line align="160px">Format.External, Format.Type, Texture.data(Layer, Face, Level));</line>
+			<line align="96px">
+				<keyword>break</keyword>;
+			</line>
+			<line align="64px">
+				<keyword>default</keyword>: assert(0); <keyword>break</keyword>;
+			</line>
+			<line align="64px">}</line>
+			<line align="32px">}</line>
+			<line align="32px">
+				<keyword>return</keyword> TextureName;
+			</line>
+			<line>}</line>
+		</code>
+	</about-long>
+
+	<about-long version="0.6">
 		<paragraph>
 			OpenGL Image (GLI) is a header only C++ image library for graphics software.
 		</paragraph>

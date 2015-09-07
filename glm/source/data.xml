@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <website>
-	<post index="0098" date="02/08/2015" std-date="2015-08-02T23:30:00.00Z"  title="GLM 0.9.7.0 released">
+	<post index="0099" date="2015-09-07" std-date="2015-09-07T23:30:00.00Z"  title="GLM 0.9.7.1 released">
+		<list title="Improvements:">
+			<entry>Improved constexpr for constant functions coverage #198</entry>
+			<entry>Added to_string for quat and dual_quat in GTX_string_cast #375</entry>
+			<entry>Improved overall execution time of unit tests #396</entry>
+		</list>
+
+		<list title="Fixes:">
+			<entry>Fixed strict alignment warnings #235 #370</entry>
+			<entry>Fixed link errors on compilers not supported default function #377</entry>
+			<entry>Fixed compilation warnings in vec4</entry>
+			<entry>Fixed non-identity quaternions for equal vectors #234</entry>
+			<entry>Fixed excessive GTX_fast_trigonometry execution time #396</entry>
+			<entry>Fixed Visual Studio 2015 'hides class member' warnings #394</entry>
+			<entry>Fixed builtin bitscan never being used #392</entry>
+			<entry>Removed unused func_noise.* files #398</entry>
+		</list>
+
+		<source-list>
+			<download index="0.9.7.1" />
+			<source-element type="Link" href="http://glm.g-truc.net/0.9.7/glm-0.9.7.pdf" title="GLM 0.9.7 manual" />
+			<source-element type="Link" href="http://glm.g-truc.net/0.9.7/api/index.html" title="GLM 0.9.7 api documentation" />
+			<source-element type="Link" href="https://github.com/g-truc/glm/issues" title="Submit a bug report" />
+		</source-list>
+	</post>
+
+	<post index="0098" date="2015-08-02" std-date="2015-08-02T23:30:00.00Z"  title="GLM 0.9.7.0 released">
 		<list title="Features:">
 			<entry>Added GTC_color_space: convertLinearToSRGB and convertSRGBToLinear functions</entry>
 			<entry>Added 'fmod' overload to GTX_common with tests #308</entry>

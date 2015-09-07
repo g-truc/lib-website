@@ -2,7 +2,7 @@
 
 <website>
 
-	<code version="0.7" title="/// Seamlessly create the correct OpenGL texture object from a file:">
+	<code version="0.7" title="Create OpenGL texture object from a file with the corresponding target:">
 		<line><keyword>#include </keyword><string>&lt;gli/texture.hpp&gt;</string></line>
 		<line><keyword>#include </keyword><string>&lt;gli/load.hpp&gt;</string></line>
 		<line><keyword>#include </keyword><string>&lt;gli/save.hpp&gt;</string></line>
