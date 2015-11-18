@@ -18,8 +18,8 @@
 		<menu>
 			<menu-entry name="Release Notes" href="../0.9.7/updates.html" />
 			<menu-entry name="Downloads" href="https://github.com/g-truc/glm/releases" />
-			<menu-entry name="Repository" href="https://github.com/g-truc/glm" />
-			<menu-entry name="Feedback" href="https://github.com/g-truc/glm/issues" />
+			<menu-entry name="Git Repository" href="https://github.com/g-truc/glm" />
+			<menu-entry name="Report Bug" href="https://github.com/g-truc/glm/issues" />
 		</menu>
 
 		<menu>
