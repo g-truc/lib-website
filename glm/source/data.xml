@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <website>
+	<post index="0100" date="2016-01-03" std-date="2016-01-03T23:30:00.00Z"  title="GLM 0.9.7.2 released">
+		<list title="Fixes:">
+			<entry>Fixed GTC_round floorMultiple/ceilMultiple #412</entry>
+			<entry>Fixed GTC_packing unpackUnorm3x10_1x2 #414</entry>
+			<entry>Fixed GTC_matrix_inverse affineInverse #192</entry>
+			<entry>Fixed ICC on Linux build errors #449</entry>
+			<entry>Fixed ldexp and frexp compilation errors #456 #466 </entry>
+			<entry>Fixed "Declaration shadows a field" warning #468</entry>
+			<entry>Fixed 'GLM_COMPILER_VC2005 is not defined' warning #468</entry>
+			<entry>Fixed various 'X is not defined' warnings #468</entry>
+			<entry>Fixed missing unary + operator #435</entry>
+			<entry>Fixed Cygwin build errors when using C++11 #405</entry>
+		</list>
+
+		<source-list>
+			<download index="0.9.7.2" />
+			<source-element type="Link" href="http://glm.g-truc.net/0.9.7/glm-0.9.7.pdf" title="GLM 0.9.7 manual" />
+			<source-element type="Link" href="http://glm.g-truc.net/0.9.7/api/index.html" title="GLM 0.9.7 api documentation" />
+			<source-element type="Link" href="https://github.com/g-truc/glm/issues" title="Submit a bug report" />
+		</source-list>
+	</post>
+
 	<post index="0099" date="2015-09-07" std-date="2015-09-07T23:30:00.00Z"  title="GLM 0.9.7.1 released">
 		<list title="Improvements:">
 			<entry>Improved constexpr for constant functions coverage #198</entry>

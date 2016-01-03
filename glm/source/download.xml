@@ -1,6 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 
 <website>
+	<download date="2016-01-03" title="GLM" version="0.9.7.2">
+		<item href="https://github.com/g-truc/glm/releases/download/0.9.7.2/glm-0.9.7.2.zip" type="ZIP" size="4.2 MB" />
+		<item href="https://github.com/g-truc/glm/releases/download/0.9.7.2/glm-0.9.7.2.7z" type="7Z" size="2.8 MB" />
+	</download>
 	<download date="2015-09-07" title="GLM" version="0.9.7.1">
 		<item href="https://github.com/g-truc/glm/releases/download/0.9.7.1/glm-0.9.7.1.zip" type="ZIP" size="4.2 MB" />
 		<item href="https://github.com/g-truc/glm/releases/download/0.9.7.1/glm-0.9.7.1.7z" type="7Z" size="2.8 MB" />
