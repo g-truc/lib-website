@@ -1,6 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 
 <website>
+	<download date="2016-02-16" title="GLI" version="0.8.0.0">
+		<item href="https://github.com/g-truc/gli/releases/download/0.8.0.0/gli-0.8.0.0.zip" type="ZIP" size="14.4 MB" />
+		<item href="https://github.com/g-truc/gli/releases/download/0.8.0.0/gli-0.8.0.0.7z" type="7Z" size="8.0 MB" />
+	</download>
 	<download date="2015-09-01" title="GLI" version="0.7.0.0">
 		<item href="https://github.com/g-truc/gli/releases/download/0.7.0.0/gli-0.7.0.0.zip" type="ZIP" size="12.2 MB" />
 		<item href="https://github.com/g-truc/gli/releases/download/0.7.0.0/gli-0.7.0.0.7z" type="7Z" size="7.2 MB" />

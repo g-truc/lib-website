@@ -1,6 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <website>
+	<post index="0008" date="2016-02-16" std-date="2016-02-16T23:30:00.00Z" title="GLI 0.8.0.0 released">
+		<list title="Features:">
+			<entry>Added texture swizzle support #79</entry>
+			<entry>Added texture memory swizzle support</entry>
+			<entry>Added texture conversion from any uncompressed format to any uncompressed format</entry>
+			<entry>Added texture lod</entry>
+			<entry>Added texture mipmaps generation for uncompressed formats</entry>
+			<entry>Added support for load and store</entry>
+			<entry>Added support for many new formats</entry>
+			<entry>Added sampler 1D, 2D, 3D, array and cube map</entry>
+			<entry>Added sampler texel fetch and texel write</entry>
+			<entry>Added sampler clear</entry>
+			<entry>Added transform algorithm to compute arithmetic between texels</entry>
+			<entry>Added reduce algorithm to compare all texels within an image</entry>
+		</list>
+
+		<list title="Improvements:">
+			<entry>Reordered formats to match Vulkan formats</entry>
+			<entry>Improved OpenGL translation with for multiple profiles: KTX, ES2.0, ES3.0, GL3.2 and GL3.3</entry>
+			<entry>Improved Doxygen documentation</entry>
+		</list>
+
+		<list title="Fixes:">
+			<entry>Fixed PVRTC2 support</entry>
+			<entry>Fixed luminance and alpha translation to OpenGL #56</entry>
+			<entry>Fixed DXGI_FORMAT_B8G8R8X8_UNORM_SRGB support #59</entry>
+			<entry>Fixed FORMAT_RGBA8_UNORM DDS loading using DDPF_RGBA mode #60</entry>
+			<entry>Fixed handling of DDS DDPF_ALPHAPIXELS #68</entry>
+			<entry>Fixed images, better matching names and formats #78 #81 #80</entry>
+			<entry>Fixed BC4U and BC5U files generated from MS DDS loader #82</entry>
+		</list>
+
+		<list title="Work in progress:">
+			<entry>Added KMG container support and spec proposal</entry>
+		</list>
+
+		<list>
+			<download index="0.8.0.0" />
+			<entry href="https://github.com/g-truc/gli/issues">Submit a bug report</entry>
+			<entry href="../0.8.0/api/index.html">GLI 0.8.0 API</entry>
+		</list>
+	</post>
+
 	<post index="0007" date="2015-09-01" std-date="2015-09-01T23:30:00.00Z" title="GLI 0.7.0.0 released">
 		<list title="Changelog:">
 			<entry>Added KTX loading and saving</entry>
@@ -116,6 +159,123 @@
 			<entry href="https://github.com/g-truc/gli/issues">Submit a bug report</entry>
 		</list>
 	</post>
+
+	<about-long version="0.8">
+		<paragraph>
+			OpenGL Image (GLI) is a header only C++ image library for graphics software.
+			*GLI* provides classes and functions to load image files (<link href="https://www.khronos.org/opengles/sdk/tools/KTX/">KTX</link> and (<link href="https://msdn.microsoft.com/en-us/library/windows/desktop/bb943990%28v=vs.85%29.aspx">DDS</link>),
+			facilitate graphics APIs texture creation, compare textures, access texture texels, sample textures, convert textures, generate mipmaps, etc.
+		</paragraph>
+		<paragraph>
+			This library works perfectly with <link href="https://www.opengl.org">OpenGL</link> or <link href="https://www.khronos.org/vulkan/">Vulkan</link> but it also ensures interoperability with other third party libraries and SDK.
+			It is a good candidate for software rendering (raytracing / rasterisation), image processing, image based software testing or any development context that requires a simple and convenient image library.
+		</paragraph>
+		<list title="GLI is written in C++11. It is a platform independent library with no dependence and it supports the following compilers:">
+			<entry>
+				<link href="https://developer.apple.com/library/mac/documentation/CompilerTools/Conceptual/LLVMCompilerOverview/index.html">Apple Clang</link> 4.0 and higher
+			</entry>
+			<entry>
+				<link href="http://gcc.gnu.org/">GCC</link> 4.6 and higher
+			</entry>
+			<entry>
+				<link href="https://software.intel.com/en-us/intel-compilers">Intel C++ Composer</link> XE 2013 and higher
+			</entry>
+			<entry>
+				<link href="http://llvm.org/">LLVM</link> 3.2 and higher
+			</entry>
+			<entry>
+				<link href="http://www.visualstudio.com/">Visual Studio</link> 2010 and higher
+			</entry>
+			<entry>
+				Any conform C++11 compiler
+			</entry>
+		</list>
+		<paragraph>
+			For more information about GLI, please have a look at <link href="../0.8.0/api/index.html">the API reference documentation</link>.
+		</paragraph>
+		<paragraph>
+			The source code and the documentation, including this manual, are licensed under the
+			<link href="http://gli.g-truc.net/copying.txt">Happy Bunny License (Modified MIT) or the MIT License</link>.
+		</paragraph>
+		<paragraph>
+			Thanks for contributing to the project by <link href="https://github.com/g-truc/gli/issues">submitting issues</link> for bug reports and feature requests. Any feedback is welcome at <link href="mailto://gli@g-truc.net">gli@g-truc.net</link>.
+		</paragraph>
+		<code title="Code sample, converting a RGB32F texture loaded from KTX or DDS file into a RGB9E5 texture and save it:">
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;gli/texture2d.hpp&gt;</string>
+			</line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;gli/convert.hpp&gt;</string>
+			</line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;gli/generate_mipmaps.hpp&gt;</string>
+			</line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;gli/load.hpp&gt;</string>
+			</line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;gli/save.hpp&gt;</string>
+			</line>
+			<line></line>
+			<line>
+				<keyword>bool</keyword> convert_rgb32f_rgb9e5(<keyword>char const</keyword>* FilenameSrc, <keyword>char const</keyword>* FilenameDst)
+			</line>
+			<line>
+				{
+			</line>
+			<line align="32px">
+				<keyword>if</keyword>(FilenameDst == <keyword>nullptr</keyword>)
+			</line>
+			<line align="64px">
+				<keyword>return false</keyword>;
+			</line>
+			<line align="32px">
+				<keyword>if</keyword>(std::strstr(FilenameDst, ".dds") > 0 || std::strstr(FilenameDst, ".ktx") > 0)
+			</line>
+			<line align="64px">
+				<keyword>return false</keyword>;
+			</line>
+			<line></line>
+			<line align="32px">
+				gli::texture2d TextureSource(gli::load(FilenameSrc));
+			</line>
+			<line align="32px">
+				<keyword>if</keyword>(TextureSource.empty())
+			</line>
+			<line align="64px">
+				<keyword>return false</keyword>;
+			</line>
+			<line align="32px">
+				<keyword>if</keyword>(TextureSource.format() != gli::FORMAT_RGB16_SFLOAT_PACK16 &amp;&amp; TextureSource.format() != gli::FORMAT_RGB32_SFLOAT_PACK32)
+			</line>
+			<line align="64px">
+				<keyword>return false</keyword>;
+			</line>
+			<line></line>
+			<line align="32px">
+				gli::texture2d TextureMipmaped = gli::generate_mipmaps(TextureSource, gli::FILTER_LINEAR);
+			</line>
+			<line align="32px">
+				gli::texture2d TextureConverted = gli::convert(TextureMipmaped, gli::FORMAT_RGB9E5_UFLOAT_PACK32);
+			</line>
+			<line></line>
+			<line align="32px">
+				gli::save(TextureConverted, FilenameDst);
+			</line>
+			<line></line>
+			<line align="32px">
+				<keyword>return true</keyword>;
+			</line>
+			<line>
+				}
+			</line>
+		</code>
+	</about-long>
 
 	<about-long version="0.7">
 		<paragraph>
