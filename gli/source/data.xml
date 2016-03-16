@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <website>
+	<post index="0009" date="2016-03-16" std-date="2016-03-16T23:30:00.00Z" title="GLI 0.8.1.0 released">
+		<list title="Features:">
+			<entry>Added texture copy, no allocation involved, only transfer</entry>
+			<entry>Added sub-image copy functions</entry>
+			<entry>Added non-member clear functions</entry>
+			<entry>Added make_texture* helper functions</entry>
+		</list>
+
+		<list title="Improvements:">
+			<entry>Added compressed npot textures support #73</entry>
+			<entry>Added image access cache to generic textures</entry>
+			<entry>Added luminance alpha format translation to OpenGL 3.3+ through RG swizzling. #93</entry>
+			<entry>Improved performance when sampling using mipmaps</entry>
+			<entry>Improved nearest filter without border using texture_lod performance (~2.5x faster with texture2d)</entry>
+			<entry>Improved texture::data() (~18x with cube array, ~68x with 2D)</entry>
+			<entry>Improved texture::size() (~3.1x with cube array, ~3.9x with 2D)</entry>
+			<entry>Improved simultanous texture::size() and texture::extent() calls (~2.1x with cube array, ~2.3x with 2D)</entry>
+		</list>
+
+		<list title="Fixes:">
+			<entry>Fixed DX10 DDS saving of 3D textures #91</entry>
+			<entry>Fixed BGRX translation with PROFILE_GL33 profile #92</entry>
+			<entry>Fixed DDS9 loading of 3D texture detected as 2D texture #93</entry>
+		</list>
+
+		<list>
+			<download index="0.8.1.0" />
+			<entry href="https://github.com/g-truc/gli/issues">Submit a bug report</entry>
+			<entry href="../0.8.1/api/index.html">GLI 0.8.1 API</entry>
+		</list>
+	</post>
+
 	<post index="0008" date="2016-02-16" std-date="2016-02-16T23:30:00.00Z" title="GLI 0.8.0.0 released">
 		<list title="Features:">
 			<entry>Added texture swizzle support #79</entry>
