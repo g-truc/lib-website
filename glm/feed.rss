@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rss version="2.0" xml:base="http://gli.g-truc.net/glm.rss" xmlns:dc="http://purl.org/dc/elements/1.1/">
+	<channel>
+		<title>OpenGL Mathematics (GLM) - Releases</title>
+		<link>http://glm.g-truc.net</link>
+		<description>Get the updates when new version of GLM are released</description>
+		<language>en</language>
+		<item>
+			<link>http://glm.g-truc.net/0.9.7</link>
+			<title>GLI 0.9.7.3 released</title>
+			<description>Minor revision fixing CMake warnings, GCC 6.0 detection, fixing Clang build on Windows</description>
+			<pubDate>Sun, 21 Feb 2016 23:55:55 GMT+0100</pubDate>
+		</item>
+	</channel>
+</rss>

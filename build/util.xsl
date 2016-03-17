@@ -126,10 +126,20 @@
 					</a>
 				</div>
 			</xsl:if>
-			
+
 			<xsl:apply-templates select="document(concat($DIRECTORY, $FILE_MENU))/website/version[./@value=$VERSION]/menu" />
-			
+
 			<br />
+
+			<div>
+				<a href="../feed.rss">
+					<img class="menu-img" src="../rss.png" alt="RSS"/>
+				</a>
+			</div>
+
+			<br />
+			<br />
+
 			<div>
 				<a href="http://www.g-truc.net">
 					<img class="menu-img" src="../common/g-truc.jpg" alt="G-Truc Creation"/>
