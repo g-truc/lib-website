@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <website>
+	<post index="0102" date="2016-03-19" std-date="2016-03-19T23:30:00.00Z"  title="GLM 0.9.7.4 released">
+		<list title="Improvements:">
+			<entry>Added AVX512 detection</entry>
+		</list>
+
+		<list title="Fixes:">
+			<entry>Fixed asinh and atanh warning with C++98 STL #484</entry>
+			<entry>Fixed polar coordinates function latitude #485</entry>
+			<entry>Fixed outerProduct defintions and operator signatures for mat2x4 and vec4 #475</entry>
+			<entry>Fixed eulerAngles precision error, returns NaN  #451</entry>
+			<entry>Fixed undefined reference errors #489</entry>
+			<entry>Fixed missing GLM_PLATFORM_CYGWIN declaration #495</entry>
+			<entry>Fixed various undefined reference errors #490</entry>
+		</list>
+
+		<source-list>
+			<download index="0.9.7.4" />
+			<source-element type="Link" href="http://glm.g-truc.net/0.9.7/glm-0.9.7.pdf" title="GLM 0.9.7 manual" />
+			<source-element type="Link" href="http://glm.g-truc.net/0.9.7/api/index.html" title="GLM 0.9.7 api documentation" />
+			<source-element type="Link" href="https://github.com/g-truc/glm/issues" title="Submit a bug report" />
+		</source-list>
+	</post>
+
 	<post index="0101" date="2016-02-21" std-date="2016-02-21T23:30:00.00Z"  title="GLM 0.9.7.3 released">
 		<list title="Improvements:">
 			<entry>Added AVX512 detection</entry>

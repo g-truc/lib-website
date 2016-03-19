@@ -7,6 +7,12 @@
 		<language>en</language>
 		<item>
 			<link>http://glm.g-truc.net/0.9.7</link>
+			<title>GLI 0.9.7.4 released</title>
+			<description>Minor revision fixing many undefined refernece errors, warnings, fixed outerProduct and eulerAngles</description>
+			<pubDate>Sun, 19 Mar 2016 23:55:55 GMT+0100</pubDate>
+		</item>
+		<item>
+			<link>http://glm.g-truc.net/0.9.7</link>
 			<title>GLI 0.9.7.3 released</title>
 			<description>Minor revision fixing CMake warnings, GCC 6.0 detection, fixing Clang build on Windows</description>
 			<pubDate>Sun, 21 Feb 2016 23:55:55 GMT+0100</pubDate>
