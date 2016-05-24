@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <website>
-	<post index="0102" date="2016-03-19" std-date="2016-03-19T23:30:00.00Z"  title="GLM 0.9.7.4 released">
+	<post index="0103" date="2016-05-24" std-date="2016-05-24T23:30:00.00Z"  title="GLM 0.9.7.5 released">
 		<list title="Improvements:">
-			<entry>Added AVX512 detection</entry>
+			<entry>Added Visual C++ Clang toolset detection</entry>
 		</list>
 
+		<list title="Fixes:">
+			<entry>Fixed uaddCarry warning #497</entry>
+			<entry>Fixed roundPowerOfTwo and floorPowerOfTwo #503</entry>
+			<entry>Fixed Visual C++ SIMD instruction set automatic detection in 64 bits</entry>
+			<entry>Fixed to_string when used with GLM_FORCE_INLINE #506</entry>
+			<entry>Fixed GLM_FORCE_INLINE with binary vec4 operators</entry>
+		</list>
+
+		<source-list>
+			<download index="0.9.7.5" />
+			<source-element type="Link" href="http://glm.g-truc.net/0.9.7/glm-0.9.7.pdf" title="GLM 0.9.7 manual" />
+			<source-element type="Link" href="http://glm.g-truc.net/0.9.7/api/index.html" title="GLM 0.9.7 api documentation" />
+			<source-element type="Link" href="https://github.com/g-truc/glm/issues" title="Submit a bug report" />
+		</source-list>
+	</post>
+
+	<post index="0102" date="2016-03-19" std-date="2016-03-19T23:30:00.00Z"  title="GLM 0.9.7.4 released">
 		<list title="Fixes:">
 			<entry>Fixed asinh and atanh warning with C++98 STL #484</entry>
 			<entry>Fixed polar coordinates function latitude #485</entry>
