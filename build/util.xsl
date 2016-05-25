@@ -132,6 +132,13 @@
 			<br />
 
 			<div>
+				<a href="https://twitter.com/g_truc">
+					<img class="menu-img" src="../twitter.png" alt="RSS"/>
+				</a>
+			</div>
+			<br />
+
+			<div>
 				<a href="../feed.rss">
 					<img class="menu-img" src="../rss.png" alt="RSS"/>
 				</a>
