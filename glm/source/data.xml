@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <website>
+	<post index="0104" date="2016-07-16" std-date="2016-07-16T23:30:00.00Z"  title="GLM 0.9.7.6 released">
+		<list title="Improvements:">
+			<entry>Added pkg-config file #509</entry>
+			<entry>Updated list of compiler versions detected</entry>
+			<entry>Improved C++ 11 STL detection #523</entry>
+		</list>
+
+		<list title="Fixes:">
+			<entry>Fixed STL for C++11 detection on ICC #510</entry>
+			<entry>Fixed missing vec1 overload to length2 and distance2 functions #431</entry>
+			<entry>Fixed long long warnings when using C++98 on GCC and Clang #482</entry>
+			<entry>Fixed scalar reciprocal functions (GTC_reciprocal) #520</entry>
+		</list>
+
+		<source-list>
+			<download index="0.9.7.6" />
+			<source-element type="Link" href="http://glm.g-truc.net/0.9.7/glm-0.9.7.pdf" title="GLM 0.9.7 manual" />
+			<source-element type="Link" href="http://glm.g-truc.net/0.9.7/api/index.html" title="GLM 0.9.7 api documentation" />
+			<source-element type="Link" href="https://github.com/g-truc/glm/issues" title="Submit a bug report" />
+		</source-list>
+	</post>
+
 	<post index="0103" date="2016-05-24" std-date="2016-05-24T23:30:00.00Z"  title="GLM 0.9.7.5 released">
 		<list title="Improvements:">
 			<entry>Added Visual C++ Clang toolset detection</entry>
