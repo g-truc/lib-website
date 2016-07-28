@@ -2546,7 +2546,7 @@
 			</line>
 
 			<line align="32px">
-				glm::<userword>mat4</userword> Projection = glm::perspective(45.0f, 4.0f / 3.0f, 0.1f, 100.f);
+				glm::<userword>mat4</userword> Projection = glm::perspective(glm::radians(45.0f), 4.0f / 3.0f, 0.1f, 100.f);
 			</line>
 			<line align="32px">
 				glm::<userword>mat4</userword> View = glm::translate(glm::<userword>mat4</userword>(1.0f), glm::<userword>vec3</userword>(0.0f, 0.0f, -Translate));
@@ -2651,7 +2651,7 @@
 			</line>
 
 			<line align="32px">
-				glm::<userword>mat4</userword> Projection = glm::perspective(45.0f, 4.0f / 3.0f, 0.1f, 100.f);
+				glm::<userword>mat4</userword> Projection = glm::perspective(glm::radians(45.0f), 4.0f / 3.0f, 0.1f, 100.f);
 			</line>
 			<line align="32px">
 				glm::<userword>mat4</userword> View = glm::translate(glm::<userword>mat4</userword>(1.0f), glm::<userword>vec3</userword>(0.0f, 0.0f, -Translate));
