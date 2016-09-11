@@ -6,6 +6,32 @@
 	<!--tab name="GLO" href="http://glo.g-truc.net" active="no" />
 	<tab name="GLU" href="http://glu.g-truc.net" active="no" /-->
 
+	<version value="0.9.8">
+		<menu>
+			<menu-entry name="Manual" href="../0.9.8/glm-0.9.8.pdf" />
+			<menu-entry name="API Documentation" href="../0.9.8/api/index.html" />
+			<menu-entry name="Code Samples" href="../0.9.8/code.html" />
+			<menu-entry name="Code Snapshot" href="https://github.com/g-truc/glm/archive/master.zip" />
+			<menu-image name="Build Status" href="https://drone.io/github.com/g-truc/glm" img="https://drone.io/github.com/g-truc/glm/status.png" />
+		</menu>
+
+		<menu>
+			<menu-entry name="Release Notes" href="../0.9.8/updates.html" />
+			<menu-entry name="Downloads" href="https://github.com/g-truc/glm/releases" />
+			<menu-entry name="Git Repository" href="https://github.com/g-truc/glm" />
+			<menu-entry name="Report Bug" href="https://github.com/g-truc/glm/issues" />
+		</menu>
+
+		<menu>
+			<menu-entry name="GLSL Specification" href="http://www.opengl.org/registry/doc/GLSLangSpec.4.30.6.diff.pdf" />
+			<menu-entry name="GLSL Man Pages" href="http://www.opengl.org/documentation/glsl" />
+			<menu-entry name="GLSL Data Types" href="http://www.opengl.org/wiki/Data_Type_%28GLSL%29" />
+			<menu-entry name="Forum" href="http://www.opengl.org/discussion_boards/forumdisplay.php/14-OpenGL-Toolkits-%28e-g-GLUT-GLFW-GLM%29" />
+			<menu-entry name="Stack Overflow" href="http://stackoverflow.com/search?q=GLM" />
+			<menu-entry name="OpenGL SDK page" href="http://www.opengl.org/sdk/libs/GLM/" />
+		</menu>
+	</version>
+
 	<version value="0.9.7">
 		<menu>
 			<menu-entry name="Manual" href="../0.9.7/glm-0.9.7.pdf" />

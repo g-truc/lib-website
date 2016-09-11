@@ -1,6 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <website>
+	<post index="0105" date="2016-09-11" std-date="2016-09-11T23:30:00.00Z"  title="GLM 0.9.8.0 released">
+		<list title="Features:">
+			<entry>Added right and left handed projection and clip control support #447 #415 #119</entry>
+			<entry>Added compNormalize and compScale functions to GTX_component_wise</entry>
+			<entry>Added packF3x9_E1x5 and unpackF3x9_E1x5 to GTC_packing for RGB9E5 #416</entry>
+			<entry>Added (un)packHalf to GTC_packing</entry>
+			<entry>Added (un)packUnorm and (un)packSnorm to GTC_packing</entry>
+			<entry>Added 16bit pack and unpack to GTC_packing</entry>
+			<entry>Added 8bit pack and unpack to GTC_packing</entry>
+			<entry>Added missing bvec* &amp;&amp; and || operators</entry>
+			<entry>Added iround and uround to GTC_integer, fast round on positive values</entry>
+			<entry>Added raw SIMD API</entry>
+			<entry>Added 'aligned' qualifiers</entry>
+			<entry>Added GTC_type_aligned with aligned vec types</entry>
+			<entry>Added GTC_functions extension</entry>
+			<entry>Added quaternion version of isnan and isinf #521</entry>
+			<entry>Added lowestBitValue to GTX_bit #536</entry>
+			<entry>Added GLM_FORCE_UNRESTRICTED_GENTYPE allowing non basic genType #543</entry>
+		</list>
+
+		<list title="Improvements:">
+			<entry>Improved SIMD and swizzle operators interactions with GCC and Clang #474</entry>
+			<entry>Improved GTC_random linearRand documentation</entry>
+			<entry>Improved GTC_reciprocal documentation</entry>
+			<entry>Improved GLM_FORCE_EXPLICIT_CTOR coverage #481</entry>
+			<entry>Improved OpenMP support detection for Clang, GCC, ICC and VC</entry>
+			<entry>Improved GTX_wrap for SIMD friendliness</entry>
+			<entry>Added constexpr for vec, mat, quat and dual_quat types #493</entry>
+			<entry>Added NEON instruction set detection</entry>
+			<entry>Added MIPS CPUs detection</entry>
+			<entry>Added PowerPC CPUs detection</entry>
+			<entry>Use Cuda built-in function for abs function implementation with Cuda compiler</entry>
+			<entry>Factorized GLM_COMPILER_LLVM and GLM_COMPILER_APPLE_CLANG into GLM_COMPILER_CLANG</entry>
+			<entry>No more warnings for use of long long</entry>
+			<entry>Added more information to build messages</entry>
+		</list>
+
+		<list title="Fixes:">
+			<entry>Fixed GTX_extended_min_max filename typo #386</entry>
+			<entry>Fixed intersectRayTriangle to not do any unintentional backface culling</entry>
+			<entry>Fixed long long warnings when using C++98 on GCC and Clang #482</entry>
+			<entry>Fixed sign with signed integer function on non-x86 architecture</entry>
+			<entry>Fixed strict aliasing warnings #473</entry>
+			<entry>Fixed missing vec1 overload to length2 and distance2 functions #431</entry>
+			<entry>Fixed GLM test '/fp:fast' and '/Za' command-line options are incompatible</entry>
+			<entry>Fixed quaterion to mat3 cast function mat3_cast from GTC_quaternion #542</entry>
+			<entry>Fixed GLM_GTX_io for Cuda #547 #546</entry>
+		</list>
+
+		<list title="Deprecation:">
+			<entry>Removed GLM_FORCE_SIZE_FUNC define</entry>
+			<entry>Deprecated GLM_GTX_simd_vec4 extension</entry>
+			<entry>Deprecated GLM_GTX_simd_mat4 extension</entry>
+			<entry>Deprecated GLM_GTX_simd_quat extension</entry>
+			<entry>Deprecated GLM_SWIZZLE, use GLM_FORCE_SWIZZLE instead</entry>
+			<entry>Deprecated GLM_MESSAGES, use GLM_FORCE_MESSAGES instead</entry>
+		</list>
+
+		<source-list>
+			<download index="0.9.8.0" />
+			<source-element type="Link" href="http://glm.g-truc.net/0.9.8/glm-0.9.8.pdf" title="GLM 0.9.8 manual" />
+			<source-element type="Link" href="http://glm.g-truc.net/0.9.8/api/index.html" title="GLM 0.9.8 api documentation" />
+			<source-element type="Link" href="https://github.com/g-truc/glm/issues" title="Submit a bug report" />
+		</source-list>
+	</post>
+
 	<post index="0104" date="2016-07-16" std-date="2016-07-16T23:30:00.00Z"  title="GLM 0.9.7.6 released">
 		<list title="Improvements:">
 			<entry>Added pkg-config file #509</entry>
@@ -2468,6 +2534,106 @@
 			<entry href="http://oss.sgi.com/projects/ogl-sample/registry/ARB/GLSLangSpec.Full.1.10.59.pdf">GLSL 1.10.59 specifications</entry>
 		</list>
 	</post>
+
+	<about-long version="0.9.8">
+		<paragraph>
+			OpenGL Mathematics (GLM) is a header only C++ mathematics library for graphics software
+			based on the <link href="http://www.opengl.org/documentation/glsl/">OpenGL Shading Language (GLSL)</link> specifications.
+		</paragraph>
+		<paragraph>
+			GLM provides classes and functions designed and implemented with the same naming conventions and functionalities than GLSL so that anyone who knows GLSL, can use GLM as well in C++.
+		</paragraph>
+		<paragraph>
+			This project isn't limited to GLSL features. An extension system, based on the GLSL extension conventions, provides extended capabilities: matrix transformations, quaternions, data packing, random numbers, noise, etc...
+		</paragraph>
+		<paragraph>
+			This library works perfectly with OpenGL but it also ensures interoperability with other third party libraries and SDK. It is a good candidate for software rendering (raytracing / rasterisation), image processing, physic simulations and any development context that requires a simple and convenient mathematics library.
+		</paragraph>
+		<list title="GLM is written in C++98 but can take advantage of C++11 when supported by the compiler. It is a platform independent library with no dependence and it officially supports the following compilers:">
+			<entry>
+				<link href="https://developer.apple.com/Library/mac/documentation/CompilerTools/Conceptual/LLVMCompilerOverview/index.html">Apple Clang</link> 4.0 and higher
+			</entry>
+			<entry>
+				<link href="http://gcc.gnu.org/">GCC</link> 4.2 and higher
+			</entry>
+			<entry>
+				<link href="https://software.intel.com/en-us/intel-compilers">Intel C++ Composer</link> XE 2013 and higher
+			</entry>
+			<entry>
+				<link href="http://llvm.org/">LLVM</link> 3.0 and higher
+			</entry>
+			<entry>
+				<link href="http://www.visualstudio.com/">Visual C++</link> 2010 and higher
+			</entry>
+			<entry>
+				<link href="https://developer.nvidia.com/about-cuda">CUDA</link> 4.0 and higher (experimental)
+			</entry>
+			<entry>Any conform C++98 or C++11 compiler</entry>
+		</list>
+		<paragraph>
+			For more information about GLM, please have a look at <link href="http://glm.g-truc.net/0.9.8/glm-0.9.8.pdf">the manual</link> and <link href="http://glm.g-truc.net/0.9.8/api/index.html">the API reference documentation</link>.
+		</paragraph>
+		<paragraph>
+			The source code and the documentation, including this manual, are licensed under <link href="http://glm.g-truc.net/copying.txt">the Happy Bunny License (Modified MIT) or the MIT License</link>.
+		</paragraph>
+		<paragraph>
+			Thanks for contributing to the project by <link href="https://github.com/g-truc/glm/issues">submitting issues</link> for bug reports and feature requests.
+			Any feedback is welcome at <link href="mailto://glm@g-truc.net">glm@g-truc.net</link>.
+		</paragraph>
+		<code title="Code sample:">
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/vec3.hpp&gt; </string>
+				<comment>// glm::vec3</comment>
+			</line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/vec4.hpp&gt; </string>
+				<comment>// glm::vec4</comment>
+			</line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/mat4x4.hpp&gt; </string>
+				<comment>// glm::mat4</comment>
+			</line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/gtc/matrix_transform.hpp&gt; </string>
+				<comment>// glm::translate, glm::rotate, glm::scale, glm::perspective</comment>
+			</line>
+			<line>
+
+			</line>
+			<line>
+				glm::<userword>mat4</userword> camera(<keyword>float</keyword> Translate, glm::<userword>vec2 </userword><keyword>const</keyword> &amp; Rotate)
+			</line>
+			<line>
+				{
+			</line>
+
+			<line align="32px">
+				glm::<userword>mat4</userword> Projection = glm::perspective(glm::radians(45.0f), 4.0f / 3.0f, 0.1f, 100.f);
+			</line>
+			<line align="32px">
+				glm::<userword>mat4</userword> View = glm::translate(glm::<userword>mat4</userword>(1.0f), glm::<userword>vec3</userword>(0.0f, 0.0f, -Translate));
+			</line>
+			<line align="32px">
+				View = glm::rotate(View, Rotate.y, glm::<userword>vec3</userword>(-1.0f, 0.0f, 0.0f));
+			</line>
+			<line align="32px">
+				View = glm::rotate(View, Rotate.x, glm::<userword>vec3</userword>(0.0f, 1.0f, 0.0f));
+			</line>
+			<line align="32px">
+				glm::<userword>mat4</userword> Model = glm::scale(glm::<userword>mat4</userword>(1.0f), glm::<userword>vec3</userword>(0.5f));
+			</line>
+			<line align="32px">
+				<keyword>return </keyword> Projection * View * Model;
+			</line>
+			<line>
+				}
+			</line>
+		</code>
+	</about-long>
 
 	<about-long version="0.9.7">
 		<paragraph>
