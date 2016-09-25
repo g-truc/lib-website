@@ -7,6 +7,12 @@
 		<language>en</language>
 		<item>
 			<link>http://gli.g-truc.net/0.8.1</link>
+			<title>GLI 0.8.1.1 released</title>
+			<description>Updated GLI to GLM 0.9.8.0 release, build fixes.</description>
+			<pubDate>Sun, 11 Sep 2016 23:55:55 GMT+0100</pubDate>
+		</item>
+		<item>
+			<link>http://gli.g-truc.net/0.8.1</link>
 			<title>GLI 0.8.1.0 released</title>
 			<description>Improved copy and sub copy, support of npot compressed texture, various performance optimizations, various DDS loader fixes, improved luminance alpha translation with OpenGL core, etc...</description>
 			<pubDate>Tue, 8 Mar 2016 23:55:55 GMT+0100</pubDate>

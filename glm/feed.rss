@@ -7,19 +7,25 @@
 		<language>en</language>
 		<item>
 			<link>http://glm.g-truc.net/0.9.8</link>
-			<title>GLI 0.9.8.0 released</title>
+			<title>GLM 0.9.8.1 released</title>
+			<description></description>
+			<pubDate>Sun, 25 Sep 2016 23:55:55 GMT+0100</pubDate>
+		</item>
+		<item>
+			<link>http://glm.g-truc.net/0.9.8</link>
+			<title>GLM 0.9.8.0 released</title>
 			<description>Clip control for Vulkan and D3D compatibility, lot of new packing functions, aligned types, SIMD raw API, improved SIMD support, etc.</description>
 			<pubDate>Sun, 11 Sep 2016 23:55:55 GMT+0100</pubDate>
 		</item>
 		<item>
 			<link>http://glm.g-truc.net/0.9.7</link>
-			<title>GLI 0.9.7.4 released</title>
+			<title>GLM 0.9.7.4 released</title>
 			<description>Minor revision fixing many undefined refernece errors, warnings, fixed outerProduct and eulerAngles</description>
 			<pubDate>Sun, 19 Mar 2016 23:55:55 GMT+0100</pubDate>
 		</item>
 		<item>
 			<link>http://glm.g-truc.net/0.9.7</link>
-			<title>GLI 0.9.7.3 released</title>
+			<title>GLM 0.9.7.3 released</title>
 			<description>Minor revision fixing CMake warnings, GCC 6.0 detection, fixing Clang build on Windows</description>
 			<pubDate>Sun, 21 Feb 2016 23:55:55 GMT+0100</pubDate>
 		</item>

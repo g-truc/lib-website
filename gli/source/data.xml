@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <website>
+	<post index="0010" date="2016-09-11" std-date="2015-09-11T23:30:00.00Z" title="GLI 0.8.1.1 released">
+		<list title="Improvements:">
+			<entry>Updated GLM to 0.9.8.0 release</entry>
+		</list>
+
+		<list title="Fixes:">
+			<entry>Fixed KTX cube maps saving</entry>
+			<entry>Fixed texture::clear build</entry>
+		</list>
+
+		<list>
+			<download index="0.8.1.1" />
+			<entry href="https://github.com/g-truc/gli/issues">Submit a bug report</entry>
+			<entry href="../0.8.1/api/index.html">GLI 0.8.1 API</entry>
+		</list>
+	</post>
+
 	<post index="0009" date="2016-03-16" std-date="2016-03-16T23:30:00.00Z" title="GLI 0.8.1.0 released">
 		<list title="Features:">
 			<entry>Added texture copy, no allocation involved, only transfer</entry>
