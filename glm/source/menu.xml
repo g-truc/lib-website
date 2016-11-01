@@ -14,9 +14,9 @@
 		</menu>
 
 		<menu>
-			<menu-entry name="Report Bug" href="https://github.com/g-truc/glm/issues" />
 			<menu-entry name="Release Notes" href="https://github.com/g-truc/glm/releases" />
 			<menu-entry name="Downloads" href="https://github.com/g-truc/glm/tags" />
+			<menu-entry name="Report Bug" href="https://github.com/g-truc/glm/issues" />
 		</menu>
 
 		<menu>
