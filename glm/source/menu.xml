@@ -10,7 +10,6 @@
 		<menu>
 			<menu-entry name="Manual" href="../0.9.8/glm-0.9.8.pdf" />
 			<menu-entry name="API Documentation" href="../0.9.8/api/index.html" />
-			<menu-entry name="Wiki" href="https://github.com/g-truc/glm/wiki" />
 		</menu>
 
 		<menu>
