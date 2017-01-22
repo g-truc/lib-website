@@ -19,7 +19,7 @@
 		<menu>
 			<menu-entry name="Repository" href="https://github.com/g-truc/gli" />
 			<menu-entry name="Code Snapshot" href="https://github.com/g-truc/gli/archive/master.zip" />
-			<menu-image name="Build Status" href="https://drone.io/github.com/g-truc/gli" img="https://drone.io/github.com/g-truc/gli/status.png" />
+			<menu-image name="Build Status" href="https://travis-ci.org/g-truc/gli" img="https://travis-ci.org/g-truc/gli.svg?branch=master" />
 		</menu>
 
 		<menu>

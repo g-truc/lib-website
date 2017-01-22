@@ -21,7 +21,7 @@
 		<menu>
 			<menu-entry name="Repository" href="https://github.com/g-truc/glm" />
 			<menu-entry name="Code Snapshot" href="https://github.com/g-truc/glm/archive/master.zip" />
-			<menu-image name="Build Status" href="https://drone.io/github.com/g-truc/glm" img="https://drone.io/github.com/g-truc/glm/status.png" />
+			<menu-image name="Build Status" href="https://travis-ci.org/g-truc/glm" img="https://travis-ci.org/g-truc/glm.svg?branch=master" />
 		</menu>
 
 		<menu>
