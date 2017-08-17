@@ -6,6 +6,32 @@
 	<!--tab name="GLO" href="http://glo.g-truc.net" active="no" />
 	<tab name="GLU" href="http://glu.g-truc.net" active="no" /-->
 
+	<version value="0.9.9">
+		<menu>
+			<menu-entry name="Manual" href="https://github.com/g-truc/glm/blob/master/manual.md" />
+			<menu-entry name="API Documentation" href="../0.9.9/api/index.html" />
+		</menu>
+
+		<menu>
+			<menu-entry name="Release Notes" href="https://github.com/g-truc/glm/releases" />
+			<menu-entry name="Downloads" href="https://github.com/g-truc/glm/tags" />
+			<menu-entry name="Report Bug" href="https://github.com/g-truc/glm/issues" />
+		</menu>
+
+		<menu>
+			<menu-entry name="Repository" href="https://github.com/g-truc/glm" />
+			<menu-entry name="Code Snapshot" href="https://github.com/g-truc/glm/archive/master.zip" />
+			<menu-image name="Build Status" href="https://travis-ci.org/g-truc/glm" img="https://travis-ci.org/g-truc/glm.svg?branch=master" />
+		</menu>
+
+		<menu>
+			<menu-entry name="Stack Overflow" href="http://stackoverflow.com/search?q=GLM" />
+			<menu-entry name="GLSL Specification" href="https://www.opengl.org/registry/doc/GLSLangSpec.4.50.diff.pdf" />
+			<menu-entry name="GLSL Man Pages" href="http://www.opengl.org/documentation/glsl" />
+			<menu-entry name="GLSL Data Types" href="http://www.opengl.org/wiki/Data_Type_%28GLSL%29" />
+		</menu>
+	</version>
+
 	<version value="0.9.8">
 		<menu>
 			<menu-entry name="Manual" href="../0.9.8/glm-0.9.8.pdf" />

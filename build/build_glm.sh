@@ -1,3 +1,7 @@
+java -jar xalan.jar -OUT ../glm/0.9.9/index.html    -IN ../glm/source/data.xml   -XSL ./index.xsl	-PARAM DIRECTORY ../glm/source/ -PARAM VERSION '0.9.9'
+java -jar xalan.jar -OUT ../glm/0.9.9/updates.html  -IN ../glm/source/data.xml   -XSL ./updates.xsl	-PARAM DIRECTORY ../glm/source/ -PARAM VERSION '0.9.9'
+java -jar xalan.jar -OUT ../glm/0.9.9/code.html     -IN ../glm/source/data.xml   -XSL ./code.xsl	-PARAM DIRECTORY ../glm/source/ -PARAM VERSION '0.9.9'
+
 java -jar xalan.jar -OUT ../glm/0.9.8/index.html    -IN ../glm/source/data.xml   -XSL ./index.xsl	-PARAM DIRECTORY ../glm/source/ -PARAM VERSION '0.9.8'
 java -jar xalan.jar -OUT ../glm/0.9.8/updates.html  -IN ../glm/source/data.xml   -XSL ./updates.xsl	-PARAM DIRECTORY ../glm/source/ -PARAM VERSION '0.9.8'
 java -jar xalan.jar -OUT ../glm/0.9.8/code.html     -IN ../glm/source/data.xml   -XSL ./code.xsl	-PARAM DIRECTORY ../glm/source/ -PARAM VERSION '0.9.8'
