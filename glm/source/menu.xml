@@ -19,9 +19,11 @@
 		</menu>
 
 		<menu>
+			<menu-entry name="Stable Branch Snapshot" href="https://github.com/g-truc/glm/archive/stable.zip" />
+			<menu-image name="Stable Build Status" href="https://travis-ci.org/g-truc/glm" img="https://travis-ci.org/g-truc/glm.svg?branch=stable" />
+			<menu-entry name="Master Branch Snapshot" href="https://github.com/g-truc/glm/archive/master.zip" />
+			<menu-image name="Master Build Status" href="https://travis-ci.org/g-truc/glm" img="https://travis-ci.org/g-truc/glm.svg?branch=master" />
 			<menu-entry name="Repository" href="https://github.com/g-truc/glm" />
-			<menu-entry name="Code Snapshot" href="https://github.com/g-truc/glm/archive/master.zip" />
-			<menu-image name="Build Status" href="https://travis-ci.org/g-truc/glm" img="https://travis-ci.org/g-truc/glm.svg?branch=master" />
 		</menu>
 
 		<menu>
