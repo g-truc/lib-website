@@ -8,7 +8,7 @@
 
 	<version value="0.9.9">
 		<menu>
-			<menu-entry name="Manual" href="https://github.com/g-truc/glm/blob/master/manual.md" />
+			<menu-entry name="Manual" href="https://github.com/g-truc/glm/blob/0.9.9.1/doc/manual.pdf" />
 			<menu-entry name="API Documentation" href="../0.9.9/api/index.html" />
 		</menu>
 

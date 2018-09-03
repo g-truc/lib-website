@@ -31,7 +31,6 @@
 							<br />
 							<xsl:apply-templates select="./website/about-long[contains($VERSION, @version)]" />
 							<br />
-							<xsl:call-template name="page-foot" />
 						</td>
 						</tr>
 					</table>
