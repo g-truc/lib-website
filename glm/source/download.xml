@@ -1,6 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 
 <website>
+	<download date="2019-09-08" title="GLM" version="0.9.9.6">
+		<item href="https://github.com/g-truc/glm/releases/download/0.9.9.6/glm-0.9.9.6.zip" type="ZIP" size="5.5 MB" />
+		<item href="https://github.com/g-truc/glm/releases/download/0.9.9.6/glm-0.9.9.6.7z" type="7Z" size="3.3 MB" />
+	</download>
+	<download date="2019-04-01" title="GLM" version="0.9.9.5">
+		<item href="https://github.com/g-truc/glm/releases/download/0.9.9.5/glm-0.9.9.5.zip" type="ZIP" size="5.7 MB" />
+		<item href="https://github.com/g-truc/glm/releases/download/0.9.9.5/glm-0.9.9.5.7z" type="7Z" size="3.2 MB" />
+	</download>
 	<download date="2019-11-19" title="GLM" version="0.9.9.4">
 		<item href="https://github.com/g-truc/glm/releases/download/0.9.9.4/glm-0.9.9.4.zip" type="ZIP" size="5.7 MB" />
 		<item href="https://github.com/g-truc/glm/releases/download/0.9.9.4/glm-0.9.9.4.7z" type="7Z" size="3.2 MB" />
