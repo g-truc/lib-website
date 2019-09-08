@@ -1,6 +1,678 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <website>
+	<about-long version="0.9.9">
+		<paragraph>
+			OpenGL Mathematics (GLM) is a header only C++ mathematics library for graphics software
+			based on the <link href="http://www.opengl.org/documentation/glsl/">OpenGL Shading Language (GLSL)</link> specifications.
+		</paragraph>
+		<paragraph>
+			GLM provides classes and functions designed and implemented with the same naming conventions and functionalities than GLSL so that anyone who knows GLSL, can use GLM as well in C++.
+		</paragraph>
+		<paragraph>
+			This project isn't limited to GLSL features. An extension system, based on the GLSL extension conventions, provides extended capabilities: matrix transformations, quaternions, data packing, random numbers, noise, etc...
+		</paragraph>
+		<paragraph>
+			This library works perfectly with OpenGL but it also ensures interoperability with other third party libraries and SDK. It is a good candidate for software rendering (raytracing / rasterisation), image processing, physic simulations and any development context that requires a simple and convenient mathematics library.
+		</paragraph>
+		<list title="GLM is written in C++98 but can take advantage of C++11 when supported by the compiler. It is a platform independent library with no dependence and it officially supports the following compilers:">
+			<entry>
+				<link href="https://developer.apple.com/Library/mac/documentation/CompilerTools/Conceptual/LLVMCompilerOverview/index.html">Apple Clang</link> 6.0 and higher
+			</entry>
+			<entry>
+				<link href="http://gcc.gnu.org/">GCC</link> 4.7 and higher
+			</entry>
+			<entry>
+				<link href="https://software.intel.com/en-us/intel-compilers">Intel C++ Composer</link> XE 2013 and higher
+			</entry>
+			<entry>
+				<link href="http://llvm.org/">LLVM</link> 3.4 and higher
+			</entry>
+			<entry>
+				<link href="http://www.visualstudio.com/">Visual C++</link> 2013 and higher
+			</entry>
+			<entry>
+				<link href="https://developer.nvidia.com/about-cuda">CUDA</link> 9.0 and higher (experimental)
+			</entry>
+			<entry>Any conform C++11 compiler</entry>
+		</list>
+		<paragraph>
+			For more information about GLM, please have a look at <link href="https://github.com/g-truc/glm/blob/master/manual.md">the manual</link> and <link href="http://glm.g-truc.net/0.9.9/api/index.html">the API reference documentation</link>.
+		</paragraph>
+		<paragraph>
+			The source code and the documentation, including this manual, are licensed under <link href="http://glm.g-truc.net/copying.txt">the Happy Bunny License (Modified MIT) or the MIT License</link>.
+		</paragraph>
+		<paragraph>
+			Thanks for contributing to the project by <link href="https://github.com/g-truc/glm/issues">submitting issues</link> for bug reports and feature requests.
+			Any feedback is welcome at <link href="mailto://glm@g-truc.net">glm@g-truc.net</link>.
+		</paragraph>
+		<code title="Code sample:">
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/vec3.hpp&gt; </string>
+				<comment>// glm::vec3</comment>
+			</line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/vec4.hpp&gt; </string>
+				<comment>// glm::vec4</comment>
+			</line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/mat4x4.hpp&gt; </string>
+				<comment>// glm::mat4</comment>
+			</line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/gtc/matrix_transform.hpp&gt; </string>
+				<comment>// glm::translate, glm::rotate, glm::scale, glm::perspective</comment>
+			</line>
+			<line>
+
+			</line>
+			<line>
+				glm::<userword>mat4</userword> camera(<keyword>float</keyword> Translate, glm::<userword>vec2 </userword><keyword>const</keyword> &amp; Rotate)
+			</line>
+			<line>
+				{
+			</line>
+
+			<line align="32px">
+				glm::<userword>mat4</userword> Projection = glm::perspective(glm::radians(45.0f), 4.0f / 3.0f, 0.1f, 100.f);
+			</line>
+			<line align="32px">
+				glm::<userword>mat4</userword> View = glm::translate(glm::<userword>mat4</userword>(1.0f), glm::<userword>vec3</userword>(0.0f, 0.0f, -Translate));
+			</line>
+			<line align="32px">
+				View = glm::rotate(View, Rotate.y, glm::<userword>vec3</userword>(-1.0f, 0.0f, 0.0f));
+			</line>
+			<line align="32px">
+				View = glm::rotate(View, Rotate.x, glm::<userword>vec3</userword>(0.0f, 1.0f, 0.0f));
+			</line>
+			<line align="32px">
+				glm::<userword>mat4</userword> Model = glm::scale(glm::<userword>mat4</userword>(1.0f), glm::<userword>vec3</userword>(0.5f));
+			</line>
+			<line align="32px">
+				<keyword>return </keyword> Projection * View * Model;
+			</line>
+			<line>
+				}
+			</line>
+		</code>
+	</about-long>
+
+	<about-long version="0.9.8">
+		<paragraph>
+			OpenGL Mathematics (GLM) is a header only C++ mathematics library for graphics software
+			based on the <link href="http://www.opengl.org/documentation/glsl/">OpenGL Shading Language (GLSL)</link> specifications.
+		</paragraph>
+		<paragraph>
+			GLM provides classes and functions designed and implemented with the same naming conventions and functionalities than GLSL so that anyone who knows GLSL, can use GLM as well in C++.
+		</paragraph>
+		<paragraph>
+			This project isn't limited to GLSL features. An extension system, based on the GLSL extension conventions, provides extended capabilities: matrix transformations, quaternions, data packing, random numbers, noise, etc...
+		</paragraph>
+		<paragraph>
+			This library works perfectly with OpenGL but it also ensures interoperability with other third party libraries and SDK. It is a good candidate for software rendering (raytracing / rasterisation), image processing, physic simulations and any development context that requires a simple and convenient mathematics library.
+		</paragraph>
+		<list title="GLM is written in C++98 but can take advantage of C++11 when supported by the compiler. It is a platform independent library with no dependence and it officially supports the following compilers:">
+			<entry>
+				<link href="https://developer.apple.com/Library/mac/documentation/CompilerTools/Conceptual/LLVMCompilerOverview/index.html">Apple Clang</link> 4.0 and higher
+			</entry>
+			<entry>
+				<link href="http://gcc.gnu.org/">GCC</link> 4.2 and higher
+			</entry>
+			<entry>
+				<link href="https://software.intel.com/en-us/intel-compilers">Intel C++ Composer</link> XE 2013 and higher
+			</entry>
+			<entry>
+				<link href="http://llvm.org/">LLVM</link> 3.0 and higher
+			</entry>
+			<entry>
+				<link href="http://www.visualstudio.com/">Visual C++</link> 2010 and higher
+			</entry>
+			<entry>
+				<link href="https://developer.nvidia.com/about-cuda">CUDA</link> 4.0 and higher (experimental)
+			</entry>
+			<entry>Any conform C++98 or C++11 compiler</entry>
+		</list>
+		<paragraph>
+			For more information about GLM, please have a look at <link href="http://glm.g-truc.net/0.9.8/glm-0.9.8.pdf">the manual</link> and <link href="http://glm.g-truc.net/0.9.8/api/index.html">the API reference documentation</link>.
+		</paragraph>
+		<paragraph>
+			The source code and the documentation, including this manual, are licensed under <link href="http://glm.g-truc.net/copying.txt">the Happy Bunny License (Modified MIT) or the MIT License</link>.
+		</paragraph>
+		<paragraph>
+			Thanks for contributing to the project by <link href="https://github.com/g-truc/glm/issues">submitting issues</link> for bug reports and feature requests.
+			Any feedback is welcome at <link href="mailto://glm@g-truc.net">glm@g-truc.net</link>.
+		</paragraph>
+		<code title="Code sample:">
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/vec3.hpp&gt; </string>
+				<comment>// glm::vec3</comment>
+			</line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/vec4.hpp&gt; </string>
+				<comment>// glm::vec4</comment>
+			</line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/mat4x4.hpp&gt; </string>
+				<comment>// glm::mat4</comment>
+			</line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/gtc/matrix_transform.hpp&gt; </string>
+				<comment>// glm::translate, glm::rotate, glm::scale, glm::perspective</comment>
+			</line>
+			<line>
+
+			</line>
+			<line>
+				glm::<userword>mat4</userword> camera(<keyword>float</keyword> Translate, glm::<userword>vec2 </userword><keyword>const</keyword> &amp; Rotate)
+			</line>
+			<line>
+				{
+			</line>
+
+			<line align="32px">
+				glm::<userword>mat4</userword> Projection = glm::perspective(glm::radians(45.0f), 4.0f / 3.0f, 0.1f, 100.f);
+			</line>
+			<line align="32px">
+				glm::<userword>mat4</userword> View = glm::translate(glm::<userword>mat4</userword>(1.0f), glm::<userword>vec3</userword>(0.0f, 0.0f, -Translate));
+			</line>
+			<line align="32px">
+				View = glm::rotate(View, Rotate.y, glm::<userword>vec3</userword>(-1.0f, 0.0f, 0.0f));
+			</line>
+			<line align="32px">
+				View = glm::rotate(View, Rotate.x, glm::<userword>vec3</userword>(0.0f, 1.0f, 0.0f));
+			</line>
+			<line align="32px">
+				glm::<userword>mat4</userword> Model = glm::scale(glm::<userword>mat4</userword>(1.0f), glm::<userword>vec3</userword>(0.5f));
+			</line>
+			<line align="32px">
+				<keyword>return </keyword> Projection * View * Model;
+			</line>
+			<line>
+				}
+			</line>
+		</code>
+	</about-long>
+
+	<about-long version="0.9.7">
+		<paragraph>
+			OpenGL Mathematics (GLM) is a header only C++ mathematics library for graphics software
+			based on the <link href="http://www.opengl.org/documentation/glsl/">OpenGL Shading Language (GLSL)</link> specifications.
+		</paragraph>
+		<paragraph>
+			GLM provides classes and functions designed and implemented with the same naming conventions and functionalities than GLSL so that anyone who knows GLSL, can use GLM as well in C++.
+		</paragraph>
+		<paragraph>
+			This project isn't limited to GLSL features. An extension system, based on the GLSL extension conventions, provides extended capabilities: matrix transformations, quaternions, data packing, random numbers, noise, etc...
+		</paragraph>
+		<paragraph>
+			This library works perfectly with OpenGL but it also ensures interoperability with other third party libraries and SDK. It is a good candidate for software rendering (raytracing / rasterisation), image processing, physic simulations and any development context that requires a simple and convenient mathematics library.
+		</paragraph>
+		<list title="GLM is written in C++98 but can take advantage of C++11 when supported by the compiler. It is a platform independent library with no dependence and it officially supports the following compilers:">
+			<entry>
+				<link href="https://developer.apple.com/Library/mac/documentation/CompilerTools/Conceptual/LLVMCompilerOverview/index.html">Apple Clang</link> 4.0 and higher
+			</entry>
+			<entry>
+				<link href="http://gcc.gnu.org/">GCC</link> 4.2 and higher
+			</entry>
+			<entry>
+				<link href="https://software.intel.com/en-us/intel-compilers">Intel C++ Composer</link> XE 2013 and higher
+			</entry>
+			<entry>
+				<link href="http://llvm.org/">LLVM</link> 3.0 and higher
+			</entry>
+			<entry>
+				<link href="http://www.visualstudio.com/">Visual C++</link> 2010 and higher
+			</entry>
+			<entry>
+				<link href="https://developer.nvidia.com/about-cuda">CUDA</link> 4.0 and higher (experimental)
+			</entry>
+			<entry>Any conform C++98 or C++11 compiler</entry>
+		</list>
+		<paragraph>
+			For more information about GLM, please have a look at <link href="http://glm.g-truc.net/0.9.7/glm-0.9.7.pdf">the manual</link> and <link href="http://glm.g-truc.net/0.9.7/api/index.html">the API reference documentation</link>.
+		</paragraph>
+		<paragraph>
+			The source code and the documentation, including this manual, are licensed under <link href="http://glm.g-truc.net/copying.txt">the Happy Bunny License (Modified MIT) or the MIT License</link>.
+		</paragraph>
+		<paragraph>
+			Thanks for contributing to the project by <link href="https://github.com/g-truc/glm/issues">submitting issues</link> for bug reports and feature requests.
+			Any feedback is welcome at <link href="mailto://glm@g-truc.net">glm@g-truc.net</link>.
+		</paragraph>
+		<code title="Code sample:">
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/vec3.hpp&gt; </string>
+				<comment>// glm::vec3</comment>
+			</line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/vec4.hpp&gt; </string>
+				<comment>// glm::vec4</comment>
+			</line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/mat4x4.hpp&gt; </string>
+				<comment>// glm::mat4</comment>
+			</line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/gtc/matrix_transform.hpp&gt; </string>
+				<comment>// glm::translate, glm::rotate, glm::scale, glm::perspective</comment>
+			</line>
+			<line>
+
+			</line>
+			<line>
+				glm::<userword>mat4</userword> camera(<keyword>float</keyword> Translate, glm::<userword>vec2 </userword><keyword>const</keyword> &amp; Rotate)
+			</line>
+			<line>
+				{
+			</line>
+
+			<line align="32px">
+				glm::<userword>mat4</userword> Projection = glm::perspective(glm::radians(45.0f), 4.0f / 3.0f, 0.1f, 100.f);
+			</line>
+			<line align="32px">
+				glm::<userword>mat4</userword> View = glm::translate(glm::<userword>mat4</userword>(1.0f), glm::<userword>vec3</userword>(0.0f, 0.0f, -Translate));
+			</line>
+			<line align="32px">
+				View = glm::rotate(View, Rotate.y, glm::<userword>vec3</userword>(-1.0f, 0.0f, 0.0f));
+			</line>
+			<line align="32px">
+				View = glm::rotate(View, Rotate.x, glm::<userword>vec3</userword>(0.0f, 1.0f, 0.0f));
+			</line>
+			<line align="32px">
+				glm::<userword>mat4</userword> Model = glm::scale(glm::<userword>mat4</userword>(1.0f), glm::<userword>vec3</userword>(0.5f));
+			</line>
+			<line align="32px">
+				<keyword>return </keyword> Projection * View * Model;
+			</line>
+			<line>
+				}
+			</line>
+		</code>
+		<!--image-list>
+			<image-element title="Raytracer based on GLM" small="glm2-small.jpg" normal="glm2-normal.jpg" />
+			<image-element title="Animation based on GLM" small="glm3-small.jpg" normal="glm3-normal.jpg" />
+			<image-element title="Animation based on GLM" small="glm4-small.jpg" normal="glm4-normal.jpg" />
+		</image-list-->
+	</about-long>
+
+	<about-long version="0.9.6">
+		<paragraph>
+			OpenGL Mathematics (GLM) is a header only C++ mathematics library for graphics software
+			based on the <link href="http://www.opengl.org/documentation/glsl/">OpenGL Shading Language (GLSL)</link> specifications.
+		</paragraph>
+		<paragraph>
+			GLM provides classes and functions designed and implemented with the same naming conventions and functionalities than GLSL so that anyone who knows GLSL, can use GLM as well in C++.
+		</paragraph>
+		<paragraph>
+			This project isn't limited to GLSL features. An extension system, based on the GLSL extension conventions, provides extended capabilities: matrix transformations, quaternions, data packing, random numbers, noise, etc...
+		</paragraph>
+		<paragraph>
+			This library works perfectly with OpenGL but it also ensures interoperability with other third party libraries and SDK. It is a good candidate for software rendering (raytracing / rasterisation), image processing, physic simulations and any development context that requires a simple and convenient mathematics library.
+		</paragraph>
+		<list title="GLM is written in C++98 but can take advantage of C++11 when supported by the compiler. It is a platform independent library with no dependence and it officially supports the following compilers:">
+			<entry>
+				<link href="https://developer.apple.com/Library/mac/documentation/CompilerTools/Conceptual/LLVMCompilerOverview/index.html">Apple Clang</link> 4.0 and higher
+			</entry>
+			<entry>
+				<link href="http://gcc.gnu.org/">GCC</link> 4.2 and higher
+			</entry>
+			<entry>
+				<link href="https://software.intel.com/en-us/intel-compilers">Intel C++ Composer</link> XE 2013 and higher
+			</entry>
+			<entry>
+				<link href="http://llvm.org/">LLVM</link> 3.0 and higher
+			</entry>
+			<entry>
+				<link href="http://www.visualstudio.com/">Visual C++</link> 2010 and higher
+			</entry>
+			<entry>
+				<link href="https://developer.nvidia.com/about-cuda">CUDA</link> 4.0 and higher (experimental)
+			</entry>
+			<entry>Any conform C++98 or C++11 compiler</entry>
+		</list>
+		<paragraph>
+			For more information about GLM, please have a look at <link href="http://glm.g-truc.net/0.9.6/glm-0.9.6.pdf">the manual</link> and <link href="http://glm.g-truc.net/0.9.6/api/index.html">the API reference documentation</link>.
+		</paragraph>
+		<paragraph>
+			The source code and the documentation, including this manual, are licensed under <link href="http://glm.g-truc.net/copying.txt">the Happy Bunny License (Modified MIT) or the MIT License</link>.
+		</paragraph>
+		<paragraph>
+			Thanks for contributing to the project by <link href="https://github.com/g-truc/glm/issues">submitting issues</link> for bug reports and feature requests.
+			Any feedback is welcome at <link href="mailto://glm@g-truc.net">glm@g-truc.net</link>.
+		</paragraph>
+		<code title="Code sample:">
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/vec3.hpp&gt; </string>
+				<comment>// glm::vec3</comment>
+			</line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/vec4.hpp&gt; </string>
+				<comment>// glm::vec4</comment>
+			</line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/mat4x4.hpp&gt; </string>
+				<comment>// glm::mat4</comment>
+			</line>
+			<line>
+				<keyword>#include </keyword>
+				<string>&lt;glm/gtc/matrix_transform.hpp&gt; </string>
+				<comment>// glm::translate, glm::rotate, glm::scale, glm::perspective</comment>
+			</line>
+			<line>
+
+			</line>
+			<line>
+				glm::<userword>mat4</userword> camera(<keyword>float</keyword> Translate, glm::<userword>vec2 </userword><keyword>const</keyword> &amp; Rotate)
+			</line>
+			<line>
+				{
+			</line>
+
+			<line align="32px">
+				glm::<userword>mat4</userword> Projection = glm::perspective(glm::radians(45.0f), 4.0f / 3.0f, 0.1f, 100.f);
+			</line>
+			<line align="32px">
+				glm::<userword>mat4</userword> View = glm::translate(glm::<userword>mat4</userword>(1.0f), glm::<userword>vec3</userword>(0.0f, 0.0f, -Translate));
+			</line>
+			<line align="32px">
+				View = glm::rotate(View, Rotate.y, glm::<userword>vec3</userword>(-1.0f, 0.0f, 0.0f));
+			</line>
+			<line align="32px">
+				View = glm::rotate(View, Rotate.x, glm::<userword>vec3</userword>(0.0f, 1.0f, 0.0f));
+			</line>
+			<line align="32px">
+				glm::<userword>mat4</userword> Model = glm::scale(glm::<userword>mat4</userword>(1.0f), glm::<userword>vec3</userword>(0.5f));
+			</line>
+			<line align="32px">
+				<keyword>return </keyword> Projection * View * Model;
+			</line>
+			<line>
+				}
+			</line>
+		</code>
+		<!--image-list>
+			<image-element title="Raytracer based on GLM" small="glm2-small.jpg" normal="glm2-normal.jpg" />
+			<image-element title="Animation based on GLM" small="glm3-small.jpg" normal="glm3-normal.jpg" />
+			<image-element title="Animation based on GLM" small="glm4-small.jpg" normal="glm4-normal.jpg" />
+		</image-list-->
+	</about-long>
+
+	<about-long version="0.9.5">
+		<paragraph>
+			OpenGL Mathematics (GLM) is a header only C++ mathematics library for graphics software
+			based on the <link href="http://www.opengl.org/documentation/glsl/">OpenGL Shading Language (GLSL)</link> specification and released under the <link href="../copying.txt">MIT license</link>.
+		</paragraph>
+		<paragraph>
+			This library provides classes and functions designed and implemented following as strictly as possible the GLSL conventions
+			and functionalities so that when a programmer knows GLSL, he knows GLM as well, making it really easy to use.
+		</paragraph>
+		<paragraph>
+			This project isn't limited to GLSL features. An extension system provides extended capabilities:
+			matrix transformations, quaternions, half-based types, random number generation, procedural noise functions, etc.
+		</paragraph>
+		<paragraph>
+			GLM ensures interoperability with third party libraries, SDKs and OpenGL; replacing advantageously the deprecated matrix functions.
+			It is a good candidate for software rendering (Raytracing / Rasterisation), image processing, physic simulations and any context that requires a simple and convenient mathematics library.
+		</paragraph>
+		<list title="It is a platform independent library with no dependence to external libraries even OpenGL. GLM is written in C++98 but can take advantage of C++11 when available. It supports the following compilers:">
+			<entry>
+				<link href="http://clang.llvm.org">Clang</link> 2.6 and higher
+			</entry>
+			<entry>
+				<link href="http://developer.nvidia.com/category/zone/cuda-zone">CUDA</link> 3.0 and higher
+			</entry>
+			<entry>
+				<link href="http://gcc.gnu.org/">GCC</link> 3.4 and higher
+			</entry>
+			<entry>
+				<link href="http://software.intel.com/en-us/intel-compilers/">Intel C++ Composer</link> XE 2013 and higher
+			</entry>
+			<entry>
+				<link href="http://llvm.org/">LLVM</link> 2.3 through GCC 4.2 front-end and higher
+			</entry>
+			<entry>
+				<link href="http://msdn.microsoft.com/en-us/visualc/default">Visual C++</link> 2005 and higher
+			</entry>
+			<entry>Any conform C++98 or C++11 compiler</entry>
+		</list>
+		<paragraph>
+			For more information about GLM, please have a look at <link href="http://glm.g-truc.net/0.9.5/glm-0.9.5.pdf">the manual</link> and <link href="http://glm.g-truc.net/0.9.5/api/index.html">the API reference documentation</link>.
+		</paragraph>
+		<paragraph>
+			Thanks for contributing to the project by <link href="https://github.com/g-truc/glm/issues">submitting issues</link> for bug reports and feature requests.
+			Any feedback is welcome at <link href="mailto://glm@g-truc.net">glm@g-truc.net</link>.
+		</paragraph>
+	</about-long>
+
+	<about-long version="0.9.4">
+		<paragraph>
+			OpenGL Mathematics (GLM) is a header only C++ mathematics library for graphics software
+			based on the <link href="http://www.opengl.org/documentation/glsl/">OpenGL Shading Language (GLSL)</link> specification and released under the <link href="../copying.txt">MIT license</link>.
+		</paragraph>
+		<paragraph>
+			This library provides classes and functions designed and implemented following as strictly as possible the GLSL conventions
+			and functionalities so that when a programmer knows GLSL, he knows GLM as well, making it really easy to use.
+		</paragraph>
+		<paragraph>
+			This project isn't limited to GLSL features. An extension system provides extended capabilities:
+			matrix transformations, quaternions, half-based types, random number generation, procedural noise functions, etc.
+		</paragraph>
+		<paragraph>
+			GLM ensures interoperability with third party libraries, SDKs and OpenGL; replacing advantageously the deprecated matrix functions.
+			It is a good candidate for software rendering (Raytracing / Rasterisation), image processing, physic simulations and any context that requires a simple and convenient mathematics library.
+		</paragraph>
+		<list title="It is a platform independent library with no dependence to external libraries even OpenGL. GLM is written in C++98 but can take advantage of C++11 when available. It supports the following compilers:">
+			<entry>
+				<link href="http://clang.llvm.org">Clang</link> 2.6 and higher
+			</entry>
+			<entry>
+				<link href="http://developer.nvidia.com/category/zone/cuda-zone">CUDA</link> 3.0 and higher
+			</entry>
+			<entry>
+				<link href="http://gcc.gnu.org/">GCC</link> 3.4 and higher
+			</entry>
+			<entry>
+				<link href="http://software.intel.com/en-us/intel-compilers/">Intel C++ Composer</link> XE 2013 and higher
+			</entry>
+			<entry>
+				<link href="http://llvm.org/">LLVM</link> 2.3 through GCC 4.2 front-end and higher
+			</entry>
+			<entry>
+				<link href="http://msdn.microsoft.com/en-us/visualc/default">Visual C++</link> 2005 and higher
+			</entry>
+			<entry>Any conform C++98 or C++11 compiler</entry>
+		</list>
+		<paragraph>
+			For more information about GLM, please have a look at <link href="http://glm.g-truc.net/0.9.4/glm-0.9.4.pdf">the manual</link> and <link href="http://glm.g-truc.net/0.9.4/api/index.html">the API reference documentation</link>.
+		</paragraph>
+		<paragraph>
+			Thanks for contributing to the project by <link href="https://github.com/g-truc/glm/issues">submitting issues</link> for bug reports and feature requests.
+			Any feedback is welcome at <link href="mailto://glm@g-truc.net">glm@g-truc.net</link>.
+		</paragraph>
+	</about-long>
+
+	<about-long version="0.9.3">
+		<paragraph>
+			OpenGL Mathematics (GLM) is a header only C++ mathematics library for graphics software
+			based on the <link href="http://www.opengl.org/documentation/glsl/">OpenGL Shading Language (GLSL)</link> specification and released under the <link href="../copying.txt">MIT license</link>.
+		</paragraph>
+		<paragraph>
+			This library provides classes and functions designed and implemented following as strictly as possible the GLSL conventions
+			and functionalities so that when a programmer knows GLSL, he knows GLM as well, making it really easy to use.
+		</paragraph>
+		<paragraph>
+			This project isn't limited to GLSL features. An extension system provides extended capabilities:
+			matrix transformations, quaternions, half-based types, random number generation, procedural noise functions, etc.
+		</paragraph>
+		<paragraph>
+			GLM ensures interoperability with third party libraries, SDKs and OpenGL; replacing advantageously the deprecated matrix functions.
+			It is a good candidate for software rendering (Raytracing / Rasterisation), image processing, physic simulations and any context that requires a simple and convenient mathematics library.
+		</paragraph>
+		<list title="It is a platform independent library with no dependence to external libraries even OpenGL. GLM is written in C++98 but can take advantage of C++11 when available. It supports the following compilers:">
+			<entry>
+				<link href="http://clang.llvm.org">Clang</link> 2.6 and higher
+			</entry>
+			<entry>
+				<link href="http://developer.nvidia.com/category/zone/cuda-zone">CUDA</link> 3.0 and higher
+			</entry>
+			<entry>
+				<link href="http://gcc.gnu.org/">GCC</link> 3.4 and higher
+			</entry>
+			<entry>
+				<link href="http://llvm.org/">LLVM</link> 2.3 through GCC 4.2 front-end and higher
+			</entry>
+			<entry>
+				<link href="http://msdn.microsoft.com/en-us/visualc/default">Visual C++</link> 2005 and higher
+			</entry>
+			<entry>Any conform C++98 or C++11 compiler</entry>
+		</list>
+		<paragraph>
+			For more information about GLM, please have a look at <link href="http://glm.g-truc.net/0.9.3/glm-0.9.3.pdf">the manual</link> and <link href="http://glm.g-truc.net/0.9.3/api/index.html">the API reference documentation</link>.
+		</paragraph>
+		<paragraph>
+			Thanks for contributing to the project by <link href="https://github.com/g-truc/glm/issues">submitting issues</link> for bug reports and feature requests.
+			Any feedback is welcome at <link href="mailto://glm@g-truc.net">glm@g-truc.net</link>.
+		</paragraph>
+	</about-long>
+
+	<about-long version="0.9.2">
+		<paragraph>
+			OpenGL Mathematics (GLM) is a header only C++ mathematics library for graphics software
+			based on the <link href="http://www.opengl.org/documentation/glsl/">OpenGL Shading Language (GLSL)</link> specification and released under the <link href="../copying.txt">MIT license</link>.
+		</paragraph>
+		<paragraph>
+			This library provides classes and functions designed and implemented following as strictly as possible the GLSL conventions
+			and functionalities so that when a programmer knows GLSL, he knows GLM as well, making it really easy to use.
+		</paragraph>
+		<paragraph>
+			This project isn't limited to GLSL features. An extension system provides extended capabilities:
+			matrix transformations, quaternions, half-based types, random number generation, procedural noise functions, etc.
+		</paragraph>
+		<paragraph>
+			GLM ensures interoperability with third party libraries, SDKs and OpenGL; replacing advantageously the deprecated matrix functions.
+			It is a good candidate for software rendering (Raytracing / Rasterisation), image processing, physic simulations and any context that requires a simple and convenient mathematics library.
+		</paragraph>
+		<list title="It is a platform independent library with no dependence to external libraries even OpenGL. GLM is written in C++98 but can take advantage of C++11 when available. It supports the following compilers:">
+			<entry>
+				<link href="http://clang.llvm.org">Clang</link> 2.0 and higher
+			</entry>
+			<entry>
+				<link href="http://developer.nvidia.com/category/zone/cuda-zone">CUDA</link> 3.0 and higher
+			</entry>
+			<entry>
+				<link href="http://gcc.gnu.org/">GCC</link> 3.4 and higher
+			</entry>
+			<entry>
+				<link href="http://llvm.org/">LLVM</link> 2.3 through GCC 4.2 front-end and higher
+			</entry>
+			<entry>
+				<link href="http://msdn.microsoft.com/en-us/visualc/default">Visual C++</link> 2005 and higher
+			</entry>
+		</list>
+		<paragraph>
+			For more information about GLM, please have a look at <link href="http://glm.g-truc.net/0.9.2/glm-0.9.2.pdf">the manual</link> and <link href="http://glm.g-truc.net/0.9.2/api/index.html">the API reference documentation</link>.
+		</paragraph>
+		<paragraph>
+			Thanks for contributing to the project by <link href="https://github.com/g-truc/glm/issues">submitting issues</link> for bug reports and feature requests.
+			Any feedback is welcome at <link href="mailto://glm@g-truc.net">glm@g-truc.net</link>.
+		</paragraph>
+	</about-long>
+
+	<about-long version="0.9.1">
+		<paragraph>
+			OpenGL Mathematics (GLM) is a header only C++ mathematics library for graphics software
+			based on the <link href="http://www.opengl.org/documentation/glsl/">OpenGL Shading Language (GLSL)</link> specification and released under the <link href="../copying.txt">MIT license</link>.
+		</paragraph>
+		<paragraph>
+			This library provides classes and functions designed and implemented following as strictly as possible the GLSL conventions
+			and functionalities so that when a programmer knows GLSL, he knows GLM as well, making it really easy to use.
+		</paragraph>
+		<paragraph>
+			This project isn't limited to GLSL features. An extension system provides extended capabilities:
+			matrix transformations, quaternions, half-based types, random number generation, procedural noise functions, etc.
+		</paragraph>
+		<paragraph>
+			GLM ensures interoperability with third party libraries, SDKs and OpenGL; replacing advantageously the deprecated matrix functions.
+			It is a good candidate for software rendering (Raytracing / Rasterisation), image processing, physic simulations and any context that requires a simple and convenient mathematics library.
+		</paragraph>
+		<list title="It is a platform independent library with no dependence to external libraries even OpenGL. GLM is written in C++98 but can take advantage of C++11 when available. It supports the following compilers:">
+			<entry>
+				<link href="http://gcc.gnu.org/">GCC</link> 3.4 and higher
+			</entry>
+			<entry>
+				<link href="http://llvm.org/">LLVM</link> 2.3 through GCC 4.2 front-end and higher
+			</entry>
+			<entry>
+				<link href="http://msdn.microsoft.com/en-us/visualc/default">Visual C++</link> 2005 and higher
+			</entry>
+		</list>
+		<paragraph>
+			For more information about GLM, please have a look at <link href="http://glm.g-truc.net/0.9.1/glm-0.9.1.pdf">the manual</link> and <link href="http://glm.g-truc.net/0.9.1/api/index.html">the API reference documentation</link>.
+		</paragraph>
+		<paragraph>
+			Thanks for contributing to the project by <link href="https://github.com/g-truc/glm/issues">submitting issues</link> for bug reports and feature requests.
+			Any feedback is welcome at <link href="mailto://glm@g-truc.net">glm@g-truc.net</link>.
+		</paragraph>
+	</about-long>
+
+	<about-long version="0.9.0">
+		<paragraph>
+			OpenGL Mathematics (GLM) is a header only C++ mathematics library for graphics software
+			based on the <link href="http://www.opengl.org/documentation/glsl/">OpenGL Shading Language (GLSL)</link> specification and released under the <link href="../copying.txt">MIT license</link>.
+		</paragraph>
+		<paragraph>
+			This library provides classes and functions designed and implemented following as strictly as possible the GLSL conventions
+			and functionalities so that when a programmer knows GLSL, he knows GLM as well, making it really easy to use.
+		</paragraph>
+		<paragraph>
+			This project isn't limited to GLSL features. An extension system provides extended capabilities:
+			matrix transformations, quaternions, half-based types, random number generation, procedural noise functions, etc.
+		</paragraph>
+		<paragraph>
+			GLM ensures interoperability with third party libraries, SDKs and OpenGL; replacing advantageously the deprecated matrix functions.
+			It is a good candidate for software rendering (Raytracing / Rasterisation), image processing, physic simulations and any context that requires a simple and convenient mathematics library.
+		</paragraph>
+		<list title="It is a platform independent library with no dependence to external libraries even OpenGL. GLM is written in C++98 but can take advantage of C++11 when available. It supports the following compilers:">
+			<entry>
+				<link href="http://gcc.gnu.org/">GCC</link> 3.4 and higher
+			</entry>
+			<entry>
+				<link href="http://llvm.org/">LLVM</link> 2.3 through GCC 4.2 front-end and higher
+			</entry>
+			<entry>
+				<link href="http://msdn.microsoft.com/en-us/visualc/default">Visual C++</link> 2005 and higher
+			</entry>
+		</list>
+		<paragraph>
+			For more information about GLM, please have a look at <link href="http://glm.g-truc.net/0.9.0/glm-0.9.0.pdf">the manual</link> and <link href="http://glm.g-truc.net/0.9.0/api/index.html">the API reference documentation</link>.
+		</paragraph>
+		<paragraph>
+			Thanks for contributing to the project by <link href="https://github.com/g-truc/glm/issues">submitting issues</link> for bug reports and feature requests.
+			Any feedback is welcome at <link href="mailto://glm@g-truc.net">glm@g-truc.net</link>.
+		</paragraph>
+	</about-long>
+
+	<about-short>
+		GLSL + Optional features = OpenGL Mathematics (GLM)
+	</about-short>
+	<about-short>
+		A C++ mathematics library for graphics programming
+	</about-short>
+
 	<post index="0106" date="2016-09-25" std-date="2016-09-25T23:30:00.00Z"  title="GLM 0.9.8.1 released">
 		<list title="Improvements:">
 			<entry>Optimized quaternion log function #554</entry>
@@ -2576,676 +3248,4 @@
 			<entry href="http://oss.sgi.com/projects/ogl-sample/registry/ARB/GLSLangSpec.Full.1.10.59.pdf">GLSL 1.10.59 specifications</entry>
 		</list>
 	</post>
-
-	<about-long version="0.9.9">
-		<paragraph>
-			OpenGL Mathematics (GLM) is a header only C++ mathematics library for graphics software
-			based on the <link href="http://www.opengl.org/documentation/glsl/">OpenGL Shading Language (GLSL)</link> specifications.
-		</paragraph>
-		<paragraph>
-			GLM provides classes and functions designed and implemented with the same naming conventions and functionalities than GLSL so that anyone who knows GLSL, can use GLM as well in C++.
-		</paragraph>
-		<paragraph>
-			This project isn't limited to GLSL features. An extension system, based on the GLSL extension conventions, provides extended capabilities: matrix transformations, quaternions, data packing, random numbers, noise, etc...
-		</paragraph>
-		<paragraph>
-			This library works perfectly with OpenGL but it also ensures interoperability with other third party libraries and SDK. It is a good candidate for software rendering (raytracing / rasterisation), image processing, physic simulations and any development context that requires a simple and convenient mathematics library.
-		</paragraph>
-		<list title="GLM is written in C++98 but can take advantage of C++11 when supported by the compiler. It is a platform independent library with no dependence and it officially supports the following compilers:">
-			<entry>
-				<link href="https://developer.apple.com/Library/mac/documentation/CompilerTools/Conceptual/LLVMCompilerOverview/index.html">Apple Clang</link> 6.0 and higher
-			</entry>
-			<entry>
-				<link href="http://gcc.gnu.org/">GCC</link> 4.7 and higher
-			</entry>
-			<entry>
-				<link href="https://software.intel.com/en-us/intel-compilers">Intel C++ Composer</link> XE 2013 and higher
-			</entry>
-			<entry>
-				<link href="http://llvm.org/">LLVM</link> 3.4 and higher
-			</entry>
-			<entry>
-				<link href="http://www.visualstudio.com/">Visual C++</link> 2013 and higher
-			</entry>
-			<entry>
-				<link href="https://developer.nvidia.com/about-cuda">CUDA</link> 7.0 and higher (experimental)
-			</entry>
-			<entry>Any conform C++11 compiler</entry>
-		</list>
-		<paragraph>
-			For more information about GLM, please have a look at <link href="https://github.com/g-truc/glm/blob/master/manual.md">the manual</link> and <link href="http://glm.g-truc.net/0.9.9/api/index.html">the API reference documentation</link>.
-		</paragraph>
-		<paragraph>
-			The source code and the documentation, including this manual, are licensed under <link href="http://glm.g-truc.net/copying.txt">the Happy Bunny License (Modified MIT) or the MIT License</link>.
-		</paragraph>
-		<paragraph>
-			Thanks for contributing to the project by <link href="https://github.com/g-truc/glm/issues">submitting issues</link> for bug reports and feature requests.
-			Any feedback is welcome at <link href="mailto://glm@g-truc.net">glm@g-truc.net</link>.
-		</paragraph>
-		<code title="Code sample:">
-			<line>
-				<keyword>#include </keyword>
-				<string>&lt;glm/vec3.hpp&gt; </string>
-				<comment>// glm::vec3</comment>
-			</line>
-			<line>
-				<keyword>#include </keyword>
-				<string>&lt;glm/vec4.hpp&gt; </string>
-				<comment>// glm::vec4</comment>
-			</line>
-			<line>
-				<keyword>#include </keyword>
-				<string>&lt;glm/mat4x4.hpp&gt; </string>
-				<comment>// glm::mat4</comment>
-			</line>
-			<line>
-				<keyword>#include </keyword>
-				<string>&lt;glm/gtc/matrix_transform.hpp&gt; </string>
-				<comment>// glm::translate, glm::rotate, glm::scale, glm::perspective</comment>
-			</line>
-			<line>
-
-			</line>
-			<line>
-				glm::<userword>mat4</userword> camera(<keyword>float</keyword> Translate, glm::<userword>vec2 </userword><keyword>const</keyword> &amp; Rotate)
-			</line>
-			<line>
-				{
-			</line>
-
-			<line align="32px">
-				glm::<userword>mat4</userword> Projection = glm::perspective(glm::radians(45.0f), 4.0f / 3.0f, 0.1f, 100.f);
-			</line>
-			<line align="32px">
-				glm::<userword>mat4</userword> View = glm::translate(glm::<userword>mat4</userword>(1.0f), glm::<userword>vec3</userword>(0.0f, 0.0f, -Translate));
-			</line>
-			<line align="32px">
-				View = glm::rotate(View, Rotate.y, glm::<userword>vec3</userword>(-1.0f, 0.0f, 0.0f));
-			</line>
-			<line align="32px">
-				View = glm::rotate(View, Rotate.x, glm::<userword>vec3</userword>(0.0f, 1.0f, 0.0f));
-			</line>
-			<line align="32px">
-				glm::<userword>mat4</userword> Model = glm::scale(glm::<userword>mat4</userword>(1.0f), glm::<userword>vec3</userword>(0.5f));
-			</line>
-			<line align="32px">
-				<keyword>return </keyword> Projection * View * Model;
-			</line>
-			<line>
-				}
-			</line>
-		</code>
-	</about-long>
-
-	<about-long version="0.9.8">
-		<paragraph>
-			OpenGL Mathematics (GLM) is a header only C++ mathematics library for graphics software
-			based on the <link href="http://www.opengl.org/documentation/glsl/">OpenGL Shading Language (GLSL)</link> specifications.
-		</paragraph>
-		<paragraph>
-			GLM provides classes and functions designed and implemented with the same naming conventions and functionalities than GLSL so that anyone who knows GLSL, can use GLM as well in C++.
-		</paragraph>
-		<paragraph>
-			This project isn't limited to GLSL features. An extension system, based on the GLSL extension conventions, provides extended capabilities: matrix transformations, quaternions, data packing, random numbers, noise, etc...
-		</paragraph>
-		<paragraph>
-			This library works perfectly with OpenGL but it also ensures interoperability with other third party libraries and SDK. It is a good candidate for software rendering (raytracing / rasterisation), image processing, physic simulations and any development context that requires a simple and convenient mathematics library.
-		</paragraph>
-		<list title="GLM is written in C++98 but can take advantage of C++11 when supported by the compiler. It is a platform independent library with no dependence and it officially supports the following compilers:">
-			<entry>
-				<link href="https://developer.apple.com/Library/mac/documentation/CompilerTools/Conceptual/LLVMCompilerOverview/index.html">Apple Clang</link> 4.0 and higher
-			</entry>
-			<entry>
-				<link href="http://gcc.gnu.org/">GCC</link> 4.2 and higher
-			</entry>
-			<entry>
-				<link href="https://software.intel.com/en-us/intel-compilers">Intel C++ Composer</link> XE 2013 and higher
-			</entry>
-			<entry>
-				<link href="http://llvm.org/">LLVM</link> 3.0 and higher
-			</entry>
-			<entry>
-				<link href="http://www.visualstudio.com/">Visual C++</link> 2010 and higher
-			</entry>
-			<entry>
-				<link href="https://developer.nvidia.com/about-cuda">CUDA</link> 4.0 and higher (experimental)
-			</entry>
-			<entry>Any conform C++98 or C++11 compiler</entry>
-		</list>
-		<paragraph>
-			For more information about GLM, please have a look at <link href="http://glm.g-truc.net/0.9.8/glm-0.9.8.pdf">the manual</link> and <link href="http://glm.g-truc.net/0.9.8/api/index.html">the API reference documentation</link>.
-		</paragraph>
-		<paragraph>
-			The source code and the documentation, including this manual, are licensed under <link href="http://glm.g-truc.net/copying.txt">the Happy Bunny License (Modified MIT) or the MIT License</link>.
-		</paragraph>
-		<paragraph>
-			Thanks for contributing to the project by <link href="https://github.com/g-truc/glm/issues">submitting issues</link> for bug reports and feature requests.
-			Any feedback is welcome at <link href="mailto://glm@g-truc.net">glm@g-truc.net</link>.
-		</paragraph>
-		<code title="Code sample:">
-			<line>
-				<keyword>#include </keyword>
-				<string>&lt;glm/vec3.hpp&gt; </string>
-				<comment>// glm::vec3</comment>
-			</line>
-			<line>
-				<keyword>#include </keyword>
-				<string>&lt;glm/vec4.hpp&gt; </string>
-				<comment>// glm::vec4</comment>
-			</line>
-			<line>
-				<keyword>#include </keyword>
-				<string>&lt;glm/mat4x4.hpp&gt; </string>
-				<comment>// glm::mat4</comment>
-			</line>
-			<line>
-				<keyword>#include </keyword>
-				<string>&lt;glm/gtc/matrix_transform.hpp&gt; </string>
-				<comment>// glm::translate, glm::rotate, glm::scale, glm::perspective</comment>
-			</line>
-			<line>
-
-			</line>
-			<line>
-				glm::<userword>mat4</userword> camera(<keyword>float</keyword> Translate, glm::<userword>vec2 </userword><keyword>const</keyword> &amp; Rotate)
-			</line>
-			<line>
-				{
-			</line>
-
-			<line align="32px">
-				glm::<userword>mat4</userword> Projection = glm::perspective(glm::radians(45.0f), 4.0f / 3.0f, 0.1f, 100.f);
-			</line>
-			<line align="32px">
-				glm::<userword>mat4</userword> View = glm::translate(glm::<userword>mat4</userword>(1.0f), glm::<userword>vec3</userword>(0.0f, 0.0f, -Translate));
-			</line>
-			<line align="32px">
-				View = glm::rotate(View, Rotate.y, glm::<userword>vec3</userword>(-1.0f, 0.0f, 0.0f));
-			</line>
-			<line align="32px">
-				View = glm::rotate(View, Rotate.x, glm::<userword>vec3</userword>(0.0f, 1.0f, 0.0f));
-			</line>
-			<line align="32px">
-				glm::<userword>mat4</userword> Model = glm::scale(glm::<userword>mat4</userword>(1.0f), glm::<userword>vec3</userword>(0.5f));
-			</line>
-			<line align="32px">
-				<keyword>return </keyword> Projection * View * Model;
-			</line>
-			<line>
-				}
-			</line>
-		</code>
-	</about-long>
-
-	<about-long version="0.9.7">
-		<paragraph>
-			OpenGL Mathematics (GLM) is a header only C++ mathematics library for graphics software
-			based on the <link href="http://www.opengl.org/documentation/glsl/">OpenGL Shading Language (GLSL)</link> specifications.
-		</paragraph>
-		<paragraph>
-			GLM provides classes and functions designed and implemented with the same naming conventions and functionalities than GLSL so that anyone who knows GLSL, can use GLM as well in C++.
-		</paragraph>
-		<paragraph>
-			This project isn't limited to GLSL features. An extension system, based on the GLSL extension conventions, provides extended capabilities: matrix transformations, quaternions, data packing, random numbers, noise, etc...
-		</paragraph>
-		<paragraph>
-			This library works perfectly with OpenGL but it also ensures interoperability with other third party libraries and SDK. It is a good candidate for software rendering (raytracing / rasterisation), image processing, physic simulations and any development context that requires a simple and convenient mathematics library.
-		</paragraph>
-		<list title="GLM is written in C++98 but can take advantage of C++11 when supported by the compiler. It is a platform independent library with no dependence and it officially supports the following compilers:">
-			<entry>
-				<link href="https://developer.apple.com/Library/mac/documentation/CompilerTools/Conceptual/LLVMCompilerOverview/index.html">Apple Clang</link> 4.0 and higher
-			</entry>
-			<entry>
-				<link href="http://gcc.gnu.org/">GCC</link> 4.2 and higher
-			</entry>
-			<entry>
-				<link href="https://software.intel.com/en-us/intel-compilers">Intel C++ Composer</link> XE 2013 and higher
-			</entry>
-			<entry>
-				<link href="http://llvm.org/">LLVM</link> 3.0 and higher
-			</entry>
-			<entry>
-				<link href="http://www.visualstudio.com/">Visual C++</link> 2010 and higher
-			</entry>
-			<entry>
-				<link href="https://developer.nvidia.com/about-cuda">CUDA</link> 4.0 and higher (experimental)
-			</entry>
-			<entry>Any conform C++98 or C++11 compiler</entry>
-		</list>
-		<paragraph>
-			For more information about GLM, please have a look at <link href="http://glm.g-truc.net/0.9.7/glm-0.9.7.pdf">the manual</link> and <link href="http://glm.g-truc.net/0.9.7/api/index.html">the API reference documentation</link>.
-		</paragraph>
-		<paragraph>
-			The source code and the documentation, including this manual, are licensed under <link href="http://glm.g-truc.net/copying.txt">the Happy Bunny License (Modified MIT) or the MIT License</link>.
-		</paragraph>
-		<paragraph>
-			Thanks for contributing to the project by <link href="https://github.com/g-truc/glm/issues">submitting issues</link> for bug reports and feature requests.
-			Any feedback is welcome at <link href="mailto://glm@g-truc.net">glm@g-truc.net</link>.
-		</paragraph>
-		<code title="Code sample:">
-			<line>
-				<keyword>#include </keyword>
-				<string>&lt;glm/vec3.hpp&gt; </string>
-				<comment>// glm::vec3</comment>
-			</line>
-			<line>
-				<keyword>#include </keyword>
-				<string>&lt;glm/vec4.hpp&gt; </string>
-				<comment>// glm::vec4</comment>
-			</line>
-			<line>
-				<keyword>#include </keyword>
-				<string>&lt;glm/mat4x4.hpp&gt; </string>
-				<comment>// glm::mat4</comment>
-			</line>
-			<line>
-				<keyword>#include </keyword>
-				<string>&lt;glm/gtc/matrix_transform.hpp&gt; </string>
-				<comment>// glm::translate, glm::rotate, glm::scale, glm::perspective</comment>
-			</line>
-			<line>
-
-			</line>
-			<line>
-				glm::<userword>mat4</userword> camera(<keyword>float</keyword> Translate, glm::<userword>vec2 </userword><keyword>const</keyword> &amp; Rotate)
-			</line>
-			<line>
-				{
-			</line>
-
-			<line align="32px">
-				glm::<userword>mat4</userword> Projection = glm::perspective(glm::radians(45.0f), 4.0f / 3.0f, 0.1f, 100.f);
-			</line>
-			<line align="32px">
-				glm::<userword>mat4</userword> View = glm::translate(glm::<userword>mat4</userword>(1.0f), glm::<userword>vec3</userword>(0.0f, 0.0f, -Translate));
-			</line>
-			<line align="32px">
-				View = glm::rotate(View, Rotate.y, glm::<userword>vec3</userword>(-1.0f, 0.0f, 0.0f));
-			</line>
-			<line align="32px">
-				View = glm::rotate(View, Rotate.x, glm::<userword>vec3</userword>(0.0f, 1.0f, 0.0f));
-			</line>
-			<line align="32px">
-				glm::<userword>mat4</userword> Model = glm::scale(glm::<userword>mat4</userword>(1.0f), glm::<userword>vec3</userword>(0.5f));
-			</line>
-			<line align="32px">
-				<keyword>return </keyword> Projection * View * Model;
-			</line>
-			<line>
-				}
-			</line>
-		</code>
-		<!--image-list>
-			<image-element title="Raytracer based on GLM" small="glm2-small.jpg" normal="glm2-normal.jpg" />
-			<image-element title="Animation based on GLM" small="glm3-small.jpg" normal="glm3-normal.jpg" />
-			<image-element title="Animation based on GLM" small="glm4-small.jpg" normal="glm4-normal.jpg" />
-		</image-list-->
-	</about-long>
-
-	<about-long version="0.9.6">
-		<paragraph>
-			OpenGL Mathematics (GLM) is a header only C++ mathematics library for graphics software
-			based on the <link href="http://www.opengl.org/documentation/glsl/">OpenGL Shading Language (GLSL)</link> specifications.
-		</paragraph>
-		<paragraph>
-			GLM provides classes and functions designed and implemented with the same naming conventions and functionalities than GLSL so that anyone who knows GLSL, can use GLM as well in C++.
-		</paragraph>
-		<paragraph>
-			This project isn't limited to GLSL features. An extension system, based on the GLSL extension conventions, provides extended capabilities: matrix transformations, quaternions, data packing, random numbers, noise, etc...
-		</paragraph>
-		<paragraph>
-			This library works perfectly with OpenGL but it also ensures interoperability with other third party libraries and SDK. It is a good candidate for software rendering (raytracing / rasterisation), image processing, physic simulations and any development context that requires a simple and convenient mathematics library.
-		</paragraph>
-		<list title="GLM is written in C++98 but can take advantage of C++11 when supported by the compiler. It is a platform independent library with no dependence and it officially supports the following compilers:">
-			<entry>
-				<link href="https://developer.apple.com/Library/mac/documentation/CompilerTools/Conceptual/LLVMCompilerOverview/index.html">Apple Clang</link> 4.0 and higher
-			</entry>
-			<entry>
-				<link href="http://gcc.gnu.org/">GCC</link> 4.2 and higher
-			</entry>
-			<entry>
-				<link href="https://software.intel.com/en-us/intel-compilers">Intel C++ Composer</link> XE 2013 and higher
-			</entry>
-			<entry>
-				<link href="http://llvm.org/">LLVM</link> 3.0 and higher
-			</entry>
-			<entry>
-				<link href="http://www.visualstudio.com/">Visual C++</link> 2010 and higher
-			</entry>
-			<entry>
-				<link href="https://developer.nvidia.com/about-cuda">CUDA</link> 4.0 and higher (experimental)
-			</entry>
-			<entry>Any conform C++98 or C++11 compiler</entry>
-		</list>
-		<paragraph>
-			For more information about GLM, please have a look at <link href="http://glm.g-truc.net/0.9.6/glm-0.9.6.pdf">the manual</link> and <link href="http://glm.g-truc.net/0.9.6/api/index.html">the API reference documentation</link>.
-		</paragraph>
-		<paragraph>
-			The source code and the documentation, including this manual, are licensed under <link href="http://glm.g-truc.net/copying.txt">the Happy Bunny License (Modified MIT) or the MIT License</link>.
-		</paragraph>
-		<paragraph>
-			Thanks for contributing to the project by <link href="https://github.com/g-truc/glm/issues">submitting issues</link> for bug reports and feature requests.
-			Any feedback is welcome at <link href="mailto://glm@g-truc.net">glm@g-truc.net</link>.
-		</paragraph>
-		<code title="Code sample:">
-			<line>
-				<keyword>#include </keyword>
-				<string>&lt;glm/vec3.hpp&gt; </string>
-				<comment>// glm::vec3</comment>
-			</line>
-			<line>
-				<keyword>#include </keyword>
-				<string>&lt;glm/vec4.hpp&gt; </string>
-				<comment>// glm::vec4</comment>
-			</line>
-			<line>
-				<keyword>#include </keyword>
-				<string>&lt;glm/mat4x4.hpp&gt; </string>
-				<comment>// glm::mat4</comment>
-			</line>
-			<line>
-				<keyword>#include </keyword>
-				<string>&lt;glm/gtc/matrix_transform.hpp&gt; </string>
-				<comment>// glm::translate, glm::rotate, glm::scale, glm::perspective</comment>
-			</line>
-			<line>
-
-			</line>
-			<line>
-				glm::<userword>mat4</userword> camera(<keyword>float</keyword> Translate, glm::<userword>vec2 </userword><keyword>const</keyword> &amp; Rotate)
-			</line>
-			<line>
-				{
-			</line>
-
-			<line align="32px">
-				glm::<userword>mat4</userword> Projection = glm::perspective(glm::radians(45.0f), 4.0f / 3.0f, 0.1f, 100.f);
-			</line>
-			<line align="32px">
-				glm::<userword>mat4</userword> View = glm::translate(glm::<userword>mat4</userword>(1.0f), glm::<userword>vec3</userword>(0.0f, 0.0f, -Translate));
-			</line>
-			<line align="32px">
-				View = glm::rotate(View, Rotate.y, glm::<userword>vec3</userword>(-1.0f, 0.0f, 0.0f));
-			</line>
-			<line align="32px">
-				View = glm::rotate(View, Rotate.x, glm::<userword>vec3</userword>(0.0f, 1.0f, 0.0f));
-			</line>
-			<line align="32px">
-				glm::<userword>mat4</userword> Model = glm::scale(glm::<userword>mat4</userword>(1.0f), glm::<userword>vec3</userword>(0.5f));
-			</line>
-			<line align="32px">
-				<keyword>return </keyword> Projection * View * Model;
-			</line>
-			<line>
-				}
-			</line>
-		</code>
-		<!--image-list>
-			<image-element title="Raytracer based on GLM" small="glm2-small.jpg" normal="glm2-normal.jpg" />
-			<image-element title="Animation based on GLM" small="glm3-small.jpg" normal="glm3-normal.jpg" />
-			<image-element title="Animation based on GLM" small="glm4-small.jpg" normal="glm4-normal.jpg" />
-		</image-list-->
-	</about-long>
-
-	<about-long version="0.9.5">
-		<paragraph>
-			OpenGL Mathematics (GLM) is a header only C++ mathematics library for graphics software
-			based on the <link href="http://www.opengl.org/documentation/glsl/">OpenGL Shading Language (GLSL)</link> specification and released under the <link href="../copying.txt">MIT license</link>.
-		</paragraph>
-		<paragraph>
-			This library provides classes and functions designed and implemented following as strictly as possible the GLSL conventions
-			and functionalities so that when a programmer knows GLSL, he knows GLM as well, making it really easy to use.
-		</paragraph>
-		<paragraph>
-			This project isn't limited to GLSL features. An extension system provides extended capabilities:
-			matrix transformations, quaternions, half-based types, random number generation, procedural noise functions, etc.
-		</paragraph>
-		<paragraph>
-			GLM ensures interoperability with third party libraries, SDKs and OpenGL; replacing advantageously the deprecated matrix functions.
-			It is a good candidate for software rendering (Raytracing / Rasterisation), image processing, physic simulations and any context that requires a simple and convenient mathematics library.
-		</paragraph>
-		<list title="It is a platform independent library with no dependence to external libraries even OpenGL. GLM is written in C++98 but can take advantage of C++11 when available. It supports the following compilers:">
-			<entry>
-				<link href="http://clang.llvm.org">Clang</link> 2.6 and higher
-			</entry>
-			<entry>
-				<link href="http://developer.nvidia.com/category/zone/cuda-zone">CUDA</link> 3.0 and higher
-			</entry>
-			<entry>
-				<link href="http://gcc.gnu.org/">GCC</link> 3.4 and higher
-			</entry>
-			<entry>
-				<link href="http://software.intel.com/en-us/intel-compilers/">Intel C++ Composer</link> XE 2013 and higher
-			</entry>
-			<entry>
-				<link href="http://llvm.org/">LLVM</link> 2.3 through GCC 4.2 front-end and higher
-			</entry>
-			<entry>
-				<link href="http://msdn.microsoft.com/en-us/visualc/default">Visual C++</link> 2005 and higher
-			</entry>
-			<entry>Any conform C++98 or C++11 compiler</entry>
-		</list>
-		<paragraph>
-			For more information about GLM, please have a look at <link href="http://glm.g-truc.net/0.9.5/glm-0.9.5.pdf">the manual</link> and <link href="http://glm.g-truc.net/0.9.5/api/index.html">the API reference documentation</link>.
-		</paragraph>
-		<paragraph>
-			Thanks for contributing to the project by <link href="https://github.com/g-truc/glm/issues">submitting issues</link> for bug reports and feature requests.
-			Any feedback is welcome at <link href="mailto://glm@g-truc.net">glm@g-truc.net</link>.
-		</paragraph>
-	</about-long>
-
-	<about-long version="0.9.4">
-		<paragraph>
-			OpenGL Mathematics (GLM) is a header only C++ mathematics library for graphics software
-			based on the <link href="http://www.opengl.org/documentation/glsl/">OpenGL Shading Language (GLSL)</link> specification and released under the <link href="../copying.txt">MIT license</link>.
-		</paragraph>
-		<paragraph>
-			This library provides classes and functions designed and implemented following as strictly as possible the GLSL conventions
-			and functionalities so that when a programmer knows GLSL, he knows GLM as well, making it really easy to use.
-		</paragraph>
-		<paragraph>
-			This project isn't limited to GLSL features. An extension system provides extended capabilities:
-			matrix transformations, quaternions, half-based types, random number generation, procedural noise functions, etc.
-		</paragraph>
-		<paragraph>
-			GLM ensures interoperability with third party libraries, SDKs and OpenGL; replacing advantageously the deprecated matrix functions.
-			It is a good candidate for software rendering (Raytracing / Rasterisation), image processing, physic simulations and any context that requires a simple and convenient mathematics library.
-		</paragraph>
-		<list title="It is a platform independent library with no dependence to external libraries even OpenGL. GLM is written in C++98 but can take advantage of C++11 when available. It supports the following compilers:">
-			<entry>
-				<link href="http://clang.llvm.org">Clang</link> 2.6 and higher
-			</entry>
-			<entry>
-				<link href="http://developer.nvidia.com/category/zone/cuda-zone">CUDA</link> 3.0 and higher
-			</entry>
-			<entry>
-				<link href="http://gcc.gnu.org/">GCC</link> 3.4 and higher
-			</entry>
-			<entry>
-				<link href="http://software.intel.com/en-us/intel-compilers/">Intel C++ Composer</link> XE 2013 and higher
-			</entry>
-			<entry>
-				<link href="http://llvm.org/">LLVM</link> 2.3 through GCC 4.2 front-end and higher
-			</entry>
-			<entry>
-				<link href="http://msdn.microsoft.com/en-us/visualc/default">Visual C++</link> 2005 and higher
-			</entry>
-			<entry>Any conform C++98 or C++11 compiler</entry>
-		</list>
-		<paragraph>
-			For more information about GLM, please have a look at <link href="http://glm.g-truc.net/0.9.4/glm-0.9.4.pdf">the manual</link> and <link href="http://glm.g-truc.net/0.9.4/api/index.html">the API reference documentation</link>.
-		</paragraph>
-		<paragraph>
-			Thanks for contributing to the project by <link href="https://github.com/g-truc/glm/issues">submitting issues</link> for bug reports and feature requests.
-			Any feedback is welcome at <link href="mailto://glm@g-truc.net">glm@g-truc.net</link>.
-		</paragraph>
-	</about-long>
-
-	<about-long version="0.9.3">
-		<paragraph>
-			OpenGL Mathematics (GLM) is a header only C++ mathematics library for graphics software
-			based on the <link href="http://www.opengl.org/documentation/glsl/">OpenGL Shading Language (GLSL)</link> specification and released under the <link href="../copying.txt">MIT license</link>.
-		</paragraph>
-		<paragraph>
-			This library provides classes and functions designed and implemented following as strictly as possible the GLSL conventions
-			and functionalities so that when a programmer knows GLSL, he knows GLM as well, making it really easy to use.
-		</paragraph>
-		<paragraph>
-			This project isn't limited to GLSL features. An extension system provides extended capabilities:
-			matrix transformations, quaternions, half-based types, random number generation, procedural noise functions, etc.
-		</paragraph>
-		<paragraph>
-			GLM ensures interoperability with third party libraries, SDKs and OpenGL; replacing advantageously the deprecated matrix functions.
-			It is a good candidate for software rendering (Raytracing / Rasterisation), image processing, physic simulations and any context that requires a simple and convenient mathematics library.
-		</paragraph>
-		<list title="It is a platform independent library with no dependence to external libraries even OpenGL. GLM is written in C++98 but can take advantage of C++11 when available. It supports the following compilers:">
-			<entry>
-				<link href="http://clang.llvm.org">Clang</link> 2.6 and higher
-			</entry>
-			<entry>
-				<link href="http://developer.nvidia.com/category/zone/cuda-zone">CUDA</link> 3.0 and higher
-			</entry>
-			<entry>
-				<link href="http://gcc.gnu.org/">GCC</link> 3.4 and higher
-			</entry>
-			<entry>
-				<link href="http://llvm.org/">LLVM</link> 2.3 through GCC 4.2 front-end and higher
-			</entry>
-			<entry>
-				<link href="http://msdn.microsoft.com/en-us/visualc/default">Visual C++</link> 2005 and higher
-			</entry>
-			<entry>Any conform C++98 or C++11 compiler</entry>
-		</list>
-		<paragraph>
-			For more information about GLM, please have a look at <link href="http://glm.g-truc.net/0.9.3/glm-0.9.3.pdf">the manual</link> and <link href="http://glm.g-truc.net/0.9.3/api/index.html">the API reference documentation</link>.
-		</paragraph>
-		<paragraph>
-			Thanks for contributing to the project by <link href="https://github.com/g-truc/glm/issues">submitting issues</link> for bug reports and feature requests.
-			Any feedback is welcome at <link href="mailto://glm@g-truc.net">glm@g-truc.net</link>.
-		</paragraph>
-	</about-long>
-
-	<about-long version="0.9.2">
-		<paragraph>
-			OpenGL Mathematics (GLM) is a header only C++ mathematics library for graphics software
-			based on the <link href="http://www.opengl.org/documentation/glsl/">OpenGL Shading Language (GLSL)</link> specification and released under the <link href="../copying.txt">MIT license</link>.
-		</paragraph>
-		<paragraph>
-			This library provides classes and functions designed and implemented following as strictly as possible the GLSL conventions
-			and functionalities so that when a programmer knows GLSL, he knows GLM as well, making it really easy to use.
-		</paragraph>
-		<paragraph>
-			This project isn't limited to GLSL features. An extension system provides extended capabilities:
-			matrix transformations, quaternions, half-based types, random number generation, procedural noise functions, etc.
-		</paragraph>
-		<paragraph>
-			GLM ensures interoperability with third party libraries, SDKs and OpenGL; replacing advantageously the deprecated matrix functions.
-			It is a good candidate for software rendering (Raytracing / Rasterisation), image processing, physic simulations and any context that requires a simple and convenient mathematics library.
-		</paragraph>
-		<list title="It is a platform independent library with no dependence to external libraries even OpenGL. GLM is written in C++98 but can take advantage of C++11 when available. It supports the following compilers:">
-			<entry>
-				<link href="http://clang.llvm.org">Clang</link> 2.0 and higher
-			</entry>
-			<entry>
-				<link href="http://developer.nvidia.com/category/zone/cuda-zone">CUDA</link> 3.0 and higher
-			</entry>
-			<entry>
-				<link href="http://gcc.gnu.org/">GCC</link> 3.4 and higher
-			</entry>
-			<entry>
-				<link href="http://llvm.org/">LLVM</link> 2.3 through GCC 4.2 front-end and higher
-			</entry>
-			<entry>
-				<link href="http://msdn.microsoft.com/en-us/visualc/default">Visual C++</link> 2005 and higher
-			</entry>
-		</list>
-		<paragraph>
-			For more information about GLM, please have a look at <link href="http://glm.g-truc.net/0.9.2/glm-0.9.2.pdf">the manual</link> and <link href="http://glm.g-truc.net/0.9.2/api/index.html">the API reference documentation</link>.
-		</paragraph>
-		<paragraph>
-			Thanks for contributing to the project by <link href="https://github.com/g-truc/glm/issues">submitting issues</link> for bug reports and feature requests.
-			Any feedback is welcome at <link href="mailto://glm@g-truc.net">glm@g-truc.net</link>.
-		</paragraph>
-	</about-long>
-
-	<about-long version="0.9.1">
-		<paragraph>
-			OpenGL Mathematics (GLM) is a header only C++ mathematics library for graphics software
-			based on the <link href="http://www.opengl.org/documentation/glsl/">OpenGL Shading Language (GLSL)</link> specification and released under the <link href="../copying.txt">MIT license</link>.
-		</paragraph>
-		<paragraph>
-			This library provides classes and functions designed and implemented following as strictly as possible the GLSL conventions
-			and functionalities so that when a programmer knows GLSL, he knows GLM as well, making it really easy to use.
-		</paragraph>
-		<paragraph>
-			This project isn't limited to GLSL features. An extension system provides extended capabilities:
-			matrix transformations, quaternions, half-based types, random number generation, procedural noise functions, etc.
-		</paragraph>
-		<paragraph>
-			GLM ensures interoperability with third party libraries, SDKs and OpenGL; replacing advantageously the deprecated matrix functions.
-			It is a good candidate for software rendering (Raytracing / Rasterisation), image processing, physic simulations and any context that requires a simple and convenient mathematics library.
-		</paragraph>
-		<list title="It is a platform independent library with no dependence to external libraries even OpenGL. GLM is written in C++98 but can take advantage of C++11 when available. It supports the following compilers:">
-			<entry>
-				<link href="http://gcc.gnu.org/">GCC</link> 3.4 and higher
-			</entry>
-			<entry>
-				<link href="http://llvm.org/">LLVM</link> 2.3 through GCC 4.2 front-end and higher
-			</entry>
-			<entry>
-				<link href="http://msdn.microsoft.com/en-us/visualc/default">Visual C++</link> 2005 and higher
-			</entry>
-		</list>
-		<paragraph>
-			For more information about GLM, please have a look at <link href="http://glm.g-truc.net/0.9.1/glm-0.9.1.pdf">the manual</link> and <link href="http://glm.g-truc.net/0.9.1/api/index.html">the API reference documentation</link>.
-		</paragraph>
-		<paragraph>
-			Thanks for contributing to the project by <link href="https://github.com/g-truc/glm/issues">submitting issues</link> for bug reports and feature requests.
-			Any feedback is welcome at <link href="mailto://glm@g-truc.net">glm@g-truc.net</link>.
-		</paragraph>
-	</about-long>
-
-	<about-long version="0.9.0">
-		<paragraph>
-			OpenGL Mathematics (GLM) is a header only C++ mathematics library for graphics software
-			based on the <link href="http://www.opengl.org/documentation/glsl/">OpenGL Shading Language (GLSL)</link> specification and released under the <link href="../copying.txt">MIT license</link>.
-		</paragraph>
-		<paragraph>
-			This library provides classes and functions designed and implemented following as strictly as possible the GLSL conventions
-			and functionalities so that when a programmer knows GLSL, he knows GLM as well, making it really easy to use.
-		</paragraph>
-		<paragraph>
-			This project isn't limited to GLSL features. An extension system provides extended capabilities:
-			matrix transformations, quaternions, half-based types, random number generation, procedural noise functions, etc.
-		</paragraph>
-		<paragraph>
-			GLM ensures interoperability with third party libraries, SDKs and OpenGL; replacing advantageously the deprecated matrix functions.
-			It is a good candidate for software rendering (Raytracing / Rasterisation), image processing, physic simulations and any context that requires a simple and convenient mathematics library.
-		</paragraph>
-		<list title="It is a platform independent library with no dependence to external libraries even OpenGL. GLM is written in C++98 but can take advantage of C++11 when available. It supports the following compilers:">
-			<entry>
-				<link href="http://gcc.gnu.org/">GCC</link> 3.4 and higher
-			</entry>
-			<entry>
-				<link href="http://llvm.org/">LLVM</link> 2.3 through GCC 4.2 front-end and higher
-			</entry>
-			<entry>
-				<link href="http://msdn.microsoft.com/en-us/visualc/default">Visual C++</link> 2005 and higher
-			</entry>
-		</list>
-		<paragraph>
-			For more information about GLM, please have a look at <link href="http://glm.g-truc.net/0.9.0/glm-0.9.0.pdf">the manual</link> and <link href="http://glm.g-truc.net/0.9.0/api/index.html">the API reference documentation</link>.
-		</paragraph>
-		<paragraph>
-			Thanks for contributing to the project by <link href="https://github.com/g-truc/glm/issues">submitting issues</link> for bug reports and feature requests.
-			Any feedback is welcome at <link href="mailto://glm@g-truc.net">glm@g-truc.net</link>.
-		</paragraph>
-	</about-long>
-
-	<about-short>
-		GLSL + Optional features = OpenGL Mathematics (GLM)
-	</about-short>
-	<about-short>
-		A C++ mathematics library for graphics programming
-	</about-short>
 </website>
